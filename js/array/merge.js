@@ -1,6 +1,6 @@
 
 
-var merge_t = function(search, copy)
+var merge_t = function(search, copy){
 
 	var merge = function(a, i, j, b, k, l, c, m, n){
 
@@ -15,7 +15,7 @@ var merge_t = function(search, copy)
 			c[m + i - i0 + k - k0] = b[k];
 			t = i;
 		}
-		
+
 		copy(a, t, j, c, m + t - i0 + k - k0, n);
 	};
 
