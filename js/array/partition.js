@@ -1,27 +1,25 @@
-
-
-var partition_t = function(compare){
+var partition_t = function(pred){
 
 	var partition = function(a, i, j){
 
-		var tmp;
+		var t, p = a[i], k = i + 1;
+		--j;
 
-		while(i < j){
-			if(compare(a[i], a[i+1])){
-				tmp    = a[i+1];
-				a[i+1] = a[j];
-				a[j]   = tmp;
+
+		while(k <= j){
+			if(pred(p, a[k])){
+				t    = a[k];
+				a[k] = a[j];
+				a[j] = t;
 				--j;
 			}
-			else{
-				tmp    = a[i];
-				a[i]   = a[i+1];
-				a[i+1] = tmp;
-				++i;
-			}
+			else ++k;
 		}
 
-		return i;
+		a[i]   = a[k-1];
+		a[k-1] = p;
+
+		return k - 1;
 	};
 
 	return partition;
