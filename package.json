@@ -1,0 +1,34 @@
+{
+  "name": "neat",
+  "version": "0.0.0",
+  "description": "js base algorithms library",
+  "main": "index.js",
+  "dependencies": {
+    "cli-color": "^0.2.3",
+    "node.extend": "^1.0.10"
+  },
+  "devDependencies": {
+    "qunit": "^0.6.2"
+  },
+  "scripts": {
+    "test": "node test/js/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aureooms/neat.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "algorithm",
+    "complexity",
+    "speed",
+    "template"
+  ],
+  "author": "aureooms",
+  "license": "GPLv2",
+  "bugs": {
+    "url": "https://github.com/aureooms/neat/issues"
+  },
+  "homepage": "https://github.com/aureooms/neat"
+}
