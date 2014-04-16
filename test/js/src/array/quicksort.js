@@ -1,6 +1,6 @@
 var util = require('util');
 
-var sorted = function(ctor, n, pred) {
+var check = function(ctor, n, pred) {
 	test(util.format("quicksort (new %s(%d), %s)", ctor.name, n, pred), function (assert) {
 
 		// SETUP RANDOM
@@ -23,16 +23,18 @@ var sorted = function(ctor, n, pred) {
 
 		// TEST PREDICATE
 		var i = a.length;
+		var sorted = true;
 		if(i > 1){
 			while (--i) {
 				if ( !pred(a[i-1], a[i]) ) {
-					ok(false, 'ko, array not sorted');
-					return;
+					sorted = false;
+					break;
 				}
 			}
 		}
 
-		ok(true, 'ok, array sorted');
+		ok(sorted, 'check sorted');
+		deepEqual(a.length, n, 'check length a');
 	});
 };
 
@@ -64,7 +66,7 @@ for (var k = 0; k < CTOR.length; k++) {
 				continue;
 		}
 		for (var i = 0; i < PRED.length; ++i) {
-			sorted(CTOR[k], N[j], PRED[i]);
+			check(CTOR[k], N[j], PRED[i]);
 		}
 	}
 }
