@@ -23,10 +23,6 @@ var check = function(ctor, n, pred) {
 		// SETUP TEST ARRAY
 		var a = ref.slice();
 
-		// SORT ARRAY
-		shuffle(a, 0, n);
-		quickselect(a, 0, n);
-
 		// TEST PREDICATE
 		var i = a.length;
 		while (i--) {

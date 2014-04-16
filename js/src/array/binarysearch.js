@@ -1,17 +1,15 @@
 
 
-var binarysearch_t = function(comp, equa){
+var binarysearch_tt = function(pivotsearch_t){
 
-	var binarysearch = function(k, a, i, j){
-		if (i === j) return {f:0, w:i};
-		var pivot = Math.floor((i + j) / 2);
-		if      (equa(k, a[pivot])) return {f:1, w:pivot};
-		else if (comp(k, a[pivot])) return binarysearch(k, a, i, pivot);
-		else                        return binarysearch(k, a, pivot + 1, j);
+	return function(diff){
+
+		return pivotsearch_t(diff, function(k, a, i, j){
+			return Math.floor((i + j) / 2);
+		});
+
 	};
-
-	return binarysearch;
 
 };
 
-exports.binarysearch_t = binarysearch_t;
+exports.binarysearch_tt = binarysearch_tt;

@@ -4,9 +4,9 @@ var quickselect_t = function(partition){
 
 	var quickselect = function(k, a, i, j){
 		if(j - i < 2) return;
-		var pivot = partition(a, i, j);
-		if      (k < pivot) quickselect(k, a, i, pivot);
-		else if (k > pivot) quickselect(k, a, pivot + 1, j);
+		var p = partition(a, i, j);
+		if      (k < p) quickselect(k, a, i, p);
+		else if (k > p) quickselect(k, a, p + 1, j);
 	};
 
 	return quickselect;
