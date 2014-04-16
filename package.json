@@ -8,10 +8,11 @@
     "node.extend": "^1.0.10"
   },
   "devDependencies": {
-    "qunit": "^0.6.2"
+    "qunit": "git://github.com/gotwarlost/node-qunit.git#istanbul-coverage",
+    "coveralls": "^2.10.0"
   },
   "scripts": {
-    "test": "node test/js/run.js"
+    "test": "export DIR=node_modules/qunit/support/qunit/qunit && mkdir -p $DIR && cp support/qunit.js $DIR/ && node test/js/run.js"
   },
   "repository": {
     "type": "git",
