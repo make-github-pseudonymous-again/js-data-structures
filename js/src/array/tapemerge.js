@@ -1,11 +1,11 @@
 
 
-var tapemerge_t = function(compare){
+var tapemerge_t = function(pred){
 
 	var tapemerge = function(a, i, j, b, k, l, c, m, n){
 
 		for(; m < n; ++m){
-			if(k >= l || (i < j && compare(a[i], b[k]))){
+			if(k >= l || (i < j && pred(a[i], b[k]))){
 				c[m] = a[i]; ++i;
 			}
 			else{
