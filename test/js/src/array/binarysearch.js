@@ -19,7 +19,7 @@ var check = function(ctor, n, pred, diff) {
 
 		// SETUP REF ARRAY
 		var ref = new ctor(n);
-		iota(ref, 0, n, 0);
+		iota(ref, 0, n);
 		shuffle(ref, 0, n);
 		quicksort(ref, 0, n);
 
@@ -83,7 +83,7 @@ for(var i = 0; i < DIFF.length; ++i){
 	PRED.push(function(a, b){ return DIFF[i](a, b) < 0; });
 }
 
-var N = [0, 1, 2, 10, 128, 1023];
+var N = [0, 1, 2, 10, 31, 32, 33];
 
 var CTOR = [
 	Array,

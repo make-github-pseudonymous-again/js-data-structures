@@ -1,7 +1,7 @@
 var util = require('util');
 
 var check = function(ctor, n, pred) {
-	var name = util.format("quickselect (new %s(%d), %s)", ctor.name, n, pred);
+	var name = util.format("multiselect (new %s(%d), %s)", ctor.name, n, pred);
 	console.log(name);
 	test(name, function (assert) {
 
@@ -11,10 +11,18 @@ var check = function(ctor, n, pred) {
 		var shuffle = neat.shuffle_t(sample);
 		var iota = neat.iota;
 
+		// SETUP INDEX SEARCH
+		var index_diff = function(a, b){ return a - b; };
+		var binarysearch_t = neat.binarysearch_tt(neat.pivotsearch_t);
+		var binarysearch = binarysearch_t(index_diff);
+		var index_pred = function(a, b){ return index_diff(a, b) < 0};
+		var index_partition = neat.partition_t(index_pred);
+		var index_quicksort = neat.quicksort_t(index_partition);
+
 		// SETUP SORT
 		var partition = neat.partition_t(pred);
 		var quicksort = neat.quicksort_t(partition);
-		var quickselect = neat.quickselect_t(partition);
+		var multiselect = neat.multiselect_t(partition, binarysearch);
 
 		// SETUP REF ARRAY
 		var ref = new ctor(n);
@@ -27,10 +35,16 @@ var check = function(ctor, n, pred) {
 
 		// TEST PREDICATE
 		var i = a.length;
-		while (i--) {
-			shuffle(a, 0, n);
-			quickselect(i, a, 0, n);
-			deepEqual(a[i], ref[i], 'select #' + i);
+		
+		var len = randint(0, i + 1);
+		sample(len, a, 0, n);
+		var k = a.slice(0, len);
+		index_quicksort(k, 0, len);
+
+		shuffle(a, 0, n);
+		multiselect(k, 0, len, a, 0, n);
+		while(len--){
+			deepEqual(a[k[len]], ref[k[len]], 'select #' + k[len]);
 		}
 
 		deepEqual(a.length, n, 'check length');
@@ -44,7 +58,7 @@ var PRED = [
 	function(a, b){ return a >= b; }
 ];
 
-var N = [0, 1, 2, 10, 31, 32, 33];
+var N = [0, 1, 2, 10, 63, 64, 65];
 
 var CTOR = [
 	Array,

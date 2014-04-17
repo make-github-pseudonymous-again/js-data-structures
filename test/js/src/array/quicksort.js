@@ -1,7 +1,9 @@
 var util = require('util');
 
 var check = function(ctor, n, pred) {
-	test(util.format("quicksort (new %s(%d), %s)", ctor.name, n, pred), function (assert) {
+	var name = util.format("quicksort (new %s(%d), %s)", ctor.name, n, pred);
+	console.log(name);
+	test(name, function (assert) {
 
 		// SETUP RANDOM
 		var randint = neat.randint;
@@ -45,7 +47,7 @@ var PRED = [
 	function(a, b){ return a >= b; }
 ];
 
-var N = [0, 1, 2, 10, 100, 1000, 10000];
+var N = [0, 1, 2, 10, 63, 64, 65];
 
 var CTOR = [
 	Array,
