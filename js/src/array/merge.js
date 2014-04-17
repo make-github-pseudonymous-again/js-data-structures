@@ -1,22 +1,21 @@
 
 
-var merge_t = function(search, copy){
+var merge_t = function(index, copy){
 
-	var merge = function(a, i, j, b, k, l, c, m, n){
+	var merge = function(a, i, j, b, k, l, c, m){
 
-		var i0 = i;
-		var k0 = k;
+		var o = m - i - k;
 		var t = i;
 
 		for(; k < l; ++k){
-			var s = search(a, i, j, b[k]);
-			i = s.m + s.f;
-			copy(a, t, i, c, m + t - i0 + k - k0, m + i - i0 + k - k0);
-			c[m + i - i0 + k - k0] = b[k];
+			var q = index(b[k], a, i, j);
+			i = q[0] + q[1];
+			copy(a, t, i, c, o + t + k);
+			c[o + i + k] = b[k];
 			t = i;
 		}
 
-		copy(a, t, j, c, m + t - i0 + k - k0, n);
+		copy(a, t, j, c, o + t + k);
 	};
 
 	return merge;
