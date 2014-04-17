@@ -8,7 +8,7 @@ var mergesort_t = function(merge){
 		var p = Math.floor((i + j) / 2);
 		mergesort(a, i, p, d, l, l + p - i);
 		mergesort(a, p, j, d, l + p - i, r);
-		merge(a, i, p, a, p, j, d, l, r);
+		merge(a, i, p, a, p, j, d, l);
 		for(var t = 0; t < j - i; ++t) a[i + t] = d[l + t];
 	};
 
