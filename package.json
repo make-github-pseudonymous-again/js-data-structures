@@ -2,10 +2,11 @@
   "name": "neat",
   "version": "0.0.0",
   "description": "js base algorithms library",
-  "main": "index.js",
+  "main": "js/index.js",
   "dependencies": {
     "cli-color": "^0.2.3",
-    "node.extend": "^1.0.10"
+    "node.extend": "^1.0.10",
+    "recquire": "0.0.0"
   },
   "devDependencies": {
     "qunit": "git://github.com/gotwarlost/node-qunit.git#istanbul-coverage",
@@ -27,7 +28,7 @@
     "template"
   ],
   "author": "aureooms",
-  "license": "GPLv2",
+  "license": "GPL v2",
   "bugs": {
     "url": "https://github.com/aureooms/neat/issues"
   },
