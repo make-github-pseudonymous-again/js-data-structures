@@ -1,8 +1,8 @@
-[neat](http://aureooms.github.io/neat)
+[algo](http://aureooms.github.io/algo)
 ====
 
-[![Build Status](https://drone.io/github.com/aureooms/neat/status.png)](https://drone.io/github.com/aureooms/neat/latest)
-[![Coverage Status](https://coveralls.io/repos/aureooms/neat/badge.png)](https://coveralls.io/r/aureooms/neat)
-[![Dependencies Status](https://david-dm.org/aureooms/neat.png)](https://david-dm.org/aureooms/neat#info=dependencies)
-[![devDependencies Status](https://david-dm.org/aureooms/neat/dev-status.png)](https://david-dm.org/aureooms/neat#info=devDependencies)
+[![Build Status](https://drone.io/github.com/aureooms/algo/status.png)](https://drone.io/github.com/aureooms/algo/latest)
+[![Coverage Status](https://coveralls.io/repos/aureooms/algo/badge.png)](https://coveralls.io/r/aureooms/algo)
+[![Dependencies Status](https://david-dm.org/aureooms/algo.png)](https://david-dm.org/aureooms/algo#info=dependencies)
+[![devDependencies Status](https://david-dm.org/aureooms/algo/dev-status.png)](https://david-dm.org/aureooms/algo#info=devDependencies)
 
