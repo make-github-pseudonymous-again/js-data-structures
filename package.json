@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/aureooms/neat.git"
+    "url": "https://github.com/aureooms/algo.git"
   },
   "keywords": [
     "js",
@@ -28,7 +28,7 @@
   "author": "aureooms",
   "license": "GPL v2",
   "bugs": {
-    "url": "https://github.com/aureooms/neat/issues"
+    "url": "https://github.com/aureooms/algo/issues"
   },
-  "homepage": "https://github.com/aureooms/neat"
+  "homepage": "https://aureooms.github.io/algo"
 }
