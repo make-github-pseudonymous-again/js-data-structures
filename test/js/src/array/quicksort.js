@@ -6,14 +6,14 @@ var check = function(ctor, n, pred) {
 	test(name, function (assert) {
 
 		// SETUP RANDOM
-		var randint = neat.randint;
-		var sample = neat.sample_t(randint);
-		var shuffle = neat.shuffle_t(sample);
-		var iota = neat.iota;
+		var randint = algo.randint;
+		var sample = algo.sample_t(randint);
+		var shuffle = algo.shuffle_t(sample);
+		var iota = algo.iota;
 
 		// SETUP SORT
-		var partition = neat.partition_t(pred);
-		var quicksort = neat.quicksort_t(partition);
+		var partition = algo.partition_t(pred);
+		var quicksort = algo.quicksort_t(partition);
 
 		// SETUP ARRAY
 		var a = new ctor(n);

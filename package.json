@@ -4,14 +4,16 @@
   "description": "js base algorithms library",
   "main": "js/index.js",
   "dependencies": {
-    "recquire": "0.0.0"
+    "recquire": "^0.0.0"
   },
   "devDependencies": {
     "qunit": "git://github.com/gotwarlost/node-qunit.git#istanbul-coverage",
-    "coveralls": "^2.10.0"
+    "coveralls": "^2.10.0",
+    "optimist": "^0.6.1"
   },
   "scripts": {
-    "test": "export DIR=node_modules/qunit/support/qunit/qunit && mkdir -p $DIR && cp support/qunit.js $DIR/ && node test/js/run.js"
+    "test": "npm run patch-qunit && node test/js/run.js",
+    "patch-qunit" : "export DIR=node_modules/qunit/support/qunit/qunit && mkdir -p $DIR && cp support/qunit.js $DIR/"
   },
   "repository": {
     "type": "git",

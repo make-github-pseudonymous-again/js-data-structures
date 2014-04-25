@@ -6,23 +6,23 @@ var check = function(ctor, n, pred) {
 	test(name, function (assert) {
 
 		// SETUP RANDOM
-		var randint = neat.randint;
-		var sample = neat.sample_t(randint);
-		var shuffle = neat.shuffle_t(sample);
-		var iota = neat.iota;
+		var randint = algo.randint;
+		var sample = algo.sample_t(randint);
+		var shuffle = algo.shuffle_t(sample);
+		var iota = algo.iota;
 
 		// SETUP INDEX SEARCH
 		var index_diff = function(a, b){ return a - b; };
-		var binarysearch_t = neat.binarysearch_tt(neat.pivotsearch_t);
+		var binarysearch_t = algo.binarysearch_tt(algo.pivotsearch_t);
 		var binarysearch = binarysearch_t(index_diff);
 		var index_pred = function(a, b){ return index_diff(a, b) < 0};
-		var index_partition = neat.partition_t(index_pred);
-		var index_quicksort = neat.quicksort_t(index_partition);
+		var index_partition = algo.partition_t(index_pred);
+		var index_quicksort = algo.quicksort_t(index_partition);
 
 		// SETUP SORT
-		var partition = neat.partition_t(pred);
-		var quicksort = neat.quicksort_t(partition);
-		var multiselect = neat.multiselect_t(partition, binarysearch);
+		var partition = algo.partition_t(pred);
+		var quicksort = algo.quicksort_t(partition);
+		var multiselect = algo.multiselect_t(partition, binarysearch);
 
 		// SETUP REF ARRAY
 		var ref = new ctor(n);

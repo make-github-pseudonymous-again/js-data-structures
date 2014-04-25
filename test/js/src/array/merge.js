@@ -6,20 +6,20 @@ var check = function(ctor, n, pred, diff) {
 	test(name, function (assert) {
 
 		// SETUP RANDOM
-		var randint = neat.randint;
-		var sample = neat.sample_t(randint);
-		var shuffle = neat.shuffle_t(sample);
+		var randint = algo.randint;
+		var sample = algo.sample_t(randint);
+		var shuffle = algo.shuffle_t(sample);
 
 		// SETUP UTILS
-		var iota = neat.iota;
-		var copy = neat.copy;
+		var iota = algo.iota;
+		var copy = algo.copy;
 
 		// SETUP SORT
-		var binarysearch_t = neat.binarysearch_tt(neat.pivotsearch_t);
+		var binarysearch_t = algo.binarysearch_tt(algo.pivotsearch_t);
 		var binarysearch = binarysearch_t(diff);
-		var partition = neat.partition_t(pred);
-		var quicksort = neat.quicksort_t(partition);
-		var merge = neat.merge_t(binarysearch, copy);
+		var partition = algo.partition_t(pred);
+		var quicksort = algo.quicksort_t(partition);
+		var merge = algo.merge_t(binarysearch, copy);
 
 		// SETUP ARRAYS, DEST
 		var a = new ctor(n);
