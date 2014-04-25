@@ -1,5 +1,5 @@
 /**
- * /!\ MULTIPLICATION RESULT MOST HOLD IN THE JAVASCRIPT NUMBER TYPE (DOUBLE i.e. 53 bits)
+ * /!\ BLOCK MULTIPLICATION RESULT MUST HOLD IN THE JAVASCRIPT NUMBER TYPE (DOUBLE i.e. 53 bits)
  *
  * 
  * @param {function} add addition algorithm
@@ -33,11 +33,11 @@
  * a.b = (r^{2n} + r^{n})a1.b1 + r^{n}(a0 - a1)(b1 - b0) + (r^{n} + 1)a0.b0,
  */
 
-var bkaratsuba_t = function(add, sub, mul, num, mov, r){
+var bkaratsuba_t = function(add, sub, mul, num, mov, r, wrap){
 
 	/**
 	 * Multiply two big endian arrays using karatsuba algorithm,
-	 * i >= j, k >= i + j
+	 * i >= j, k >= 2 * i
 	 * 
 	 * 
 	 * @param a first operand
@@ -88,28 +88,29 @@ var bkaratsuba_t = function(add, sub, mul, num, mov, r){
 			z0 = new num(P);
 			
 		// RECURSIVE CALLS
-			mul(a, i0, i_, b, j0, j_, z2, 0, P_);         // z2 = a1.b1
-			mul(a, i_, i1, b, j_, j1, z0, 0, P);          // z0 = a0.b0
-			add(a, i_, i1, a, i0, i_, t1, 0, p + 1);      // (a0 + a1)
-			add(b, j0, j_, b, j_, j1, t2, 0, p + 1);      // (b1 + b0)
-			mul(t1, 1, p + 1, t2, 1, p + 1, t3, 1, P + 1);    // (a0 + a1)(b1 + b0)
+			mul(a, i0, i_, b, j0, j_, z2, 0, P_);            // z2 = a1.b1
+			mul(a, i_, i1, b, j_, j1, z0, 0, P);             // z0 = a0.b0
+			add(a, i_, i1, a, i0, i_, t1, 0, p + 1);         // (a0 + a1)
+			add(b, j0, j_, b, j_, j1, t2, 0, p + 1);         // (b1 + b0)
+			mul(t1, 1, p + 1, t2, 1, p + 1, t3, 1, P + 1);   // (a0 + a1)(b1 + b0)
 
 		// BUILD OUTPUT
-			mov(z2, 0, P_, c, k1 - I);                    // + z2 . r^{2n}
-			mov(z0, 0, P , c, k1 - P);                    // + z0
-			if(t1[0])                                     // overflow on t1, add t2 . r^{p}
+			mov(z2, 0, P_, c, k1 - I);                       // + z2 . r^{2n}
+			mov(z0, 0, P , c, k1 - P);                       // + z0
+			if(t1[0])                                        // overflow on t1, add t2 . r^{p}
 			add(t3, 0, P + 1 - p, t2, 1, p + 1, t3, 0, P + 1 - p);
-			if(t2[0])                                     // overflow on t2, add t1 . r^{p}
+			if(t2[0])                                        // overflow on t2, add t1 . r^{p}
 			add(t3, 0, P + 1 - p, t1, 1, p + 1, t3, 0, P + 1 - p);
-			if(t1[0] && t2[0])                            // overflow on t1 and t2, add 1 . r^{p+1}
+			if(t1[0] && t2[0])                               // overflow on t1 and t2, add 1 . r^{p+1}
 			add(t3, 0, P - p, t1, 0, 1, t3, 0, P - p);
-			add(c, k0, k1 - p, t3, 0, P + 1, c, k0, k1 - p);  // + (a0 + a1)(b1 + b0) . r^{n}
-			sub(c, k0, k1 - p, z2, 0, P_, c, k0, k1 - p); // - z2 . r^{n}
-			sub(c, k0, k1 - p, z0, 0, P, c, k0, k1 - p);  // - z1 . r^{n}
+			add(c, k0, k1 - p, t3, 0, P + 1, c, k0, k1 - p); // + (a0 + a1)(b1 + b0) . r^{n}
+			sub(c, k0, k1 - p, z2, 0, P_, c, k0, k1 - p);    // - z2 . r^{n}
+			sub(c, k0, k1 - p, z0, 0, P, c, k0, k1 - p);     // - z1 . r^{n}
 		}
 
 	};
 
+	if(wrap !== undefined) karatsuba = wrap(karatsuba);
 	if(mul === undefined) mul = karatsuba;
 
 	return karatsuba;
