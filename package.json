@@ -1,7 +1,7 @@
 {
   "name": "algo",
   "version": "0.0.2",
-  "description": "js base algorithms library",
+  "description": "algorithm templates for JavaScript",
   "main": "js/index.js",
   "dependencies": {
     "recquire": "^0.0.0"
