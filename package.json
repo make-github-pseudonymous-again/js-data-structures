@@ -1,6 +1,6 @@
 {
   "name": "algo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "js base algorithms library",
   "main": "js/index.js",
   "dependencies": {
