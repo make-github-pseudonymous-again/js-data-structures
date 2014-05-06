@@ -1,7 +1,7 @@
 {
   "name": "algo",
-  "version": "0.0.2",
-  "description": "algorithm templates for JavaScript",
+  "version": "0.0.3",
+  "description": "algorithm / adt templates for JavaScript",
   "main": "js/index.js",
   "dependencies": {
     "recquire": "^0.0.0"
@@ -23,8 +23,8 @@
     "js",
     "javascript",
     "algorithm",
+    "adt",
     "complexity",
-    "speed",
     "template"
   ],
   "author": "aureooms",

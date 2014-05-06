@@ -63,9 +63,12 @@ var DIFF = [
 
 var PRED = [];
 
-for(var i = 0; i < DIFF.length; ++i){
-	PRED.push(function(a, b){ return DIFF[i](a, b) < 0; });
+for(var d = 0; d < DIFF.length; ++d){
+	(function(d){
+		PRED.push(function(a, b){ return DIFF[d](a, b) < 0; });
+	})(d);
 }
+
 
 var N = [0, 1, 2, 10, 63, 64, 65];
 
