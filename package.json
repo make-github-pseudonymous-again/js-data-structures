@@ -1,10 +1,10 @@
 {
   "name": "algo",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "algorithm / adt templates for JavaScript",
   "main": "js/index.js",
   "dependencies": {
-    "recquire": "^0.0.0"
+    "recquire": "^0.0.2"
   },
   "devDependencies": {
     "qunit": "git://github.com/gotwarlost/node-qunit.git#istanbul-coverage",
