@@ -13,7 +13,7 @@ var splay_tree_t = function(comp, equals){
 
 	var Node = SplayTree.Node = function(value){
 		this.value = value;
-		this.left = this.right = null;
+		this[0] = this[1] = null;
 	};
 
 	SplayTree.prototype.insert = function(value){
@@ -27,63 +27,40 @@ var splay_tree_t = function(comp, equals){
 
 		while(true){
 			if(comp(value, current.value)){
-				if(current.left === null){
-					current.left = new Node(value);
+				if(current[0] === null){
+					current[0] = new Node(value);
 					return;
 				}
-				current = current.left;
+				current = current[0];
 			}
 			else{
-				if(current.right === null){
-					current.right = new Node(value);
+				if(current[1] === null){
+					current[1] = new Node(value);
 					return;
 				}
-				current = current.right;
+				current = current[1];
 			}
 		}
 	};
 
-	var zigzig = function(x, p, g){
-		p.left = x.right;
-		x.right = p;
-		g.left = p.right;
-		p.right = g;
-	};
-
-	var zigzag = function(x, p, g){
-		p.right = x.left;
-		x.left = p;
-		g.left = x.right;
-		x.right = g;
-	};
-
-	var zagzig = function(x, p, g){
-		p.left = x.right;
-		x.right = p;
-		g.right = x.left;
-		x.left = g;
-	};
-
-	var zagzag = function(x, p, g){
-		p.right = x.left;
-		x.left = p;
-		g.right = p.left;
-		p.left = g;
-	};
 
 	var zig = function(x, root){
-		root.left = x.right;
-		x.right = root;
+		root[0] = x[1];
+		x[1] = root;
 	};
 
 	var zag = function(x, root){
-		root.right = x.left;
-		x.left = root;
+		root[1] = x[0];
+		x[0] = root;
 	};
 
-	var zz = [[zigzig, zigzag], [zagzig, zagzag]];
+	var zigzig = function(x, p, g){ zig(p, g); zig(x, p); };
+	var zigzag = function(x, p, g){ zig(x, g); zag(x, p); };
+	var zagzig = function(x, p, g){ zag(x, g); zig(x, p); };
+	var zagzag = function(x, p, g){ zag(p, g); zag(x, p); };
+
 	var z = [zig, zag];
-	var side = ['left', 'right'];
+	var zz = [[zigzig, zigzag], [zagzig, zagzag]];
 
 	SplayTree.prototype.find = function(value){
 		if(this.root === null) return {f:false, v:null};
@@ -109,12 +86,12 @@ var splay_tree_t = function(comp, equals){
 			else if(equals(value, current.value)) f = true;
 			else if(comp(value, current.value)){
 				node.push(current);
-				current = current.left;
+				current = current[0];
 				path.push(0);
 			}
 			else{
 				node.push(current);
-				current = current.right;
+				current = current[1];
 				path.push(1);
 			}
 		}
@@ -122,7 +99,7 @@ var splay_tree_t = function(comp, equals){
 		var i = path.length - 1;
 		for(; i > 0; i -= 2){
 			zz[path[i-1]][path[i]](current, node[i], node[i-1]);
-			if(i > 1) node[i-2][side[path[i-2]]] = current;
+			if(i > 1) node[i-2][path[i-2]] = current;
 		}
 
 		if (i === 0) z[path[0]](current, this);
@@ -138,11 +115,11 @@ var splay_tree_t = function(comp, equals){
 		var r = this.find(value);
 		if(!r.f) return r.w;
 
-		if(r.w.left === null) return r.w.right;
+		if(r.w[0] === null) return r.w[1];
 		else{
-			r.w.left = r.w.left.find(value).w;
-			r.w.left.right = r.w.right;
-			return r.w.left;
+			r.w[0] = r.w[0].find(value).w;
+			r.w[0][1] = r.w[1];
+			return r.w[0];
 		}
 	};
 
@@ -151,9 +128,9 @@ var splay_tree_t = function(comp, equals){
 	};
 
 	Node.prototype.in_order_traversal = function(fn){
-		if(this.left !== null) this.left.in_order_traversal(fn);
+		if(this[0] !== null) this[0].in_order_traversal(fn);
 		fn(this.value);
-		if(this.right !== null) this.right.in_order_traversal(fn);
+		if(this[1] !== null) this[1].in_order_traversal(fn);
 	};
 
 	return SplayTree;
