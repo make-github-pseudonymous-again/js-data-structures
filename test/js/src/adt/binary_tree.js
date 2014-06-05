@@ -1,6 +1,6 @@
 var util = require('util');
 
-var check = function(tmpl_name, tmpl, comp, n, diff, eq){
+var check = function(tmpl_name, tmpl, diff, n){
 
 	var name = util.format("binary tree (%s, %s, %d)", tmpl_name, diff, n);
 
@@ -9,7 +9,7 @@ var check = function(tmpl_name, tmpl, comp, n, diff, eq){
 	test(name, function(assert){
 
 
-		var SplayTree = tmpl(comp, eq);
+		var SplayTree = tmpl(diff);
 		var sample = algo.sample_t(algo.randint);
 		var shuffle = algo.shuffle_t(sample);
 
@@ -122,24 +122,14 @@ var DIFF = [
 	function(a, b){ return b - a; }
 ];
 
-var PRED = [];
-var EQUALS = [];
-
-for(var d = 0; d < DIFF.length; ++d){
-	(function(d){
-		PRED.push(function(a, b){ return DIFF[d](a, b) <= 0; });
-		EQUALS.push(function(a, b){ return DIFF[d](a, b) === 0; });
-	})(d);
-}
-
 
 SIZE = [1, 16, 17, 31, 32, 33, 127, 128, 129];
 
 
 for(var i = 0; i < I.length; ++i){
-	for(var j = 0; j < PRED.length; ++j){
+	for(var j = 0; j < DIFF.length; ++j){
 		for(var k = 0; k < SIZE.length; ++k){
-			check(I[i][0], I[i][1], PRED[j], SIZE[k], DIFF[j], EQUALS[j]);
+			check(I[i][0], I[i][1], DIFF[j], SIZE[k]);
 		}
 	}
 }

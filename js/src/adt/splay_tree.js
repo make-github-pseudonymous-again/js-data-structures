@@ -1,11 +1,5 @@
-/*
- * When used as a multiset, comp must be a comparison operator such that
- * 
- *     equals(a, b) => comp(a, b).
- *
- */
 
-var splay_tree_t = function(comp, equals){
+var splay_tree_t = function(diff){
 
 	var zig = function(x, y){ y[0] = x[1]; x[1] = y; };
 	var zag = function(x, y){ y[1] = x[0]; x[0] = y; };
@@ -20,7 +14,7 @@ var splay_tree_t = function(comp, equals){
 
 	var find = function(el, value){
 
-		var turn = [], path = [], pt = el, f;
+		var turn = [], path = [], pt = el, f, d;
 
 		while(f === undefined){
 			if(pt === null){
@@ -28,16 +22,19 @@ var splay_tree_t = function(comp, equals){
 				pt = path[path.length - 1];
 				--turn.length;
 			}
-			else if(equals(value, pt[2])) f = true;
-			else if(comp(value, pt[2])){
-				path.push(pt);
-				turn.push(0);
-				pt = pt[0];
-			}
-			else{
-				path.push(pt);
-				turn.push(1);
-				pt = pt[1];
+			else {
+				d = diff(value, pt[2]);
+				if(d === 0) f = true;
+				else if(d <= 0){
+					path.push(pt);
+					turn.push(0);
+					pt = pt[0];
+				}
+				else{
+					path.push(pt);
+					turn.push(1);
+					pt = pt[1];
+				}
 			}
 		}
 
@@ -83,7 +80,7 @@ var splay_tree_t = function(comp, equals){
 		var current = this.pt;
 
 		while(true){
-			if(comp(v, current[2])){
+			if(diff(v, current[2]) <= 0){
 				if(current[0] === null){
 					current[0] = [null, null, v];
 					return;
