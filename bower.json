@@ -1,0 +1,7 @@
+{
+  "name": "algo",
+  "version": "0.1.1",
+  "description" : "algorithm / adt templates for JavaScript",
+  "homepage": "https://github.com/aureooms/algo",
+  "license": "GPL v2"
+}
