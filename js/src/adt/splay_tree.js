@@ -12,7 +12,13 @@ var splay_tree_t = function(diff){
 	var z = [zig, zag];
 	var zz = [[zigzig, zigzag], [zagzig, zagzag]];
 
-	var find = function(el, value){
+	var insert = function(pt, v){
+		var w = diff(v, pt[2]) > 0 | 0;
+		if (pt[w] === null) pt[w] = [null, null, v];
+		else insert(pt[w], v);
+	};
+
+	var find = function(el, v){
 
 		var turn = [], path = [], pt = el, f, d, w;
 
@@ -23,7 +29,7 @@ var splay_tree_t = function(diff){
 				--turn.length;
 			}
 			else {
-				d = diff(value, pt[2]);
+				d = diff(v, pt[2]);
 				if(d === 0) f = true;
 				else {
 					w = d > 0 | 0;
@@ -57,42 +63,19 @@ var splay_tree_t = function(diff){
 		}
 	};
 
-	var in_order_traversal = function(el, fn){
-		if(el[0] !== null) in_order_traversal(el[0], fn);
-		fn(el[2]);
-		if(el[1] !== null) in_order_traversal(el[1], fn);
+	var in_order_traversal = function(pt, fn){
+		if(pt[0] !== null) in_order_traversal(pt[0], fn);
+		fn(pt[2]);
+		if(pt[1] !== null) in_order_traversal(pt[1], fn);
 	};
 
 
 	var splay_tree = function(){ this.pt = null; };
 
 	splay_tree.prototype.insert = function(v){
-
-		if(this.pt === null){
-			this.pt = [null, null, v];
-			return;
-		}
-
-		var current = this.pt;
-
-		while(true){
-			if(diff(v, current[2]) <= 0){
-				if(current[0] === null){
-					current[0] = [null, null, v];
-					return;
-				}
-				current = current[0];
-			}
-			else{
-				if(current[1] === null){
-					current[1] = [null, null, v];
-					return;
-				}
-				current = current[1];
-			}
-		}
+		if(this.pt === null) this.pt = [null, null, v];
+		else insert(this.pt, v);
 	};
-
 
 	splay_tree.prototype.find = function(v){
 		if(this.pt === null) return [false, null];
@@ -108,7 +91,6 @@ var splay_tree_t = function(diff){
 	splay_tree.prototype.in_order_traversal = function(fn){
 		if(this.pt !== null) in_order_traversal(this.pt, fn);
 	};
-
 
 	return splay_tree;
 
