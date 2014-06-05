@@ -14,7 +14,7 @@ var splay_tree_t = function(diff){
 
 	var find = function(el, value){
 
-		var turn = [], path = [], pt = el, f, d;
+		var turn = [], path = [], pt = el, f, d, w;
 
 		while(f === undefined){
 			if(pt === null){
@@ -25,15 +25,11 @@ var splay_tree_t = function(diff){
 			else {
 				d = diff(value, pt[2]);
 				if(d === 0) f = true;
-				else if(d <= 0){
+				else {
+					w = d > 0 | 0;
 					path.push(pt);
-					turn.push(0);
-					pt = pt[0];
-				}
-				else{
-					path.push(pt);
-					turn.push(1);
-					pt = pt[1];
+					turn.push(w);
+					pt = pt[w];
 				}
 			}
 		}
