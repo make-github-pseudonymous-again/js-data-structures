@@ -17,7 +17,7 @@ var splay_tree_t = function(diff){
 		else insert(pt[w], v);
 	};
 
-	var find = function(el, v){
+	var splay = function(el, v){
 
 		var turn = [], path = [], pt = el, f, d, w;
 
@@ -47,13 +47,13 @@ var splay_tree_t = function(diff){
 	};
 
 	var remove = function(el, v){
-		var r = find(el, v);
+		var r = splay(el, v);
 		if (!r[0]) return r[1];
 
 		if      (r[1][0] === null) return r[1][1];
 		else if (r[1][1] === null) return r[1][0];
 		else {
-			r[1][0] = find(r[1][0], v)[1];
+			r[1][0] = splay(r[1][0], v)[1];
 			r[1][0][1] = r[1][1];
 			return r[1][0];
 		}
@@ -75,7 +75,7 @@ var splay_tree_t = function(diff){
 
 	splay_tree.prototype.find = function(v){
 		if(this.pt === null) return [false, null];
-		var r = find(this.pt, v);
+		var r = splay(this.pt, v);
 		this.pt = r[1];
 		return [r[0], r[1][2]];
 	};
