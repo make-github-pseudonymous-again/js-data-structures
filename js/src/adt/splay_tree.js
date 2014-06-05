@@ -9,12 +9,12 @@ var splay_tree_t = function(diff){
 	var zagzig = function(x, p, g){ zag(x, g); zig(x, p); };
 	var zagzag = function(x, p, g){ zag(p, g); zag(x, p); };
 
-	var z = [zig, zag];
+	var z  = [zig, zag];
 	var zz = [[zigzig, zigzag], [zagzig, zagzag]];
 
 	var insert = function(pt, v){
 		var w = diff(v, pt[2]) > 0 | 0;
-		if (pt[w] === null) pt[w] = [null, null, v];
+		if   (pt[w] === null) pt[w] = [null, null, v];
 		else insert(pt[w], v);
 	};
 
@@ -41,22 +41,19 @@ var splay_tree_t = function(diff){
 		}
 
 		var i = turn.length - 1;
-		for(; i > 0; i -= 2){
-			zz[turn[i-1]][turn[i]](pt, path[i], path[i-1]);
-			if(i > 1) path[i-2][turn[i-2]] = pt;
-		}
-
-		if (i === 0) z[turn[0]](pt, el);
+		for (; i > 0; i -= 2) zz[turn[i-1]][turn[i]](pt, path[i], path[i-1]);
+		if  (i === 0)         z[turn[0]](pt, el);
 
 		return [f, pt];
 	};
 
 	var remove = function(el, v){
 		var r = find(el, v);
-		if(!r[0]) return r[1];
+		if (!r[0]) return r[1];
 
-		if(r[1][0] === null) return r[1][1];
-		else{
+		if      (r[1][0] === null) return r[1][1];
+		else if (r[1][1] === null) return r[1][0];
+		else {
 			r[1][0] = find(r[1][0], v)[1];
 			r[1][0][1] = r[1][1];
 			return r[1][0];
@@ -68,7 +65,7 @@ var splay_tree_t = function(diff){
 		fn(pt[2]);
 		if(pt[1] !== null) in_order_traversal(pt[1], fn);
 	};
-
+	
 
 	var splay_tree = function(){ this.pt = null; };
 
