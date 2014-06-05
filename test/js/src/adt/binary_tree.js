@@ -34,24 +34,20 @@ var check = function(tmpl_name, tmpl, comp, n, diff, eq){
 
 		// PREPARE FOR CHECKING PURPOSES
 		i = n;
-		while(i--) a[i] = {f:true, w:a[i]};
+		while(i--) a[i] = [true, a[i]];
 
 
 		// CHECK FIND SORTED
 		i = n;
 		while(i--){
-			b[i] = bt.find(a[i].w);
-			b[i].w = b[i].w.value;
+			b[i] = bt.find(a[i][1]);
 		}
 		deepEqual(b, a, 'check find sorted');
 
 		// CHECK FIND SHUFFLED
 		shuffle(a, 0, n);
 		i = n;
-		while (i--) {
-			b[i] = bt.find(a[i].w);
-			b[i].w = b[i].w.value;
-		}
+		while (i--) b[i] = bt.find(a[i][1]);
 		deepEqual(b, a, 'check find shuffled');
 
 
@@ -59,14 +55,14 @@ var check = function(tmpl_name, tmpl, comp, n, diff, eq){
 			// REMOVE
 			i = r;
 			while(i --> l){
-				bt.remove(a[i].w);
-				a[i].f = false;
+				bt.remove(a[i][1]);
+				a[i][0] = false;
 			}
 
 			// CHECK CONTENT AFTER REMOVE
 			d = [];
 			e = [];
-			for(i = p; i < q; ++i) e.push(a[i].w);
+			for(i = p; i < q; ++i) e.push(a[i][1]);
 			e.sort(diff);
 			bt.in_order_traversal(function(v){ d.push(v); });
 			deepEqual(d, e, 'check content ' + txt);
@@ -74,15 +70,15 @@ var check = function(tmpl_name, tmpl, comp, n, diff, eq){
 			// CHECK FIND AFTER REMOVE
 			i = n;
 			while(i--){
-				b[i] = bt.find(a[i].w).f;
-				c[i] = a[i].f;
+				b[i] = bt.find(a[i][1])[0];
+				c[i] = a[i][0];
 			}
 
 			deepEqual(b, c, 'check find ' + txt);
 
 			// TRY REMOVING TWICE
 			i = r;
-			while(i --> l) bt.remove(a[i].w);
+			while(i --> l) bt.remove(a[i][1]);
 		};
 
 		remove(half, n, 0, half, 'after remove half');
@@ -92,23 +88,20 @@ var check = function(tmpl_name, tmpl, comp, n, diff, eq){
 		while(i --> half){
 			x = Math.random();
 			bt.insert(x);
-			a[i] = {f:true, w:x};
+			a[i] = [true, x];
 		}
 
 		// CHECK CONTENT NEW ELEMENTS
 		d = [];
 		e = [];
-		for(i = 0; i < n; ++i) e.push(a[i].w);
+		for(i = 0; i < n; ++i) e.push(a[i][1]);
 		e.sort(diff);
 		bt.in_order_traversal(function(v){ d.push(v); });
 		deepEqual(d, e, 'check content new elements');
 
 		// CHECK FIND NEW ELEMENTS
 		i = n;
-		while (i--) {
-			b[i] = bt.find(a[i].w);
-			b[i].w = b[i].w.value;
-		}
+		while (i--) b[i] = bt.find(a[i][1]);
 		deepEqual(b, a, 'check find new elements');
 
 		remove(0, half, half, n,  'after remove first half');
