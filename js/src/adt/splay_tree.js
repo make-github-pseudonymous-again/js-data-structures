@@ -7,8 +7,6 @@
 
 var splay_tree_t = function(comp, equals){
 
-	var splay_tree = function(){ this.pt = null; };
-
 	var zig = function(x, y){ y[0] = x[1]; x[1] = y; };
 	var zag = function(x, y){ y[1] = x[0]; x[0] = y; };
 
@@ -20,79 +18,81 @@ var splay_tree_t = function(comp, equals){
 	var z = [zig, zag];
 	var zz = [[zigzig, zigzag], [zagzig, zagzag]];
 
-	var find = function(n, value){
+	var find = function(el, value){
 
-		var path = [], node = [], current = n, f;
+		var turn = [], path = [], pt = el, f;
 
 		while(f === undefined){
-			if(current === null){
+			if(pt === null){
 				f = false;
-				current = node[node.length - 1];
-				--path.length;
+				pt = path[path.length - 1];
+				--turn.length;
 			}
-			else if(equals(value, current[2])) f = true;
-			else if(comp(value, current[2])){
-				node.push(current);
-				current = current[0];
-				path.push(0);
+			else if(equals(value, pt[2])) f = true;
+			else if(comp(value, pt[2])){
+				path.push(pt);
+				turn.push(0);
+				pt = pt[0];
 			}
 			else{
-				node.push(current);
-				current = current[1];
-				path.push(1);
+				path.push(pt);
+				turn.push(1);
+				pt = pt[1];
 			}
 		}
 
-		var i = path.length - 1;
+		var i = turn.length - 1;
 		for(; i > 0; i -= 2){
-			zz[path[i-1]][path[i]](current, node[i], node[i-1]);
-			if(i > 1) node[i-2][path[i-2]] = current;
+			zz[turn[i-1]][turn[i]](pt, path[i], path[i-1]);
+			if(i > 1) path[i-2][turn[i-2]] = pt;
 		}
 
-		if (i === 0) z[path[0]](current, n);
+		if (i === 0) z[turn[0]](pt, el);
 
-		return [f, current];
+		return [f, pt];
 	};
 
-	var remove = function(node, value){
-		var r = find(node, value);
+	var remove = function(el, v){
+		var r = find(el, v);
 		if(!r[0]) return r[1];
 
 		if(r[1][0] === null) return r[1][1];
 		else{
-			r[1][0] = find(r[1][0], value)[1];
+			r[1][0] = find(r[1][0], v)[1];
 			r[1][0][1] = r[1][1];
 			return r[1][0];
 		}
 	};
 
-	var in_order_traversal = function(node, fn){
-		if(node[0] !== null) in_order_traversal(node[0], fn);
-		fn(node[2]);
-		if(node[1] !== null) in_order_traversal(node[1], fn);
+	var in_order_traversal = function(el, fn){
+		if(el[0] !== null) in_order_traversal(el[0], fn);
+		fn(el[2]);
+		if(el[1] !== null) in_order_traversal(el[1], fn);
 	};
 
 
-	splay_tree.prototype.insert = function(value){
+	var splay_tree = function(){ this.pt = null; };
+
+	splay_tree.prototype.insert = function(v){
 
 		if(this.pt === null){
-			this.pt = [null, null, value];
+			this.pt = [null, null, v];
 			return;
 		}
 
 		var current = this.pt;
 
 		while(true){
-			if(comp(value, current[2])){
+			if(comp(v, current[2])){
 				if(current[0] === null){
-					current[0] = [null, null, value];
+					current[0] = [null, null, v];
 					return;
 				}
 				current = current[0];
 			}
 			else{
 				if(current[1] === null){
-					current[1] = [null, null, value];
+					current[1] = [null, null, v];
 					return;
 				}
 				current = current[1];
@@ -101,15 +101,15 @@ var splay_tree_t = function(comp, equals){
 	};
 
 
-	splay_tree.prototype.find = function(value){
+	splay_tree.prototype.find = function(v){
 		if(this.pt === null) return [false, null];
-		var r = find(this.pt, value);
+		var r = find(this.pt, v);
 		this.pt = r[1];
 		return [r[0], r[1][2]];
 	};
 
-	splay_tree.prototype.remove = function(value){
-		if(this.pt !== null) this.pt = remove(this.pt, value);
+	splay_tree.prototype.remove = function(v){
+		if(this.pt !== null) this.pt = remove(this.pt, v);
 	};
 
 	splay_tree.prototype.in_order_traversal = function(fn){
