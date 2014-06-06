@@ -1,6 +1,6 @@
 {
   "name": "algo",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "algorithm / adt templates for JavaScript",
   "main": "js/dist/algo.js",
   "dependencies": {
