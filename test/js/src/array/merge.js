@@ -1,7 +1,7 @@
 var util = require('util');
 
-var check = function(ctor, n, pred, diff) {
-	var name = util.format("merge (new %s(%d), %s)", ctor.name, n, diff);
+var check = function(tmpl, ctor, m, n, diff) {
+	var name = util.format("%s (new %s(%d, %d), %s)", tmpl[0], ctor.name, m, n, diff);
 	console.log(name);
 	test(name, function (assert) {
 
@@ -11,48 +11,42 @@ var check = function(ctor, n, pred, diff) {
 		var shuffle = algo.shuffle_t(sample);
 
 		// SETUP UTILS
-		var iota = algo.iota;
 		var copy = algo.copy;
 
 		// SETUP SORT
+		var pred = function(a, b){ return diff(a, b) < 0; };
 		var binarysearch_t = algo.binarysearch_tt(algo.pivotsearch_t);
-		var binarysearch = binarysearch_t(diff);
 		var partition = algo.partition_t(pred);
 		var quicksort = algo.quicksort_t(partition);
-		var merge = algo.merge_t(binarysearch, copy);
+		var merge = tmpl[1](diff, binarysearch_t, copy, pred);
 
 		// SETUP ARRAYS, DEST
-		var a = new ctor(n);
-		for(var j = 0; j < n; ++j) a[j] = randint(0, n);
-		shuffle(a, 0, n);
-		quicksort(a, 0, n);
+		var a = new ctor(m), j;
+		for(j = 0; j < m; ++j) a[j] = randint(0, m);
+		shuffle(a, 0, m);
+		quicksort(a, 0, m);
 
 		var b = new ctor(n);
-		for(var j = 0; j < n; ++j) b[j] = randint(0, n);
+		for(j = 0; j < n; ++j) b[j] = randint(0, n);
 		shuffle(b, 0, n);
 		quicksort(b, 0, n);
 
-		var d = new ctor(2*n);
+		var d = new ctor(n + m);
 
 		// MERGE ARRAYS
-		merge(a, 0, n, b, 0, n, d, 0);
+		merge(a, 0, m, b, 0, n, d, 0);
 
-		// TEST PREDICATE
-		var i = d.length;
-		var sorted = true;
-		if(i > 1){
-			while (--i) {
-				if ( pred(d[i], d[i-1]) ) {
-					sorted = false;
-					break;
-				}
-			}
-		}
+		// REF
+		var c = new ctor(n + m);
+		copy(a, 0, m, c, 0);
+		copy(b, 0, n, c, m);
+		shuffle(c, 0, n + m);
+		quicksort(c, 0, n + m);
 
-		ok(sorted, 'check sorted');
-		deepEqual(a.length, n, 'check length a');
+		deepEqual(d, c, 'check sorted');
+		deepEqual(a.length, m, 'check length a');
 		deepEqual(b.length, n, 'check length b');
-		deepEqual(d.length, 2*n, 'check length d');
+		deepEqual(d.length, n + m, 'check length d');
 	});
 };
 
@@ -61,16 +55,19 @@ var DIFF = [
 	function(a, b){ return b - a; }
 ];
 
-var PRED = [];
+var TMPL = [
+	['merge', function(diff, binarysearch_t, copy, pred){
+		return algo.merge_t(binarysearch_t(diff), copy);
+	}],
+	['binarymerge', function(diff, binarysearch_t, copy, pred){
+		return algo.binarymerge_t(diff, binarysearch_t, copy);
+	}],
+	['tapemerge', function(diff, binarysearch_t, copy, pred){
+		return algo.tapemerge_t(pred);
+	}],
+];
 
-for(var d = 0; d < DIFF.length; ++d){
-	(function(d){
-		PRED.push(function(a, b){ return DIFF[d](a, b) < 0; });
-	})(d);
-}
-
-
-var N = [0, 1, 2, 10, 63, 64, 65];
+var N = [0, 1, 2, 10, 63, 64, 65]; // MUST BE IN ASCENDING ORDER !!
 
 var CTOR = [
 	Array,
@@ -84,14 +81,17 @@ var CTOR = [
 	Float64Array
 ];
 
-for (var k = 0; k < CTOR.length; k++) {
-	for (var j = 0; j < N.length; j++) {
-		if(CTOR[k].BYTES_PER_ELEMENT &&
-			N[j] > Math.pow(2, CTOR[k].BYTES_PER_ELEMENT * 8)){
-				continue;
-		}
-		for (var i = 0; i < DIFF.length; ++i) {
-			check(CTOR[k], N[j], PRED[i], DIFF[i]);
+for(var t = 0; t < TMPL.length; ++t){
+	for (var k = 0; k < CTOR.length; ++k) {
+		for (var j = 0; j < N.length; ++j) {
+			for (var l = 0; l <= j; ++l) {
+				if(CTOR[k].BYTES_PER_ELEMENT && N[j] > Math.pow(2, CTOR[k].BYTES_PER_ELEMENT * 8))
+					continue;
+
+				for (var i = 0; i < DIFF.length; ++i) {
+					check(TMPL[t], CTOR[k], N[j], N[l], DIFF[i]);
+				}
+			}
 		}
 	}
 }
