@@ -885,6 +885,32 @@ var binarysearch_tt = function(pivotsearch_t){
 };
 
 exports.binarysearch_tt = binarysearch_tt;
+/* /home/genius/Bureau/algo/js/src/array/bubblesort.js */
+
+
+var bubblesort_t = function(pred){
+
+	var bubblesort = function(a, i, j){
+		var swapped = true, k, s = j-1, t;
+
+		do {
+			swapped = false;
+			for (k = i; k < s; ++k) {
+				if (!pred(a[k], a[k+1])) {
+					t = a[k];
+					a[k] = a[k+1];
+					a[k+1] = t;
+					swapped = true;
+				}
+			}
+		} while (swapped);
+	};
+
+	return bubblesort;
+
+};
+
+exports.bubblesort_t = bubblesort_t;
 /* /home/genius/Bureau/algo/js/src/array/copy.js */
 
 
@@ -909,6 +935,26 @@ var fill = function(a, i, j, v){
 };
 
 exports.fill = fill;
+/* /home/genius/Bureau/algo/js/src/array/insertionsort.js */
+
+
+var insertionsort_t = function(pred){
+
+	var insertionsort = function(a, i, j){
+		var o, k = i + 1, t;
+
+		for (; k < j; ++k) {
+			t = k; o = a[t];
+			while (t --> i && !pred(a[t], o)) a[t + 1] = a[t];
+			a[t + 1] = o;
+		}
+	};
+
+	return insertionsort;
+
+};
+
+exports.insertionsort_t = insertionsort_t;
 /* /home/genius/Bureau/algo/js/src/array/interpolationsearch.js */
 
 
@@ -1142,6 +1188,37 @@ var quicksort_t = function(partition){
 };
 
 exports.quicksort_t = quicksort_t;
+/* /home/genius/Bureau/algo/js/src/array/selectionsort.js */
+
+
+var selectionsort_t = function(pred){
+
+	var selectionsort = function(a, i, j){
+		var o, t, k;
+
+		for (; i < j; ++i) {
+			t = k = i;
+			o = a[t];
+
+			while (++t < j)
+				if (!pred(o, a[t])) {
+					o = a[t];
+					k = t;
+				}
+
+			if (k > i) {
+				a[k] = a[i];
+				a[i] = o;
+			}
+
+		}
+	};
+
+	return selectionsort;
+
+};
+
+exports.selectionsort_t = selectionsort_t;
 /* /home/genius/Bureau/algo/js/src/array/tapemerge.js */
 
 
