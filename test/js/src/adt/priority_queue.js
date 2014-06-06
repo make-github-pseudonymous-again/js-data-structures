@@ -2,7 +2,7 @@ var util = require('util');
 
 var check = function(tmpl_name, tmpl, pred, n, diff){
 
-	var name = util.format("priority queue (%s, %s, %d)", tmpl_name, pred, n);
+	var name = util.format("priority queue (%s, %s, %d)", tmpl_name, diff, n);
 
 	test(name, function(assert){
 
@@ -37,7 +37,8 @@ var check = function(tmpl_name, tmpl, pred, n, diff){
 
 
 I = [
-	['lazy_binomial_queue_t', algo.lazy_binomial_queue_t]
+	['lazy_binomial_queue_t', algo.lazy_binomial_queue_t],
+	['binomial_queue_t', algo.binomial_queue_t],
 ];
 
 var DIFF = [
