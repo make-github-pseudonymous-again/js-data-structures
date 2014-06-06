@@ -114,7 +114,11 @@ var check = function(tmpl_name, tmpl, diff, n){
 
 
 I = [
-	['splay_tree_t', algo.splay_tree_t]
+	['splay_tree_t', algo.splay_tree_t],
+	['splay_tree_2_t', algo.splay_tree_2_t],
+	['splay_tree_3_t', algo.splay_tree_3_t],
+	['splay_tree_4_t', algo.splay_tree_4_t],
+	['splay_tree_5_t', algo.splay_tree_5_t],
 ];
 
 var DIFF = [
