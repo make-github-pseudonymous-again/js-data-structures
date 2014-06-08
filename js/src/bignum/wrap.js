@@ -1,4 +1,11 @@
-
+/**
+ * Wrapper for binary operator.
+ * Ensures
+ * 
+ *     i >= j
+ *     i0, j0, k0 > 0
+ * 
+ */
 
 var wrapbin = function(fn){
 
