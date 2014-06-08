@@ -1,4 +1,7 @@
 
+/**
+ * Sample using Fisher-Yates method.
+ */
 
 var sample_t = function(randint){
 
