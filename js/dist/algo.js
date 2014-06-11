@@ -3,8 +3,8 @@
 	'use strict';
 
 
-/* /home/genius/Bureau/algo/js/src/adt */
-/* /home/genius/Bureau/algo/js/src/adt/binomial_queue.js */
+/* /home/genius/dev/algo/js/src/adt */
+/* /home/genius/dev/algo/js/src/adt/binomial_queue.js */
 var binomial_queue_t = function(pred){
 
 	var binomial_tree_t = function(value, next){
@@ -149,7 +149,7 @@ var binomial_queue_t = function(pred){
 };
 
 exports.binomial_queue_t = binomial_queue_t;
-/* /home/genius/Bureau/algo/js/src/adt/lazy_binomial_queue.js */
+/* /home/genius/dev/algo/js/src/adt/lazy_binomial_queue.js */
 var lazy_binomial_queue_t = function(pred, opt_t){
 
 	var binomial_tree_t = function(value, next){
@@ -288,7 +288,7 @@ var lazy_binomial_queue_t = function(pred, opt_t){
 };
 
 exports.lazy_binomial_queue_t = lazy_binomial_queue_t;
-/* /home/genius/Bureau/algo/js/src/adt/splay_tree.js */
+/* /home/genius/dev/algo/js/src/adt/splay_tree.js */
 
 var splay_tree_t = function(diff){
 
@@ -384,7 +384,7 @@ var splay_tree_t = function(diff){
 };
 
 exports.splay_tree_t = splay_tree_t;
-/* /home/genius/Bureau/algo/js/src/adt/splay_tree_2.js */
+/* /home/genius/dev/algo/js/src/adt/splay_tree_2.js */
 
 var splay_tree_2_t = function(diff){
 
@@ -485,7 +485,7 @@ var splay_tree_2_t = function(diff){
 };
 
 exports.splay_tree_2_t = splay_tree_2_t;
-/* /home/genius/Bureau/algo/js/src/adt/splay_tree_3.js */
+/* /home/genius/dev/algo/js/src/adt/splay_tree_3.js */
 
 var splay_tree_3_t = function(diff){
 
@@ -585,7 +585,7 @@ var splay_tree_3_t = function(diff){
 };
 
 exports.splay_tree_3_t = splay_tree_3_t;
-/* /home/genius/Bureau/algo/js/src/adt/splay_tree_4.js */
+/* /home/genius/dev/algo/js/src/adt/splay_tree_4.js */
 
 var splay_tree_4_t = function(diff){
 
@@ -705,7 +705,7 @@ var splay_tree_4_t = function(diff){
 };
 
 exports.splay_tree_4_t = splay_tree_4_t;
-/* /home/genius/Bureau/algo/js/src/adt/splay_tree_5.js */
+/* /home/genius/dev/algo/js/src/adt/splay_tree_5.js */
 
 var splay_tree_5_t = function(diff){
 
@@ -819,8 +819,8 @@ var splay_tree_5_t = function(diff){
 };
 
 exports.splay_tree_5_t = splay_tree_5_t;
-/* /home/genius/Bureau/algo/js/src/array */
-/* /home/genius/Bureau/algo/js/src/array/binarymerge.js */
+/* /home/genius/dev/algo/js/src/array */
+/* /home/genius/dev/algo/js/src/array/binarymerge.js */
 
 
 /**
@@ -869,7 +869,7 @@ var binarymerge_t = function(diff, binarysearch_t, copy){
 };
 
 exports.binarymerge_t = binarymerge_t;
-/* /home/genius/Bureau/algo/js/src/array/binarysearch.js */
+/* /home/genius/dev/algo/js/src/array/binarysearch.js */
 
 
 var binarysearch_tt = function(pivotsearch_t){
@@ -885,7 +885,7 @@ var binarysearch_tt = function(pivotsearch_t){
 };
 
 exports.binarysearch_tt = binarysearch_tt;
-/* /home/genius/Bureau/algo/js/src/array/bubblesort.js */
+/* /home/genius/dev/algo/js/src/array/bubblesort.js */
 
 
 var bubblesort_t = function(pred){
@@ -911,7 +911,7 @@ var bubblesort_t = function(pred){
 };
 
 exports.bubblesort_t = bubblesort_t;
-/* /home/genius/Bureau/algo/js/src/array/copy.js */
+/* /home/genius/dev/algo/js/src/array/copy.js */
 
 
 var copy = function(a, i, j, b, k){
@@ -922,7 +922,7 @@ var copy = function(a, i, j, b, k){
 };
 
 exports.copy = copy;
-/* /home/genius/Bureau/algo/js/src/array/fill.js */
+/* /home/genius/dev/algo/js/src/array/fill.js */
 
 
 
@@ -935,7 +935,7 @@ var fill = function(a, i, j, v){
 };
 
 exports.fill = fill;
-/* /home/genius/Bureau/algo/js/src/array/insertionsort.js */
+/* /home/genius/dev/algo/js/src/array/insertionsort.js */
 
 
 var insertionsort_t = function(pred){
@@ -955,7 +955,7 @@ var insertionsort_t = function(pred){
 };
 
 exports.insertionsort_t = insertionsort_t;
-/* /home/genius/Bureau/algo/js/src/array/interpolationsearch.js */
+/* /home/genius/dev/algo/js/src/array/interpolationsearch.js */
 
 
 var interpolationsearch_tt = function(pivotsearch_t){
@@ -978,7 +978,7 @@ var interpolationsearch_tt = function(pivotsearch_t){
 };
 
 exports.interpolationsearch_tt = interpolationsearch_tt;
-/* /home/genius/Bureau/algo/js/src/array/iota.js */
+/* /home/genius/dev/algo/js/src/array/iota.js */
 
 
 
@@ -992,7 +992,7 @@ var iota = function(a, i, j, v){
 };
 
 exports.iota = iota;
-/* /home/genius/Bureau/algo/js/src/array/iter.js */
+/* /home/genius/dev/algo/js/src/array/iter.js */
 
 
 
@@ -1013,7 +1013,7 @@ var biter = function(i, j, fn){
 
 exports.fiter = fiter;
 exports.biter = biter;
-/* /home/genius/Bureau/algo/js/src/array/merge.js */
+/* /home/genius/dev/algo/js/src/array/merge.js */
 
 
 var merge_t = function(index, copy){
@@ -1039,7 +1039,7 @@ var merge_t = function(index, copy){
 };
 
 exports.merge_t = merge_t;
-/* /home/genius/Bureau/algo/js/src/array/mergesort.js */
+/* /home/genius/dev/algo/js/src/array/mergesort.js */
 
 
 var mergesort_t = function(merge){
@@ -1059,7 +1059,7 @@ var mergesort_t = function(merge){
 };
 
 exports.mergesort_t = mergesort_t;
-/* /home/genius/Bureau/algo/js/src/array/multiselect.js */
+/* /home/genius/dev/algo/js/src/array/multiselect.js */
 
 
 var multiselect_t = function(partition, binarysearch){
@@ -1080,7 +1080,7 @@ var multiselect_t = function(partition, binarysearch){
 };
 
 exports.multiselect_t = multiselect_t;
-/* /home/genius/Bureau/algo/js/src/array/opt.js */
+/* /home/genius/dev/algo/js/src/array/opt.js */
 
 
 
@@ -1105,7 +1105,7 @@ var opt_t = function(pred){
 
 
 exports.opt_t = opt_t;
-/* /home/genius/Bureau/algo/js/src/array/partition.js */
+/* /home/genius/dev/algo/js/src/array/partition.js */
 var partition_t = function(pred){
 
 	var partition = function(a, i, j){
@@ -1135,7 +1135,7 @@ var partition_t = function(pred){
 };
 
 exports.partition_t = partition_t;
-/* /home/genius/Bureau/algo/js/src/array/pivotsearch.js */
+/* /home/genius/dev/algo/js/src/array/pivotsearch.js */
 
 
 var pivotsearch_t = function(diff, pivot){
@@ -1154,8 +1154,12 @@ var pivotsearch_t = function(diff, pivot){
 };
 
 exports.pivotsearch_t = pivotsearch_t;
-/* /home/genius/Bureau/algo/js/src/array/quickselect.js */
+/* /home/genius/dev/algo/js/src/array/quickselect.js */
 
+/**
+ * Template for the recursive implementation of quickselect.
+ * 
+ */
 
 var quickselect_t = function(partition){
 
@@ -1171,8 +1175,15 @@ var quickselect_t = function(partition){
 };
 
 exports.quickselect_t = quickselect_t;
-/* /home/genius/Bureau/algo/js/src/array/quicksort.js */
 
+/* /home/genius/dev/algo/js/src/array/quicksort.js */
+
+
+/**
+ * Template for the recursive implementation of quicksort.
+ * 
+ * 
+ */
 
 var quicksort_t = function(partition){
 
@@ -1188,7 +1199,8 @@ var quicksort_t = function(partition){
 };
 
 exports.quicksort_t = quicksort_t;
-/* /home/genius/Bureau/algo/js/src/array/selectionsort.js */
+
+/* /home/genius/dev/algo/js/src/array/selectionsort.js */
 
 
 var selectionsort_t = function(pred){
@@ -1219,7 +1231,7 @@ var selectionsort_t = function(pred){
 };
 
 exports.selectionsort_t = selectionsort_t;
-/* /home/genius/Bureau/algo/js/src/array/tapemerge.js */
+/* /home/genius/dev/algo/js/src/array/tapemerge.js */
 
 
 var tapemerge_t = function(pred){
@@ -1243,418 +1255,8 @@ var tapemerge_t = function(pred){
 };
 
 exports.tapemerge_t = tapemerge_t;
-/* /home/genius/Bureau/algo/js/src/bignum */
-/* /home/genius/Bureau/algo/js/src/bignum/add.js */
-
-/**
- * @param r base (radix)
- */
-
-
-var badd_t = function(r){
-
-
-	/**
-	 * Adds two big endian arrays, k >= i >= j
-	 * wraps
-	 * 
-	 * @param a first operand
-	 * @param i0 a left
-	 * @param i1 a right
-	 * @param b second operand
-	 * @param j0 b left
-	 * @param j1 b right
-	 * @param c result, must be 0 initialized
-	 * @param k0 c left
-	 * @param k1 c right
-	 */
-
-	return function(a, i0, i1, b, j0, j1, c, k0, k1){
-		var t, C = 0;
-
-		while(--j1 >= j0){
-			--i1; --k1;
-			t = a[i1] + b[j1] + C;
-			c[k1] = t % r;
-			C = t / r >= 1;
-		}
-
-		while(--i1 >= i0){
-			--k1;
-			t = a[i1] + C;
-			c[k1] = t % r;
-			C = t / r >= 1;
-		}
-
-		if(--k1 >= k0){
-			c[k1] = +C;
-		}
-
-	};
-
-};
-
-
-/**
- * @param r base (radix)
- */
-
-var ladd_t = function(r){
-
-	/**
-	 * Adds two little endian arrays, k >= i >= j
-	 * wraps
-	 * 
-	 * @param a first operand
-	 * @param i0 a left
-	 * @param i1 a right
-	 * @param b second operand
-	 * @param j0 b left
-	 * @param j1 b right
-	 * @param c result, must be 0 initialized
-	 * @param k0 c left
-	 * @param k1 c right
-	 */
-
-	return function(a, i0, i1, b, j0, j1, c, k0, k1){
-		var t, C = 0;
-
-		while(j0 < j1){
-			t = a[i0] + b[j0] + C;
-			c[k0] = t % r;
-			C = t / r >= 1;
-			++i0; ++j0; ++k0;
-		}
-
-		while(i0 < i1){
-			t = a[i0] + C;
-			c[k0] = t % r;
-			C = t / r >= 1;
-			++i0; ++k0;
-		}
-
-		if(k0 < k1){
-			c[k0] = +C;
-		}
-
-	};
-};
-
-exports.badd_t = badd_t;
-exports.ladd_t = ladd_t;
-/* /home/genius/Bureau/algo/js/src/bignum/karatsuba.js */
-/**
- * /!\ BLOCK MULTIPLICATION RESULT MUST HOLD IN THE JAVASCRIPT NUMBER TYPE (DOUBLE i.e. 53 bits)
- *
- * 
- * @param {function} add addition algorithm
- * @param {function} sub subtraction algorithm
- * @param {function} mul multiplication algorithm
- * @param {function} copy copy algorithm
- * @param {prototype} num array ctor
- * @param {uint} r base (radix)
- *
- * 
- * EXPLANATION
- * ###########
- * 
- * a.b = (a1.r^{n} + a0).(b1.r^{n} + b0)
- *     = a1.b1.r^{2n} + (a1.b0 + a0.b1).r^{n} + a0.b0
- *     = z2.r^{2n} + z1.r^{n} + z0
- *       
- * z2 = a1.b1
- * z1 = a1.b0 + a0.b1
- * z0 = a0.b0
- *       
- * (a1 + a0)(b1 + b0) = a1.b1 + a0.b0 + (a1.b0 + a0.b1)
- *                    = z2 + z0 + z1
- *                    
- * z1 = (a1 + a0)(b1 + b0) - z2 - z0
- *
- * AN ANOTHER WAY AROUND (not used here)
- *
- * (a1 - a0)(b1 - b0) = a1.b1 + a0.b0 - (a1.b0 + a0.b1)
- * (a0 - a1)(b1 - b0) = (a1.b0 + a0.b1) - a1.b1 + a0.b0
- * a.b = (r^{2n} + r^{n})a1.b1 + r^{n}(a0 - a1)(b1 - b0) + (r^{n} + 1)a0.b0,
- */
-
-var bkaratsuba_t = function(add, sub, mul, num, mov, r, wrap){
-
-	/**
-	 * Multiply two big endian arrays using karatsuba algorithm,
-	 * i >= j, k >= 2 * i
-	 * 
-	 * 
-	 * @param a first operand
-	 * @param i0 a left
-	 * @param i1 a right
-	 * @param b second operand
-	 * @param j0 b left
-	 * @param j1 b right
-	 * @param c result, must be 0 initialized
-	 * @param k0 c left
-	 * @param k1 c right
-	 */
-
-	var karatsuba = function(a, i0, i1, b, j0, j1, c, k0, k1){
-
-		var z0, z2, t1, t2, t3, p, I, P, P_, i_, j_;
-
-		var i = i1 - i0,
-		j = j1 - j0,
-		k = k1 - k0;
-
-		// EMPTY CASE
-		if(i <= 0 || j <= 0 || k <= 0) return;
-
-		// BASE CASE i = j = 1
-		if(i === 1){
-			z0 = a[i0] * b[j0];
-			c[k1-1] = z0 % r;
-
-			if(k > 1)
-				c[k1-2] = (z0 - c[k1-1]) / r;
-
-		}
-
-		// RECURSION
-		else{
-			p = Math.ceil(i / 2);
-			I = i + j;
-			P = 2 * p;
-			P_ = I - P;
-			i_ = i1 - p;
-			j_ = Math.max(j0, j1 - p);
-
-			t1 = new num(p+1); // + 1 to handle addition overflows
-			t2 = new num(p+1); // and guarantee reducing k for the
-			t3 = new num(P+1); // recursive calls
-			z2 = new num(P_);
-			z0 = new num(P);
-			
-		// RECURSIVE CALLS
-			mul(a, i0, i_, b, j0, j_, z2, 0, P_);            // z2 = a1.b1
-			mul(a, i_, i1, b, j_, j1, z0, 0, P);             // z0 = a0.b0
-			add(a, i_, i1, a, i0, i_, t1, 0, p + 1);         // (a0 + a1)
-			add(b, j0, j_, b, j_, j1, t2, 0, p + 1);         // (b1 + b0)
-			mul(t1, 1, p + 1, t2, 1, p + 1, t3, 1, P + 1);   // (a0 + a1)(b1 + b0)
-
-		// BUILD OUTPUT
-			mov(z2, 0, P_, c, k1 - I);                       // + z2 . r^{2n}
-			mov(z0, 0, P , c, k1 - P);                       // + z0
-			if(t1[0])                                        // overflow on t1, add t2 . r^{p}
-			add(t3, 0, P + 1 - p, t2, 1, p + 1, t3, 0, P + 1 - p);
-			if(t2[0])                                        // overflow on t2, add t1 . r^{p}
-			add(t3, 0, P + 1 - p, t1, 1, p + 1, t3, 0, P + 1 - p);
-			if(t1[0] && t2[0])                               // overflow on t1 and t2, add 1 . r^{p+1}
-			add(t3, 0, P - p, t1, 0, 1, t3, 0, P - p);
-			add(c, k0, k1 - p, t3, 0, P + 1, c, k0, k1 - p); // + (a0 + a1)(b1 + b0) . r^{n}
-			sub(c, k0, k1 - p, z2, 0, P_, c, k0, k1 - p);    // - z2 . r^{n}
-			sub(c, k0, k1 - p, z0, 0, P, c, k0, k1 - p);     // - z1 . r^{n}
-		}
-
-	};
-
-	if(wrap !== undefined) karatsuba = wrap(karatsuba);
-	if(mul === undefined) mul = karatsuba;
-
-	return karatsuba;
-
-};
-
-
-exports.bkaratsuba_t = bkaratsuba_t;
-/* /home/genius/Bureau/algo/js/src/bignum/stringify.js */
-
-/**
- * Function template for number stringification.
- * Endianess provided by the iterator function
- * 
- * @param {int} f from radix
- * @param {int} t to radix
- * @param {function} iter iterator function
- */
-
-
-var stringify_t = function(f, t, iter, zfill_t){
-
-	if(t <= f){
-
-		if(t > 36) throw 't > 36 not implemented';
-
-		var z = 0;
-		while(f >= t){
-			if(f % t) break;
-			f /= t;
-			++z;
-		}
-
-		if(f !== 1) throw 'log(t) does not divide log(f) not implemented';
-
-		var zfill = zfill_t(z);
-
-		return function(a, i0, i1){
-			var s = [];
-			iter(i0, i1, function(i){
-				s.push(zfill(Number(+a[i]).toString(t)));
-			});
-			return s.join('');
-		};
-
-	}
-	else throw 't > f not implemented';
-
-};
-
-exports.stringify_t = stringify_t;
-/* /home/genius/Bureau/algo/js/src/bignum/sub.js */
-
-/**
- * @param r base (radix)
- */
-
-
-var bsub_t = function(r){
-
-	/**
-	 * Subtracts two big endian arrays, k >= i >= j
-	 * wraps
-	 * 
-	 * @param a first operand
-	 * @param i0 a left
-	 * @param i1 a right
-	 * @param b second operand
-	 * @param j0 b left
-	 * @param j1 b right
-	 * @param c result, must be 0 initialized
-	 * @param k0 c left
-	 * @param k1 c right
-	 */
-
-	return function(a, i0, i1, b, j0, j1, c, k0, k1){
-		var t, T, C = 0;
-
-		while(--j1 >= j0){
-			--i1; --k1;
-			T = C;
-			C = a[i1] < b[j1] + T;
-			c[k1] = a[i1] - b[j1] + (C*r - T);
-		}
-
-		while(--i1 >= i0){
-			--k1;
-			T = C;
-			C = a[i1] < T;
-			c[k1] = a[i1] + (C*r - T);
-		}
-
-		if(C){
-			while(--k1 >= k0){
-				c[k0] = r - 1;
-			}
-		}
-
-	};
-};
-/**
- * @param r base (radix)
- */
-
-
-var lsub_t = function(r){
-
-	/**
-	 * Subtracts two little endian arrays, k >= i >= j
-	 * wraps
-	 * 
-	 * @param a first operand
-	 * @param i0 a left
-	 * @param i1 a right
-	 * @param b second operand
-	 * @param j0 b left
-	 * @param j1 b right
-	 * @param c result, must be 0 initialized
-	 * @param k0 c left
-	 * @param k1 c right
-	 */
-
-	return function(a, i0, i1, b, j0, j1, c, k0, k1){
-		var t, T, C = 0;
-
-		while(j0 < j1){
-			T = C;
-			C = a[i0] < b[j0] + T;
-			c[k0] = a[i0] - b[j0] + (C*r - T);
-			++i0; ++j0; ++k0;
-		}
-
-		while(i0 < i1){
-			T = C;
-			C = a[i0] < T;
-			c[k0] = a[i0] + (C*r - T);
-			++i0; ++k0;
-		}
-
-		if(C){
-			while(k0 < k1){
-				c[k0] = r - 1;
-				++k0;
-			}
-		}
-
-	};
-};
-
-
-exports.bsub_t = bsub_t;
-exports.lsub_t = lsub_t;
-
-/* /home/genius/Bureau/algo/js/src/bignum/wrap.js */
-
-
-var wrapbin = function(fn){
-
-	return function(a, i0, i1, b, j0, j1, c, k0, k1){
-
-		var i, j, k;
-
-		k0 = Math.max(0, k0);
-		k = k1 - k0;
-
-		i0 = Math.max(0, i0, i1 - k);
-		j0 = Math.max(0, j0, j1 - k);
-		i = i1 - i0;
-		j = j1 - j0;
-
-		if(i < j)
-		return fn(b, j0, j1, a, i0, i1, c, k0, k1);
-
-		else
-		return fn(a, i0, i1, b, j0, j1, c, k0, k1);
-	};
-};
-
-var wrapmov = function(fn){
-	return function(a, i, j, b, k){
-
-		if(i < 0){
-			k -= i;
-			i = 0;
-		}
-		if(k < 0){
-			i -= k;
-			k = 0;
-		}
-		return fn(a, i, j, b, k);
-
-	};
-};
-
-
-exports.wrapbin = wrapbin;
-exports.wrapmov = wrapmov;
-/* /home/genius/Bureau/algo/js/src/num */
-/* /home/genius/Bureau/algo/js/src/num/gcd.js */
+/* /home/genius/dev/algo/js/src/num */
+/* /home/genius/dev/algo/js/src/num/gcd.js */
 
 
 
@@ -1668,19 +1270,19 @@ var gcd = function(a, b){
 };
 
 exports.gcd = gcd;
-/* /home/genius/Bureau/algo/js/src/num/ge.js */
+/* /home/genius/dev/algo/js/src/num/ge.js */
 
 var ge = function(a, b){ return a >= b; };
 
 exports.ge = ge;
 
-/* /home/genius/Bureau/algo/js/src/num/gt.js */
+/* /home/genius/dev/algo/js/src/num/gt.js */
 
 var gt = function(a, b){ return a > b; };
 
 exports.gt = gt;
 
-/* /home/genius/Bureau/algo/js/src/num/lcm.js */
+/* /home/genius/dev/algo/js/src/num/lcm.js */
 
 
 var lcm_t = function(gcd){
@@ -1690,20 +1292,20 @@ var lcm_t = function(gcd){
 };
 
 exports.lcm_t = lcm_t;
-/* /home/genius/Bureau/algo/js/src/num/le.js */
+/* /home/genius/dev/algo/js/src/num/le.js */
 
 var le = function(a, b){ return a <= b; };
 
 exports.le = le;
 
-/* /home/genius/Bureau/algo/js/src/num/lt.js */
+/* /home/genius/dev/algo/js/src/num/lt.js */
 
 
 var lt = function(a, b){ return a < b; };
 
 exports.lt = lt;
 
-/* /home/genius/Bureau/algo/js/src/num/zfill.js */
+/* /home/genius/dev/algo/js/src/num/zfill.js */
 
 
 var zfill_t = function(n, lfill_t){
@@ -1711,8 +1313,8 @@ var zfill_t = function(n, lfill_t){
 };
 
 exports.zfill_t = zfill_t;
-/* /home/genius/Bureau/algo/js/src/random */
-/* /home/genius/Bureau/algo/js/src/random/randint.js */
+/* /home/genius/dev/algo/js/src/random */
+/* /home/genius/dev/algo/js/src/random/randint.js */
 
 
 var randint = function(i, j){
@@ -1720,8 +1322,11 @@ var randint = function(i, j){
 };
 
 exports.randint = randint;
-/* /home/genius/Bureau/algo/js/src/random/sample.js */
+/* /home/genius/dev/algo/js/src/random/sample.js */
 
+/**
+ * Sample using Fisher-Yates method.
+ */
 
 var sample_t = function(randint){
 
@@ -1741,7 +1346,7 @@ var sample_t = function(randint){
 };
 
 exports.sample_t = sample_t;
-/* /home/genius/Bureau/algo/js/src/random/shuffle.js */
+/* /home/genius/dev/algo/js/src/random/shuffle.js */
 
 
 var shuffle_t = function(sample){
@@ -1754,8 +1359,8 @@ var shuffle_t = function(sample){
 };
 
 exports.shuffle_t = shuffle_t;
-/* /home/genius/Bureau/algo/js/src/string */
-/* /home/genius/Bureau/algo/js/src/string/fill.js */
+/* /home/genius/dev/algo/js/src/string */
+/* /home/genius/dev/algo/js/src/string/fill.js */
 
 
 var lfill_t = function(c, n, mul){
@@ -1784,7 +1389,74 @@ var rfill_t = function(c, n, mul){
 
 exports.lfill_t = lfill_t;
 exports.rfill_t = rfill_t;
-/* /home/genius/Bureau/algo/js/src/string/strmul.js */
+/* /home/genius/dev/algo/js/src/string/lempelziv.js */
+
+
+/**
+ * Simple lempelziv data compression algorithm implementation.
+ */
+
+var lempelziv_t = function(Trie, end){
+
+	var lempelziv = {};
+
+	lempelziv.encode = function(input, output){
+		var j = 0;
+		var tree = new Trie(), e = tree.empty(), pt = e, tmp;
+		var i = 0, len = input.length;
+
+		tree.put('', 0);
+
+		for (; i < len; ++i) {
+
+			for (; i < len; ++i) {
+				tmp = pt.get(input, i);
+				if (tmp === undefined) break;
+				else pt = tmp;
+			}
+
+			if (i === len) break;
+
+			pt.set(input, i, ++j);
+
+			output.push([pt.value(), input[i]]);
+
+			pt = e;
+		}
+
+		output.push([pt.value(), end]);
+	};
+
+	lempelziv.decode = function(input){
+		var table = [[0, 0]], output = '';
+		var i = 0, len = input.length, el, j, c, k, l, w;
+
+		for (; i < len; ++i) {
+			el = input[i];
+			j = el[0];
+			c = el[1];
+			k = table[j][0];
+			l = table[j][1];
+			w = output.length;
+
+			output += output.slice(k, l);
+
+			if (c !== end) {
+				table.push([w, w + l - k + 1]);
+				output += c;
+			}
+		}
+
+		return output;
+
+	};
+
+	return lempelziv;
+};
+
+
+exports.lempelziv_t = lempelziv_t;
+/* /home/genius/dev/algo/js/src/string/strmul.js */
 
 
 var strmul = function(s, len){
@@ -1794,4 +1466,74 @@ var strmul = function(s, len){
 };
 
 exports.strmul = strmul;
+/* /home/genius/dev/algo/js/src/string/trie.js */
+
+/**
+ * Simple implementation of a trie.
+ * Can only add elements to the structure.
+ * The hash function must map each symbol to its own natural number.
+ * 
+ * @param {natural} <degree> cardinality of symbol set.
+ * @param {natural} <hash> hash function.
+ */
+
+var simpletrie_t = function(degree, hash){
+
+
+	var Node = function(val){
+		this.ad = new Array(degree);
+		this.val = val;
+	};
+
+	Node.prototype.get = function(key, i){
+		return this.ad[hash(key, i)];
+	};
+
+	Node.prototype.set = function(key, i, val){
+		return this.ad[hash(key, i)] = new Node(val);
+	};
+
+	Node.prototype.value = function(){
+		return this.val;
+	};
+
+
+	var Trie = function(){
+		this.pt = new Node();
+	};
+
+	Trie.prototype.empty = function(){
+		return this.pt;
+	};
+
+	Trie.prototype.put = function(key, val) {
+
+		var i = 0, len = key.length, pt = this.pt, k;
+
+		for (; i < len; ++i) {
+			k = hash(key, i);
+			pt = pt.ad[k] === undefined ? pt.ad[k] = new Node() : pt.ad[k];
+		}
+
+		pt.val = val;
+
+		return pt;
+	};
+
+
+	Trie.prototype.get = function(key) {
+
+		var i = 0, len = key.length, pt = this.pt, k;
+
+		for (; i < len; ++i) pt = pt.get(key, i);
+
+		return pt;
+	};
+
+
+	return Trie;
+
+};
+
+exports.simpletrie_t = simpletrie_t;
 })(typeof exports === 'undefined' ? this['algo'] = {} : exports);
