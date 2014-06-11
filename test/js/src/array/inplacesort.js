@@ -1,7 +1,7 @@
 var util = require('util');
 
-var check = function(ctor, n, pred) {
-	var name = util.format("quicksort (new %s(%d), %s)", ctor.name, n, pred);
+var check = function(tmpl, ctor, n, pred) {
+	var name = util.format("%s (new %s(%d), %s)", tmpl[0], ctor.name, n, pred);
 	console.log(name);
 	test(name, function (assert) {
 
@@ -12,8 +12,7 @@ var check = function(ctor, n, pred) {
 		var iota = algo.iota;
 
 		// SETUP SORT
-		var partition = algo.partition_t(pred);
-		var quicksort = algo.quicksort_t(partition);
+		var sort = tmpl[1](pred);
 
 		// SETUP ARRAY
 		var a = new ctor(n);
@@ -21,7 +20,7 @@ var check = function(ctor, n, pred) {
 
 		// SORT ARRAY
 		shuffle(a, 0, n);
-		quicksort(a, 0, n);
+		sort(a, 0, n);
 
 		// TEST PREDICATE
 		var i = a.length;
@@ -40,10 +39,16 @@ var check = function(ctor, n, pred) {
 	});
 };
 
+
+var TMPL = [
+	['quicksort', function(pred){ return algo.quicksort_t(algo.partition_t(pred)); }],
+	['insertionsort', algo.insertionsort_t],
+	['selectionsort', algo.selectionsort_t],
+	['bubblesort', algo.bubblesort_t],
+];
+
 var PRED = [
-	function(a, b){ return a <  b; },
 	function(a, b){ return a <= b; },
-	function(a, b){ return a >  b; },
 	function(a, b){ return a >= b; }
 ];
 
@@ -61,14 +66,16 @@ var CTOR = [
 	Float64Array
 ];
 
-for (var k = 0; k < CTOR.length; k++) {
-	for (var j = 0; j < N.length; j++) {
-		if(CTOR[k].BYTES_PER_ELEMENT &&
-			N[j] > Math.pow(2, CTOR[k].BYTES_PER_ELEMENT * 8)){
+for (var t = 0; t < TMPL.length; ++t) {
+	for (var k = 0; k < CTOR.length; ++k) {
+		for (var j = 0; j < N.length; ++j) {
+
+			if(CTOR[k].BYTES_PER_ELEMENT && N[j] > Math.pow(2, CTOR[k].BYTES_PER_ELEMENT * 8))
 				continue;
-		}
-		for (var i = 0; i < PRED.length; ++i) {
-			check(CTOR[k], N[j], PRED[i]);
+
+			for (var i = 0; i < PRED.length; ++i) {
+				check(TMPL[t], CTOR[k], N[j], PRED[i]);
+			}
 		}
 	}
 }

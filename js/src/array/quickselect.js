@@ -1,4 +1,8 @@
 
+/**
+ * Template for the recursive implementation of quickselect.
+ * 
+ */
 
 var quickselect_t = function(partition){
 
