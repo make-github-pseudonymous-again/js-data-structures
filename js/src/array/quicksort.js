@@ -1,5 +1,11 @@
 
 
+/**
+ * Template for the recursive implementation of quicksort.
+ * 
+ * 
+ */
+
 var quicksort_t = function(partition){
 
 	var quicksort = function(a, i, j){

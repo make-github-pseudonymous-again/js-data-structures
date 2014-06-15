@@ -1,22 +1,22 @@
 {
   "name": "algo",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "algorithm / adt templates for JavaScript",
   "main": "js/dist/algo.js",
   "dependencies": {},
   "devDependencies": {
-    "qunit": "git://github.com/gotwarlost/node-qunit.git#istanbul-coverage",
     "coveralls": "^2.10.0",
     "optimist": "^0.6.1",
     "uglify-js": "^2.4.13",
     "recquire": "^0.1.0",
     "recbuild": "^0.0.3",
-    "codeclimate-test-reporter": "0.0.3"
+    "codeclimate-test-reporter": "0.0.3",
+    "qunit": "^0.6.3",
+    "istanbul": "^0.2.11"
   },
   "scripts": {
     "build": "node js/build.js",
-    "test": "npm run patch-qunit && node test/js/run.js",
-    "patch-qunit": "export DIR=node_modules/qunit/support/qunit/qunit && mkdir -p $DIR && cp support/qunit.js $DIR/"
+    "test": "node test/js/run.js"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "complexity",
     "template"
   ],
-  "author": "aureooms",
+  "author": "Ooms Aurélien <aurelien.ooms@gmail.com> (http://aureooms.wolkom.net/)",
   "license": "GPL v2",
   "bugs": {
     "url": "https://github.com/aureooms/algo/issues"
