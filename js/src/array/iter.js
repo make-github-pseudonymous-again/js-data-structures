@@ -2,16 +2,14 @@
 
 
 var fiter = function(i, j, fn){
-	while(i < j){
+	while (i < j) {
 		fn(i);
 		++i;
 	}
 };
 
 var biter = function(i, j, fn){
-	while(--j >= i){
-		fn(j);
-	}
+	while (--j >= i) fn(j);
 };
 
 
