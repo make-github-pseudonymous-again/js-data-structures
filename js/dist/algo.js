@@ -3,8 +3,8 @@
 	'use strict';
 
 
-/* /home/genius/dev/algo/js/src/adt */
-/* /home/genius/dev/algo/js/src/adt/binomial_queue.js */
+/* /home/genius/Bureau/algo/js/src/adt */
+/* /home/genius/Bureau/algo/js/src/adt/binomial_queue.js */
 var binomial_queue_t = function(pred){
 
 	var binomial_tree_t = function(value, next){
@@ -149,7 +149,7 @@ var binomial_queue_t = function(pred){
 };
 
 exports.binomial_queue_t = binomial_queue_t;
-/* /home/genius/dev/algo/js/src/adt/lazy_binomial_queue.js */
+/* /home/genius/Bureau/algo/js/src/adt/lazy_binomial_queue.js */
 var lazy_binomial_queue_t = function(pred, opt_t){
 
 	var binomial_tree_t = function(value, next){
@@ -288,7 +288,7 @@ var lazy_binomial_queue_t = function(pred, opt_t){
 };
 
 exports.lazy_binomial_queue_t = lazy_binomial_queue_t;
-/* /home/genius/dev/algo/js/src/adt/splay_tree.js */
+/* /home/genius/Bureau/algo/js/src/adt/splay_tree.js */
 
 var splay_tree_t = function(diff){
 
@@ -384,7 +384,7 @@ var splay_tree_t = function(diff){
 };
 
 exports.splay_tree_t = splay_tree_t;
-/* /home/genius/dev/algo/js/src/adt/splay_tree_2.js */
+/* /home/genius/Bureau/algo/js/src/adt/splay_tree_2.js */
 
 var splay_tree_2_t = function(diff){
 
@@ -485,7 +485,7 @@ var splay_tree_2_t = function(diff){
 };
 
 exports.splay_tree_2_t = splay_tree_2_t;
-/* /home/genius/dev/algo/js/src/adt/splay_tree_3.js */
+/* /home/genius/Bureau/algo/js/src/adt/splay_tree_3.js */
 
 var splay_tree_3_t = function(diff){
 
@@ -585,7 +585,7 @@ var splay_tree_3_t = function(diff){
 };
 
 exports.splay_tree_3_t = splay_tree_3_t;
-/* /home/genius/dev/algo/js/src/adt/splay_tree_4.js */
+/* /home/genius/Bureau/algo/js/src/adt/splay_tree_4.js */
 
 var splay_tree_4_t = function(diff){
 
@@ -705,7 +705,7 @@ var splay_tree_4_t = function(diff){
 };
 
 exports.splay_tree_4_t = splay_tree_4_t;
-/* /home/genius/dev/algo/js/src/adt/splay_tree_5.js */
+/* /home/genius/Bureau/algo/js/src/adt/splay_tree_5.js */
 
 var splay_tree_5_t = function(diff){
 
@@ -819,8 +819,8 @@ var splay_tree_5_t = function(diff){
 };
 
 exports.splay_tree_5_t = splay_tree_5_t;
-/* /home/genius/dev/algo/js/src/array */
-/* /home/genius/dev/algo/js/src/array/binarymerge.js */
+/* /home/genius/Bureau/algo/js/src/array */
+/* /home/genius/Bureau/algo/js/src/array/binarymerge.js */
 
 
 /**
@@ -869,7 +869,7 @@ var binarymerge_t = function(diff, binarysearch_t, copy){
 };
 
 exports.binarymerge_t = binarymerge_t;
-/* /home/genius/dev/algo/js/src/array/binarysearch.js */
+/* /home/genius/Bureau/algo/js/src/array/binarysearch.js */
 
 
 var binarysearch_tt = function(pivotsearch_t){
@@ -885,7 +885,7 @@ var binarysearch_tt = function(pivotsearch_t){
 };
 
 exports.binarysearch_tt = binarysearch_tt;
-/* /home/genius/dev/algo/js/src/array/bubblesort.js */
+/* /home/genius/Bureau/algo/js/src/array/bubblesort.js */
 
 
 var bubblesort_t = function(pred){
@@ -911,18 +911,15 @@ var bubblesort_t = function(pred){
 };
 
 exports.bubblesort_t = bubblesort_t;
-/* /home/genius/dev/algo/js/src/array/copy.js */
+/* /home/genius/Bureau/algo/js/src/array/copy.js */
 
 
 var copy = function(a, i, j, b, k){
-
-	for(; i < j; ++i, ++k){
-		b[k] = a[i];
-	}
+	for (; i < j; ++i, ++k) b[k] = a[i];
 };
 
 exports.copy = copy;
-/* /home/genius/dev/algo/js/src/array/fill.js */
+/* /home/genius/Bureau/algo/js/src/array/fill.js */
 
 
 
@@ -935,7 +932,7 @@ var fill = function(a, i, j, v){
 };
 
 exports.fill = fill;
-/* /home/genius/dev/algo/js/src/array/insertionsort.js */
+/* /home/genius/Bureau/algo/js/src/array/insertionsort.js */
 
 
 var insertionsort_t = function(pred){
@@ -955,7 +952,7 @@ var insertionsort_t = function(pred){
 };
 
 exports.insertionsort_t = insertionsort_t;
-/* /home/genius/dev/algo/js/src/array/interpolationsearch.js */
+/* /home/genius/Bureau/algo/js/src/array/interpolationsearch.js */
 
 
 var interpolationsearch_tt = function(pivotsearch_t){
@@ -978,7 +975,7 @@ var interpolationsearch_tt = function(pivotsearch_t){
 };
 
 exports.interpolationsearch_tt = interpolationsearch_tt;
-/* /home/genius/dev/algo/js/src/array/iota.js */
+/* /home/genius/Bureau/algo/js/src/array/iota.js */
 
 
 
@@ -992,28 +989,26 @@ var iota = function(a, i, j, v){
 };
 
 exports.iota = iota;
-/* /home/genius/dev/algo/js/src/array/iter.js */
+/* /home/genius/Bureau/algo/js/src/array/iter.js */
 
 
 
 var fiter = function(i, j, fn){
-	while(i < j){
+	while (i < j) {
 		fn(i);
 		++i;
 	}
 };
 
 var biter = function(i, j, fn){
-	while(--j >= i){
-		fn(j);
-	}
+	while (--j >= i) fn(j);
 };
 
 
 
 exports.fiter = fiter;
 exports.biter = biter;
-/* /home/genius/dev/algo/js/src/array/merge.js */
+/* /home/genius/Bureau/algo/js/src/array/merge.js */
 
 
 var merge_t = function(index, copy){
@@ -1039,7 +1034,7 @@ var merge_t = function(index, copy){
 };
 
 exports.merge_t = merge_t;
-/* /home/genius/dev/algo/js/src/array/mergesort.js */
+/* /home/genius/Bureau/algo/js/src/array/mergesort.js */
 
 
 var mergesort_t = function(merge){
@@ -1059,7 +1054,7 @@ var mergesort_t = function(merge){
 };
 
 exports.mergesort_t = mergesort_t;
-/* /home/genius/dev/algo/js/src/array/multiselect.js */
+/* /home/genius/Bureau/algo/js/src/array/multiselect.js */
 
 
 var multiselect_t = function(partition, binarysearch){
@@ -1080,7 +1075,7 @@ var multiselect_t = function(partition, binarysearch){
 };
 
 exports.multiselect_t = multiselect_t;
-/* /home/genius/dev/algo/js/src/array/opt.js */
+/* /home/genius/Bureau/algo/js/src/array/opt.js */
 
 
 
@@ -1105,7 +1100,7 @@ var opt_t = function(pred){
 
 
 exports.opt_t = opt_t;
-/* /home/genius/dev/algo/js/src/array/partition.js */
+/* /home/genius/Bureau/algo/js/src/array/partition.js */
 var partition_t = function(pred){
 
 	var partition = function(a, i, j){
@@ -1135,7 +1130,7 @@ var partition_t = function(pred){
 };
 
 exports.partition_t = partition_t;
-/* /home/genius/dev/algo/js/src/array/pivotsearch.js */
+/* /home/genius/Bureau/algo/js/src/array/pivotsearch.js */
 
 
 var pivotsearch_t = function(diff, pivot){
@@ -1154,7 +1149,7 @@ var pivotsearch_t = function(diff, pivot){
 };
 
 exports.pivotsearch_t = pivotsearch_t;
-/* /home/genius/dev/algo/js/src/array/quickselect.js */
+/* /home/genius/Bureau/algo/js/src/array/quickselect.js */
 
 /**
  * Template for the recursive implementation of quickselect.
@@ -1176,7 +1171,7 @@ var quickselect_t = function(partition){
 
 exports.quickselect_t = quickselect_t;
 
-/* /home/genius/dev/algo/js/src/array/quicksort.js */
+/* /home/genius/Bureau/algo/js/src/array/quicksort.js */
 
 
 /**
@@ -1200,7 +1195,7 @@ var quicksort_t = function(partition){
 
 exports.quicksort_t = quicksort_t;
 
-/* /home/genius/dev/algo/js/src/array/selectionsort.js */
+/* /home/genius/Bureau/algo/js/src/array/selectionsort.js */
 
 
 var selectionsort_t = function(pred){
@@ -1231,7 +1226,7 @@ var selectionsort_t = function(pred){
 };
 
 exports.selectionsort_t = selectionsort_t;
-/* /home/genius/dev/algo/js/src/array/tapemerge.js */
+/* /home/genius/Bureau/algo/js/src/array/tapemerge.js */
 
 
 var tapemerge_t = function(pred){
@@ -1255,8 +1250,14 @@ var tapemerge_t = function(pred){
 };
 
 exports.tapemerge_t = tapemerge_t;
-/* /home/genius/dev/algo/js/src/num */
-/* /home/genius/dev/algo/js/src/num/gcd.js */
+/* /home/genius/Bureau/algo/js/src/num */
+/* /home/genius/Bureau/algo/js/src/num/eq.js */
+
+var eq = function(a, b){ return a === b; };
+
+exports.eq = eq;
+
+/* /home/genius/Bureau/algo/js/src/num/gcd.js */
 
 
 
@@ -1270,19 +1271,19 @@ var gcd = function(a, b){
 };
 
 exports.gcd = gcd;
-/* /home/genius/dev/algo/js/src/num/ge.js */
+/* /home/genius/Bureau/algo/js/src/num/ge.js */
 
 var ge = function(a, b){ return a >= b; };
 
 exports.ge = ge;
 
-/* /home/genius/dev/algo/js/src/num/gt.js */
+/* /home/genius/Bureau/algo/js/src/num/gt.js */
 
 var gt = function(a, b){ return a > b; };
 
 exports.gt = gt;
 
-/* /home/genius/dev/algo/js/src/num/lcm.js */
+/* /home/genius/Bureau/algo/js/src/num/lcm.js */
 
 
 var lcm_t = function(gcd){
@@ -1292,20 +1293,26 @@ var lcm_t = function(gcd){
 };
 
 exports.lcm_t = lcm_t;
-/* /home/genius/dev/algo/js/src/num/le.js */
+/* /home/genius/Bureau/algo/js/src/num/le.js */
 
 var le = function(a, b){ return a <= b; };
 
 exports.le = le;
 
-/* /home/genius/dev/algo/js/src/num/lt.js */
+/* /home/genius/Bureau/algo/js/src/num/lt.js */
 
 
 var lt = function(a, b){ return a < b; };
 
 exports.lt = lt;
 
-/* /home/genius/dev/algo/js/src/num/zfill.js */
+/* /home/genius/Bureau/algo/js/src/num/ne.js */
+
+var ne = function(a, b){ return a !== b; };
+
+exports.ne = ne;
+
+/* /home/genius/Bureau/algo/js/src/num/zfill.js */
 
 
 var zfill_t = function(n, lfill_t){
@@ -1313,8 +1320,8 @@ var zfill_t = function(n, lfill_t){
 };
 
 exports.zfill_t = zfill_t;
-/* /home/genius/dev/algo/js/src/random */
-/* /home/genius/dev/algo/js/src/random/randint.js */
+/* /home/genius/Bureau/algo/js/src/random */
+/* /home/genius/Bureau/algo/js/src/random/randint.js */
 
 
 var randint = function(i, j){
@@ -1322,7 +1329,7 @@ var randint = function(i, j){
 };
 
 exports.randint = randint;
-/* /home/genius/dev/algo/js/src/random/sample.js */
+/* /home/genius/Bureau/algo/js/src/random/sample.js */
 
 /**
  * Sample using Fisher-Yates method.
@@ -1346,7 +1353,7 @@ var sample_t = function(randint){
 };
 
 exports.sample_t = sample_t;
-/* /home/genius/dev/algo/js/src/random/shuffle.js */
+/* /home/genius/Bureau/algo/js/src/random/shuffle.js */
 
 
 var shuffle_t = function(sample){
@@ -1359,8 +1366,8 @@ var shuffle_t = function(sample){
 };
 
 exports.shuffle_t = shuffle_t;
-/* /home/genius/dev/algo/js/src/string */
-/* /home/genius/dev/algo/js/src/string/fill.js */
+/* /home/genius/Bureau/algo/js/src/string */
+/* /home/genius/Bureau/algo/js/src/string/fill.js */
 
 
 var lfill_t = function(c, n, mul){
@@ -1389,7 +1396,7 @@ var rfill_t = function(c, n, mul){
 
 exports.lfill_t = lfill_t;
 exports.rfill_t = rfill_t;
-/* /home/genius/dev/algo/js/src/string/lempelziv.js */
+/* /home/genius/Bureau/algo/js/src/string/lempelziv.js */
 
 
 /**
@@ -1456,7 +1463,7 @@ var lempelziv_t = function(Trie, end){
 
 
 exports.lempelziv_t = lempelziv_t;
-/* /home/genius/dev/algo/js/src/string/strmul.js */
+/* /home/genius/Bureau/algo/js/src/string/strmul.js */
 
 
 var strmul = function(s, len){
@@ -1466,7 +1473,7 @@ var strmul = function(s, len){
 };
 
 exports.strmul = strmul;
-/* /home/genius/dev/algo/js/src/string/trie.js */
+/* /home/genius/Bureau/algo/js/src/string/trie.js */
 
 /**
  * Simple implementation of a trie.
