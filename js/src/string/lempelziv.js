@@ -8,7 +8,7 @@ var lempelziv_t = function(Trie, end){
 
 	var lempelziv = {};
 
-	lempelziv.encode = function(input, output){
+	lempelziv.encode = function(input, index, suffix){
 		var j = 0;
 		var tree = new Trie(), e = tree.empty(), pt = e, tmp;
 		var i = 0, len = input.length;
@@ -27,22 +27,23 @@ var lempelziv_t = function(Trie, end){
 
 			pt.set(input, i, ++j);
 
-			output.push([pt.value(), input[i]]);
+			index.push(pt.value());
+			suffix.push(input[i]);
 
 			pt = e;
 		}
 
-		output.push([pt.value(), end]);
+		index.push(pt.value());
+		suffix.push(end);
 	};
 
-	lempelziv.decode = function(input){
+	lempelziv.decode = function(index, suffix){
 		var table = [[0, 0]], output = '';
-		var i = 0, len = input.length, el, j, c, k, l, w;
+		var i = 0, len = index.length, j, c, k, l, w;
 
 		for (; i < len; ++i) {
-			el = input[i];
-			j = el[0];
-			c = el[1];
+			j = index[i];
+			c = suffix[i];
 			k = table[j][0];
 			l = table[j][1];
 			w = output.length;

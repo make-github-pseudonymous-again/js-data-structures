@@ -1,39 +1,39 @@
 {
-  "name": "algo",
-  "version": "0.1.8",
-  "description": "algorithm / adt templates for JavaScript",
-  "main": "js/dist/algo.js",
-  "dependencies": {},
-  "devDependencies": {
-    "coveralls": "^2.10.0",
-    "optimist": "^0.6.1",
-    "uglify-js": "^2.4.13",
-    "recquire": "^0.1.0",
-    "recbuild": "^0.0.3",
-    "codeclimate-test-reporter": "0.0.3",
-    "qunit": "^0.6.3",
-    "istanbul": "^0.2.11"
-  },
-  "scripts": {
-    "build": "node js/build.js",
-    "test": "node test/js/run.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aureooms/algo.git"
-  },
-  "keywords": [
-    "js",
-    "javascript",
-    "algorithm",
-    "adt",
-    "complexity",
-    "template"
-  ],
-  "author": "Ooms Aurélien <aurelien.ooms@gmail.com> (http://aureooms.wolkom.net/)",
-  "license": "GPL v2",
-  "bugs": {
-    "url": "https://github.com/aureooms/algo/issues"
-  },
-  "homepage": "https://aureooms.github.io/algo"
+	"author": "Ooms Aur\u00e9lien <aurelien.ooms@gmail.com> (http://aureooms.wolkom.net/)",
+	"keywords": [
+		"js",
+		"javascript",
+		"algorithm",
+		"adt",
+		"complexity",
+		"template"
+	],
+	"bugs": {
+		"url": "https://github.com/aureooms/algo/issues"
+	},
+	"dependencies": {},
+	"version": "0.1.7",
+	"name": "algo",
+	"scripts": {
+		"test": "node test/js/run.js",
+		"build": "node js/build.js"
+	},
+	"devDependencies": {
+		"codeclimate-test-reporter": "0.0.3",
+		"qunit": "^0.6.3",
+		"istanbul": "^0.2.11",
+		"recbuild": "^0.0.3",
+		"optimist": "^0.6.1",
+		"recquire": "^0.1.0",
+		"coveralls": "^2.10.0",
+		"uglify-js": "^2.4.13"
+	},
+	"description": "algorithm / adt templates for JavaScript",
+	"main": "js/dist/algo.js",
+	"homepage": "https://aureooms.github.io/algo",
+	"license": "GPL v2",
+	"repository": {
+		"url": "https://github.com/aureooms/algo.git",
+		"type": "git"
+	}
 }

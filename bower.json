@@ -1,7 +1,7 @@
 {
-  "name": "algo",
-  "version": "0.1.8",
-  "description" : "algorithm / adt templates for JavaScript",
-  "homepage": "https://github.com/aureooms/algo",
-  "license": "GPL v2"
+	"name": "algo",
+	"description": "algorithm / adt templates for JavaScript",
+	"homepage": "https://github.com/aureooms/algo",
+	"license": "GPL v2",
+	"version": "0.1.7"
 }

@@ -13,11 +13,11 @@ var check = function(input){
 
 		var lempelziv = algo.lempelziv_t(Trie, '\0');
 
-		var encoded = [];
+		var index = [], suffix = [];
 
-		lempelziv.encode(input, encoded);
+		lempelziv.encode(input, index, suffix);
 
-		var decoded = lempelziv.decode(encoded);
+		var decoded = lempelziv.decode(index, suffix);
 
 
 		deepEqual(decoded, input, 'decoded message must be the same as input');
