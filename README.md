@@ -8,3 +8,11 @@ algorithm / adt templates for JavaScript
 [![Dependencies Status](https://david-dm.org/aureooms/algo.png)](https://david-dm.org/aureooms/algo#info=dependencies)
 [![devDependencies Status](https://david-dm.org/aureooms/algo/dev-status.png)](https://david-dm.org/aureooms/algo#info=devDependencies)
 [![Code Climate](https://codeclimate.com/github/aureooms/algo.png)](https://codeclimate.com/github/aureooms/algo)
+
+
+Other projects implementing algorithms :
+
+  - https://github.com/xtaci/algorithms
+  - https://github.com/nryoung/algorithms
+  - https://github.com/kanwei/algorithms
+  - https://github.com/felipernb/algorithms.js
