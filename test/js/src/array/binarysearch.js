@@ -10,6 +10,7 @@ var check = function(ctor, n, pred, diff) {
 		var sample = algo.sample_t(randint);
 		var shuffle = algo.shuffle_t(sample);
 		var iota = algo.iota;
+		var copy = algo.copy;
 
 		// SETUP SORT
 		var partition = algo.partition_t(pred);
@@ -24,7 +25,8 @@ var check = function(ctor, n, pred, diff) {
 		quicksort(ref, 0, n);
 
 		// SETUP TEST ARRAY
-		var a = ref.slice();
+		var a = new ctor(n);
+		copy(ref, 0, n, a, 0);
 
 	// TEST SEARCH
 		var i = a.length;
