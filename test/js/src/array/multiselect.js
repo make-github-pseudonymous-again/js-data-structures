@@ -10,6 +10,7 @@ var check = function(ctor, n, pred) {
 		var sample = algo.sample_t(randint);
 		var shuffle = algo.shuffle_t(sample);
 		var iota = algo.iota;
+		var copy = algo.copy;
 
 		// SETUP INDEX SEARCH
 		var index_diff = function(a, b){ return a - b; };
@@ -31,14 +32,16 @@ var check = function(ctor, n, pred) {
 		quicksort(ref, 0, n);
 
 		// SETUP TEST ARRAY
-		var a = ref.slice();
+		var a = new ctor(n);
+		copy(ref, 0, n, a, 0);
 
 		// TEST PREDICATE
 		var i = a.length;
 		
 		var len = randint(0, i + 1);
 		sample(len, a, 0, n);
-		var k = a.slice(0, len);
+		var k = new ctor(len);
+		copy(a, 0, len, k, 0);
 		index_quicksort(k, 0, len);
 
 		shuffle(a, 0, n);
