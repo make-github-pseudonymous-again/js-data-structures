@@ -1,7 +1,19 @@
 {
-	"homepage": "https://github.com/aureooms/algo",
-	"name": "algo",
-	"license": "GPL v2",
-	"description": "algorithm / adt templates for JavaScript",
-	"version": "0.1.11"
+	"homepage": "https://aureooms.github.io/js-algo",
+	"name": "aureooms-js-algo",
+	"license": "AGPL-3.0",
+	"description": "playground for algorithmic code bricks in JavaScript",
+	"version": "0.1.11",
+	"main": "js/dist/algo.js",
+	"ignore": [
+		"js/index.js",
+		"js/src",
+		"test",
+		"pkg.json",
+		"package.json",
+		".groc.json",
+		".travis.yml",
+		".gitignore",
+		"README.md"
+	]
 }

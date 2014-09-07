@@ -1,5 +1,15 @@
-var recquire_t = require('recquire');
+var pkg = require('aureooms-node-package');
 
-var recquire = recquire_t('algo', 'index.js', 'intro.js', 'outro.js', false, true);
+var fs  = require('fs');
+var data = fs.readFileSync(pkg.config, 'utf8');
+var opt = JSON.parse(data);
 
-recquire(__dirname + '/src/', module.exports, -1);
+opt = {
+	ns      : opt.ns,
+	src     : __dirname + '/src/',
+	exports : module.exports,
+	base    : 0,
+	debug   : opt.debug
+};
+
+pkg.include(opt);

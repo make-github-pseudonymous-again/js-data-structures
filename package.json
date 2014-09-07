@@ -1,10 +1,11 @@
 {
-	"homepage": "https://aureooms.github.io/algo",
+	"name": "aureooms-js-algo",
+	"description": "playground for algorithmic code bricks in JavaScript",
+	"homepage": "https://aureooms.github.io/js-algo",
 	"main": "js/dist/algo.js",
-	"description": "algorithm / adt templates for JavaScript",
 	"version": "0.1.11",
 	"repository": {
-		"url": "https://github.com/aureooms/algo.git",
+		"url": "https://github.com/aureooms/js-algo.git",
 		"type": "git"
 	},
 	"keywords": [
@@ -16,24 +17,17 @@
 		"template"
 	],
 	"scripts": {
-		"test": "node test/js/run.js",
-		"build": "node js/build.js"
+		"build": "./node_modules/.bin/aureooms-node-package-build",
+		"test": "./node_modules/.bin/aureooms-node-package-test",
+		"doc": "./node_modules/.bin/groc"
 	},
-	"author": "Ooms Aur\u00e9lien <aurelien.ooms@gmail.com> (http://aureooms.wolkom.net/)",
+	"author": "aureooms",
 	"devDependencies": {
-		"coveralls": "^2.10.0",
-		"optimist": "^0.6.1",
-		"recbuild": "^0.0.3",
-		"uglify-js": "^2.4.13",
-		"recquire": "^0.1.0",
-		"istanbul": "^0.2.11",
-		"codeclimate-test-reporter": "0.0.3",
-		"qunit": "^0.6.3"
+		"aureooms-node-package": "^1.0.0"
 	},
 	"bugs": {
-		"url": "https://github.com/aureooms/algo/issues"
+		"url": "https://github.com/aureooms/js-algo/issues"
 	},
 	"dependencies": {},
-	"name": "algo",
-	"license": "GPL v2"
+	"license": "AGPL-3.0"
 }
