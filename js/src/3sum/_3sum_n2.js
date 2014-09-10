@@ -17,7 +17,7 @@ var _3sum_n2 = function (A, ai, aj, B, bi, bj, C, ci, cj, fn) {
 		hi = bj - 1;
 
 		do {
-			
+
 			a = A[lo];
 			b = B[hi];
 			c = C[ci];
@@ -32,3 +32,5 @@ var _3sum_n2 = function (A, ai, aj, B, bi, bj, C, ci, cj, fn) {
 	}
 
 };
+
+exports._3sum_n2 = _3sum_n2;
