@@ -1,11 +1,5 @@
 (function(){
 
-var Node = function(prev, next, value){
-	this.prev = prev;
-	this.next = next;
-	this.value = value;
-};
-
 /**
  * Doubly linked list implementation
  * making use of dummy nodes for the
@@ -17,6 +11,24 @@ var DoublyLinkedList = function(){
 	this.back = new Node(this.front, null, null);
 	this.front.next = this.back;
 	this.length = 0;
+};
+
+var Node = function(prev, next, value){
+	this.prev = prev;
+	this.next = next;
+	this.value = value;
+};
+
+var Iterator = function(front, back, current){
+	this.front = front;
+	this.back = back;
+	this.current = current;
+};
+
+var ReverseIterator = function(front, back, current){
+	this.front = front;
+	this.back = back;
+	this.current = current;
 };
 
 DoublyLinkedList.prototype.insertAfter = function(iterator, value){
@@ -56,11 +68,21 @@ DoublyLinkedList.prototype.push = function(value){
 DoublyLinkedList.prototype.erase = function(iterator){
 	var node = iterator.current;
 
+	node.prev.next = node.next;
+	node.next.prev = node.prev;	
+
+	--this.length;
+	return this.iterator(node.next);
+};
+
+DoublyLinkedList.prototype.rerase = function(iterator){
+	var node = iterator.current;
+
 	node.next.prev = node.prev;	
 	node.prev.next = node.next;
 
 	--this.length;
-	return this.iterator(node.next);
+	return this.iterator(node.prev);
 };
 
 DoublyLinkedList.prototype.eraserange = function(first, last){
@@ -80,6 +102,23 @@ DoublyLinkedList.prototype.eraserange = function(first, last){
 	return last.copy();
 };
 
+DoublyLinkedList.prototype.reraserange = function(first, last){
+	var firstnode, lastnode, it;
+	firstnode = first.current;
+	lastnode = last.current;
+
+	lastnode.next = firstnode.next;	
+	firstnode.next.prev = lastnode;
+
+	it = first.copy();
+
+	while (it.current !== lastnode) {
+		--this.length;
+		it.next();
+	}
+	return last.copy();
+};
+
 DoublyLinkedList.prototype.shift = function(){
 	var it = this.begin();
 	var e = it.next();
@@ -88,7 +127,7 @@ DoublyLinkedList.prototype.shift = function(){
 		return null;
 	}
 	
-	this.erase(it);
+	this.rerase(it);
 	return e.value;
 };
 
@@ -133,19 +172,6 @@ DoublyLinkedList.prototype.rbegin = function(){
 
 DoublyLinkedList.prototype.rend = function(){
 	return this.riterator(this.front);
-};
-
-
-var Iterator = function(front, back, current){
-	this.front = front;
-	this.back = back;
-	this.current = current;
-};
-
-var ReverseIterator = function(front, back, current){
-	this.front = front;
-	this.back = back;
-	this.current = current;
 };
 
 Iterator.prototype.copy = function() {
