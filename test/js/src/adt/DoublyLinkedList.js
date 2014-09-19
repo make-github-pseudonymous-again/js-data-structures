@@ -121,6 +121,13 @@ test("DoublyLinkedList", function(){
 		}
 	};
 
+	var clear = function(){
+		dll.clear();
+		expectedArrayForward.splice(0);
+		expectedArrayBackward.splice(0);
+	};
+
+	clear();
 	add20();
 	del20();
 
@@ -134,11 +141,10 @@ test("DoublyLinkedList", function(){
 
 	deepEqual(dll.length, 0, "length is 0");
 
+	clear();
 	add20();
 
-	dll.clear();
-	expectedArrayForward.splice(0);
-	expectedArrayBackward.splice(0);
+	clear();
 
 	deepEqual(dll.length, 0, "length is 0");
 
@@ -148,6 +154,7 @@ test("DoublyLinkedList", function(){
 	deepEqual(arrayForward, expectedArrayForward, "content is equal");
 	deepEqual(arrayBackward, expectedArrayBackward, "content is equal");
 
+	clear();
 	add20();
 
 	first = dll.begin();
@@ -166,6 +173,7 @@ test("DoublyLinkedList", function(){
 	deepEqual(arrayForward, expectedArrayForward, "content is equal");
 	deepEqual(arrayBackward, expectedArrayBackward, "content is equal");
 
+	clear();
 	add20();
 
 	first = dll.rbegin();
@@ -177,6 +185,59 @@ test("DoublyLinkedList", function(){
 	expectedArrayBackward.splice(0);
 
 	deepEqual(dll.length, 0, "length is 0");
+
+	arrayForward = dllToArrayForward(dll);
+	arrayBackward = dllToArrayBackward(dll);
+
+	deepEqual(arrayForward, expectedArrayForward, "content is equal");
+	deepEqual(arrayBackward, expectedArrayBackward, "content is equal");
+
+
+	clear();
+	add20();
+
+	m = 5;
+
+	first = dll.begin();
+	last = dll.end();
+	first.next();
+	for (i = 0; i < m; ++i) {
+		first.next();
+		last.prev();
+	}
+
+	dll.eraserange(first, last);
+	expectedArrayForward.splice(m, n - m - m);
+	expectedArrayBackward.splice(m, n - m - m);
+
+	deepEqual(dll.length, expectedArrayForward.length, "length check");
+	deepEqual(dll.length, expectedArrayBackward.length, "length check");
+
+	arrayForward = dllToArrayForward(dll);
+	arrayBackward = dllToArrayBackward(dll);
+
+	deepEqual(arrayForward, expectedArrayForward, "content is equal");
+	deepEqual(arrayBackward, expectedArrayBackward, "content is equal");
+
+	clear();
+	add20();
+
+	m = 5;
+
+	first = dll.rbegin();
+	last = dll.rend();
+	first.next();
+	for (i = 0; i < m; ++i) {
+		first.next();
+		last.prev();
+	}
+
+	dll.reraserange(first, last);
+	expectedArrayForward.splice(m, n - m - m);
+	expectedArrayBackward.splice(m, n - m - m);
+
+	deepEqual(dll.length, expectedArrayForward.length, "length check");
+	deepEqual(dll.length, expectedArrayBackward.length, "length check");
 
 	arrayForward = dllToArrayForward(dll);
 	arrayBackward = dllToArrayBackward(dll);
