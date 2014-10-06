@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="en"><head><title>adt/DoublyLinkedList</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="adt/DoublyLinkedList"><meta name="groc-project-path" content="js/src/adt/DoublyLinkedList.js"><meta name="groc-github-url" content="https://github.com/aureooms/js-algo"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/aureooms/js-algo/blob/master/js/src/adt/DoublyLinkedList.js">js/src/adt/DoublyLinkedList.js</a></div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper">(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Doubly linked list implementation
+making use of dummy nodes for the
+sake of simplicity.</p></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> DoublyLinkedList = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+	<span class="hljs-keyword">this</span>.front = <span class="hljs-keyword">new</span> Node(<span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>);
+	<span class="hljs-keyword">this</span>.back = <span class="hljs-keyword">new</span> Node(<span class="hljs-keyword">this</span>.front, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>);
+	<span class="hljs-keyword">this</span>.front.next = <span class="hljs-keyword">this</span>.back;
+	<span class="hljs-keyword">this</span>.length = <span class="hljs-number">0</span>;
+};
+
+<span class="hljs-keyword">var</span> Node = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(prev, next, value)</span>{</span>
+	<span class="hljs-keyword">this</span>.prev = prev;
+	<span class="hljs-keyword">this</span>.next = next;
+	<span class="hljs-keyword">this</span>.value = value;
+};
+
+<span class="hljs-keyword">var</span> Iterator = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(front, back, current)</span>{</span>
+	<span class="hljs-keyword">this</span>.front = front;
+	<span class="hljs-keyword">this</span>.back = back;
+	<span class="hljs-keyword">this</span>.current = current;
+};
+
+<span class="hljs-keyword">var</span> ReverseIterator = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(front, back, current)</span>{</span>
+	<span class="hljs-keyword">this</span>.front = front;
+	<span class="hljs-keyword">this</span>.back = back;
+	<span class="hljs-keyword">this</span>.current = current;
+};
+
+DoublyLinkedList.prototype.insertAfter = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(iterator, value)</span>{</span>
+	<span class="hljs-keyword">var</span> node, prev;
+
+	prev = iterator.current;
+
+	node = <span class="hljs-keyword">new</span> Node(prev, prev.next, value);
+	prev.next.prev = node;
+	prev.next = node;
+
+	++<span class="hljs-keyword">this</span>.length;
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.iterator(node);
+};
+
+DoublyLinkedList.prototype.insertBefore = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(iterator, value)</span>{</span>
+	<span class="hljs-keyword">var</span> node, next;
+
+	next = iterator.current;
+
+	node = <span class="hljs-keyword">new</span> Node(next.prev, next, value);
+	next.prev.next = node;
+	next.prev = node;
+
+	++<span class="hljs-keyword">this</span>.length;
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.iterator(node);
+};
+
+DoublyLinkedList.prototype.unshift = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(value)</span>{</span>
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.insertAfter(<span class="hljs-keyword">this</span>.begin(), value);
+};
+
+DoublyLinkedList.prototype.push = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(value)</span>{</span>
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.insertBefore(<span class="hljs-keyword">this</span>.end(), value);
+};
+
+DoublyLinkedList.prototype.erase = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(iterator)</span>{</span>
+	<span class="hljs-keyword">var</span> node = iterator.current;
+
+	node.prev.next = node.next;
+	node.next.prev = node.prev;	
+
+	--<span class="hljs-keyword">this</span>.length;
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.iterator(node.next);
+};
+
+DoublyLinkedList.prototype.rerase = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(iterator)</span>{</span>
+	<span class="hljs-keyword">var</span> node = iterator.current;
+
+	node.next.prev = node.prev;	
+	node.prev.next = node.next;
+
+	--<span class="hljs-keyword">this</span>.length;
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.iterator(node.prev);
+};
+
+DoublyLinkedList.prototype.eraserange = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(first, last)</span>{</span>
+	<span class="hljs-keyword">var</span> firstnode, lastnode, it;
+	firstnode = first.current;
+	lastnode = last.current;
+
+	lastnode.prev = firstnode.prev;	
+	firstnode.prev.next = lastnode;
+
+	it = first.copy();
+
+	<span class="hljs-keyword">while</span> (it.current !== lastnode) {
+		--<span class="hljs-keyword">this</span>.length;
+		it.next();
+	}
+	<span class="hljs-keyword">return</span> last.copy();
+};
+
+DoublyLinkedList.prototype.reraserange = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(first, last)</span>{</span>
+	<span class="hljs-keyword">var</span> firstnode, lastnode, it;
+	firstnode = first.current;
+	lastnode = last.current;
+
+	lastnode.next = firstnode.next;	
+	firstnode.next.prev = lastnode;
+
+	it = first.copy();
+
+	<span class="hljs-keyword">while</span> (it.current !== lastnode) {
+		--<span class="hljs-keyword">this</span>.length;
+		it.next();
+	}
+	<span class="hljs-keyword">return</span> last.copy();
+};
+
+DoublyLinkedList.prototype.shift = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+	<span class="hljs-keyword">var</span> it = <span class="hljs-keyword">this</span>.begin();
+	<span class="hljs-keyword">var</span> e = it.next();
+
+	<span class="hljs-keyword">if</span> (e.done) {
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+	}
+	
+	<span class="hljs-keyword">this</span>.rerase(it);
+	<span class="hljs-keyword">return</span> e.value;
+};
+
+DoublyLinkedList.prototype.pop = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+	<span class="hljs-keyword">var</span> it = <span class="hljs-keyword">this</span>.rbegin();
+	<span class="hljs-keyword">var</span> e = it.next();
+
+	<span class="hljs-keyword">if</span> (e.done) {
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+	}
+	
+	<span class="hljs-keyword">this</span>.erase(it);
+	<span class="hljs-keyword">return</span> e.value;
+};
+
+DoublyLinkedList.prototype.clear = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+	<span class="hljs-keyword">this</span>.front.next = <span class="hljs-keyword">this</span>.back;
+	<span class="hljs-keyword">this</span>.back.prev = <span class="hljs-keyword">this</span>.front;
+	<span class="hljs-keyword">this</span>.length = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+};
+
+DoublyLinkedList.prototype.iterator = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(node)</span>{</span>
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Iterator(<span class="hljs-keyword">this</span>.front, <span class="hljs-keyword">this</span>.back, node);
+};
+
+DoublyLinkedList.prototype.riterator = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(node)</span>{</span>
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ReverseIterator(<span class="hljs-keyword">this</span>.front, <span class="hljs-keyword">this</span>.back, node);
+};
+
+DoublyLinkedList.prototype.begin = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.iterator(<span class="hljs-keyword">this</span>.front);
+};
+
+DoublyLinkedList.prototype.end = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.iterator(<span class="hljs-keyword">this</span>.back);
+};
+
+DoublyLinkedList.prototype.rbegin = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.riterator(<span class="hljs-keyword">this</span>.back);
+};
+
+DoublyLinkedList.prototype.rend = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.riterator(<span class="hljs-keyword">this</span>.front);
+};
+
+Iterator.prototype.copy = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Iterator(<span class="hljs-keyword">this</span>.front, <span class="hljs-keyword">this</span>.back, <span class="hljs-keyword">this</span>.current);
+};
+
+ReverseIterator.prototype.copy = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ReverseIterator(<span class="hljs-keyword">this</span>.front, <span class="hljs-keyword">this</span>.back, <span class="hljs-keyword">this</span>.current);
+};
+
+Iterator.prototype.next =
+ReverseIterator.prototype.prev =
+<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+	<span class="hljs-keyword">this</span>.current = <span class="hljs-keyword">this</span>.current.next;
+	<span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.current === <span class="hljs-keyword">this</span>.back) {
+		<span class="hljs-keyword">return</span> { done : <span class="hljs-literal">true</span> };
+	}
+	<span class="hljs-keyword">else</span> {
+		<span class="hljs-keyword">return</span> {
+			value : <span class="hljs-keyword">this</span>.current.value,
+			done : <span class="hljs-literal">false</span>
+		};
+	}
+};
+
+Iterator.prototype.prev =
+ReverseIterator.prototype.next =
+<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+	<span class="hljs-keyword">this</span>.current = <span class="hljs-keyword">this</span>.current.prev;
+	<span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.current === <span class="hljs-keyword">this</span>.front) {
+		<span class="hljs-keyword">return</span> { done : <span class="hljs-literal">true</span> };
+	}
+	<span class="hljs-keyword">else</span> {
+		<span class="hljs-keyword">return</span> {
+			value : <span class="hljs-keyword">this</span>.current.value,
+			done : <span class="hljs-literal">false</span>
+		};
+	}
+};
+
+DoublyLinkedList.Node = Node;
+DoublyLinkedList.Iterator = Iterator;
+DoublyLinkedList.ReverseIterator = ReverseIterator;
+
+
+exports.DoublyLinkedList = DoublyLinkedList;
+
+})();</div></div></div></div></body></html>
