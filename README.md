@@ -22,3 +22,4 @@ other projects implementing algorithms :
   - https://github.com/nryoung/algorithms
   - https://github.com/kanwei/algorithms
   - https://github.com/felipernb/algorithms.js
+  - https://github.com/phishman3579/java-algorithms-implementation
