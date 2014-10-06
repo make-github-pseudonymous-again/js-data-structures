@@ -1741,13 +1741,13 @@ exports.strmul = strmul;
 /**
  * Simple implementation of a trie.
  * Can only add elements to the structure.
- * The hash function must map each symbol to its own natural number.
- * 
- * @param {natural} <degree> cardinality of symbol set.
- * @param {natural} <hash> hash function.
+ * The code function must map each symbol to its own natural number.
+ *
+ * @param {natural} degree cardinality of symbol set
+ * @param {natural} code code function
  */
 
-var simpletrie_t = function(degree, hash){
+var simpletrie_t = function(degree, code){
 
 
 	var Node = function(val){
@@ -1756,11 +1756,11 @@ var simpletrie_t = function(degree, hash){
 	};
 
 	Node.prototype.get = function(key, i){
-		return this.ad[hash(key, i)];
+		return this.ad[code(key, i)];
 	};
 
 	Node.prototype.set = function(key, i, val){
-		return this.ad[hash(key, i)] = new Node(val);
+		return this.ad[code(key, i)] = new Node(val);
 	};
 
 	Node.prototype.value = function(){
@@ -1781,7 +1781,7 @@ var simpletrie_t = function(degree, hash){
 		var i = 0, len = key.length, pt = this.pt, k;
 
 		for (; i < len; ++i) {
-			k = hash(key, i);
+			k = code(key, i);
 			pt = pt.ad[k] === undefined ? pt.ad[k] = new Node() : pt.ad[k];
 		}
 
@@ -1806,4 +1806,5 @@ var simpletrie_t = function(degree, hash){
 };
 
 exports.simpletrie_t = simpletrie_t;
+
 })(typeof exports === 'undefined' ? this['algo'] = {} : exports);
