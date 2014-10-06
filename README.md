@@ -1,5 +1,6 @@
 [js-algo](http://aureooms.github.io/js-algo)
 ====
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/aureooms/js-algo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 playground for algorithmic code bricks in JavaScript
 
