@@ -3,7 +3,7 @@
 	"name": "aureooms-js-algo",
 	"license": "AGPL-3.0",
 	"description": "playground for algorithmic code bricks in JavaScript",
-	"version": "0.2.4",
+	"version": "0.2.5",
 	"main": "js/dist/algo.js",
 	"ignore": [
 		"js/index.js",
