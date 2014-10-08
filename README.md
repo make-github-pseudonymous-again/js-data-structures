@@ -23,3 +23,32 @@ other projects implementing algorithms :
   - https://github.com/kanwei/algorithms
   - https://github.com/felipernb/algorithms.js
   - https://github.com/phishman3579/java-algorithms-implementation
+
+
+this project is just a playground for any algorithm / procedure, data structure that doesn't fit in any of those project
+
+  - [js-array](https://github.com/aureooms/js-array)
+  - [js-bit](https://github.com/aureooms/js-bit)
+  - [js-cg](https://github.com/aureooms/js-cg)
+  - [js-code](https://github.com/aureooms/js-code)
+  - [js-complex](https://github.com/aureooms/js-complex)
+  - [js-functools](https://github.com/aureooms/js-functools)
+  - [js-gn](https://github.com/aureooms/js-gn)
+  - [js-hash](https://github.com/aureooms/js-hash)
+  - [js-ho](https://github.com/aureooms/js-ho)
+  - [js-integer](https://github.com/aureooms/js-integer)
+  - [js-itertools](https://github.com/aureooms/js-itertools)
+  - [js-math](https://github.com/aureooms/js-math)
+  - [js-matrix](https://github.com/aureooms/js-matrix)
+  - [js-mem](https://github.com/aureooms/js-mem)
+  - [js-nlp](https://github.com/aureooms/js-nlp)
+  - [js-object](https://github.com/aureooms/js-object)
+  - [js-operator](https://github.com/aureooms/js-operator)
+  - [js-oro](https://github.com/aureooms/js-oro)
+  - [js-polynomial](https://github.com/aureooms/js-polynomial)
+  - [js-prime](https://github.com/aureooms/js-prime)
+  - [js-random](https://github.com/aureooms/js-random)
+  - [js-rational](https://github.com/aureooms/js-rational)
+  - [js-search](https://github.com/aureooms/js-search)
+  - [js-sort](https://github.com/aureooms/js-sort)
+  - [js-string](https://github.com/aureooms/js-string)
