@@ -1,15 +1,13 @@
+var util, array;
 
+util = require( "util" );
+array = require( "aureooms-js-array" );
 
 test("3sum", function(){
 
 	console.log("3sum");
 
-	var cmp = function (a, b) { return a < b; };
-	var __partition__ = algo.partition_t;
-	var __quicksort__ = algo.quicksort_t;
-	var partition = __partition__(cmp);
-	var quicksort = __quicksort__(partition);
-	var iota = algo.iota;
+	var iota = array.iota;
 
 	var n = 100;
 

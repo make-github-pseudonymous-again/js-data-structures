@@ -1,4 +1,4 @@
-var lazy_binomial_queue_t = function(pred, opt_t){
+var lazy_binomial_queue_t = function(pred, __opt__){
 
 	var binomial_tree_t = function(value, next){
 		this.value = value;
@@ -42,14 +42,14 @@ var lazy_binomial_queue_t = function(pred, opt_t){
 		++queue.length;
 	};
 
-	var max = opt_t(function(a, b){ return a.rank() > b.rank(); });
+	var max = __opt__(function(a, b){ return a.rank() > b.rank(); });
 
 	var lazy_binomial_queue_merge = function(queue, tree_l){
-		if(tree_l.length === 0) return;
+		if ( tree_l.length === 0 ) return;
 
 		var r = null;
 
-		var m = max(tree_l);
+		var m = max(tree_l, 0, tree_l.length);
 		while(queue.list.length < m.rank() + 2) queue.list.push(null);
 
 		for(var i = 0; i < tree_l.length; ++i){

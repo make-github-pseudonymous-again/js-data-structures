@@ -1,4 +1,7 @@
-var util = require('util');
+var util, array;
+
+util = require( "util" );
+array = require ( "aureooms-js-array" );
 
 var check = function(tmpl_name, tmpl, pred, n, diff){
 
@@ -7,7 +10,7 @@ var check = function(tmpl_name, tmpl, pred, n, diff){
 	test(name, function(assert){
 
 
-		var PriorityQueue = tmpl(pred, algo.opt_t);
+		var PriorityQueue = tmpl(pred, array.__opt__);
 
 		var q = new PriorityQueue();
 		var a = [];

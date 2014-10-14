@@ -412,7 +412,7 @@ var binomial_queue_t = function(pred){
 
 exports.binomial_queue_t = binomial_queue_t;
 /* js/src/adt/lazy_binomial_queue.js */
-var lazy_binomial_queue_t = function(pred, opt_t){
+var lazy_binomial_queue_t = function(pred, __opt__){
 
 	var binomial_tree_t = function(value, next){
 		this.value = value;
@@ -456,14 +456,14 @@ var lazy_binomial_queue_t = function(pred, opt_t){
 		++queue.length;
 	};
 
-	var max = opt_t(function(a, b){ return a.rank() > b.rank(); });
+	var max = __opt__(function(a, b){ return a.rank() > b.rank(); });
 
 	var lazy_binomial_queue_merge = function(queue, tree_l){
-		if(tree_l.length === 0) return;
+		if ( tree_l.length === 0 ) return;
 
 		var r = null;
 
-		var m = max(tree_l);
+		var m = max(tree_l, 0, tree_l.length);
 		while(queue.list.length < m.rank() + 2) queue.list.push(null);
 
 		for(var i = 0; i < tree_l.length; ++i){
@@ -550,6 +550,7 @@ var lazy_binomial_queue_t = function(pred, opt_t){
 };
 
 exports.lazy_binomial_queue_t = lazy_binomial_queue_t;
+
 /* js/src/adt/splay_tree.js */
 
 var splay_tree_t = function(diff){
@@ -1082,175 +1083,6 @@ var splay_tree_5_t = function(diff){
 
 exports.splay_tree_5_t = splay_tree_5_t;
 /* js/src/array */
-/* js/src/array/binarymerge.js */
-
-
-/**
- * Merges 2 arrays using the Hwang Lin algorithm.
- *
- *   /!\ j - i >= l - k 
- */
-
-var binarymerge_t = function(diff, binarysearch_t, copy){
-
-	var binarysearch = binarysearch_t(diff);
-
-	var hwanglin = function(a, i, j, b, k, l, c, m){
-
-		var o = m - i - k;
-		var t = i, q, d, z;
-
-		var x = Math.pow(2, Math.floor(Math.log((j-i)/(l-k))));
-		var y = Math.floor((j-i) / x) + 1;
-
-			
-		while (k < l && (i + x < j || (x = j - i))) {
-			t = i;
-			i = t + x;
-			while (k < l) {
-				if (diff(b[k], a[i]) >= 0) {
-					copy(a, t, i, c, o + t + k);
-					break;
-				}
-				q = binarysearch(b[k], a, t, i);
-				z = q[0] + q[1];
-				copy(a, t, z, c, o + t + k);
-				c[o + z + k] = b[k];
-				t = z;
-				++k;
-			}
-		}
-
-		copy(a, t, j, c, o + t + k);
-		copy(b, k, l, c, o + j + k);
-
-	};
-
-	return hwanglin;
-
-};
-
-exports.binarymerge_t = binarymerge_t;
-/* js/src/array/binarysearch.js */
-
-
-var binarysearch_tt = function(pivotsearch_t){
-
-	return function(diff){
-
-		return pivotsearch_t(diff, function(k, a, i, j){
-			return Math.floor((i + j) / 2);
-		});
-
-	};
-
-};
-
-exports.binarysearch_tt = binarysearch_tt;
-/* js/src/array/bubblesort.js */
-
-
-var bubblesort_t = function(pred){
-
-	var bubblesort = function(a, i, j){
-		var swapped = true, k, s = j-1, t;
-
-		do {
-			swapped = false;
-			for (k = i; k < s; ++k) {
-				if (!pred(a[k], a[k+1])) {
-					t = a[k];
-					a[k] = a[k+1];
-					a[k+1] = t;
-					swapped = true;
-				}
-			}
-		} while (swapped);
-	};
-
-	return bubblesort;
-
-};
-
-exports.bubblesort_t = bubblesort_t;
-/* js/src/array/copy.js */
-
-
-var copy = function(a, i, j, b, k){
-	for (; i < j; ++i, ++k) b[k] = a[i];
-};
-
-exports.copy = copy;
-/* js/src/array/fill.js */
-
-
-
-var fill = function(a, i, j, v){
-	--i;
-	while(++i < j){
-		a[i] = v;
-	}
-
-};
-
-exports.fill = fill;
-/* js/src/array/insertionsort.js */
-
-
-var insertionsort_t = function(pred){
-
-	var insertionsort = function(a, i, j){
-		var o, k = i + 1, t;
-
-		for (; k < j; ++k) {
-			t = k; o = a[t];
-			while (t --> i && !pred(a[t], o)) a[t + 1] = a[t];
-			a[t + 1] = o;
-		}
-	};
-
-	return insertionsort;
-
-};
-
-exports.insertionsort_t = insertionsort_t;
-/* js/src/array/interpolationsearch.js */
-
-
-var interpolationsearch_tt = function(pivotsearch_t){
-
-	return function(diff){
-
-		return pivotsearch_t(diff, function(k, a, i, j){
-			var w = diff(a[j-1], a[i]);
-			var d = diff(k, a[i]);
-			if(w === 0){
-				w = 1;
-				d = d > 0;
-			}
-			var p = i + Math.floor(d * (j - i - 1) / w);
-			return Math.max(i, Math.min(j - 1, p));
-		});
-
-	};
-
-};
-
-exports.interpolationsearch_tt = interpolationsearch_tt;
-/* js/src/array/iota.js */
-
-
-
-var iota = function(a, i, j, v){
-	if (v === undefined) v = 0;
-	--i; --v;
-
-	while(++i < j){
-		a[i] = ++v;
-	}
-};
-
-exports.iota = iota;
 /* js/src/array/iter.js */
 
 
@@ -1270,248 +1102,6 @@ var biter = function(i, j, fn){
 
 exports.fiter = fiter;
 exports.biter = biter;
-/* js/src/array/merge.js */
-
-
-var merge_t = function(index, copy){
-
-	var merge = function(a, i, j, b, k, l, c, m){
-
-		var o = m - i - k;
-		var t = i;
-
-		for(; k < l; ++k){
-			var q = index(b[k], a, i, j);
-			i = q[0] + q[1];
-			copy(a, t, i, c, o + t + k);
-			c[o + i + k] = b[k];
-			t = i;
-		}
-
-		copy(a, t, j, c, o + t + k);
-	};
-
-	return merge;
-
-};
-
-exports.merge_t = merge_t;
-/* js/src/array/mergesort.js */
-
-
-var mergesort_t = function(merge){
-
-	var mergesort = function(a, i, j, d, l, r){
-		if(j - i < 2) return;
-
-		var p = Math.floor((i + j) / 2);
-		mergesort(a, i, p, d, l, l + p - i);
-		mergesort(a, p, j, d, l + p - i, r);
-		merge(a, i, p, a, p, j, d, l);
-		for(var t = 0; t < j - i; ++t) a[i + t] = d[l + t];
-	};
-
-	return mergesort;
-
-};
-
-exports.mergesort_t = mergesort_t;
-/* js/src/array/multiselect.js */
-
-
-var multiselect_t = function(partition, binarysearch){
-
-	var multiselect = function(k, l, r, a, i, j){
-
-		if(j - i < 2 || r - l === 0) return;
-
-		var p = partition(a, i, j);
-		var q = binarysearch(p, k, l, r);
-
-		multiselect(k, l, q[1], a, i, p);
-		multiselect(k, q[0] + q[1], r, a, p + 1, j);
-	};
-
-	return multiselect;
-
-};
-
-exports.multiselect_t = multiselect_t;
-/* js/src/array/opt.js */
-
-
-
-
-var opt_t = function(pred){
-
-	var opt = function(a) {
-		var c = a[0];
-
-		var i = a.length;
-
-		while(--i){
-			if(pred(a[i], c)) c = a[i];
-		}
-
-		return c;
-	};
-
-	return opt;
-
-};
-
-
-exports.opt_t = opt_t;
-/* js/src/array/partition.js */
-var partition_t = function(pred){
-
-	var partition = function(a, i, j){
-
-		var t, p = a[i], k = i + 1;
-		--j;
-
-
-		while(k <= j){
-			if(pred(p, a[k])){
-				t    = a[k];
-				a[k] = a[j];
-				a[j] = t;
-				--j;
-			}
-			else ++k;
-		}
-
-		a[i]   = a[k-1];
-		a[k-1] = p;
-
-		return k - 1;
-	};
-
-	return partition;
-
-};
-
-exports.partition_t = partition_t;
-/* js/src/array/pivotsearch.js */
-
-
-var pivotsearch_t = function(diff, pivot){
-
-	var pivotsearch = function(k, a, i, j){
-		if (i === j) return [0, i];
-		var p = pivot(k, a, i, j);
-		var d = diff(k, a[p]);
-		if      (d === 0) return [1, p];
-		else if (d   < 0) return pivotsearch(k, a, i, p);
-		else              return pivotsearch(k, a, p + 1, j);
-	};
-
-	return pivotsearch;
-
-};
-
-exports.pivotsearch_t = pivotsearch_t;
-/* js/src/array/quickselect.js */
-
-/**
- * Template for the recursive implementation of quickselect.
- * 
- */
-
-var quickselect_t = function(partition){
-
-	var quickselect = function(k, a, i, j){
-		if(j - i < 2) return;
-		var p = partition(a, i, j);
-		if      (k < p) quickselect(k, a, i, p);
-		else if (k > p) quickselect(k, a, p + 1, j);
-	};
-
-	return quickselect;
-
-};
-
-exports.quickselect_t = quickselect_t;
-
-/* js/src/array/quicksort.js */
-
-
-/**
- * Template for the recursive implementation of quicksort.
- * 
- * 
- */
-
-var quicksort_t = function(partition){
-
-	var quicksort = function(a, i, j){
-		if(j - i < 2) return;
-		var p = partition(a, i, j);
-		quicksort(a, i, p);
-		quicksort(a, p + 1, j);
-	};
-
-	return quicksort;
-
-};
-
-exports.quicksort_t = quicksort_t;
-
-/* js/src/array/selectionsort.js */
-
-
-var selectionsort_t = function(pred){
-
-	var selectionsort = function(a, i, j){
-		var o, t, k;
-
-		for (; i < j; ++i) {
-			t = k = i;
-			o = a[t];
-
-			while (++t < j)
-				if (!pred(o, a[t])) {
-					o = a[t];
-					k = t;
-				}
-
-			if (k > i) {
-				a[k] = a[i];
-				a[i] = o;
-			}
-
-		}
-	};
-
-	return selectionsort;
-
-};
-
-exports.selectionsort_t = selectionsort_t;
-/* js/src/array/tapemerge.js */
-
-
-var tapemerge_t = function(pred){
-
-	var tapemerge = function(a, i, j, b, k, l, c, m){
-		var n = m + j - i + l - k;
-		
-		for(; m < n; ++m){
-			if(k >= l || (i < j && pred(a[i], b[k]))){
-				c[m] = a[i]; ++i;
-			}
-			else{
-				c[m] = b[k]; ++k;
-			}
-		}
-		
-	};
-
-	return tapemerge;
-
-};
-
-exports.tapemerge_t = tapemerge_t;
 /* js/src/num */
 /* js/src/num/eq.js */
 
@@ -1582,52 +1172,6 @@ var zfill_t = function(n, lfill_t){
 };
 
 exports.zfill_t = zfill_t;
-/* js/src/random */
-/* js/src/random/randint.js */
-
-
-var randint = function(i, j){
-	return i + Math.floor(Math.random() * (j - i));
-};
-
-exports.randint = randint;
-/* js/src/random/sample.js */
-
-/**
- * Sample using Fisher-Yates method.
- */
-
-var sample_t = function(randint){
-
-	var sample = function(n, a, i, j){
-		var tmp, k, t = i - 1, x = i + n;
-
-		while(++t < x){
-			k    = randint(t, j);
-			tmp  = a[t];
-			a[t] = a[k];
-			a[k] = tmp;
-		}
-	};
-
-	return sample;
-
-};
-
-exports.sample_t = sample_t;
-/* js/src/random/shuffle.js */
-
-
-var shuffle_t = function(sample){
-
-	var shuffle = function(a, i, j){
-		sample(j - i, a, i, j);
-	};
-
-	return shuffle;
-};
-
-exports.shuffle_t = shuffle_t;
 /* js/src/string */
 /* js/src/string/fill.js */
 

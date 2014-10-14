@@ -1,4 +1,7 @@
-var util = require('util');
+var util, random;
+
+util = require( "util" );
+random = require( "aureooms-js-random" );
 
 var check = function(tmpl_name, tmpl, diff, n){
 
@@ -10,8 +13,8 @@ var check = function(tmpl_name, tmpl, diff, n){
 
 
 		var SplayTree = tmpl(diff);
-		var sample = algo.sample_t(algo.randint);
-		var shuffle = algo.shuffle_t(sample);
+		var sample = random.__sample__(random.randint);
+		var shuffle = random.__shuffle__(sample);
 
 		var bt = new SplayTree();
 		var a = [];
