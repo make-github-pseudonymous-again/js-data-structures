@@ -1,6 +1,7 @@
-var util, random;
+var util, random, sort;
 
 util = require( "util" );
+sort = require( "aureooms-js-sort" );
 random = require( "aureooms-js-random" );
 
 var check = function(tmpl_name, tmpl, diff, n){
@@ -20,13 +21,14 @@ var check = function(tmpl_name, tmpl, diff, n){
 		var a = [];
 
 		var i = n, x;
-		while(i--){
+
+		while ( i-- ) {
 			x = Math.random();
 			bt.insert(x);
 			a.push(x);
 		}
 
-		a.sort(diff);
+		a.sort( diff );
 
 		var b = [], c = [], d, e, half = Math.floor(n/2);
 
@@ -125,8 +127,8 @@ I = [
 ];
 
 var DIFF = [
-	function(a, b){ return a - b; },
-	function(a, b){ return b - a; }
+	sort.increasing,
+	sort.decreasing
 ];
 
 

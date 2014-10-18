@@ -1,7 +1,8 @@
-var util, array;
+var util, array, sort;
 
 util = require( "util" );
 array = require ( "aureooms-js-array" );
+sort = require( "aureooms-js-sort" );
 
 var check = function(tmpl_name, tmpl, pred, n, diff){
 
@@ -45,8 +46,8 @@ I = [
 ];
 
 var DIFF = [
-	function(a, b){ return a - b; },
-	function(a, b){ return b - a; }
+	sort.increasing,
+	sort.decreasing
 ];
 
 var PRED = [];
