@@ -55,7 +55,7 @@ var __bdpdc__ = function ( select, __eq__, __ne__, color, split, swap ) {
 
 	var bdpdc = function ( __f__, a, i, j, di, dj, out ) {
 
-		var h, m, k, x, y, tmp, p, q, _m, _n;
+		var k, h, x, y, p, q, m, n, _m, _n;
 
 		// empty or one element array case
 
@@ -109,24 +109,24 @@ var __bdpdc__ = function ( select, __eq__, __ne__, color, split, swap ) {
 			//  -------------------------------------------------------
 			// i                                                       j
 
-			m = ( i + j ) / 2 | 0;
+			k = ( i + j ) / 2 | 0;
 
 			//  -------------------------------------------------------
 			// |                     b&r scrambled                     |
 			//  -------------------------------------------------------
-			// i                         m                             j
+			// i                         k                             j
 
 			// select median element
 			// O(n)
 
-			select( __f__( di ), a, i, j, m );
+			select( __f__( di ), a, i, j, k );
 
-			h = a[m][di];
+			h = a[k][di];
 
 			//  -------------------------------------------------------
 			// |         b&r <= h        | h |         b&r >= h        |
 			//  -------------------------------------------------------
-			// i                         m                             j
+			// i                         k                             j
 
 
 			// we do 3 recursive calls
@@ -147,35 +147,33 @@ var __bdpdc__ = function ( select, __eq__, __ne__, color, split, swap ) {
 			// (would be > and < for strict dominance)
 			//
 			// note that we do not need to handle the case where red < h and blue >= h
-			// or red <= h and blue > h since red cannot domminate blue in those cases
+			// or red <= h and blue > h since red cannot dominate blue in those cases
 
 			// first recursive call
 			// we only consider points that have di < h
-			// since all points that have di === h will be handled later
+			// since all points that have di = h will be handled later
 
-			// move median elements from a_i to a_m - 1
-			// in the [ p, m [ interval
+			// move median elements from [ i, k [ in the [ x, k [ interval, x <= i
 			// O(n)
 
-			x = split( __eq__( h ), a, i, m );
+			x = split( __eq__( h ), a, i, k );
 
 			//  -------------------------------------------------------
 			// |    b&r < h    | b&r = h | h |         b&r > h         |
 			//  -------------------------------------------------------
-			// i               x         m                             j
+			// i               x         k                             j
 
 			bdpdc( __f__, a, i, x, di, dj, out );
 
-			// move median elements from a_m to a_j - 1
-			// in the ] m, y - 1 ] interval
+			// move median elements from [ k + 1, j [ in the [ y, j [ interval, y <= k + 1
 			// O(n)
 
-			y = split( __ne__( h ), a, m + 1, j );
+			y = split( __ne__( h ), a, k + 1, j );
 
 			//  -------------------------------------------------------
 			// |    b&r < h    | b&r = h | h | b&r = h |    b&r > h    |
 			//  -------------------------------------------------------
-			// i               x         m             y               j
+			// i               x         k             y               j
 
 			bdpdc( __f__, a, y, j, di, dj, out );
 
@@ -195,21 +193,21 @@ var __bdpdc__ = function ( select, __eq__, __ne__, color, split, swap ) {
 			//  -------------------------------------------------------
 			// |    b&r < h    | b&r = h | h | b&r = h |    b&r > h    |
 			//  -------------------------------------------------------
-			// i               x         m             y               j
+			// i               x         k             y               j
 
 			p = split( color, a, i, x );
 
 			//  -------------------------------------------------------
 			// | b < h | r < h | b&r = h | h | b&r = h |    b&r > h    |
 			//  -------------------------------------------------------
-			// i       p       x         m             y               j
+			// i       p       x         k             y               j
 
 			q = split( color, a, y, j );
 
 			//  -------------------------------------------------------
 			// | b < h | r < h | b&r = h | h | b&r = h | b > h | r > h |
 			//  -------------------------------------------------------
-			// i       p       x         m             y       q       j
+			// i       p       x         k             y       q       j
 
 			// we now want to swap r < h elements with r > h elements
 			// we have 3 cases
@@ -220,27 +218,40 @@ var __bdpdc__ = function ( select, __eq__, __ne__, color, split, swap ) {
 			m = x - p;
 			n = j - q;
 
+
 			//   1. x - p = j - q
+
 			if ( m === n ) {
-				swap( a, q, q + m, a, p );
+				swap( a, q, j, a, p );
 
 				//  -------------------------------------------------------
 				// | b < h | r > h | b&r = h | h | b&r = h | b > h | r < h |
 				//  -------------------------------------------------------
-				//  i      p       x         m             y       q       j
+				// i       p       x         k             y       q       j
+
+				j = y;
+
+				//  -------------------------------------------------------
+				// | b < h | r > h | b&r = h | h | b&r = h | b > h | r < h |
+				//  -------------------------------------------------------
+				// i       p       x         k             j      ...
 
 			}
+
+
 			//   2. x - p < j - q
+
 			else if ( m < n ) {
 
-				swap( a, q, q + m, a, p );
+				swap( a, p, x, a, q );
 
 				//  ---------------------------------------------------------------
 				// | b < h | r > h | b&r = h | h | b&r = h | b > h | r < h | r > h |
 				//  ---------------------------------------------------------------
-				//  i      p       x         m             y       q      q+m      j
+				// i       p       x         k             y       q      q+m      j
 
-				// we now want to swap r < h and b > h elements with r > h elements
+				// we now want to swap b > h and r < h elements with r > h elements
+				//                     [y,q[    [q,q+m[             [q+m,j[
 				// we have 2 cases
 				//   1. (q + m) - y >= j - (q + m) [OR  >]
 				//   2. (q + m) - y  < j - (q + m) [OR <=]
@@ -260,9 +271,20 @@ var __bdpdc__ = function ( select, __eq__, __ne__, color, split, swap ) {
 				//  ---------------------------------------------------------------
 				// | b < h | r > h | b&r = h | h | b&r = h | r > h |   b>h & r<h   |
 				//  ---------------------------------------------------------------
-				//  i      p       x         m             y      y+_n             j
+				// i       p       x         k             y      y+_n             j
+
+				j = y + _n;
+
+				//  ---------------------------------------------------------------
+				// | b < h | r > h | b&r = h | h | b&r = h | r > h |   b>h & r<h   |
+				//  ---------------------------------------------------------------
+				// i       p       x         k             y       j      ...
+
 			}
+
+
 			//   3. x - p > j - q
+
 			else {
 
 				swap( a, q, j, a, p );
@@ -270,18 +292,46 @@ var __bdpdc__ = function ( select, __eq__, __ne__, color, split, swap ) {
 				//  ---------------------------------------------------------------
 				// | b < h | r > h | r < h | b&r = h | h | b&r = h | b > h | r < h |
 				//  ---------------------------------------------------------------
-				// i       p       x                 m             y       q       j
+				// i       p      p+n      x         k             y       q       j
 
-				swap( a, y - m + n, y, a, p + n );
+				// we now want to swap r < h with b&r = h elements
+				// we have 2 cases
+				//   1. x - (p + n) >= y - x
+				//   2. x - (p + n)  < y - x
+
+				_m = x - (p + n);
+				_n = y - x;
+
+				//   1. x - (p + n) >= y - x
+				if ( _m >= _n ) {
+					swap( a, x, y, a, p + n );
+				}
+				//   2. x - (p + n)  < y - x
+				else {
+					swap( a, y - _m, y, a, p + n );
+				}
+
+				//  -----------------------------------------------------------
+				// | b < h | r > h |     b&r = h     | h | b&r = h | b>h & r<h |
+				//  -----------------------------------------------------------
+				// i       p      p+n                k            y-_m         j
+
+				j = y - _m;
+
+				//  -----------------------------------------------------------
+				// | b < h | r > h |     b&r = h     | h | b&r = h | b>h & r<h |
+				//  -----------------------------------------------------------
+				// i       p      p+n                k             j    ...
+
 			}
 
-			//  -----------------------------------------------------------------------
-			// | b < h | r > h | b&r = h | h | b&r = h | r > h | r < h | b > h | r < h |
-			//  -----------------------------------------------------------------------
-			//  i      p     x-m+n         m           y       q      j
+			// [i, j[ now contains only b <= h and r >= h points
+			// in this new interval, all r points dominate b points
+			// for the ith coordinate
+			// we can thus ask the recursion fairy to take care of the other
+			// dj - di - 1 dimensions left
 
-
-			bdpdc( __f__, a, i, m + k, di + 1, dj, out );
+			bdpdc( __f__, a, i, j, di + 1, dj, out );
 
 			return out;
 		}
