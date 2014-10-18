@@ -21,9 +21,20 @@
  * __eq__( x ) template for a function eq( y )
  *   returns true iff coordinate x equals coordinate y
  *
+ * __ne__( x ) template for a function ne( y )
+ *   returns true iff coordinate x is not equal to coordinate y
+ *
  * color( point )
  *   = 0 if point is blue
  *   = 1 if point is red
+ *
+ * p = split( predicate, a, i, j )
+ *   rearranges an array so that all elements for which predicate is false
+ *   are in interval [i, p[ and all other elements are in interval [p, j[
+ *
+ * swap( a, ai, aj, b, bi )
+ *   swap elements from a in interval [ai, aj[ with elements from b in interval
+ *   [bi, bi + aj - ai[
  *
  */
 
@@ -337,6 +348,8 @@ var __bdpdc__ = function ( select, __eq__, __ne__, color, split, swap ) {
 		}
 
 	};
+
+	return bdpdc;
 
 };
 
