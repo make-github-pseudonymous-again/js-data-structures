@@ -1,31 +1,40 @@
-var util, array, sort;
+var util, sort, itertools, functools;
 
 util = require( "util" );
-array = require ( "aureooms-js-array" );
 sort = require( "aureooms-js-sort" );
+itertools = require( "aureooms-js-itertools" );
+functools = require( "aureooms-js-functools" );
 
-var check = function(tmpl_name, tmpl, pred, n, diff){
+var check = function ( tmpl_name, tmpl, diff, m, n ) {
 
-	var name = util.format("priority queue merge (%s, %s, %d)", tmpl_name, diff, n);
+	var pred = function ( a, b ) { return diff( a, b ) < 0; };
 
-	test( name, function(assert){
+	var name = util.format( "priority queue merge (%s, %s, %d, %d)", tmpl_name, diff, m, n );
+
+	console.log( name );
+
+	test( name, function () {
 
 		var PriorityQueue, q, q1, q2, a, x, i, b;
 
-		PriorityQueue = tmpl(pred, array.__opt__);
+		PriorityQueue = tmpl( pred );
 
 		a = [];
 		q = new PriorityQueue();
 		q1 = new PriorityQueue();
 		q2 = new PriorityQueue();
 
-		i = n;
-		while ( i-- ) {
+		deepEqual(q.pop(), undefined, '1st empty pop');
 
+		i = m;
+		while ( i-- ) {
 			x = Math.random();
 			q1.push(x);
 			a.push(x);
+		}
 
+		i = n;
+		while ( i-- ) {
 			x = Math.random();
 			q2.push(x);
 			a.push(x);
@@ -36,7 +45,7 @@ var check = function(tmpl_name, tmpl, pred, n, diff){
 		q.merge( q1 );
 		q.merge( q2 );
 
-		i = 2 * n;
+		i = m + n;
 		b = [];
 
 		while ( i-- ) {
@@ -45,37 +54,27 @@ var check = function(tmpl_name, tmpl, pred, n, diff){
 
 		deepEqual(b, a, 'check sorted');
 
+		deepEqual(q.pop(), undefined, '2nd empty pop');
+		deepEqual(q.list.length, 0, 'list empty');
+
 	});
 
 };
 
 
+itertools.product( [
 
-I = [
+[
 	['lazy_binomial_queue_t', algo.lazy_binomial_queue_t],
 	['binomial_queue_t', algo.binomial_queue_t],
-];
+],
 
-var DIFF = [
+[
 	sort.increasing,
 	sort.decreasing
-];
+],
 
-var PRED = [];
+[1, 16, 17, 31, 32, 33, 127, 128, 129],
+[1, 16, 17, 31, 32, 33, 127, 128, 129]
 
-for(var d = 0; d < DIFF.length; ++d){
-	(function(d){
-		PRED.push(function(a, b){ return DIFF[d](a, b) < 0; });
-	})(d);
-}
-
-SIZE = [1, 16, 17, 31, 32, 33, 127, 128, 129];
-
-
-for(var i = 0; i < I.length; ++i){
-	for(var j = 0; j < PRED.length; ++j){
-		for(var k = 0; k < SIZE.length; ++k){
-			check(I[i][0], I[i][1], PRED[j], SIZE[k], DIFF[j]);
-		}
-	}
-}
+], 1, [] ).forEach( functools.partial( functools.star, null, [check] ) );

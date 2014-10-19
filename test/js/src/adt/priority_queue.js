@@ -1,7 +1,6 @@
-var util, array, sort;
+var util, sort;
 
 util = require( "util" );
-array = require ( "aureooms-js-array" );
 sort = require( "aureooms-js-sort" );
 
 var check = function(tmpl_name, tmpl, pred, n, diff){
@@ -10,7 +9,7 @@ var check = function(tmpl_name, tmpl, pred, n, diff){
 
 	test( name, function(assert){
 
-		var PriorityQueue = tmpl(pred, array.__opt__);
+		var PriorityQueue = tmpl( pred );
 
 		var q = new PriorityQueue();
 		var a = [];
