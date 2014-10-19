@@ -8,8 +8,7 @@ var check = function(tmpl_name, tmpl, pred, n, diff){
 
 	var name = util.format("priority queue (%s, %s, %d)", tmpl_name, diff, n);
 
-	test(name, function(assert){
-
+	test( name, function(assert){
 
 		var PriorityQueue = tmpl(pred, array.__opt__);
 
@@ -17,7 +16,7 @@ var check = function(tmpl_name, tmpl, pred, n, diff){
 		var a = [];
 
 		var i = n;
-		while(i--){
+		while ( i-- ) {
 			var x = Math.random();
 			q.push(x);
 			a.push(x);
@@ -28,8 +27,8 @@ var check = function(tmpl_name, tmpl, pred, n, diff){
 		i = n;
 		var b = [];
 
-		while(i--){
-			b.push(q.pop());
+		while ( i-- ) {
+			b.push( q.pop() );
 		}
 
 		deepEqual(b, a, 'check sorted');
