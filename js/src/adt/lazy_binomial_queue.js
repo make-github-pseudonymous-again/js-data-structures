@@ -1,13 +1,10 @@
 var lazy_binomial_queue_t = function(pred, __opt__){
 
-	var binomial_tree_t = function(value, next){
-		this.value = value;
-		this.next = next;
-	};
 
+	var BinomialTree = __BinomialTree__( pred );
 
-	binomial_tree_t.prototype.rank = function(){
-		return this.next.length;
+	var binomial_tree_merge = function ( tree1, tree2 ) {
+		return tree1.merge( tree2 );
 	};
 
 
@@ -18,26 +15,8 @@ var lazy_binomial_queue_t = function(pred, __opt__){
 	};
 
 
-
-	var binomial_tree_merge = function(tree1, tree2){
-		var value = 0;
-		var next = null;
-
-		if(pred(tree1.value, tree2.value)){
-			value = tree1.value;
-			next = tree1.next.concat(tree2);
-		}
-		else{
-			value = tree2.value;
-			next = tree2.next.concat(tree1);
-		}
-
-		return new binomial_tree_t(value, next);
-	};
-
-
 	var lazy_binomial_queue_push = function(queue, value){
-		var tree = new binomial_tree_t(value, []);
+		var tree = new BinomialTree(value, []);
 		queue.lazy.push([tree]);
 		++queue.length;
 	};
@@ -130,6 +109,16 @@ var lazy_binomial_queue_t = function(pred, __opt__){
 
 	lazy_binomial_queue.prototype.push = function(value){
 		return lazy_binomial_queue_push(this, value);
+	};
+
+	lazy_binomial_queue.prototype.merge = function ( other ) {
+		var i;
+		for ( i = 0 ; i < other.lazy.length ; ++i ) {
+			this.lazy.push( other.lazy[i] );
+		}
+		this.lazy.push( other.list.slice(0, -1) );
+		this.length += other.length;
+		return this;
 	};
 
 	return lazy_binomial_queue;

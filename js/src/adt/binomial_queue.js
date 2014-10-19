@@ -1,140 +1,271 @@
-var binomial_queue_t = function(pred){
+var binomial_queue_t = function ( predicate ) {
 
-	var binomial_tree_t = function(value, next){
-		this.value = value;
-		this.next = next;
+
+	var BinomialTree = __BinomialTree__( predicate );
+
+	var mergetrees = function ( tree1, tree2 ) {
+		return tree1.merge( tree2 );
 	};
 
+	var binomial_queue = function () {
 
-	binomial_tree_t.prototype.rank = function(){
-		return this.next.length;
-	};
+		// number of elements in this queue
 
-
-	var binomial_queue = function(){
 		this.length = 0;
-		this.list = [null];
-	};
 
 
+		// list of binomial trees
 
-	var binomial_tree_merge = function(tree1, tree2){
-		var value = 0;
-		var next = null;
-
-		if(pred(tree1.value, tree2.value)){
-			value = tree1.value;
-			next = tree1.next.concat(tree2);
-		}
-		else{
-			value = tree2.value;
-			next = tree2.next.concat(tree1);
-		}
-
-		return new binomial_tree_t(value, next);
-	};
-
-
-	var binomial_queue_push = function(queue, value){
-		var tree = new binomial_tree_t(value, []), i;
-
-		for (i = 0; i < queue.list.length; ++i) {
-			if (queue.list[i] === null) {
-				queue.list[i] = tree;
-				break;
-			}
-			else {
-				tree = binomial_tree_merge(tree, queue.list[i]);
-				queue.list[i] = null;
-			}
-		}
-
-		if (i === queue.list.length - 1) queue.list.push(null);
-
-		++queue.length;
+		this.list = [];
 
 	};
 
+	var binomial_queue_push = function ( list, tree, rank ) {
 
-	var binomial_queue_merge = function(queue, tree_l) {
-		if (tree_l.length === 0) return;
+		var i, len;
 
-		var r = null, i, j, k;
+		// ensures list has at least rank cells
 
-		var m = tree_l[tree_l.length - 1];
-		while(queue.list.length < m.rank() + 2) queue.list.push(null);
+		i = rank - list.length;
 
-		for (i = 0; i < tree_l.length; ++i) {
-			j = tree_l[i].rank();
+		while ( i --> 0 ) {
+			list.push( null );
+		}
 
-			if (r === null) {
-				if (queue.list[j] === null) queue.list[j] = tree_l[i];
-				else {
-					r = binomial_tree_merge(tree_l[i], queue.list[j]);
-					queue.list[j] = null;
-				}
-			}
-			else r = binomial_tree_merge(tree_l[i], r);
+		// loop invariant
+		// tree and list[i] have the same rank
 
-			if (i === tree_l.length - 1 || tree_l[i+1].rank() !== j + 1) {
-				k = j + 1;
-				while (r !== null && (i === tree_l.length - 1 || tree_l[i+1].rank() !== k)) {
-					if (queue.list[j+1] === null) {
-						queue.list[j+1] = r;
-						r = null;
+		len = list.length;
+
+		for ( i = rank ; i < len && list[i] !== null ; ++i ) {
+
+			// there is already a tree with this rank
+
+			tree = mergetrees( tree, list[i] );
+			list[i] = null;
+
+		}
+
+		// do not forget to append null if
+		// we are lacking space
+
+		if ( i === len ) {
+			list.push( null );
+		}
+
+		// cell is empty
+		// we can just put the new tree here
+
+		list[i] = tree;
+
+	};
+
+
+	var mergequeues = function ( list, other ) {
+
+		var i, len, carry;
+
+		if ( other.length === 0 ) {
+			return;
+		}
+
+		// merging two binomial queues is like
+		// adding two little endian integers
+		// so, we first make sure that we have
+		// enough place to store the result
+
+		i = other.length - list.length;
+
+		while ( i --> 0 ) {
+			list.push( null );
+		}
+
+		carry = null;
+
+		len = other.length;
+
+		for ( i = 0 ; i < len ; ++i ) {
+
+			// other[i] can be either null or not
+			// list[i] can be either null or not
+			// carry can be either null or not
+			// --> 2^3 = 8 possibilities
+			//
+			//    null ? | other[i] | list[i] | carry
+			// ---------------------------------------
+			//     (0)   |    no    |     no  |   no
+			//     (1)   |    no    |     no  |  yes
+			//     (2)   |    no    |    yes  |   no
+			//     (3)   |    no    |    yes  |  yes
+			//     (4)   |   yes    |     no  |   no
+			//     (5)   |   yes    |     no  |  yes
+			//     (6)   |   yes    |    yes  |   no
+			//     (7)   |   yes    |    yes  |  yes
+
+			if ( other[i] === null ) {
+
+				if ( carry !== null ) {
+
+
+					// (6) other[i] = null and list[i] = null and carry != null
+					// --> put carry in current cell
+
+					if ( list[i] === null ) {
+						list[i] = carry;
+						carry = null;
 					}
+
+
+					// (4) other[i] = null and list[i] != null and carry != null
+					// --> merge carry with current cell
+
 					else {
-						r = binomial_tree_merge(queue.list[j+1], r);
-						queue.list[j+1] = null;
+						carry = mergetrees( carry, list[i] );
+						list[i] = null;
 					}
-					++k;
+
 				}
+
+				// We do not need to do anything for
+				// those 2 cases (carry and other[i] are null).
+				// ==
+				// (5) other[i] = null and list[i] != null and carry = null
+				// (7) other[i] = null and list[i] = null and carry = null
+
+			}
+
+			// (0) other[i] != null and list[i] != null and carry != null
+			// (2) other[i] != null and list[i] = null and carry != null
+			// --> merge carry with other[i]
+
+			else if ( carry !== null ) {
+
+				carry = mergetrees( carry, other[i] );
+
+			}
+
+			// (1) other[i] != null and list[i] != null and carry = null
+			// --> merge current cell with other[i]
+
+			else if ( list[i] !== null ) {
+
+				carry = mergetrees( list[i], other[i] );
+				list[i] = null;
+
+			}
+
+
+			// (3) other[i] != null and list[i] = null and carry = null
+			// --> put other[i] in list
+
+			else {
+
+				list[i] = other[i];
+
 			}
 
 		}
 
-		if (queue.list[queue.list.length - 1] !== null) queue.list.push(null);
-	};
+		// do not forget to append last carry
 
-
-	var binomial_queue_pop = function(queue) {
-		var value = -1, x = -1, i, j, tree_l;
-
-		for (i = 0; i < queue.list.length - 1; ++i) {
-			if (queue.list[i] !== null) {
-				x = i;
-				value = queue.list[x].value;
-				break;
-			}
+		if ( carry !== null ) {
+			list.push( carry );
 		}
 
-		for (j = x + 1; j < queue.list.length - 1; ++j) {
-			if (queue.list[j] !== null && pred(queue.list[j].value, value)) {
-				x = j;
-				value = queue.list[x].value;
-			}
+	};
+
+	var binomial_queue_pop = function ( list ) {
+
+		var i, j, len, opt, item, candidate, orphan;
+
+		len = list.length;
+
+		// empty list case
+
+		if ( len === 0 ) {
+			return undefined;
 		}
 
-		value = queue.list[x].value;
-		tree_l = queue.list[x].next;
-		queue.list[x] = null;
+		// there MUST be at least one
+		// non null element in this list
+		// we look for the first one
 
-		if (i === queue.list.length - 2) queue.list.pop();
+		for ( j = 0 ; j < len - 1 && list[j] === null ; ++j ) ;
 
-		binomial_queue_merge(queue, tree_l);
+		// here j is necessarily < len
+		// and list[j] is non null
 
-		--queue.length;
+		i = j;
+		opt = list[j].value;
 
-		return value;
+		// we lookup remaining elements to see if there
+		// is not a better candidate
+
+		for ( ++j ; j < len ; ++j ) {
+
+			item = list[j];
+
+			if ( item !== null ) {
+
+				candidate = item.value;
+
+				if ( predicate( candidate, opt ) ) {
+
+					i = j;
+					opt = candidate;
+
+				}
+
+			}
+
+		}
+
+		orphan = list[i].next;
+		list[i] = null;
+
+		// we just removed the ith element
+		// if list[i] is the last cell
+		// of list we can drop it
+
+		if ( i === len - 1 ) {
+			list.pop();
+		}
+
+		// we merge back the children of
+		// the removed tree into the queue
+
+		mergequeues( list, orphan );
+
+		return opt;
 	};
 
 
-	binomial_queue.prototype.pop = function(){
-		return binomial_queue_pop(this);
+	binomial_queue.prototype.pop = function () {
+
+		--this.length;
+
+		return binomial_queue_pop( this.list );
+
 	};
 
-	binomial_queue.prototype.push = function(value){
-		return binomial_queue_push(this, value);
+	binomial_queue.prototype.push = function (value) {
+
+		++this.length;
+
+		// push a new tree of rank 0
+
+		return binomial_queue_push( this.list, new BinomialTree( value, [] ), 0 );
+
+	};
+
+	binomial_queue.prototype.merge = function ( other ) {
+
+		mergequeues( this.list, other.list );
+
+		this.length += other.length;
+
+		return this;
+
 	};
 
 	return binomial_queue;
