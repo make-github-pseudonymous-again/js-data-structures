@@ -7,10 +7,6 @@ var __BinomialTree__ = function ( pred ) {
 		this.children = children;
 	};
 
-	BinomialTree.prototype.rank = function () {
-		return this.children.length;
-	};
-
 	/**
 	 * /!\ Can only be used to merge two trees of the same rank.
 	 */
