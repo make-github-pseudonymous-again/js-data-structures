@@ -82,7 +82,9 @@ var binomial_queue_t = function ( predicate ) {
 
 		carry = null;
 
-		len = other.length;
+		len = list.length;
+
+		// remember len >= other.length
 
 		for ( i = 0 ; i < len ; ++i ) {
 
@@ -102,7 +104,7 @@ var binomial_queue_t = function ( predicate ) {
 			//     (6)   |   yes    |    yes  |   no
 			//     (7)   |   yes    |    yes  |  yes
 
-			if ( other[i] === null ) {
+			if ( i >= other.length || other[i] === null ) {
 
 				if ( carry !== null ) {
 
@@ -180,12 +182,6 @@ var binomial_queue_t = function ( predicate ) {
 
 		len = list.length;
 
-		// empty list case
-
-		if ( len === 0 ) {
-			return undefined;
-		}
-
 		// there MUST be at least one
 		// non null element in this list
 		// we look for the first one
@@ -241,6 +237,10 @@ var binomial_queue_t = function ( predicate ) {
 
 
 	binomial_queue.prototype.pop = function () {
+
+		if ( this.length === 0 ) {
+			return undefined;
+		}
 
 		--this.length;
 
