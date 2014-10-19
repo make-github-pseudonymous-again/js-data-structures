@@ -1,15 +1,16 @@
 
 
 
-var fiter = function(i, j, fn){
-	while (i < j) {
-		fn(i);
-		++i;
+var fiter = function ( i, j, fn ) {
+	for ( ; i < j ; ++i ) {
+		fn( i );
 	}
 };
 
-var biter = function(i, j, fn){
-	while (--j >= i) fn(j);
+var biter = function ( i, j, fn ) {
+	while ( --j >= i ) {
+		fn( j );
+	}
 };
 
 
