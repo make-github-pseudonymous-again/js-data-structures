@@ -18,11 +18,11 @@
  *  -----------------------------
  * i    ....    k  k+1   ....   j-1
  *
- * __eq__( x ) template for a function eq( y )
- *   returns true iff coordinate x equals coordinate y
+ * __eq__( d, v ) template for a function eq( a )
+ *   returns true iff coordinate d of a equals v
  *
- * __ne__( x ) template for a function ne( y )
- *   returns true iff coordinate x is not equal to coordinate y
+ * __ne__( d, v ) template for a function ne( y )
+ *   returns true iff coordinate d of a is not equal to v
  *
  * color( point )
  *   = 0 if point is blue
@@ -164,10 +164,10 @@ var __bdpdc__ = function ( select, __eq__, __ne__, color, split, swap ) {
 			// we only consider points that have di < h
 			// since all points that have di = h will be handled later
 
-			// move median elements from [ i, k [ in the [ x, k [ interval, x <= i
+			// move median elements from [ i, k [ in the [ x, k [ interval, x >= i
 			// O(n)
 
-			x = split( __eq__( h ), a, i, k );
+			x = split( __eq__( di, h ), a, i, k );
 
 			//  -------------------------------------------------------
 			// |    b&r < h    | b&r = h | h |         b&r > h         |
@@ -176,10 +176,10 @@ var __bdpdc__ = function ( select, __eq__, __ne__, color, split, swap ) {
 
 			bdpdc( __f__, a, i, x, di, dj, out );
 
-			// move median elements from [ k + 1, j [ in the [ y, j [ interval, y <= k + 1
+			// move median elements from [ k + 1, j [ in the [ y, j [ interval, y <= j
 			// O(n)
 
-			y = split( __ne__( h ), a, k + 1, j );
+			y = split( __ne__( di, h ), a, k + 1, j );
 
 			//  -------------------------------------------------------
 			// |    b&r < h    | b&r = h | h | b&r = h |    b&r > h    |
