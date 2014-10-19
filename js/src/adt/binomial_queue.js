@@ -220,7 +220,7 @@ var binomial_queue_t = function ( predicate ) {
 
 		}
 
-		orphan = list[i].next;
+		orphan = list[i].children;
 		list[i] = null;
 
 		// we just removed the ith element

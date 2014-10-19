@@ -93,7 +93,7 @@ var lazy_binomial_queue_t = function(pred, __opt__){
 		}
 
 		value = queue.list[x].value;
-		queue.lazy = [queue.list[x].next];
+		queue.lazy = [queue.list[x].children];
 		queue.list[x] = null;
 
 		if(i === queue.list.length - 2) queue.list.pop();

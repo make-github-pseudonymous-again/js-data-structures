@@ -2,13 +2,13 @@
 
 var __BinomialTree__ = function ( pred ) {
 
-	var BinomialTree = function ( value, next ) {
+	var BinomialTree = function ( value, children ) {
 		this.value = value;
-		this.next = next;
+		this.children = children;
 	};
 
 	BinomialTree.prototype.rank = function () {
-		return this.next.length;
+		return this.children.length;
 	};
 
 	/**
@@ -17,22 +17,22 @@ var __BinomialTree__ = function ( pred ) {
 
 	BinomialTree.prototype.merge = function ( other ) {
 
-		var value, next;
+		var value, children;
 
 		value = 0;
-		next = null;
+		children = null;
 
 		if ( pred( this.value, other.value ) ) {
 			value = this.value;
-			next = this.next.concat( other );
+			children = this.children.concat( other );
 		}
 
 		else {
 			value = other.value;
-			next = other.next.concat( this );
+			children = other.children.concat( this );
 		}
 
-		return new BinomialTree( value, next );
+		return new BinomialTree( value, children );
 
 	};
 
