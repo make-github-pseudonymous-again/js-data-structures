@@ -5,19 +5,17 @@ sort = require( "aureooms-js-sort" );
 itertools = require( "aureooms-js-itertools" );
 functools = require( "aureooms-js-functools" );
 
-var check = function ( tmpl_name, tmpl, diff, m, n ) {
+var check = function ( name, __BinomialHeap__, diff, m, n ) {
 
-	var pred = function ( a, b ) { return diff( a, b ) < 0; };
+	var title = util.format( "priority queue merge (%s, %s, %d, %d)", name, diff, m, n );
 
-	var name = util.format( "priority queue merge (%s, %s, %d, %d)", tmpl_name, diff, m, n );
+	console.log( title );
 
-	console.log( name );
-
-	test( name, function () {
+	test( title, function () {
 
 		var PriorityQueue, q, q1, q2, a, x, i, b;
 
-		PriorityQueue = tmpl( pred );
+		PriorityQueue = __BinomialHeap__( diff );
 
 		a = [];
 		q = new PriorityQueue();

@@ -1,15 +1,17 @@
-var util, sort;
+var util, sort, itertools, functools;
 
 util = require( "util" );
 sort = require( "aureooms-js-sort" );
+itertools = require( "aureooms-js-itertools" );
+functools = require( "aureooms-js-functools" );
 
-var check = function(tmpl_name, tmpl, pred, n, diff){
+var check = function ( name, __BinomialHeap__, diff, n ) {
 
-	var name = util.format("priority queue (%s, %s, %d)", tmpl_name, diff, n);
+	var title = util.format("priority queue (%s, %s, %d)", name, diff, n);
 
-	test( name, function(assert){
+	test( title, function(assert){
 
-		var PriorityQueue = tmpl( pred );
+		var PriorityQueue = __BinomialHeap__( diff );
 
 		var q = new PriorityQueue();
 		var a = [];
@@ -37,32 +39,18 @@ var check = function(tmpl_name, tmpl, pred, n, diff){
 };
 
 
+itertools.product( [
 
-I = [
+[
 	['lazy_binomial_queue_t', algo.lazy_binomial_queue_t],
 	['binomial_queue_t', algo.binomial_queue_t],
-];
+],
 
-var DIFF = [
+[
 	sort.increasing,
 	sort.decreasing
-];
+],
 
-var PRED = [];
+[1, 16, 17, 31, 32, 33, 127, 128, 129]
 
-for(var d = 0; d < DIFF.length; ++d){
-	(function(d){
-		PRED.push(function(a, b){ return DIFF[d](a, b) < 0; });
-	})(d);
-}
-
-SIZE = [1, 16, 17, 31, 32, 33, 127, 128, 129];
-
-
-for(var i = 0; i < I.length; ++i){
-	for(var j = 0; j < PRED.length; ++j){
-		for(var k = 0; k < SIZE.length; ++k){
-			check(I[i][0], I[i][1], PRED[j], SIZE[k], DIFF[j]);
-		}
-	}
-}
+], 1, [] ).forEach( functools.partial( functools.star, null, [check] ) );
