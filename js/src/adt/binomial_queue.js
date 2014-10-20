@@ -350,6 +350,38 @@ var binomial_queue_t = function ( predicate ) {
 
 	};
 
+	binomial_queue.prototype.head = function () {
+
+		var i;
+
+		if ( this.length === 0 ) {
+			return undefined;
+		}
+
+		i = find_min_index( list, 0, list.length );
+
+		tree = list[i];
+
+		return tree.value;
+
+	};
+
+	binomial_queue.prototype.headreference = function () {
+
+		var i;
+
+		if ( this.length === 0 ) {
+			return null;
+		}
+
+		i = find_min_index( list, 0, list.length );
+
+		tree = list[i];
+
+		return tree;
+
+	};
+
 	binomial_queue.prototype.pop = function () {
 
 		if ( this.length === 0 ) {
@@ -376,17 +408,17 @@ var binomial_queue_t = function ( predicate ) {
 
 	binomial_queue.prototype.push = function ( value ) {
 
-		var reference;
+		var tree;
 
 		++this.length;
 
 		// push a new tree of rank 0
 
-		reference = new BinomialTree( value, [] );
+		tree = new BinomialTree( value, [] );
 
-		binomial_queue_push( this.list, reference, 0 );
+		binomial_queue_push( this.list, tree, 0 );
 
-		return reference;
+		return tree;
 
 	};
 
@@ -431,19 +463,19 @@ var binomial_queue_t = function ( predicate ) {
 
 	};
 
-	binomial_queue.prototype.delete = function ( tree ) {
-
-		--this.length;
-
-		deletetree( this.list, tree );
-
-	};
-
 	binomial_queue.prototype.increasekey = function ( tree, value ) {
 
 		deletetree( this.list, tree );
 
 		binomial_queue_push( this.list, tree, 0 );
+
+	};
+
+	binomial_queue.prototype.delete = function ( tree ) {
+
+		--this.length;
+
+		deletetree( this.list, tree );
 
 	};
 
