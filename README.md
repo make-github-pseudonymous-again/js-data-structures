@@ -52,3 +52,8 @@ this project is just a playground for any algorithm / procedure, data structure 
   - [js-search](https://github.com/aureooms/js-search)
   - [js-sort](https://github.com/aureooms/js-sort)
   - [js-string](https://github.com/aureooms/js-string)
+
+
+Binary and Binomial heap reference:
+
+  - http://www.cs.princeton.edu/~wayne/cs423/lectures/heaps-4up.pdf
