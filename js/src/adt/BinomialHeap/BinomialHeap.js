@@ -1,26 +1,6 @@
-var binomial_queue_t = function ( predicate ) {
+var __BinomialHeap__ = function ( BinomialTree ) {
 
-
-	var BinomialTree = __BinomialTree__( predicate );
-
-	var mergetrees = function ( tree1, tree2 ) {
-		return tree1.merge( tree2 );
-	};
-
-	var binomial_queue = function () {
-
-		// number of elements in this queue
-
-		this.length = 0;
-
-
-		// list of binomial trees
-
-		this.list = [];
-
-	};
-
-	var binomial_queue_push = function ( list, tree, rank ) {
+	var binomial_heap_push = function ( predicate, list, tree, rank ) {
 
 		var i, len;
 
@@ -41,7 +21,7 @@ var binomial_queue_t = function ( predicate ) {
 
 			// there is already a tree with this rank
 
-			tree = mergetrees( tree, list[i] );
+			tree = tree.merge( predicate, list[i] );
 			list[i] = null;
 
 		}
@@ -61,7 +41,7 @@ var binomial_queue_t = function ( predicate ) {
 	};
 
 
-	var mergequeues = function ( list, other ) {
+	var merge = function ( predicate, list, other ) {
 
 		var i, len, carry;
 
@@ -69,7 +49,7 @@ var binomial_queue_t = function ( predicate ) {
 			return;
 		}
 
-		// merging two binomial queues is like
+		// merging two binomial heaps is like
 		// adding two little endian integers
 		// so, we first make sure that we have
 		// enough place to store the result
@@ -122,7 +102,7 @@ var binomial_queue_t = function ( predicate ) {
 					// --> merge carry with current cell
 
 					else {
-						carry = mergetrees( carry, list[i] );
+						carry = carry.merge( predicate, list[i] );
 						list[i] = null;
 					}
 
@@ -142,7 +122,7 @@ var binomial_queue_t = function ( predicate ) {
 
 			else if ( carry !== null ) {
 
-				carry = mergetrees( carry, other[i] );
+				carry = carry.merge( predicate, other[i] );
 
 			}
 
@@ -151,7 +131,7 @@ var binomial_queue_t = function ( predicate ) {
 
 			else if ( list[i] !== null ) {
 
-				carry = mergetrees( list[i], other[i] );
+				carry = list[i].merge( predicate, other[i] );
 				list[i] = null;
 
 			}
@@ -176,7 +156,7 @@ var binomial_queue_t = function ( predicate ) {
 
 	};
 
-	var find_min_index = function ( list, j, len ) {
+	var find_min_index = function ( predicate, list, j, len ) {
 
 		var i, opt, item, candidate;
 
@@ -218,12 +198,14 @@ var binomial_queue_t = function ( predicate ) {
 
 	};
 
-	var remove_head_at_index = function ( list, i, len ) {
+	var remove_head_at_index = function ( predicate, list, i, len ) {
 
 		var orphans;
 
 		orphans = list[i].children;
 		list[i] = null;
+
+		change_parent( null, orphans );
 
 		// we just removed the ith element
 		// if list[i] is the last cell
@@ -234,30 +216,43 @@ var binomial_queue_t = function ( predicate ) {
 		}
 
 		// we merge back the children of
-		// the removed tree into the queue
+		// the removed tree into the heap
 
-		mergequeues( list, orphans );
+		merge( predicate, list, orphans );
 
 	};
 
-	var binomial_queue_pop = function ( list ) {
+	var binomial_heap_pop = function ( predicate, list ) {
 
 		var i, len, tree;
 
 		len = list.length;
 
-		i = find_min_index( list, 0, len );
+		i = find_min_index( predicate, list, 0, len );
 
 		tree = list[i];
 
-		remove_head_at_index( list, i, len );
+		remove_head_at_index( predicate, list, i, len );
 
 		return tree;
 	};
 
+	var change_parent = function ( parent, children ) {
+
+		var i, len;
+
+		for ( i = 0, len = children.length ; i < len ; ++i ) {
+			children[i].setparent(parent);
+		}
+
+	};
+
 	var shift_up = function ( tree, parent ) {
 
-		var tmp;
+		var tmp, i;
+
+		// console.log( "tree", tree.value );
+		// console.log( "parent", parent.value );
 
 		// Here, we cannot just swap values as it would invalidate
 		// externally stored references.
@@ -265,17 +260,29 @@ var binomial_queue_t = function ( predicate ) {
 		// between the tree and its parent.
 		// Then we update and return the new tree's parent.
 
+		// console.log( "tree.children", tree.children );
+		// console.log( "parent.children", parent.children );
+
 		tmp = parent.children;
 		parent.children = tree.children;
 		tree.children = tmp;
 
-		tree.children[parent.rank()] = parent;
+
+		i = parent.rank();
+
+		// console.log( tree.children, i );
+
+		tree.children[i] = parent;
 
 		tree.parent = parent.parent;
-		parent.parent = tree;
-		parent = tree.parent;
 
-		return parent;
+		change_parent( tree, tree.children );
+		change_parent( parent, parent.children );
+
+		// console.log( "tree.children", tree.children );
+		// console.log( "parent.children", parent.children );
+
+		return tree.parent;
 
 	};
 
@@ -306,7 +313,7 @@ var binomial_queue_t = function ( predicate ) {
 
 	};
 
-	var decreasekey = function ( list, tree, value ) {
+	var decreasekey = function ( predicate, list, tree, value ) {
 
 		var d, tmp, parent;
 
@@ -340,49 +347,67 @@ var binomial_queue_t = function ( predicate ) {
 
 	};
 
-	var deletetree = function ( list, tree ) {
+	var deletetree = function ( predicate, list, tree ) {
 
 		percolate_up( list, tree );
 
-		remove_head_at_index( list, tree.rank(), list.length );
+		remove_head_at_index( predicate, list, tree.rank(), list.length );
 
 		tree.detach();
 
 	};
 
-	binomial_queue.prototype.head = function () {
+	var BinomialHeap = function ( predicate ) {
 
-		var i;
+		// the predicate to use to compare values
+
+		this.predicate = predicate;
+
+
+		// number of elements in this heap
+
+		this.length = 0;
+
+
+		// list of binomial trees
+
+		this.list = [];
+
+	};
+
+	BinomialHeap.prototype.head = function () {
+
+		var i, tree;
 
 		if ( this.length === 0 ) {
 			return undefined;
 		}
 
-		i = find_min_index( list, 0, list.length );
+		i = find_min_index( this.predicate, this.list, 0, this.list.length );
 
-		tree = list[i];
+		tree = this.list[i];
 
 		return tree.value;
 
 	};
 
-	binomial_queue.prototype.headreference = function () {
+	BinomialHeap.prototype.headreference = function () {
 
-		var i;
+		var i, tree;
 
 		if ( this.length === 0 ) {
 			return null;
 		}
 
-		i = find_min_index( list, 0, list.length );
+		i = find_min_index( this.predicate, this.list, 0, this.list.length );
 
-		tree = list[i];
+		tree = this.list[i];
 
 		return tree;
 
 	};
 
-	binomial_queue.prototype.pop = function () {
+	BinomialHeap.prototype.pop = function () {
 
 		if ( this.length === 0 ) {
 			return undefined;
@@ -390,11 +415,11 @@ var binomial_queue_t = function ( predicate ) {
 
 		--this.length;
 
-		return binomial_queue_pop( this.list ).value;
+		return binomial_heap_pop( this.predicate, this.list ).value;
 
 	};
 
-	binomial_queue.prototype.popreference = function () {
+	BinomialHeap.prototype.popreference = function () {
 
 		if ( this.length === 0 ) {
 			return null;
@@ -402,39 +427,37 @@ var binomial_queue_t = function ( predicate ) {
 
 		--this.length;
 
-		return binomial_queue_pop( this.list ).detach();
+		return binomial_heap_pop( this.predicate, this.list ).detach();
 
 	};
 
-	binomial_queue.prototype.push = function ( value ) {
+	BinomialHeap.prototype.push = function ( value ) {
 
 		var tree;
-
-		++this.length;
 
 		// push a new tree of rank 0
 
 		tree = new BinomialTree( value, [] );
 
-		binomial_queue_push( this.list, tree, 0 );
+		this.pushreference( tree );
 
 		return tree;
 
 	};
 
-	binomial_queue.prototype.pushreference = function ( tree ) {
+	BinomialHeap.prototype.pushreference = function ( tree ) {
 
 		++this.length;
 
 		// push an existing tree of rank 0
 
-		binomial_queue_push( this.list, tree, 0 );
+		binomial_heap_push( this.predicate, this.list, tree, 0 );
 
 	};
 
-	binomial_queue.prototype.merge = function ( other ) {
+	BinomialHeap.prototype.merge = function ( other ) {
 
-		mergequeues( this.list, other.list );
+		merge( this.predicate, this.list, other.list );
 
 		this.length += other.length;
 
@@ -442,11 +465,11 @@ var binomial_queue_t = function ( predicate ) {
 
 	};
 
-	binomial_queue.prototype.update = function ( tree, value ) {
+	BinomialHeap.prototype.update = function ( tree, value ) {
 
 		var d;
 
-		d = predicate( value, tree.value );
+		d = this.predicate( value, tree.value );
 
 		if ( d < 0 ) {
 			this.decreasekey( tree, value );
@@ -457,30 +480,32 @@ var binomial_queue_t = function ( predicate ) {
 
 	};
 
-	binomial_queue.prototype.decreasekey = function ( tree, value ) {
+	BinomialHeap.prototype.decreasekey = function ( tree, value ) {
 
-		decreasekey( this.list, tree, value );
-
-	};
-
-	binomial_queue.prototype.increasekey = function ( tree, value ) {
-
-		deletetree( this.list, tree );
-
-		binomial_queue_push( this.list, tree, 0 );
+		decreasekey( this.predicate, this.list, tree, value );
 
 	};
 
-	binomial_queue.prototype.delete = function ( tree ) {
+	BinomialHeap.prototype.increasekey = function ( tree, value ) {
+
+		deletetree( this.predicate, this.list, tree );
+
+		tree.value = value;
+
+		binomial_heap_push( this.predicate, this.list, tree, 0 );
+
+	};
+
+	BinomialHeap.prototype.delete = function ( tree ) {
 
 		--this.length;
 
-		deletetree( this.list, tree );
+		deletetree( this.predicate, this.list, tree );
 
 	};
 
-	return binomial_queue;
+	return BinomialHeap;
 
 };
 
-exports.binomial_queue_t = binomial_queue_t;
+exports.__BinomialHeap__ = __BinomialHeap__;

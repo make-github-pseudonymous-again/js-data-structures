@@ -4,13 +4,13 @@ util = require( "util" );
 sort = require( "aureooms-js-sort" );
 random = require( "aureooms-js-random" );
 
-var check = function(tmpl_name, tmpl, diff, n){
+var check = function ( tmpl_name, tmpl, diff, n ) {
 
-	var name = util.format("binary tree (%s, %s, %d)", tmpl_name, diff, n);
+	var name = util.format( "binary search tree (%s, %s, %d)", tmpl_name, diff, n );
 
-	console.log(name);
+	console.log( name );
 
-	test(name, function(assert){
+	test( name, function () {
 
 
 		var SplayTree = tmpl(diff);
@@ -34,7 +34,7 @@ var check = function(tmpl_name, tmpl, diff, n){
 
 		// CHECK CONTENT
 		bt.in_order_traversal(function(v){ b.push(v); });
-		deepEqual(b, a, 'check content');
+		deepEqual(b, a, "check content");
 
 
 		// PREPARE FOR CHECKING PURPOSES
@@ -47,13 +47,13 @@ var check = function(tmpl_name, tmpl, diff, n){
 		while(i--){
 			b[i] = bt.find(a[i][1]);
 		}
-		deepEqual(b, a, 'check find sorted');
+		deepEqual(b, a, "check find sorted");
 
 		// CHECK FIND SHUFFLED
 		shuffle(a, 0, n);
 		i = n;
 		while (i--) b[i] = bt.find(a[i][1]);
-		deepEqual(b, a, 'check find shuffled');
+		deepEqual(b, a, "check find shuffled");
 
 
 		var remove = function(l, r, p, q, txt){
@@ -70,7 +70,7 @@ var check = function(tmpl_name, tmpl, diff, n){
 			for(i = p; i < q; ++i) e.push(a[i][1]);
 			e.sort(diff);
 			bt.in_order_traversal(function(v){ d.push(v); });
-			deepEqual(d, e, 'check content ' + txt);
+			deepEqual(d, e, "check content " + txt);
 
 			// CHECK FIND AFTER REMOVE
 			i = n;
@@ -79,14 +79,14 @@ var check = function(tmpl_name, tmpl, diff, n){
 				c[i] = a[i][0];
 			}
 
-			deepEqual(b, c, 'check find ' + txt);
+			deepEqual(b, c, "check find " + txt);
 
 			// TRY REMOVING TWICE
 			i = r;
 			while(i --> l) bt.remove(a[i][1]);
 		};
 
-		remove(half, n, 0, half, 'after remove half');
+		remove(half, n, 0, half, "after remove half");
 
 		// ADD NEW ELEMENTS
 		i = n;
@@ -102,15 +102,15 @@ var check = function(tmpl_name, tmpl, diff, n){
 		for(i = 0; i < n; ++i) e.push(a[i][1]);
 		e.sort(diff);
 		bt.in_order_traversal(function(v){ d.push(v); });
-		deepEqual(d, e, 'check content new elements');
+		deepEqual(d, e, "check content new elements");
 
 		// CHECK FIND NEW ELEMENTS
 		i = n;
 		while (i--) b[i] = bt.find(a[i][1]);
-		deepEqual(b, a, 'check find new elements');
+		deepEqual(b, a, "check find new elements");
 
-		remove(0, half, half, n,  'after remove first half');
-		remove(half, n, 0, 0,  'after remove second half');
+		remove(0, half, half, n,  "after remove first half");
+		remove(half, n, 0, 0,  "after remove second half");
 
 	});
 
@@ -119,11 +119,11 @@ var check = function(tmpl_name, tmpl, diff, n){
 
 
 I = [
-	['splay_tree_t', algo.splay_tree_t],
-	['splay_tree_2_t', algo.splay_tree_2_t],
-	['splay_tree_3_t', algo.splay_tree_3_t],
-	['splay_tree_4_t', algo.splay_tree_4_t],
-	['splay_tree_5_t', algo.splay_tree_5_t],
+	["splay_tree_t", algo.splay_tree_t],
+	["splay_tree_2_t", algo.splay_tree_2_t],
+	["splay_tree_3_t", algo.splay_tree_3_t],
+	["splay_tree_4_t", algo.splay_tree_4_t],
+	["splay_tree_5_t", algo.splay_tree_5_t],
 ];
 
 var DIFF = [

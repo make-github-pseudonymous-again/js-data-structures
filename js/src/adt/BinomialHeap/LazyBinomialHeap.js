@@ -1,37 +1,11 @@
-var lazy_binomial_queue_t = function ( predicate ) {
 
+var __LazyBinomialHeap__ = function ( BinomialTree ) {
 
-	var BinomialTree = __BinomialTree__( predicate );
-
-	var mergetrees = function ( tree1, tree2 ) {
-		return tree1.merge( tree2 );
-	};
-
-
-	var lazy_binomial_queue = function () {
-
-		// number of elements in this queue
-
-		this.length = 0;
-
-
-		// list of binomial trees
-
-		this.list = [];
-
-
-		// list of binomial queues waiting to be merge
-
-		this.lazy = [];
-
-	};
-
-
-	var lazy_binomial_queue_push = function( lazy, tree, rank ){
+	var lazy_binomial_heap_push = function( lazy, tree, rank ){
 
 		var i, sequence;
 
-		// lightweight binomial queue containing a unique tree
+		// lightweight binomial heap containing a unique tree
 
 		sequence = [];
 
@@ -53,7 +27,7 @@ var lazy_binomial_queue_t = function ( predicate ) {
 
 	};
 
-	var mergequeues = function ( list, other ) {
+	var merge = function ( predicate, list, other ) {
 
 		var i, len, carry;
 
@@ -61,7 +35,7 @@ var lazy_binomial_queue_t = function ( predicate ) {
 			return;
 		}
 
-		// merging two binomial queues is like
+		// merging two binomial heaps is like
 		// adding two little endian integers
 		// so, we first make sure that we have
 		// enough place to store the result
@@ -114,7 +88,7 @@ var lazy_binomial_queue_t = function ( predicate ) {
 					// --> merge carry with current cell
 
 					else {
-						carry = mergetrees( carry, list[i] );
+						carry = carry.merge( predicate, list[i] );
 						list[i] = null;
 					}
 
@@ -134,7 +108,7 @@ var lazy_binomial_queue_t = function ( predicate ) {
 
 			else if ( carry !== null ) {
 
-				carry = mergetrees( carry, other[i] );
+				carry = carry.merge( predicate, other[i] );
 
 			}
 
@@ -143,7 +117,7 @@ var lazy_binomial_queue_t = function ( predicate ) {
 
 			else if ( list[i] !== null ) {
 
-				carry = mergetrees( list[i], other[i] );
+				carry = list[i].merge( predicate, other[i] );
 				list[i] = null;
 
 			}
@@ -169,7 +143,7 @@ var lazy_binomial_queue_t = function ( predicate ) {
 	};
 
 
-	var lazy_binomial_queue_pop = function ( list, lazy ) {
+	var lazy_binomial_heap_pop = function ( predicate, list, lazy ) {
 
 		var i, j, len, opt, item, candidate, orphan;
 
@@ -180,7 +154,7 @@ var lazy_binomial_queue_t = function ( predicate ) {
 		// stored values
 
 		for ( i = 0 ; i < len ; ++i ) {
-			mergequeues( list, lazy[i] );
+			merge( predicate, list, lazy[i] );
 		}
 
 
@@ -246,8 +220,31 @@ var lazy_binomial_queue_t = function ( predicate ) {
 		return opt;
 	};
 
+	var LazyBinomialHeap = function ( predicate ) {
 
-	lazy_binomial_queue.prototype.pop = function () {
+		// the predicate to use to compare values
+
+		this.predicate = predicate;
+
+
+		// number of elements in this heap
+
+		this.length = 0;
+
+
+		// list of binomial trees
+
+		this.list = [];
+
+
+		// list of binomial heaps waiting to be merged
+
+		this.lazy = [];
+
+	};
+
+
+	LazyBinomialHeap.prototype.pop = function () {
 
 		if ( this.length === 0 ) {
 			return undefined;
@@ -255,22 +252,22 @@ var lazy_binomial_queue_t = function ( predicate ) {
 
 		--this.length;
 
-		return lazy_binomial_queue_pop( this.list, this.lazy );
+		return lazy_binomial_heap_pop( this.predicate, this.list, this.lazy );
 
 	};
 
-	lazy_binomial_queue.prototype.push = function (value) {
+	LazyBinomialHeap.prototype.push = function (value) {
 
 		++this.length;
 
 		// push a new tree of rank 0
 
-		return lazy_binomial_queue_push( this.lazy, new BinomialTree( value, [] ), 0 );
+		return lazy_binomial_heap_push( this.lazy, new BinomialTree( value, [] ), 0 );
 
 	};
 
 
-	lazy_binomial_queue.prototype.merge = function ( other ) {
+	LazyBinomialHeap.prototype.merge = function ( other ) {
 		var i;
 		for ( i = 0 ; i < other.lazy.length ; ++i ) {
 			this.lazy.push( other.lazy[i] );
@@ -280,7 +277,7 @@ var lazy_binomial_queue_t = function ( predicate ) {
 		return this;
 	};
 
-	return lazy_binomial_queue;
+	return LazyBinomialHeap;
 };
 
-exports.lazy_binomial_queue_t = lazy_binomial_queue_t;
+exports.__LazyBinomialHeap__ = __LazyBinomialHeap__;
