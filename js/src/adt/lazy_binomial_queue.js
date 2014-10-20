@@ -216,7 +216,7 @@ var lazy_binomial_queue_t = function ( predicate ) {
 
 				candidate = item.value;
 
-				if ( predicate( candidate, opt ) ) {
+				if ( predicate( candidate, opt ) < 0 ) {
 
 					i = j;
 					opt = candidate;

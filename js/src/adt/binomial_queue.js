@@ -176,17 +176,15 @@ var binomial_queue_t = function ( predicate ) {
 
 	};
 
-	var binomial_queue_pop = function ( list ) {
+	var find_min_index = function ( list, j, len ) {
 
-		var i, j, len, opt, item, candidate, orphan;
-
-		len = list.length;
+		var i, opt, item, candidate;
 
 		// there MUST be at least one
 		// non null element in this list
 		// we look for the first one
 
-		for ( j = 0 ; j < len - 1 && list[j] === null ; ++j ) ;
+		for ( ; j < len - 1 && list[j] === null ; ++j ) ;
 
 		// here j is necessarily < len
 		// and list[j] is non null
@@ -205,7 +203,7 @@ var binomial_queue_t = function ( predicate ) {
 
 				candidate = item.value;
 
-				if ( predicate( candidate, opt ) ) {
+				if ( predicate( candidate, opt ) < 0 ) {
 
 					i = j;
 					opt = candidate;
@@ -216,7 +214,15 @@ var binomial_queue_t = function ( predicate ) {
 
 		}
 
-		orphan = list[i].children;
+		return i;
+
+	};
+
+	var remove_head_at_index = function ( list, i, len ) {
+
+		var orphans;
+
+		orphans = list[i].children;
 		list[i] = null;
 
 		// we just removed the ith element
@@ -230,11 +236,119 @@ var binomial_queue_t = function ( predicate ) {
 		// we merge back the children of
 		// the removed tree into the queue
 
-		mergequeues( list, orphan );
+		mergequeues( list, orphans );
 
-		return opt;
 	};
 
+	var binomial_queue_pop = function ( list ) {
+
+		var i, len, tree;
+
+		len = list.length;
+
+		i = find_min_index( list, 0, len );
+
+		tree = list[i];
+
+		remove_head_at_index( list, i, len );
+
+		return tree;
+	};
+
+	var shift_up = function ( tree, parent ) {
+
+		var tmp;
+
+		// Here, we cannot just swap values as it would invalidate
+		// externally stored references.
+		// Instead, we swap children lists and update references
+		// between the tree and its parent.
+		// Then we update and return the new tree's parent.
+
+		tmp = parent.children;
+		parent.children = tree.children;
+		tree.children = tmp;
+
+		tree.children[parent.rank()] = parent;
+
+		tree.parent = parent.parent;
+		parent.parent = tree;
+		parent = tree.parent;
+
+		return parent;
+
+	};
+
+	var percolate_up = function ( list, tree ) {
+
+		var tmp, parent;
+
+		parent = tree.parent;
+
+		if ( parent !== null ) {
+
+			while ( true ) {
+
+				parent = shift_up( tree, parent );
+
+				if ( parent === null ) {
+					break;
+				}
+
+				// TODO this call might not be necessary
+				parent.children[tree.rank()] = tree;
+
+			}
+
+			list[tree.rank()] = tree;
+
+		}
+
+	};
+
+	var decreasekey = function ( list, tree, value ) {
+
+		var d, tmp, parent;
+
+		tree.value = value;
+		parent = tree.parent;
+
+		if ( parent !== null ) {
+
+			while ( true ) {
+
+				d = predicate( value, parent.value );
+
+				if ( d >= 0 ) {
+					return;
+				}
+
+				parent = shift_up( tree, parent );
+
+				if ( parent === null ) {
+					break;
+				}
+
+				// TODO this call should be in if ( d >= 0 )
+				parent.children[tree.rank()] = tree;
+
+			}
+
+			list[tree.rank()] = tree;
+
+		}
+
+	};
+
+	var deletetree = function ( list, tree ) {
+
+		percolate_up( list, tree );
+
+		remove_head_at_index( list, tree.rank(), list.length );
+
+		tree.detach();
+
+	};
 
 	binomial_queue.prototype.pop = function () {
 
@@ -244,17 +358,45 @@ var binomial_queue_t = function ( predicate ) {
 
 		--this.length;
 
-		return binomial_queue_pop( this.list );
+		return binomial_queue_pop( this.list ).value;
 
 	};
 
-	binomial_queue.prototype.push = function (value) {
+	binomial_queue.prototype.popreference = function () {
+
+		if ( this.length === 0 ) {
+			return null;
+		}
+
+		--this.length;
+
+		return binomial_queue_pop( this.list ).detach();
+
+	};
+
+	binomial_queue.prototype.push = function ( value ) {
+
+		var reference;
 
 		++this.length;
 
 		// push a new tree of rank 0
 
-		return binomial_queue_push( this.list, new BinomialTree( value, [] ), 0 );
+		reference = new BinomialTree( value, [] );
+
+		binomial_queue_push( this.list, reference, 0 );
+
+		return reference;
+
+	};
+
+	binomial_queue.prototype.pushreference = function ( tree ) {
+
+		++this.length;
+
+		// push an existing tree of rank 0
+
+		binomial_queue_push( this.list, tree, 0 );
 
 	};
 
@@ -265,6 +407,43 @@ var binomial_queue_t = function ( predicate ) {
 		this.length += other.length;
 
 		return this;
+
+	};
+
+	binomial_queue.prototype.update = function ( tree, value ) {
+
+		var d;
+
+		d = predicate( value, tree.value );
+
+		if ( d < 0 ) {
+			this.decreasekey( tree, value );
+		}
+		else if ( d > 0 ) {
+			this.increasekey( tree, value );
+		}
+
+	};
+
+	binomial_queue.prototype.decreasekey = function ( tree, value ) {
+
+		decreasekey( this.list, tree, value );
+
+	};
+
+	binomial_queue.prototype.delete = function ( tree ) {
+
+		--this.length;
+
+		deletetree( this.list, tree );
+
+	};
+
+	binomial_queue.prototype.increasekey = function ( tree, value ) {
+
+		deletetree( this.list, tree );
+
+		binomial_queue_push( this.list, tree, 0 );
 
 	};
 

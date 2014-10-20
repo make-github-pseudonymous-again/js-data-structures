@@ -1,10 +1,15 @@
 
 
-var __BinomialTree__ = function ( predicate ) {
+var __BinomialTreeWithParent__ = function ( predicate ) {
 
-	var BinomialTree = function ( value, children ) {
+	var BinomialTreeWithParent = function ( value, children ) {
 		this.value = value;
 		this.children = children;
+		this.parent = null;
+	};
+
+	BinomialTreeWithParent.prototype.rank = function () {
+		return this.children.length;
 	};
 
 	/**
@@ -12,15 +17,17 @@ var __BinomialTree__ = function ( predicate ) {
 	 * /!\ Modifies both trees
 	 */
 
-	BinomialTree.prototype.merge = function ( other ) {
+	BinomialTreeWithParent.prototype.merge = function ( other ) {
 
 		if ( predicate( this.value, other.value ) <= 0 ) {
 			this.children = this.children.concat( other );
+			other.parent = this;
 			return this;
 		}
 
 		else {
 			other.children = other.children.concat( this );
+			this.parent = other;
 			return other;
 		}
 
@@ -32,13 +39,14 @@ var __BinomialTree__ = function ( predicate ) {
 	 * heap.
 	 */
 
-	BinomialTree.prototype.detach = function () {
+	BinomialTreeWithParent.prototype.detach = function () {
 		this.children.splice( 0 );
+		this.parent = null;
 		return this;
 	};
 
-	return BinomialTree;
+	return BinomialTreeWithParent;
 
 };
 
-exports.__BinomialTree__ = __BinomialTree__;
+exports.__BinomialTreeWithParent__ = __BinomialTreeWithParent__;
