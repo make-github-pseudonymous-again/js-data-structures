@@ -68,11 +68,11 @@ var splay_tree_t = function ( diff ) {
 		i = turn.length - 1;
 
 		for ( ; i > 0 ; i -= 2 ) {
-			zz[turn[i-1]][turn[i]](pt, path[i], path[i-1]);
+			zz[turn[i-1]][turn[i]]( pt, path[i], path[i-1] );
 		}
 
 		if ( i === 0 ) {
-			z[turn[0]](pt, el);
+			z[turn[0]]( pt, el );
 		}
 
 		return [f, pt];

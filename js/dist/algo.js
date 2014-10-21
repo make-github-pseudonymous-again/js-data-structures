@@ -1172,10 +1172,10 @@ var splay_tree_t = function ( diff ) {
 	zig = function ( x, y ) { y[0] = x[1]; x[1] = y; };
 	zag = function ( x, y ) { y[1] = x[0]; x[0] = y; };
 
-	zigzig = function ( x, p, g ) { zig(p, g); zig(x, p); };
-	zigzag = function ( x, p, g ) { zig(x, g); zag(x, p); };
-	zagzig = function ( x, p, g ) { zag(x, g); zig(x, p); };
-	zagzag = function ( x, p, g ) { zag(p, g); zag(x, p); };
+	zigzig = function ( x, p, g ) { zig( p, g ); zig( x, p ); };
+	zigzag = function ( x, p, g ) { zig( x, g ); zag( x, p ); };
+	zagzig = function ( x, p, g ) { zag( x, g ); zig( x, p ); };
+	zagzag = function ( x, p, g ) { zag( p, g ); zag( x, p ); };
 
 	z  = [zig, zag];
 	zz = [ [zigzig, zigzag], [zagzig, zagzag] ];
@@ -1233,11 +1233,11 @@ var splay_tree_t = function ( diff ) {
 		i = turn.length - 1;
 
 		for ( ; i > 0 ; i -= 2 ) {
-			zz[turn[i-1]][turn[i]](pt, path[i], path[i-1]);
+			zz[turn[i-1]][turn[i]]( pt, path[i], path[i-1] );
 		}
 
 		if ( i === 0 ) {
-			z[turn[0]](pt, el);
+			z[turn[0]]( pt, el );
 		}
 
 		return [f, pt];
