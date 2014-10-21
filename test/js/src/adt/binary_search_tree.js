@@ -8,6 +8,14 @@ functools = require( "aureooms-js-functools" );
 
 shuffle = random.__shuffle__( random.__sample__( random.randint ) );
 
+/**
+ * tests the following methods
+ *
+ * bst.insert( value )
+ * bst.in_order_traversal( cb ( value ) { ... } )
+ * bst.find( value )
+ * bst.remove( value )
+ */
 
 all = function ( BSTname, BST, diffname, diff, n ) {
 
