@@ -1,4 +1,4 @@
-var all, util, sort, random, itertools, functools;
+var all, util, sort, random, itertools, functools, shuffle;
 
 util = require( "util" );
 sort = require( "aureooms-js-sort" );
@@ -6,113 +6,148 @@ random = require( "aureooms-js-random" );
 itertools = require( "aureooms-js-itertools" );
 functools = require( "aureooms-js-functools" );
 
-all = function ( tmpl_name, tmpl, diffname, diff, n ) {
-
-	var name = util.format( "binary search tree (%s, %s, %d)", tmpl_name, diffname, n );
-
-	console.log( name );
-
-	test( name, function () {
+shuffle = random.__shuffle__( random.__sample__( random.randint ) );
 
 
-		var SplayTree = tmpl(diff);
-		var sample = random.__sample__(random.randint);
-		var shuffle = random.__shuffle__(sample);
+all = function ( BSTname, BST, diffname, diff, n ) {
 
-		var bt = new SplayTree();
-		var a = [];
+	var title;
 
-		var i = n, x;
+	title = util.format( "binary search tree (%s, %s, %d)", BSTname, diffname, n );
+
+	console.log( title );
+
+
+	test( title, function () {
+
+		var SplayTree, bst, a, b, c, d, e, half, i, x, remove;
+
+		SplayTree = BST( diff );
+		bst = new SplayTree();
+
+		a = [];
+		i = n;
 
 		while ( i-- ) {
 			x = Math.random();
-			bt.insert(x);
-			a.push(x);
+			bst.insert( x );
+			a.push( x );
 		}
 
 		a.sort( diff );
 
-		var b = [], c = [], d, e, half = Math.floor(n/2);
+		b = [];
+		c = [];
+		half = Math.floor( n / 2 );
 
 		// CHECK CONTENT
-		bt.in_order_traversal(function(v){ b.push(v); });
+		bst.in_order_traversal( function ( v ) { b.push( v ); } );
 		deepEqual(b, a, "check content");
 
 
 		// PREPARE FOR CHECKING PURPOSES
 		i = n;
-		while(i--) a[i] = [true, a[i]];
+		while ( i-- ) {
+			a[i] = [true, a[i]];
+		}
 
 
 		// CHECK FIND SORTED
 		i = n;
-		while(i--){
-			b[i] = bt.find(a[i][1]);
+		while ( i-- ) {
+			b[i] = bst.find( a[i][1] );
 		}
-		deepEqual(b, a, "check find sorted");
+		deepEqual( b, a, "check find sorted" );
 
 		// CHECK FIND SHUFFLED
-		shuffle(a, 0, n);
+		shuffle( a, 0, n );
 		i = n;
-		while (i--) b[i] = bt.find(a[i][1]);
-		deepEqual(b, a, "check find shuffled");
+		while ( i-- ) {
+			b[i] = bst.find( a[i][1] );
+		}
+		deepEqual( b, a, "check find shuffled" );
 
 
-		var remove = function(l, r, p, q, txt){
+		remove = function(l, r, p, q, txt){
+
 			// REMOVE
+
 			i = r;
-			while(i --> l){
-				bt.remove(a[i][1]);
+			while ( i --> l ) {
+				bst.remove( a[i][1] );
 				a[i][0] = false;
 			}
 
+
 			// CHECK CONTENT AFTER REMOVE
+
 			d = [];
 			e = [];
-			for(i = p; i < q; ++i) e.push(a[i][1]);
-			e.sort(diff);
-			bt.in_order_traversal(function(v){ d.push(v); });
-			deepEqual(d, e, "check content " + txt);
+			for ( i = p ; i < q ; ++i ) {
+				e.push( a[i][1] );
+			}
+
+			e.sort( diff );
+			bst.in_order_traversal( function ( v ) { d.push(v); } );
+			deepEqual( d, e, "check content " + txt );
+
 
 			// CHECK FIND AFTER REMOVE
+
 			i = n;
-			while(i--){
-				b[i] = bt.find(a[i][1])[0];
+			while ( i-- ) {
+				b[i] = bst.find(a[i][1])[0];
 				c[i] = a[i][0];
 			}
 
-			deepEqual(b, c, "check find " + txt);
+			deepEqual( b, c, "check find " + txt );
+
 
 			// TRY REMOVING TWICE
+
 			i = r;
-			while(i --> l) bt.remove(a[i][1]);
+			while ( i --> l ) {
+				bst.remove(a[i][1]);
+			}
+
 		};
 
-		remove(half, n, 0, half, "after remove half");
+		remove( half, n, 0, half, "after remove half" );
 
 		// ADD NEW ELEMENTS
 		i = n;
-		while(i --> half){
+		while ( i --> half ) {
 			x = Math.random();
-			bt.insert(x);
+			bst.insert( x );
 			a[i] = [true, x];
 		}
 
 		// CHECK CONTENT NEW ELEMENTS
+
 		d = [];
 		e = [];
-		for(i = 0; i < n; ++i) e.push(a[i][1]);
-		e.sort(diff);
-		bt.in_order_traversal(function(v){ d.push(v); });
-		deepEqual(d, e, "check content new elements");
+		for ( i = 0 ; i < n ; ++i ) {
+			e.push( a[i][1] );
+		}
+
+		e.sort( diff );
+		bst.in_order_traversal( function ( v ) { d.push(v); } );
+		deepEqual( d, e, "check content new elements" );
+
 
 		// CHECK FIND NEW ELEMENTS
-		i = n;
-		while (i--) b[i] = bt.find(a[i][1]);
-		deepEqual(b, a, "check find new elements");
 
-		remove(0, half, half, n,  "after remove first half");
-		remove(half, n, 0, 0,  "after remove second half");
+		i = n;
+
+		while ( i-- ) {
+			b[i] = bst.find( a[i][1] );
+		}
+
+		deepEqual( b, a, "check find new elements" );
+
+
+		remove( 0, half, half, n,  "after remove first half" );
+		remove( half, n, 0, 0,  "after remove second half" );
 
 	});
 
