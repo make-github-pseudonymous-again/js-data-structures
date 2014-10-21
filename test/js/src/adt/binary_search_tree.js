@@ -1,12 +1,14 @@
-var util, random, sort;
+var all, util, sort, random, itertools, functools;
 
 util = require( "util" );
 sort = require( "aureooms-js-sort" );
 random = require( "aureooms-js-random" );
+itertools = require( "aureooms-js-itertools" );
+functools = require( "aureooms-js-functools" );
 
-var check = function ( tmpl_name, tmpl, diff, n ) {
+all = function ( tmpl_name, tmpl, diffname, diff, n ) {
 
-	var name = util.format( "binary search tree (%s, %s, %d)", tmpl_name, diff, n );
+	var name = util.format( "binary search tree (%s, %s, %d)", tmpl_name, diffname, n );
 
 	console.log( name );
 
@@ -118,27 +120,21 @@ var check = function ( tmpl_name, tmpl, diff, n ) {
 
 
 
-I = [
+itertools.product( [
+
+[
 	["splay_tree_t", algo.splay_tree_t],
 	["splay_tree_2_t", algo.splay_tree_2_t],
 	["splay_tree_3_t", algo.splay_tree_3_t],
 	["splay_tree_4_t", algo.splay_tree_4_t],
 	["splay_tree_5_t", algo.splay_tree_5_t],
-];
+],
 
-var DIFF = [
-	sort.increasing,
-	sort.decreasing
-];
+[
+	["increasing", sort.increasing],
+	["decreasing", sort.decreasing]
+],
 
+[1, 16, 17, 31, 32, 33, 127, 128, 129]
 
-SIZE = [1, 16, 17, 31, 32, 33, 127, 128, 129];
-
-
-for(var i = 0; i < I.length; ++i){
-	for(var j = 0; j < DIFF.length; ++j){
-		for(var k = 0; k < SIZE.length; ++k){
-			check(I[i][0], I[i][1], DIFF[j], SIZE[k]);
-		}
-	}
-}
+], 1, [] ).forEach( functools.partial( functools.star, null, [all] ) );
