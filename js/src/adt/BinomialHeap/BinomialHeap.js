@@ -474,8 +474,17 @@ var __BinomialHeap__ = function ( BinomialTree ) {
 		if ( d < 0 ) {
 			this.decreasekey( tree, value );
 		}
+
 		else if ( d > 0 ) {
 			this.increasekey( tree, value );
+		}
+
+		else {
+
+			// d === 0 does not imply tree.value === value
+
+			tree.value = value;
+
 		}
 
 	};
