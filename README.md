@@ -57,3 +57,4 @@ this project is just a playground for any algorithm / procedure, data structure 
 Binary and Binomial heap reference:
 
   - http://www.cs.princeton.edu/~wayne/cs423/lectures/heaps-4up.pdf
+  - http://stackoverflow.com/questions/6531543/efficient-implementation-of-binary-heaps
