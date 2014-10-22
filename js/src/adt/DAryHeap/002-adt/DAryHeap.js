@@ -52,7 +52,7 @@ DAryHeap.prototype.swap = function ( a, i, j ) {
 };
 
 
-DAryHeapWithoutReferences.prototype.head = function () {
+DAryHeap.prototype.head = function () {
 
 	if ( this.length === 0 ) {
 		return undefined;
