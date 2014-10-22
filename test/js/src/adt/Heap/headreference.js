@@ -7,7 +7,7 @@ functools = require( "aureooms-js-functools" );
 
 all = function ( heapname, __BinomialHeap__, treename, BinomialTree, diffname, diff, n ) {
 
-	var title = util.format( "Binomial Heap head (%s, %s, %s, %d)", heapname, treename, diffname, n );
+	var title = util.format( "Binomial Heap head reference (%s, %s, %s, %d)", heapname, treename, diffname, n );
 
 	console.log( title );
 
@@ -31,14 +31,14 @@ all = function ( heapname, __BinomialHeap__, treename, BinomialTree, diffname, d
 		b = [];
 
 		while ( i-- ) {
-			b.push( q.head() );
+			b.push( q.headreference().value );
 			q.pop();
 		}
 
 		a.sort( diff );
 
-		deepEqual( b, a, "check head sorted" );
-		deepEqual( q.head(), undefined, "check head empty" );
+		deepEqual( b, a, "check head reference sorted" );
+		deepEqual( q.headreference(), null, "check head reference empty" );
 
 	});
 
