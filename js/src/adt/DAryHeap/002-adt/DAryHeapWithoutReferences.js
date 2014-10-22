@@ -36,19 +36,21 @@ DAryHeapWithoutReferences.prototype.swap = function ( a, i, j ) {
 
 DAryHeapWithoutReferences.prototype.pop = function () {
 
-	var a, value;
+	var a, i, j, value;
 
 	if ( this.length === 0 ) {
 		return undefined;
 	}
 
-	--this.length;
-
 	a = this.array;
+	i = 0;
+	j = a.length;
 
-	value = daryheap.pop( this.arity, this.compare, this.swap, a, 0, a.length );
+	value = daryheap.pop( this.arity, this.compare, this.swap, a, i, j );
 
 	a.pop();
+
+	--this.length;
 
 	return value;
 
@@ -57,15 +59,18 @@ DAryHeapWithoutReferences.prototype.pop = function () {
 
 DAryHeapWithoutReferences.prototype.push = function ( value ) {
 
-	var a;
-
-	++this.length;
+	var a, i, j;
 
 	a = this.array;
+	i = 0;
+	j = a.length;
+
 
 	a.push( value );
 
-	daryheap.push( this.arity, this.compare, this.swap, a, 0, a.length - 1 );
+	daryheap.push( this.arity, this.compare, this.swap, a, i, j );
+
+	++this.length;
 
 };
 
@@ -74,20 +79,18 @@ DAryHeapWithoutReferences.prototype.merge = function ( other ) {
 	var a, i, j, k;
 
 	a = this.array;
-
 	i = 0;
 	j = a.length;
 
-	this.array = a.concat( other.array );
-
-	a = this.array;
+	a = this.array = a.concat( other.array );
 
 	k = a.length;
 
-	this.length += other.length;
-
 	daryheap.merge( this.arity, this.compare, this.swap, a, i, j, k );
+
+	this.length += other.length;
 
 };
 
 exports.DAryHeapWithoutReferences = DAryHeapWithoutReferences;
+
