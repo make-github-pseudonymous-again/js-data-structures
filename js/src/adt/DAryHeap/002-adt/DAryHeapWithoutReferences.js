@@ -23,6 +23,7 @@ var DAryHeapWithoutReferences = function ( arity, compare ) {
 
 };
 
+
 DAryHeapWithoutReferences.prototype.swap = function ( a, i, j ) {
 
 	var tmp;
@@ -30,6 +31,17 @@ DAryHeapWithoutReferences.prototype.swap = function ( a, i, j ) {
 	tmp = a[i];
 	a[i] = a[j];
 	a[j] = tmp;
+
+};
+
+
+DAryHeapWithoutReferences.prototype.head = function () {
+
+	if ( this.length === 0 ) {
+		return undefined;
+	}
+
+	return this.array[0];
 
 };
 

@@ -33,6 +33,7 @@ var DAryHeap = function ( arity, compare ) {
 
 };
 
+
 DAryHeap.prototype.swap = function ( a, i, j ) {
 
 	var tmp;
@@ -47,6 +48,17 @@ DAryHeap.prototype.swap = function ( a, i, j ) {
 
 	this.ref[i][0] = i;
 	this.ref[j][0] = j;
+
+};
+
+
+DAryHeapWithoutReferences.prototype.head = function () {
+
+	if ( this.length === 0 ) {
+		return undefined;
+	}
+
+	return this.array[0];
 
 };
 
