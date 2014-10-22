@@ -5,22 +5,20 @@ sort = require( "aureooms-js-sort" );
 itertools = require( "aureooms-js-itertools" );
 functools = require( "aureooms-js-functools" );
 
-all = function ( heapname, __BinomialHeap__, treename, BinomialTree, diffname, diff, m, n ) {
+all = function ( heapname, Heap, diffname, diff, m, n ) {
 
-	var title = util.format( "Binomial Heap merge (%s, %s, %s, %d, %d)", heapname, treename, diffname, m, n );
+	var title = util.format( "Heap merge (%s, %s, %d, %d)", heapname, diffname, m, n );
 
 	console.log( title );
 
 	test( title, function () {
 
-		var BinomialHeap, q, q1, q2, a, x, i, b;
-
-		BinomialHeap = __BinomialHeap__( BinomialTree );
+		var q, q1, q2, a, x, i, b;
 
 		a = [];
-		q = new BinomialHeap( diff );
-		q1 = new BinomialHeap( diff );
-		q2 = new BinomialHeap( diff );
+		q = Heap( diff );
+		q1 = Heap( diff );
+		q2 = Heap( diff );
 
 		deepEqual( q.pop(), undefined, "1st empty pop" );
 
@@ -53,32 +51,104 @@ all = function ( heapname, __BinomialHeap__, treename, BinomialTree, diffname, d
 		deepEqual( b, a, "check sorted" );
 
 		deepEqual( q.pop(), undefined, "2nd empty pop" );
-		deepEqual( q.list.length, 0, "list empty" );
+
+		if ( q.list !== undefined ) {
+			deepEqual( q.list.length, 0, "list empty" );
+		}
+		else if ( q.array !== undefined ) {
+			deepEqual( q.array.length, 0, "array empty" );
+		}
+
 		deepEqual( q.length, 0, "queue empty" );
 
 	});
 
 };
 
-
 itertools.product( [
 
-[
-	["__BinomialHeap__", algo.__BinomialHeap__],
-	["__LazyBinomialHeap__", algo.__LazyBinomialHeap__]
-],
+	itertools.chain( [
 
-[
-	["BinomialTree", algo.BinomialTree],
-	["BinomialTreeWithParent", algo.BinomialTreeWithParent]
-],
+		itertools.map( functools.partial( functools.star,
 
-[
-	["increasing", sort.increasing],
-	["decreasing", sort.decreasing]
-],
+			function ( heapname, template, treename, treeconstructor ) {
 
-[1, 16, 17, 31, 32, 33, 127, 128, 129],
-[1, 16, 17, 31, 32, 33, 127, 128, 129]
+				return [
+					heapname + ", " + treename,
+					functools.partial( functools.create,
+						[template( treeconstructor )]
+					)
+				];
 
-], 1, [] ).forEach( functools.partial( functools.star, null, [all] ) );
+			} ),
+
+			itertools.product( [
+
+			[
+				["__BinomialHeap__", algo.__BinomialHeap__],
+				["__LazyBinomialHeap__", algo.__LazyBinomialHeap__]
+			],
+
+			[
+				["BinomialTree", algo.BinomialTree],
+				["BinomialTreeWithParent", algo.BinomialTreeWithParent]
+			]
+
+			], 1, [] ),
+
+			[]
+
+		),
+
+
+		itertools.map( functools.partial( functools.star,
+
+			function ( heapname, template, arityname, arity ) {
+
+				return [
+					heapname + ", " + arityname,
+					template( arity )
+				];
+
+			} ),
+
+			itertools.product( [
+
+			[
+				[
+					"DAryHeapWithoutReferences",
+					functools.curry(
+						functools.partial(
+							functools.create, [algo.DAryHeapWithoutReferences]
+						),
+						2
+					)
+				]
+			],
+
+			[
+				["unary", 1],
+				["binary", 2],
+				["ternary", 3],
+				["4-ary", 4],
+				["5-ary", 5]
+			],
+
+			], 1, [] ),
+
+			[]
+
+		),
+
+	], [] ),
+
+
+	[
+		["increasing", sort.increasing],
+		["decreasing", sort.decreasing]
+	],
+
+	[1, 2, 3, 31, 32, 33, 63, 64, 65],
+	[1, 2, 3, 31, 32, 33, 63, 64, 65]
+
+], 1, [] ).forEach( functools.partial( functools.star, [all] ) );

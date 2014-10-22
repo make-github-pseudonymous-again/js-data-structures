@@ -520,8 +520,17 @@ var __BinomialHeap__ = function ( BinomialTree ) {
 		if ( d < 0 ) {
 			this.decreasekey( tree, value );
 		}
+
 		else if ( d > 0 ) {
 			this.increasekey( tree, value );
+		}
+
+		else {
+
+			// d === 0 does not imply tree.value === value
+
+			tree.value = value;
+
 		}
 
 	};
@@ -936,6 +945,541 @@ var __LazyBinomialHeap__ = function ( BinomialTree ) {
 };
 
 exports.__LazyBinomialHeap__ = __LazyBinomialHeap__;
+
+/* js/src/adt/DAryHeap */
+/* js/src/adt/DAryHeap/000-namespace.js */
+
+var daryheap = {};
+
+exports.daryheap = daryheap;
+
+/* js/src/adt/DAryHeap/001-core */
+/* js/src/adt/DAryHeap/001-core/decreasekey.js */
+
+/**
+ * Decreases the value of a target node and
+ * updates its position.
+ *
+ * Hypothesis : i <= j
+ *
+ * @param {int} arity arity of the heap
+ * @param {function} compare the comparison function
+ * @param {function} swap the swap function
+ * @param {array} a the array where the heap is stored
+ * @param {int} i is the root element
+ * @param {int} j - 1 is the last leaf
+ * @param {int} k is the target node
+ * @param {value} value is the target node's new value
+ */
+
+daryheap.decreasekey = function ( arity, compare, swap, a, i, j, k, value ) {
+
+	// update value of the target element
+
+	a[k] = value;
+
+	// percolate up the target element
+
+	return daryheap.percolateup( arity, compare, swap, a, i, j, k );
+
+};
+
+/* js/src/adt/DAryHeap/001-core/delete.js */
+
+/**
+ * Delete a target element from a d-ary heap
+ *
+ * Hypothesis : i < j
+ *
+ * @param {int} arity arity of the heap
+ * @param {function} compare the comparison function
+ * @param {function} swap the swap function
+ * @param {array} a the array where the heap is stored
+ * @param {int} i is the root
+ * @param {int} j - 1 is the last leaf
+ * @param {int} k is the target node
+ */
+
+daryheap.delete = function ( arity, compare, swap, a, i, j, k ) {
+
+	// sniff target node all the way up
+
+	daryheap.sniffup( arity, compare, swap, a, i, j, k );
+
+	// pop target node
+
+	return daryheap.pop( arity, compare, swap, a, i, j );
+
+};
+
+/* js/src/adt/DAryHeap/001-core/head.js */
+
+/**
+ * Returns the smallest node of a d-ary heap, i.e. the root.
+ *
+ * Hypothesis : i < j
+ *
+ * @param {int} arity arity of the heap
+ * @param {function} compare the comparison function
+ * @param {function} swap the swap function
+ * @param {array} a the array where the heap is stored
+ * @param {int} i is the root
+ * @param {int} j - 1 is the last leaf
+ */
+
+daryheap.head = function ( arity, compare, swap, a, i, j ) {
+
+	return a[i];
+
+};
+
+/* js/src/adt/DAryHeap/001-core/increasekey.js */
+
+/**
+ * Increases the value of a target node and
+ * updates its position.
+ *
+ * Hypothesis : i <= j
+ *
+ * @param {int} arity arity of the heap
+ * @param {function} compare the comparison function
+ * @param {function} swap the swap function
+ * @param {array} a the array where the heap is stored
+ * @param {int} i is the root element
+ * @param {int} j - 1 is the last leaf
+ * @param {int} k is the target node
+ * @param {value} value is the target node's new value
+ */
+
+daryheap.increasekey = function ( arity, compare, swap, a, i, j, k, value ) {
+
+	// update value of the target element
+
+	a[k] = value;
+
+	// percolate down the target element
+
+	return daryheap.percolatedown( arity, compare, swap, a, i, j, k );
+
+};
+
+/* js/src/adt/DAryHeap/001-core/merge.js */
+
+/**
+ * Merge heaps at intervals [i, j[ and [j, k[ in array *a*
+ * into a new heap at interval [i, k[.
+ *
+ * Hypothesis :
+ *
+ *   - i <= j <= k
+ *   - j - 1 is the last leaf ot the first heap
+ *
+ * @param {int} arity arity of the heap
+ * @param {function} compare the comparison function
+ * @param {function} swap the swap function
+ * @param {array} a the array where the two heaps are stored
+ * @param {int} i is the root of the first heap
+ * @param {int} j is the root of the second heap
+ * @param {int} k - 1 is the index of the last leaf in the second heap
+ */
+
+daryheap.merge = function ( arity, compare, swap, a, i, j, k ) {
+
+	for ( ; j < k ; ++j ) {
+		daryheap.percolateup( arity, compare, swap, a, i, j + 1, j );
+	}
+
+};
+
+/* js/src/adt/DAryHeap/001-core/nextchild.js */
+
+
+/**
+ * Computes which child is the smallest according
+ * to a comparison function.
+ *
+ * Hypothesis : i < j i.e. there should be at least one child
+ *
+ * @param {int} arity arity of the heap
+ * @param {function} compare the comparison function
+ * @param {function} swap the swap function
+ * @param {array} a the array where the heap is stored
+ * @param {int} i is the first child
+ * @param {int} j - 1 is the last leaf
+ */
+
+daryheap.nextchild = function ( arity, compare, swap, a, i, j ) {
+
+	var k, best;
+
+	k = i + Math.min( arity, j - i );
+
+	best = i;
+
+	for ( ++i ; i < k ; ++i ) {
+
+		if ( compare( a[i], a[best] ) < 0 ) {
+			best = i;
+		}
+
+	}
+
+	return best;
+
+};
+
+/* js/src/adt/DAryHeap/001-core/percolatedown.js */
+
+
+/**
+ * Percolates down a node.
+ *
+ * @param {int} arity arity of the heap
+ * @param {function} compare the comparison function
+ * @param {function} swap the swap function
+ * @param {array} a the array where the heap is stored
+ * @param {int} i is the root element
+ * @param {int} j - 1 is the last leaf
+ * @param {int} k is the target node
+ */
+
+daryheap.percolatedown = function ( arity, compare, swap, a, i, j, k ) {
+
+	var current, candidate, firstchild;
+
+	current = k - i;
+
+	while ( true ) {
+
+		// address of the first child in a zero-based
+		// d-ary heap
+
+		firstchild = arity * current + 1;
+
+		// if current node has no children
+		// then we are done
+
+		if ( firstchild >= j - i ) {
+			break;
+		}
+
+		// if current value is smaller than its smallest
+		// child then we are done
+
+		candidate = daryheap.nextchild( arity, compare, swap, a, i + firstchild, j );
+
+		if ( compare( a[i + current], a[candidate] ) <= 0 ) {
+			break;
+		}
+
+		// otherwise
+		// swap with smallest child
+
+		swap( a, i + current, candidate );
+
+		current = candidate - i;
+
+	}
+
+	return i + current;
+
+};
+
+/* js/src/adt/DAryHeap/001-core/percolateup.js */
+
+/**
+ * Percolates up a node.
+ *
+ * @param {int} arity arity of the heap
+ * @param {function} compare the comparison function
+ * @param {function} swap the swap function
+ * @param {array} a the array where the heap is stored
+ * @param {int} i is the root element
+ * @param {int} j - 1 is the last leaf
+ * @param {int} k is the target node
+ */
+
+daryheap.percolateup = function ( arity, compare, swap, a, i, j, k ) {
+
+	var current, parent;
+
+	current = k - i;
+
+	// while we are not the root
+
+	while ( current !== 0 ) {
+
+		// address of the parent in a zero-based
+		// d-ary heap
+
+		parent = i + Math.floor( ( current - 1 ) / arity );
+
+		// if current value is greater than its parent
+		// then we are done
+
+		if ( compare( a[i + current], a[parent] ) >= 0 ) {
+			return i + current;
+		}
+
+		// otherwise
+		// swap with parent
+
+		swap( a, i + current, parent );
+
+		current = parent - i;
+
+	}
+
+	return i + current;
+
+};
+
+/* js/src/adt/DAryHeap/001-core/pop.js */
+
+/**
+ * Pop the root from a d-ary heap
+ *
+ * Hypothesis : i < j
+ *
+ * @param {int} arity arity of the heap
+ * @param {function} compare the comparison function
+ * @param {function} swap the swap function
+ * @param {array} a the array where the heap is stored
+ * @param {int} i is the root
+ * @param {int} j - 1 is the last leaf
+ */
+
+daryheap.pop = function ( arity, compare, swap, a, i, j ) {
+
+	var popped;
+
+
+	// decrement size of heap
+
+	--j;
+
+
+	// put last leaf at root
+
+	popped = a[i];
+	a[i] = a[j];
+
+
+	// percolate down the new root
+
+	daryheap.percolatedown( arity, compare, swap, a, i, j, i );
+
+
+	// return old root
+
+	return popped;
+
+};
+
+/* js/src/adt/DAryHeap/001-core/push.js */
+
+/**
+ * Insert the jth element of an array in an existing
+ * dary heap in interval [i, j[
+ *
+ * Hypothesis : i <= j
+ *
+ * @param {int} arity arity of the heap
+ * @param {function} compare the comparison function
+ * @param {function} swap the swap function
+ * @param {array} a the array where the heap is stored
+ * @param {int} i is the root
+ * @param {int} j - 1 is the new leaf
+ */
+
+daryheap.push = function ( arity, compare, swap, a, i, j ) {
+
+	// percolate up the new leaf
+
+	return daryheap.percolateup( arity, compare, swap, a, i, j + 1, j );
+
+};
+
+/* js/src/adt/DAryHeap/001-core/sniffup.js */
+
+/**
+ * Percolates up a node.
+ *
+ * @param {int} arity arity of the heap
+ * @param {function} compare the comparison function
+ * @param {function} swap the swap function
+ * @param {array} a the array where the heap is stored
+ * @param {int} i is the root element
+ * @param {int} j - 1 is the last leaf
+ * @param {int} k is the target node
+ */
+
+daryheap.sniffup = function ( arity, compare, swap, a, i, j, k ) {
+
+	var current, parent;
+
+	current = k - i;
+
+	// while we are not the root
+
+	while ( current !== 0 ) {
+
+		// address of the parent in a zero-based
+		// d-ary heap
+
+		parent = i + Math.floor( ( current - 1 ) / arity );
+
+		// swap with parent
+
+		swap( a, i + current, parent );
+
+		current = parent - i;
+
+	}
+
+	return i + current;
+
+};
+
+/* js/src/adt/DAryHeap/001-core/update.js */
+
+/**
+ * Updates the value of a target node and
+ * updates its position.
+ *
+ * Hypothesis : i <= j
+ *
+ * @param {int} arity arity of the heap
+ * @param {function} compare the comparison function
+ * @param {function} swap the swap function
+ * @param {array} a the array where the heap is stored
+ * @param {int} i is the root element
+ * @param {int} j - 1 is the last leaf
+ * @param {int} k is the target node
+ * @param {value} value is the target node's new value
+ */
+
+daryheap.update = function ( arity, compare, swap, a, i, j, k, value ) {
+
+	var d;
+
+	d = compare( value, a[k] );
+
+	if ( d < 0 ) {
+		return daryheap.decreasekey( arity, compare, swap, a, i, j, k, value );
+	}
+
+	else if ( d > 0 ) {
+		return daryheap.increasekey( arity, compare, swap, a, i, j, k, value );
+	}
+
+	else{
+
+		// d === 0 does not imply a[k] === value
+
+		a[k] = value;
+
+		return k;
+
+	}
+
+};
+
+/* js/src/adt/DAryHeap/002-adt */
+/* js/src/adt/DAryHeap/002-adt/DAryHeapWithoutReferences.js */
+
+
+var DAryHeapWithoutReferences = function ( arity, compare ) {
+
+	// arity of this heap
+
+	this.arity = arity;
+
+
+	// the comparison function
+
+	this.compare = compare;
+
+
+	// array used to store values
+
+	this.array = [];
+
+
+	// size of the heap
+
+	this.length = 0;
+
+};
+
+DAryHeapWithoutReferences.prototype.swap = function ( a, i, j ) {
+
+	var tmp;
+
+	tmp = a[i];
+	a[i] = a[j];
+	a[j] = tmp;
+
+};
+
+
+DAryHeapWithoutReferences.prototype.pop = function () {
+
+	var a, value;
+
+	if ( this.length === 0 ) {
+		return undefined;
+	}
+
+	--this.length;
+
+	a = this.array;
+
+	value = daryheap.pop( this.arity, this.compare, this.swap, a, 0, a.length );
+
+	a.pop();
+
+	return value;
+
+};
+
+
+DAryHeapWithoutReferences.prototype.push = function ( value ) {
+
+	var a;
+
+	++this.length;
+
+	a = this.array;
+
+	a.push( value );
+
+	daryheap.push( this.arity, this.compare, this.swap, a, 0, a.length - 1 );
+
+};
+
+DAryHeapWithoutReferences.prototype.merge = function ( other ) {
+
+	var a, i, j, k;
+
+	a = this.array;
+
+	i = 0;
+	j = a.length;
+
+	this.array = a.concat( other.array );
+
+	a = this.array;
+
+	k = a.length;
+
+	this.length += other.length;
+
+	daryheap.merge( this.arity, this.compare, this.swap, a, i, j, k );
+
+};
+
+exports.DAryHeapWithoutReferences = DAryHeapWithoutReferences;
 
 /* js/src/adt/DoublyLinkedList.js */
 (function(){

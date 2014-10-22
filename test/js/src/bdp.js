@@ -214,4 +214,4 @@ all = function ( name, algo ) {
 		)
 	]
 
-].forEach( functools.partial( functools.star, null, [all] ) );
+].forEach( functools.partial( functools.star, [all] ) );

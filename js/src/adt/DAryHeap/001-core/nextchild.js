@@ -24,7 +24,7 @@ daryheap.nextchild = function ( arity, compare, swap, a, i, j ) {
 
 	for ( ++i ; i < k ; ++i ) {
 
-		if ( compare( a[best], a[i] ) < 0 ) {
+		if ( compare( a[i], a[best] ) < 0 ) {
 			best = i;
 		}
 

@@ -30,7 +30,7 @@ daryheap.percolateup = function ( arity, compare, swap, a, i, j, k ) {
 		// then we are done
 
 		if ( compare( a[i + current], a[parent] ) >= 0 ) {
-			return;
+			return i + current;
 		}
 
 		// otherwise

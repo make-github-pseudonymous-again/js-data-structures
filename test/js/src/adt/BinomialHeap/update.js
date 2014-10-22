@@ -89,4 +89,4 @@ itertools.product( [
 
 [1, 16, 17, 31, 32, 33, 127, 128, 129]
 
-], 1, [] ).forEach( functools.partial( functools.star, null, [all] ) );
+], 1, [] ).forEach( functools.partial( functools.star, [all] ) );

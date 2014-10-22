@@ -78,9 +78,13 @@ DAryHeapWithoutReferences.prototype.merge = function ( other ) {
 	i = 0;
 	j = a.length;
 
-	a = a.concat( other.array );
+	this.array = a.concat( other.array );
+
+	a = this.array;
 
 	k = a.length;
+
+	this.length += other.length;
 
 	daryheap.merge( this.arity, this.compare, this.swap, a, i, j, k );
 

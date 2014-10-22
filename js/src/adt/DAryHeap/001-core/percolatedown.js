@@ -29,7 +29,7 @@ daryheap.percolatedown = function ( arity, compare, swap, a, i, j, k ) {
 		// then we are done
 
 		if ( firstchild >= j - i ) {
-			return;
+			break;
 		}
 
 		// if current value is smaller than its smallest
@@ -38,7 +38,7 @@ daryheap.percolatedown = function ( arity, compare, swap, a, i, j, k ) {
 		candidate = daryheap.nextchild( arity, compare, swap, a, i + firstchild, j );
 
 		if ( compare( a[i + current], a[candidate] ) <= 0 ) {
-			return;
+			break;
 		}
 
 		// otherwise
