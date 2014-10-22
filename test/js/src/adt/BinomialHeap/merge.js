@@ -123,6 +123,15 @@ itertools.product( [
 						),
 						2
 					)
+				],
+				[
+					"DAryHeap",
+					functools.curry(
+						functools.partial(
+							functools.create, [algo.DAryHeap]
+						),
+						2
+					)
 				]
 			],
 
@@ -148,7 +157,7 @@ itertools.product( [
 		["decreasing", sort.decreasing]
 	],
 
-	[1, 2, 3, 31, 32, 33, 63, 64, 65],
-	[1, 2, 3, 31, 32, 33, 63, 64, 65]
+	[1, 2, 3, 31, 32, 33],
+	[1, 2, 3, 31, 32, 33]
 
 ], 1, [] ).forEach( functools.partial( functools.star, [all] ) );
