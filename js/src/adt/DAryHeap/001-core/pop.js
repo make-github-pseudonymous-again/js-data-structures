@@ -6,12 +6,13 @@
  *
  * @param {int} arity arity of the heap
  * @param {function} compare the comparison function
+ * @param {function} swap the swap function
  * @param {array} a the array where the heap is stored
  * @param {int} i is the root
  * @param {int} j - 1 is the last leaf
  */
 
-daryheap.pop = function ( arity, compare, a, i, j ) {
+daryheap.pop = function ( arity, compare, swap, a, i, j ) {
 
 	var popped;
 
@@ -29,7 +30,7 @@ daryheap.pop = function ( arity, compare, a, i, j ) {
 
 	// percolate down the new root
 
-	daryheap.percolatedown( arity, compare, a, i, j, i );
+	daryheap.percolatedown( arity, compare, swap, a, i, j, i );
 
 
 	// return old root

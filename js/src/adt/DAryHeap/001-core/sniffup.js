@@ -4,15 +4,16 @@
  *
  * @param {int} arity arity of the heap
  * @param {function} compare the comparison function
+ * @param {function} swap the swap function
  * @param {array} a the array where the heap is stored
  * @param {int} i is the root element
  * @param {int} j - 1 is the last leaf
  * @param {int} k is the target node
  */
 
-daryheap.sniffup = function ( arity, compare, a, i, j, k ) {
+daryheap.sniffup = function ( arity, compare, swap, a, i, j, k ) {
 
-	var current, parent, tmp;
+	var current, parent;
 
 	current = k - i;
 
@@ -27,9 +28,7 @@ daryheap.sniffup = function ( arity, compare, a, i, j, k ) {
 
 		// swap with parent
 
-		tmp = a[i + current];
-		a[i + current] = a[parent];
-		a[parent] = tmp;
+		swap( a, i + current, parent );
 
 		current = parent - i;
 

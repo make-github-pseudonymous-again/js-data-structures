@@ -8,12 +8,13 @@
  *
  * @param {int} arity arity of the heap
  * @param {function} compare the comparison function
+ * @param {function} swap the swap function
  * @param {array} a the array where the heap is stored
  * @param {int} i is the first child
  * @param {int} j - 1 is the last leaf
  */
 
-daryheap.nextchild = function ( arity, compare, a, i, j ) {
+daryheap.nextchild = function ( arity, compare, swap, a, i, j ) {
 
 	var k, best;
 
