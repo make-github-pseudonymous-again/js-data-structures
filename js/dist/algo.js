@@ -954,36 +954,6 @@ var daryheap = {};
 exports.daryheap = daryheap;
 
 /* js/src/adt/DAryHeap/001-core */
-/* js/src/adt/DAryHeap/001-core/decreasekey.js */
-
-/**
- * Decreases the value of a target node and
- * updates its position.
- *
- * Hypothesis : i <= j
- *
- * @param {int} arity arity of the heap
- * @param {function} compare the comparison function
- * @param {function} swap the swap function
- * @param {array} a the array where the heap is stored
- * @param {int} i is the root element
- * @param {int} j - 1 is the last leaf
- * @param {int} k is the target node
- * @param {value} value is the target node's new value
- */
-
-daryheap.decreasekey = function ( arity, compare, swap, a, i, j, k, value ) {
-
-	// update value of the target element
-
-	a[k] = value;
-
-	// percolate up the target element
-
-	return daryheap.percolateup( arity, compare, swap, a, i, j, k );
-
-};
-
 /* js/src/adt/DAryHeap/001-core/delete.js */
 
 /**
@@ -1009,57 +979,6 @@ daryheap.delete = function ( arity, compare, swap, a, i, j, k ) {
 	// pop target node
 
 	return daryheap.pop( arity, compare, swap, a, i, j );
-
-};
-
-/* js/src/adt/DAryHeap/001-core/head.js */
-
-/**
- * Returns the smallest node of a d-ary heap, i.e. the root.
- *
- * Hypothesis : i < j
- *
- * @param {int} arity arity of the heap
- * @param {function} compare the comparison function
- * @param {function} swap the swap function
- * @param {array} a the array where the heap is stored
- * @param {int} i is the root
- * @param {int} j - 1 is the last leaf
- */
-
-daryheap.head = function ( arity, compare, swap, a, i, j ) {
-
-	return a[i];
-
-};
-
-/* js/src/adt/DAryHeap/001-core/increasekey.js */
-
-/**
- * Increases the value of a target node and
- * updates its position.
- *
- * Hypothesis : i <= j
- *
- * @param {int} arity arity of the heap
- * @param {function} compare the comparison function
- * @param {function} swap the swap function
- * @param {array} a the array where the heap is stored
- * @param {int} i is the root element
- * @param {int} j - 1 is the last leaf
- * @param {int} k is the target node
- * @param {value} value is the target node's new value
- */
-
-daryheap.increasekey = function ( arity, compare, swap, a, i, j, k, value ) {
-
-	// update value of the target element
-
-	a[k] = value;
-
-	// percolate down the target element
-
-	return daryheap.percolatedown( arity, compare, swap, a, i, j, k );
 
 };
 
@@ -1334,50 +1253,6 @@ daryheap.sniffup = function ( arity, compare, swap, a, i, j, k ) {
 		swap( a, i + current, parent );
 
 		current = parent - i;
-
-	}
-
-};
-
-/* js/src/adt/DAryHeap/001-core/update.js */
-
-/**
- * Updates the value of a target node and
- * updates its position.
- *
- * Hypothesis : i <= j
- *
- * @param {int} arity arity of the heap
- * @param {function} compare the comparison function
- * @param {function} swap the swap function
- * @param {array} a the array where the heap is stored
- * @param {int} i is the root element
- * @param {int} j - 1 is the last leaf
- * @param {int} k is the target node
- * @param {value} value is the target node's new value
- */
-
-daryheap.update = function ( arity, compare, swap, a, i, j, k, value ) {
-
-	var d;
-
-	d = compare( value, a[k] );
-
-	if ( d < 0 ) {
-		return daryheap.decreasekey( arity, compare, swap, a, i, j, k, value );
-	}
-
-	else if ( d > 0 ) {
-		return daryheap.increasekey( arity, compare, swap, a, i, j, k, value );
-	}
-
-	else{
-
-		// d === 0 does not imply a[k] === value
-
-		a[k] = value;
-
-		return k;
 
 	}
 
