@@ -238,10 +238,6 @@ DAryHeap.prototype.delete = function ( reference ) {
 
 	var a, i, j, k;
 
-	if ( this.length === 0 ) {
-		return;
-	}
-
 	a = this.array;
 	i = 0;
 	j = a.length;
