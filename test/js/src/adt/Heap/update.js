@@ -52,7 +52,6 @@ all = function ( heapname, Heap, diffname, diff, n ) {
 		}
 
 		a.sort( diff );
-		b.sort( diff );
 
 		deepEqual( b, a, "check identical");
 
