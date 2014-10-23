@@ -507,8 +507,6 @@ var __BinomialHeap__ = function ( BinomialTree ) {
 
 	BinomialHeap.prototype.delete = function ( tree ) {
 
-		// TODO check length
-
 		--this.length;
 
 		deletetree( this.predicate, this.list, tree );
