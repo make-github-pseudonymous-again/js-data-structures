@@ -118,18 +118,21 @@ DAryHeap.prototype.popreference = function () {
 
 DAryHeap.prototype.push = function ( value ) {
 
-	var a, i, j;
+	var a, i, j, reference;
 
 	a = this.array;
 	i = 0;
 	j = a.length;
 
+	reference = new DAryHeap.Reference( j, value );
 
-	a.push( new DAryHeap.Reference( j, value ) );
+	a.push( reference );
 
 	daryheap.push( this.arity, this.compare, this.swap, a, i, j );
 
 	++this.length;
+
+	return reference;
 
 };
 
