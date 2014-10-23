@@ -34,6 +34,4 @@ daryheap.sniffup = function ( arity, compare, swap, a, i, j, k ) {
 
 	}
 
-	return i + current;
-
 };
