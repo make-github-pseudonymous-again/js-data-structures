@@ -14,6 +14,11 @@ var DAryHeap = function ( arity, compare ) {
 	};
 
 
+	// the original comparison function
+
+	this._compare = compare;
+
+
 	// array used to store values
 
 	this.array = [];
@@ -187,7 +192,7 @@ DAryHeap.prototype.update = function ( reference, value ) {
 
 	var d;
 
-	d = this.compare( value, reference.value );
+	d = this._compare( value, reference.value );
 
 	if ( d < 0 ) {
 		this.decreasekey( reference, value );
