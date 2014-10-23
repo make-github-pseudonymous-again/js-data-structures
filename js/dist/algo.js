@@ -1337,8 +1337,6 @@ daryheap.sniffup = function ( arity, compare, swap, a, i, j, k ) {
 
 	}
 
-	return i + current;
-
 };
 
 /* js/src/adt/DAryHeap/001-core/update.js */
@@ -1403,6 +1401,11 @@ var DAryHeap = function ( arity, compare ) {
 	};
 
 
+	// the original comparison function
+
+	this._compare = compare;
+
+
 	// array used to store values
 
 	this.array = [];
@@ -1448,6 +1451,17 @@ DAryHeap.prototype.head = function () {
 };
 
 
+DAryHeap.prototype.headreference = function () {
+
+	if ( this.length === 0 ) {
+		return null;
+	}
+
+	return this.array[0];
+
+};
+
+
 DAryHeap.prototype.pop = function () {
 
 	var a, i, j, reference;
@@ -1471,7 +1485,51 @@ DAryHeap.prototype.pop = function () {
 };
 
 
+DAryHeap.prototype.popreference = function () {
+
+	var a, i, j, reference;
+
+	if ( this.length === 0 ) {
+		return null;
+	}
+
+	a = this.array;
+	i = 0;
+	j = a.length;
+
+	reference = daryheap.pop( this.arity, this.compare, this.swap, a, i, j );
+
+	a.pop();
+
+	--this.length;
+
+	return reference;
+
+};
+
+
 DAryHeap.prototype.push = function ( value ) {
+
+	var a, i, j, reference;
+
+	a = this.array;
+	i = 0;
+	j = a.length;
+
+	reference = new DAryHeap.Reference( j, value );
+
+	a.push( reference );
+
+	daryheap.push( this.arity, this.compare, this.swap, a, i, j );
+
+	++this.length;
+
+	return reference;
+
+};
+
+
+DAryHeap.prototype.pushreference = function ( reference ) {
 
 	var a, i, j;
 
@@ -1480,7 +1538,8 @@ DAryHeap.prototype.push = function ( value ) {
 	j = a.length;
 
 
-	a.push( new DAryHeap.Reference( j, value ) );
+	reference.index = j;
+	a.push( reference );
 
 	daryheap.push( this.arity, this.compare, this.swap, a, i, j );
 
@@ -1488,21 +1547,102 @@ DAryHeap.prototype.push = function ( value ) {
 
 };
 
+
 DAryHeap.prototype.merge = function ( other ) {
+
+	var a, i, j, k, t;
+
+	a = this.array;
+	i = 0;
+	j = a.length;
+
+	// concat arrays of both heaps
+
+	a = this.array = a.concat( other.array );
+
+	k = a.length;
+
+	// update index of concatenated elements
+
+	for ( t = j ; t < k ; ++t ) {
+		a[t].index = t;
+	}
+
+	daryheap.merge( this.arity, this.compare, this.swap, a, i, j, k );
+
+	this.length += other.length;
+
+};
+
+
+DAryHeap.prototype.update = function ( reference, value ) {
+
+	var d;
+
+	d = this._compare( value, reference.value );
+
+	if ( d < 0 ) {
+		this.decreasekey( reference, value );
+	}
+
+	else if ( d > 0 ) {
+		this.increasekey( reference, value );
+	}
+
+	else {
+
+		// d === 0 does not imply reference.value === value
+
+		reference.value = value;
+
+	}
+
+};
+
+DAryHeap.prototype.decreasekey = function ( reference, value ) {
 
 	var a, i, j, k;
 
 	a = this.array;
 	i = 0;
 	j = a.length;
+	k = reference.index;
 
-	a = this.array = a.concat( other.array );
+	reference.value = value;
 
-	k = a.length;
+	daryheap.percolateup( this.arity, this.compare, this.swap, a, i, j, k );
 
-	daryheap.merge( this.arity, this.compare, this.swap, a, i, j, k );
+};
 
-	this.length += other.length;
+DAryHeap.prototype.increasekey = function ( reference, value ) {
+
+	var a, i, j, k;
+
+	a = this.array;
+	i = 0;
+	j = a.length;
+	k = reference.index;
+
+	reference.value = value;
+
+	daryheap.percolatedown( this.arity, this.compare, this.swap, a, i, j, k );
+
+};
+
+DAryHeap.prototype.delete = function ( reference ) {
+
+	var a, i, j, k;
+
+	a = this.array;
+	i = 0;
+	j = a.length;
+	k = reference.index;
+
+	daryheap.delete( this.arity, this.compare, this.swap, a, i, j, k );
+
+	a.pop();
+
+	--this.length;
 
 };
 
