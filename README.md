@@ -58,3 +58,9 @@ Binary and Binomial heap reference:
 
   - http://www.cs.princeton.edu/~wayne/cs423/lectures/heaps-4up.pdf
   - http://stackoverflow.com/questions/6531543/efficient-implementation-of-binary-heaps
+
+Other reference:
+
+  - http://stackoverflow.com/questions/26301/your-favourite-algorithm-and-the-lesson-it-taught-you
+  - http://en.wikipedia.org/wiki/Disjoint-set_data_structure
+  - http://en.wikipedia.org/wiki/Partition_refinement
