@@ -253,6 +253,8 @@ DAryHeap.prototype.delete = function ( reference ) {
 
 	daryheap.delete( this.arity, this.compare, this.swap, a, i, j, k );
 
+	a.pop();
+
 	--this.length;
 
 };
