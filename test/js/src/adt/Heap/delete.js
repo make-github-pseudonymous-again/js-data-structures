@@ -1,4 +1,4 @@
-var all, util, sort, itertools, functools, random, shuffle;
+var all, util, sort, random, itertools, functools, shuffle;
 
 util = require( "util" );
 sort = require( "aureooms-js-sort" );
