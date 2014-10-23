@@ -51,9 +51,9 @@ all = function ( heapname, Heap, diffname, diff, n ) {
 		a.sort( diff );
 		b.sort( diff );
 
-		deepEqual( b, a, "check identical");
+		deepEqual( b, a, "check identical" );
 
-		deepEqual( q.length, 0, "check length empty");
+		deepEqual( q.length, 0, "check length empty" );
 
 		if ( q.list !== undefined ) {
 			deepEqual( q.list.length, 0, "list empty" );
@@ -62,10 +62,10 @@ all = function ( heapname, Heap, diffname, diff, n ) {
 			deepEqual( q.array.length, 0, "array empty" );
 		}
 
-		deepEqual( q.head(), undefined, "check head empty");
-		deepEqual( q.headreference(), null, "check headreference empty");
-		deepEqual( q.pop(), undefined, "check pop empty");
-		deepEqual( q.popreference(), null, "check popreference empty");
+		deepEqual( q.head(), undefined, "check head empty" );
+		deepEqual( q.headreference(), null, "check headreference empty" );
+		deepEqual( q.pop(), undefined, "check pop empty" );
+		deepEqual( q.popreference(), null, "check popreference empty" );
 
 	});
 
