@@ -1,6 +1,10 @@
 
 
 /**
+ *
+ * Computes the probability [0, 1] for 1 of k people out of n to have his
+ * birthday the same day as someone else.
+ *
  * hypothesis : k <= n
  */
 
