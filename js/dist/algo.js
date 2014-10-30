@@ -2939,4 +2939,41 @@ var __bdpdn2__ = function ( color, split ) {
 
 exports.__bdpdn2__ = __bdpdn2__;
 
+/* js/src/birthdays */
+/* js/src/birthdays/samebirthday.js */
+
+
+/**
+ *
+ * Computes the probability [0, 1] for 1 of k people out of n to have his
+ * birthday the same day as someone else.
+ *
+ * hypothesis : k <= n
+ */
+
+var samebirthday = function ( k, n, days ) {
+
+	var i, p;
+
+	p = 1;
+
+	for ( i = 0 ; i < k ; ++i ) {
+
+		p = p * ( days - i ) / days;
+
+	}
+
+	for ( ; i < n ; ++i ) {
+
+		p = p * ( days - k ) / days;
+
+	}
+
+
+	return 1 - p;
+
+};
+
+exports.samebirthday = samebirthday;
+
 })(typeof exports === 'undefined' ? this['algo'] = {} : exports);
