@@ -30,6 +30,7 @@ this project is just a playground for any algorithm / procedure, data structure 
 
   - [js-array](https://github.com/aureooms/js-array)
   - [js-bit](https://github.com/aureooms/js-bit)
+  - [js-bst](https://github.com/aureooms/js-bst)
   - [js-cg](https://github.com/aureooms/js-cg)
   - [js-code](https://github.com/aureooms/js-code)
   - [js-complex](https://github.com/aureooms/js-complex)
