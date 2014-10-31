@@ -1,0 +1,386 @@
+<!DOCTYPE html><html lang="en"><head><title>adt/BinomialHeap/BinomialHeap</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="adt/BinomialHeap/BinomialHeap"><meta name="groc-project-path" content="js/src/adt/BinomialHeap/BinomialHeap.js"><meta name="groc-github-url" content="https://github.com/aureooms/js-algo"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/aureooms/js-algo/blob/master/js/src/adt/BinomialHeap/BinomialHeap.js">js/src/adt/BinomialHeap/BinomialHeap.js</a></div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> __BinomialHeap__ = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( BinomialTree )</span> {</span>
+
+	<span class="hljs-keyword">var</span> binomial_heap_push = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( predicate, list, tree, rank )</span> {</span>
+
+		<span class="hljs-keyword">var</span> i, len;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>ensures list has at least rank cells</p></div></div><div class="code"><div class="wrapper">		i = rank - list.length;
+
+		<span class="hljs-keyword">while</span> ( i --&gt; <span class="hljs-number">0</span> ) {
+			list.push( <span class="hljs-literal">null</span> );
+		}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>loop invariant
+tree and list[i] have the same rank</p></div></div><div class="code"><div class="wrapper">		len = list.length;
+
+		<span class="hljs-keyword">for</span> ( i = rank ; i &lt; len &amp;&amp; list[i] !== <span class="hljs-literal">null</span> ; ++i ) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>there is already a tree with this rank</p></div></div><div class="code"><div class="wrapper">			tree = tree.merge( predicate, list[i] );
+			list[i] = <span class="hljs-literal">null</span>;
+
+		}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>do not forget to append null if
+we are lacking space</p></div></div><div class="code"><div class="wrapper">		<span class="hljs-keyword">if</span> ( i === len ) {
+			list.push( <span class="hljs-literal">null</span> );
+		}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>cell is empty
+we can just put the new tree here</p></div></div><div class="code"><div class="wrapper">		list[i] = tree;
+
+	};
+
+
+	<span class="hljs-keyword">var</span> merge = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( predicate, list, other )</span> {</span>
+
+		<span class="hljs-keyword">var</span> i, len, carry;
+
+		<span class="hljs-keyword">if</span> ( other.length === <span class="hljs-number">0</span> ) {
+			<span class="hljs-keyword">return</span>;
+		}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>merging two binomial heaps is like
+adding two little endian integers
+so, we first make sure that we have
+enough place to store the result</p></div></div><div class="code"><div class="wrapper">		i = other.length - list.length;
+
+		<span class="hljs-keyword">while</span> ( i --&gt; <span class="hljs-number">0</span> ) {
+			list.push( <span class="hljs-literal">null</span> );
+		}
+
+		carry = <span class="hljs-literal">null</span>;
+
+		len = list.length;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>remember len &gt;= other.length</p></div></div><div class="code"><div class="wrapper">		<span class="hljs-keyword">for</span> ( i = <span class="hljs-number">0</span> ; i &lt; len ; ++i ) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>other[i] can be either null or not
+list[i] can be either null or not
+carry can be either null or not
+--&gt; 2^3 = 8 possibilities</p>
+<h2 id="-null---otheri--listi--carry">   null ? | other[i] | list[i] | carry</h2>
+<pre><code>(0)   |    no    |     no  |   no
+(1)   |    no    |     no  |  yes
+(2)   |    no    |    yes  |   no
+(3)   |    no    |    yes  |  yes
+(4)   |   yes    |     no  |   no
+(5)   |   yes    |     no  |  yes
+(6)   |   yes    |    yes  |   no
+(7)   |   yes    |    yes  |  yes</code></pre></div></div><div class="code"><div class="wrapper">			<span class="hljs-keyword">if</span> ( i &gt;= other.length || other[i] === <span class="hljs-literal">null</span> ) {
+
+				<span class="hljs-keyword">if</span> ( carry !== <span class="hljs-literal">null</span> ) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>(6) other[i] = null and list[i] = null and carry != null
+--&gt; put carry in current cell</p></div></div><div class="code"><div class="wrapper">					<span class="hljs-keyword">if</span> ( list[i] === <span class="hljs-literal">null</span> ) {
+						list[i] = carry;
+						carry = <span class="hljs-literal">null</span>;
+					}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>(4) other[i] = null and list[i] != null and carry != null
+--&gt; merge carry with current cell</p></div></div><div class="code"><div class="wrapper">					<span class="hljs-keyword">else</span> {
+						carry = carry.merge( predicate, list[i] );
+						list[i] = <span class="hljs-literal">null</span>;
+					}
+
+				}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We do not need to do anything for</p>
+<h1 id="those-2-cases-carry-and-otheri-are-null">those 2 cases (carry and other[i] are null).</h1>
+<p>(5) other[i] = null and list[i] != null and carry = null
+(7) other[i] = null and list[i] = null and carry = null</p></div></div><div class="code"><div class="wrapper">			}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>(0) other[i] != null and list[i] != null and carry != null
+(2) other[i] != null and list[i] = null and carry != null
+--&gt; merge carry with other[i]</p></div></div><div class="code"><div class="wrapper">			<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( carry !== <span class="hljs-literal">null</span> ) {
+
+				carry = carry.merge( predicate, other[i] );
+
+			}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>(1) other[i] != null and list[i] != null and carry = null
+--&gt; merge current cell with other[i]</p></div></div><div class="code"><div class="wrapper">			<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( list[i] !== <span class="hljs-literal">null</span> ) {
+
+				carry = list[i].merge( predicate, other[i] );
+				list[i] = <span class="hljs-literal">null</span>;
+
+			}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>(3) other[i] != null and list[i] = null and carry = null
+--&gt; put other[i] in list</p></div></div><div class="code"><div class="wrapper">			<span class="hljs-keyword">else</span> {
+
+				list[i] = other[i];
+
+			}
+
+		}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>do not forget to append last carry</p></div></div><div class="code"><div class="wrapper">		<span class="hljs-keyword">if</span> ( carry !== <span class="hljs-literal">null</span> ) {
+			list.push( carry );
+		}
+
+	};
+
+	<span class="hljs-keyword">var</span> find_min_index = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( predicate, list, j, len )</span> {</span>
+
+		<span class="hljs-keyword">var</span> i, opt, item, candidate;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>there MUST be at least one
+non null element in this list
+we look for the first one</p></div></div><div class="code"><div class="wrapper">		<span class="hljs-keyword">for</span> ( ; j &lt; len - <span class="hljs-number">1</span> &amp;&amp; list[j] === <span class="hljs-literal">null</span> ; ++j ) ;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>here j is necessarily &lt; len
+and list[j] is non null</p></div></div><div class="code"><div class="wrapper">		i = j;
+		opt = list[j].value;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>we lookup remaining elements to see if there
+is not a better candidate</p></div></div><div class="code"><div class="wrapper">		<span class="hljs-keyword">for</span> ( ++j ; j &lt; len ; ++j ) {
+
+			item = list[j];
+
+			<span class="hljs-keyword">if</span> ( item !== <span class="hljs-literal">null</span> ) {
+
+				candidate = item.value;
+
+				<span class="hljs-keyword">if</span> ( predicate( candidate, opt ) &lt; <span class="hljs-number">0</span> ) {
+
+					i = j;
+					opt = candidate;
+
+				}
+
+			}
+
+		}
+
+		<span class="hljs-keyword">return</span> i;
+
+	};
+
+	<span class="hljs-keyword">var</span> remove_head_at_index = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( predicate, list, i, len )</span> {</span>
+
+		<span class="hljs-keyword">var</span> orphans;
+
+		orphans = list[i].children;
+		list[i] = <span class="hljs-literal">null</span>;
+
+		change_parent( <span class="hljs-literal">null</span>, orphans );</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>we just removed the ith element
+if list[i] is the last cell
+of list we can drop it</p></div></div><div class="code"><div class="wrapper">		<span class="hljs-keyword">if</span> ( i === len - <span class="hljs-number">1</span> ) {
+			list.pop();
+		}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>we merge back the children of
+the removed tree into the heap</p></div></div><div class="code"><div class="wrapper">		merge( predicate, list, orphans );
+
+	};
+
+	<span class="hljs-keyword">var</span> binomial_heap_pop = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( predicate, list )</span> {</span>
+
+		<span class="hljs-keyword">var</span> i, len, tree;
+
+		len = list.length;
+
+		i = find_min_index( predicate, list, <span class="hljs-number">0</span>, len );
+
+		tree = list[i];
+
+		remove_head_at_index( predicate, list, i, len );
+
+		<span class="hljs-keyword">return</span> tree;
+	};
+
+	<span class="hljs-keyword">var</span> change_parent = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( parent, children )</span> {</span>
+
+		<span class="hljs-keyword">var</span> i, len;
+
+		<span class="hljs-keyword">for</span> ( i = <span class="hljs-number">0</span>, len = children.length ; i &lt; len ; ++i ) {
+			children[i].setparent(parent);
+		}
+
+	};
+
+	<span class="hljs-keyword">var</span> shift_up = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( tree, parent )</span> {</span>
+
+		<span class="hljs-keyword">var</span> tmp, i;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>console.log( &quot;tree&quot;, tree.value );
+console.log( &quot;parent&quot;, parent.value );</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Here, we cannot just swap values as it would invalidate
+externally stored references.
+Instead, we swap children lists and update references
+between the tree and its parent.
+Then we update and return the new tree&#39;s parent.</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>console.log( &quot;tree.children&quot;, tree.children );
+console.log( &quot;parent.children&quot;, parent.children );</p></div></div><div class="code"><div class="wrapper">		tmp = parent.children;
+		parent.children = tree.children;
+		tree.children = tmp;
+
+
+		i = parent.rank();</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>console.log( tree.children, i );</p></div></div><div class="code"><div class="wrapper">		tree.children[i] = parent;
+
+		tree.parent = parent.parent;
+
+		change_parent( tree, tree.children );
+		change_parent( parent, parent.children );</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>console.log( &quot;tree.children&quot;, tree.children );
+console.log( &quot;parent.children&quot;, parent.children );</p></div></div><div class="code"><div class="wrapper">		<span class="hljs-keyword">return</span> tree.parent;
+
+	};
+
+	<span class="hljs-keyword">var</span> percolate_up = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( list, tree )</span> {</span>
+
+		<span class="hljs-keyword">var</span> tmp, parent;
+
+		parent = tree.parent;
+
+		<span class="hljs-keyword">if</span> ( parent !== <span class="hljs-literal">null</span> ) {
+
+			<span class="hljs-keyword">while</span> ( <span class="hljs-literal">true</span> ) {
+
+				parent = shift_up( tree, parent );
+
+				<span class="hljs-keyword">if</span> ( parent === <span class="hljs-literal">null</span> ) {
+					<span class="hljs-keyword">break</span>;
+				}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>TODO this call might not be necessary</p></div></div><div class="code"><div class="wrapper">				parent.children[tree.rank()] = tree;
+
+			}
+
+			list[tree.rank()] = tree;
+
+		}
+
+	};
+
+	<span class="hljs-keyword">var</span> decreasekey = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( predicate, list, tree, value )</span> {</span>
+
+		<span class="hljs-keyword">var</span> d, tmp, parent;
+
+		tree.value = value;
+		parent = tree.parent;
+
+		<span class="hljs-keyword">if</span> ( parent !== <span class="hljs-literal">null</span> ) {
+
+			<span class="hljs-keyword">while</span> ( <span class="hljs-literal">true</span> ) {
+
+				d = predicate( value, parent.value );
+
+				<span class="hljs-keyword">if</span> ( d &gt;= <span class="hljs-number">0</span> ) {
+					<span class="hljs-keyword">return</span>;
+				}
+
+				parent = shift_up( tree, parent );
+
+				<span class="hljs-keyword">if</span> ( parent === <span class="hljs-literal">null</span> ) {
+					<span class="hljs-keyword">break</span>;
+				}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>TODO this call should be in if ( d &gt;= 0 )</p></div></div><div class="code"><div class="wrapper">				parent.children[tree.rank()] = tree;
+
+			}
+
+			list[tree.rank()] = tree;
+
+		}
+
+	};
+
+	<span class="hljs-keyword">var</span> deletetree = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( predicate, list, tree )</span> {</span>
+
+		percolate_up( list, tree );
+
+		remove_head_at_index( predicate, list, tree.rank(), list.length );
+
+		tree.detach();
+
+	};
+
+	<span class="hljs-keyword">var</span> BinomialHeap = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( predicate )</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>the predicate to use to compare values</p></div></div><div class="code"><div class="wrapper">		<span class="hljs-keyword">this</span>.predicate = predicate;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>number of elements in this heap</p></div></div><div class="code"><div class="wrapper">		<span class="hljs-keyword">this</span>.length = <span class="hljs-number">0</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>list of binomial trees</p></div></div><div class="code"><div class="wrapper">		<span class="hljs-keyword">this</span>.list = [];
+
+	};
+
+	BinomialHeap.prototype.head = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+
+		<span class="hljs-keyword">var</span> i, tree;
+
+		<span class="hljs-keyword">if</span> ( <span class="hljs-keyword">this</span>.length === <span class="hljs-number">0</span> ) {
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span>;
+		}
+
+		i = find_min_index( <span class="hljs-keyword">this</span>.predicate, <span class="hljs-keyword">this</span>.list, <span class="hljs-number">0</span>, <span class="hljs-keyword">this</span>.list.length );
+
+		tree = <span class="hljs-keyword">this</span>.list[i];
+
+		<span class="hljs-keyword">return</span> tree.value;
+
+	};
+
+	BinomialHeap.prototype.headreference = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+
+		<span class="hljs-keyword">var</span> i, tree;
+
+		<span class="hljs-keyword">if</span> ( <span class="hljs-keyword">this</span>.length === <span class="hljs-number">0</span> ) {
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+		}
+
+		i = find_min_index( <span class="hljs-keyword">this</span>.predicate, <span class="hljs-keyword">this</span>.list, <span class="hljs-number">0</span>, <span class="hljs-keyword">this</span>.list.length );
+
+		tree = <span class="hljs-keyword">this</span>.list[i];
+
+		<span class="hljs-keyword">return</span> tree;
+
+	};
+
+	BinomialHeap.prototype.pop = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+
+		<span class="hljs-keyword">if</span> ( <span class="hljs-keyword">this</span>.length === <span class="hljs-number">0</span> ) {
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span>;
+		}
+
+		--<span class="hljs-keyword">this</span>.length;
+
+		<span class="hljs-keyword">return</span> binomial_heap_pop( <span class="hljs-keyword">this</span>.predicate, <span class="hljs-keyword">this</span>.list ).value;
+
+	};
+
+	BinomialHeap.prototype.popreference = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+
+		<span class="hljs-keyword">if</span> ( <span class="hljs-keyword">this</span>.length === <span class="hljs-number">0</span> ) {
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+		}
+
+		--<span class="hljs-keyword">this</span>.length;
+
+		<span class="hljs-keyword">return</span> binomial_heap_pop( <span class="hljs-keyword">this</span>.predicate, <span class="hljs-keyword">this</span>.list ).detach();
+
+	};
+
+	BinomialHeap.prototype.push = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( value )</span> {</span>
+
+		<span class="hljs-keyword">var</span> tree;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>push a new tree of rank 0</p></div></div><div class="code"><div class="wrapper">		tree = <span class="hljs-keyword">new</span> BinomialTree( value, [] );
+
+		<span class="hljs-keyword">this</span>.pushreference( tree );
+
+		<span class="hljs-keyword">return</span> tree;
+
+	};
+
+	BinomialHeap.prototype.pushreference = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( tree )</span> {</span>
+
+		++<span class="hljs-keyword">this</span>.length;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>push an existing tree of rank 0</p></div></div><div class="code"><div class="wrapper">		binomial_heap_push( <span class="hljs-keyword">this</span>.predicate, <span class="hljs-keyword">this</span>.list, tree, <span class="hljs-number">0</span> );
+
+	};
+
+	BinomialHeap.prototype.merge = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( other )</span> {</span>
+
+		merge( <span class="hljs-keyword">this</span>.predicate, <span class="hljs-keyword">this</span>.list, other.list );
+
+		<span class="hljs-keyword">this</span>.length += other.length;
+
+		<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+
+	};
+
+	BinomialHeap.prototype.update = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( tree, value )</span> {</span>
+
+		<span class="hljs-keyword">var</span> d;
+
+		d = <span class="hljs-keyword">this</span>.predicate( value, tree.value );
+
+		<span class="hljs-keyword">if</span> ( d &lt; <span class="hljs-number">0</span> ) {
+			<span class="hljs-keyword">this</span>.decreasekey( tree, value );
+		}
+
+		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( d &gt; <span class="hljs-number">0</span> ) {
+			<span class="hljs-keyword">this</span>.increasekey( tree, value );
+		}
+
+		<span class="hljs-keyword">else</span> {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>d === 0 does not imply tree.value === value</p></div></div><div class="code"><div class="wrapper">			tree.value = value;
+
+		}
+
+	};
+
+	BinomialHeap.prototype.decreasekey = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( tree, value )</span> {</span>
+
+		decreasekey( <span class="hljs-keyword">this</span>.predicate, <span class="hljs-keyword">this</span>.list, tree, value );
+
+	};
+
+	BinomialHeap.prototype.increasekey = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( tree, value )</span> {</span>
+
+		deletetree( <span class="hljs-keyword">this</span>.predicate, <span class="hljs-keyword">this</span>.list, tree );
+
+		tree.value = value;
+
+		binomial_heap_push( <span class="hljs-keyword">this</span>.predicate, <span class="hljs-keyword">this</span>.list, tree, <span class="hljs-number">0</span> );
+
+	};
+
+	BinomialHeap.prototype.delete = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( tree )</span> {</span>
+
+		--<span class="hljs-keyword">this</span>.length;
+
+		deletetree( <span class="hljs-keyword">this</span>.predicate, <span class="hljs-keyword">this</span>.list, tree );
+
+	};
+
+	<span class="hljs-keyword">return</span> BinomialHeap;
+
+};
+
+exports.__BinomialHeap__ = __BinomialHeap__;</div></div></div></div></body></html>

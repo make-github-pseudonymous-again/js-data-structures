@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en"><head><title>bdp/bdpdn2</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="bdp/bdpdn2"><meta name="groc-project-path" content="js/src/bdp/bdpdn2.js"><meta name="groc-github-url" content="https://github.com/aureooms/js-algo"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/aureooms/js-algo/blob/master/js/src/bdp/bdpdn2.js">js/src/bdp/bdpdn2.js</a></div></div><div id="document"><div class="segment"></div><div class="segment"><div class="comments "><div class="wrapper"><p>Bichromatic dominating pairs using a naïve O(d * n^2) algorithm.</p>
+<p>Here the algorithm handles non-strict ( &gt;= ) dominance.</p>
+<p>color( point )
+  = 0 if point is blue
+  = 1 if point is red</p>
+<p>p = split( predicate, a, i, j )
+  rearranges an array so that all elements for which predicate is false
+  are in interval [i, p[ and all other elements are in interval [p, j[</p></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> __bdpdn2__ = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( color, split )</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>a is an array of points</p>
+<pre><code>note that we only consider points starting
+at index i and ending at index j-1 in a</code></pre>
+<p>points are arrays of coordinates</p>
+<pre><code>d = dj - di is the number of coordinates of each point</code></pre>
+<p><strong>f</strong> is a template for a function {coordinates^2} -&gt; {<0, =0, >0} named f</p>
+<pre><code>i.e. for coordinates a and b
+
+  f( a, b ) &lt; 0 means a &lt; b;
+  f( a, b ) = 0 means a = b;
+  f( a, b ) &gt; 0 means a &gt; b.</code></pre>
+<p>out is the output array</p></div></div><div class="code"><div class="wrapper">	<span class="hljs-keyword">var</span> bdpdn2 = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( __f__, a, i, j, di, dj, out )</span> {</span>
+
+		<span class="hljs-keyword">var</span> x, y, p, d, f;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>empty or one element array case</p></div></div><div class="code"><div class="wrapper">		<span class="hljs-keyword">if</span> ( i &gt;= j - <span class="hljs-number">1</span> ) {
+			<span class="hljs-keyword">return</span> out;
+		}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>move all blue points left and all red points right
+(arbitrary choice)</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>[i, p[ contains only blue points
+[p, j[ contains only red points
+p = index of first red point</p></div></div><div class="code"><div class="wrapper">		p = split( color, a, i, j );</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>for each red point</p></div></div><div class="code"><div class="wrapper">		red : <span class="hljs-keyword">for</span> ( x = p ; x &lt; j ; ++x ) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>for each blue point</p></div></div><div class="code"><div class="wrapper">			blue : <span class="hljs-keyword">for</span> ( y = i ; y &lt; p ; ++y ) {
+
+				<span class="hljs-keyword">for</span> ( d = di ; d &lt; dj ; ++d ) {
+
+					f = __f__( d );
+
+					<span class="hljs-keyword">if</span> ( f( a[x], a[y] ) &lt; <span class="hljs-number">0</span> ) {
+						<span class="hljs-keyword">continue</span> blue;
+					}
+
+				}
+
+				out.push( [ a[x], a[y] ] );
+
+			}
+		}
+
+		<span class="hljs-keyword">return</span> out;
+
+	};
+
+	<span class="hljs-keyword">return</span> bdpdn2;
+
+};
+
+exports.__bdpdn2__ = __bdpdn2__;</div></div></div></div></body></html>

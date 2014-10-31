@@ -60,6 +60,382 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
       "depth": 1,
       "children": [
         {
+          "type": "folder",
+          "data": {
+            "path": "adt/BinomialHeap",
+            "title": "BinomialHeap"
+          },
+          "depth": 2,
+          "children": [
+            {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/BinomialHeap/BinomialHeap.js",
+                "projectPath": "js/src/adt/BinomialHeap/BinomialHeap.js",
+                "targetPath": "adt/BinomialHeap/BinomialHeap",
+                "pageTitle": "adt/BinomialHeap/BinomialHeap",
+                "title": "BinomialHeap"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "   null ? | other[i] | list[i] | carry",
+                    "slug": "-null---otheri--listi--carry"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "those 2 cases (carry and other[i] are null).",
+                    "slug": "those-2-cases-carry-and-otheri-are-null"
+                  },
+                  "depth": 1
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/BinomialHeap/BinomialTree.js",
+                "projectPath": "js/src/adt/BinomialHeap/BinomialTree.js",
+                "targetPath": "adt/BinomialHeap/BinomialTree",
+                "pageTitle": "adt/BinomialHeap/BinomialTree",
+                "title": "BinomialTree"
+              },
+              "depth": 3,
+              "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/BinomialHeap/BinomialTreeWithParent.js",
+                "projectPath": "js/src/adt/BinomialHeap/BinomialTreeWithParent.js",
+                "targetPath": "adt/BinomialHeap/BinomialTreeWithParent",
+                "pageTitle": "adt/BinomialHeap/BinomialTreeWithParent",
+                "title": "BinomialTreeWithParent"
+              },
+              "depth": 3,
+              "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/BinomialHeap/LazyBinomialHeap.js",
+                "projectPath": "js/src/adt/BinomialHeap/LazyBinomialHeap.js",
+                "targetPath": "adt/BinomialHeap/LazyBinomialHeap",
+                "pageTitle": "adt/BinomialHeap/LazyBinomialHeap",
+                "title": "LazyBinomialHeap"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "   null ? | other[i] | list[i] | carry",
+                    "slug": "-null---otheri--listi--carry"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "those 2 cases (carry and other[i] are null).",
+                    "slug": "those-2-cases-carry-and-otheri-are-null"
+                  },
+                  "depth": 1
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "folder",
+          "data": {
+            "path": "adt/DAryHeap",
+            "title": "DAryHeap"
+          },
+          "depth": 2,
+          "children": [
+            {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/000-namespace.js",
+                "projectPath": "js/src/adt/DAryHeap/000-namespace.js",
+                "targetPath": "adt/DAryHeap/000-namespace",
+                "pageTitle": "adt/DAryHeap/000-namespace",
+                "title": "000-namespace"
+              },
+              "depth": 3,
+              "outline": []
+            }, {
+              "type": "folder",
+              "data": {
+                "path": "adt/DAryHeap/001-core",
+                "title": "001-core"
+              },
+              "depth": 3,
+              "children": [
+                {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/delete.js",
+                    "projectPath": "js/src/adt/DAryHeap/001-core/delete.js",
+                    "targetPath": "adt/DAryHeap/001-core/delete",
+                    "pageTitle": "adt/DAryHeap/001-core/delete",
+                    "title": "delete"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/merge.js",
+                    "projectPath": "js/src/adt/DAryHeap/001-core/merge.js",
+                    "targetPath": "adt/DAryHeap/001-core/merge",
+                    "pageTitle": "adt/DAryHeap/001-core/merge",
+                    "title": "merge"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/nextchild.js",
+                    "projectPath": "js/src/adt/DAryHeap/001-core/nextchild.js",
+                    "targetPath": "adt/DAryHeap/001-core/nextchild",
+                    "pageTitle": "adt/DAryHeap/001-core/nextchild",
+                    "title": "nextchild"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/percolatedown.js",
+                    "projectPath": "js/src/adt/DAryHeap/001-core/percolatedown.js",
+                    "targetPath": "adt/DAryHeap/001-core/percolatedown",
+                    "pageTitle": "adt/DAryHeap/001-core/percolatedown",
+                    "title": "percolatedown"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/percolateup.js",
+                    "projectPath": "js/src/adt/DAryHeap/001-core/percolateup.js",
+                    "targetPath": "adt/DAryHeap/001-core/percolateup",
+                    "pageTitle": "adt/DAryHeap/001-core/percolateup",
+                    "title": "percolateup"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/pop.js",
+                    "projectPath": "js/src/adt/DAryHeap/001-core/pop.js",
+                    "targetPath": "adt/DAryHeap/001-core/pop",
+                    "pageTitle": "adt/DAryHeap/001-core/pop",
+                    "title": "pop"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/push.js",
+                    "projectPath": "js/src/adt/DAryHeap/001-core/push.js",
+                    "targetPath": "adt/DAryHeap/001-core/push",
+                    "pageTitle": "adt/DAryHeap/001-core/push",
+                    "title": "push"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/sniffup.js",
+                    "projectPath": "js/src/adt/DAryHeap/001-core/sniffup.js",
+                    "targetPath": "adt/DAryHeap/001-core/sniffup",
+                    "pageTitle": "adt/DAryHeap/001-core/sniffup",
+                    "title": "sniffup"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }
+              ]
+            }, {
+              "type": "folder",
+              "data": {
+                "path": "adt/DAryHeap/002-adt",
+                "title": "002-adt"
+              },
+              "depth": 3,
+              "children": [
+                {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/002-adt/DAryHeap.js",
+                    "projectPath": "js/src/adt/DAryHeap/002-adt/DAryHeap.js",
+                    "targetPath": "adt/DAryHeap/002-adt/DAryHeap",
+                    "pageTitle": "adt/DAryHeap/002-adt/DAryHeap",
+                    "title": "DAryHeap"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/002-adt/DAryHeapWithoutReferences.js",
+                    "projectPath": "js/src/adt/DAryHeap/002-adt/DAryHeapWithoutReferences.js",
+                    "targetPath": "adt/DAryHeap/002-adt/DAryHeapWithoutReferences",
+                    "pageTitle": "adt/DAryHeap/002-adt/DAryHeapWithoutReferences",
+                    "title": "DAryHeapWithoutReferences"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }
+              ]
+            }
+          ]
+        }, {
           "type": "file",
           "data": {
             "language": {
@@ -76,146 +452,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "targetPath": "adt/DoublyLinkedList",
             "pageTitle": "adt/DoublyLinkedList",
             "title": "DoublyLinkedList"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/binomial_queue.js",
-            "projectPath": "js/src/adt/binomial_queue.js",
-            "targetPath": "adt/binomial_queue",
-            "pageTitle": "adt/binomial_queue",
-            "title": "binomial_queue"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/lazy_binomial_queue.js",
-            "projectPath": "js/src/adt/lazy_binomial_queue.js",
-            "targetPath": "adt/lazy_binomial_queue",
-            "pageTitle": "adt/lazy_binomial_queue",
-            "title": "lazy_binomial_queue"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/splay_tree.js",
-            "projectPath": "js/src/adt/splay_tree.js",
-            "targetPath": "adt/splay_tree",
-            "pageTitle": "adt/splay_tree",
-            "title": "splay_tree"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/splay_tree_2.js",
-            "projectPath": "js/src/adt/splay_tree_2.js",
-            "targetPath": "adt/splay_tree_2",
-            "pageTitle": "adt/splay_tree_2",
-            "title": "splay_tree_2"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/splay_tree_3.js",
-            "projectPath": "js/src/adt/splay_tree_3.js",
-            "targetPath": "adt/splay_tree_3",
-            "pageTitle": "adt/splay_tree_3",
-            "title": "splay_tree_3"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/splay_tree_4.js",
-            "projectPath": "js/src/adt/splay_tree_4.js",
-            "targetPath": "adt/splay_tree_4",
-            "pageTitle": "adt/splay_tree_4",
-            "title": "splay_tree_4"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/splay_tree_5.js",
-            "projectPath": "js/src/adt/splay_tree_5.js",
-            "targetPath": "adt/splay_tree_5",
-            "pageTitle": "adt/splay_tree_5",
-            "title": "splay_tree_5"
           },
           "depth": 2,
           "outline": []
@@ -241,166 +477,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/binarymerge.js",
-            "projectPath": "js/src/array/binarymerge.js",
-            "targetPath": "array/binarymerge",
-            "pageTitle": "array/binarymerge",
-            "title": "binarymerge"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/binarysearch.js",
-            "projectPath": "js/src/array/binarysearch.js",
-            "targetPath": "array/binarysearch",
-            "pageTitle": "array/binarysearch",
-            "title": "binarysearch"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/bubblesort.js",
-            "projectPath": "js/src/array/bubblesort.js",
-            "targetPath": "array/bubblesort",
-            "pageTitle": "array/bubblesort",
-            "title": "bubblesort"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/copy.js",
-            "projectPath": "js/src/array/copy.js",
-            "targetPath": "array/copy",
-            "pageTitle": "array/copy",
-            "title": "copy"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/fill.js",
-            "projectPath": "js/src/array/fill.js",
-            "targetPath": "array/fill",
-            "pageTitle": "array/fill",
-            "title": "fill"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/insertionsort.js",
-            "projectPath": "js/src/array/insertionsort.js",
-            "targetPath": "array/insertionsort",
-            "pageTitle": "array/insertionsort",
-            "title": "insertionsort"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/interpolationsearch.js",
-            "projectPath": "js/src/array/interpolationsearch.js",
-            "targetPath": "array/interpolationsearch",
-            "pageTitle": "array/interpolationsearch",
-            "title": "interpolationsearch"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/iota.js",
-            "projectPath": "js/src/array/iota.js",
-            "targetPath": "array/iota",
-            "pageTitle": "array/iota",
-            "title": "iota"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
             "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/iter.js",
             "projectPath": "js/src/array/iter.js",
             "targetPath": "array/iter",
@@ -409,213 +485,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           },
           "depth": 2,
           "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/merge.js",
-            "projectPath": "js/src/array/merge.js",
-            "targetPath": "array/merge",
-            "pageTitle": "array/merge",
-            "title": "merge"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/mergesort.js",
-            "projectPath": "js/src/array/mergesort.js",
-            "targetPath": "array/mergesort",
-            "pageTitle": "array/mergesort",
-            "title": "mergesort"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/multiselect.js",
-            "projectPath": "js/src/array/multiselect.js",
-            "targetPath": "array/multiselect",
-            "pageTitle": "array/multiselect",
-            "title": "multiselect"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/opt.js",
-            "projectPath": "js/src/array/opt.js",
-            "targetPath": "array/opt",
-            "pageTitle": "array/opt",
-            "title": "opt"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/partition.js",
-            "projectPath": "js/src/array/partition.js",
-            "targetPath": "array/partition",
-            "pageTitle": "array/partition",
-            "title": "partition"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/pivotsearch.js",
-            "projectPath": "js/src/array/pivotsearch.js",
-            "targetPath": "array/pivotsearch",
-            "pageTitle": "array/pivotsearch",
-            "title": "pivotsearch"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/quickselect.js",
-            "projectPath": "js/src/array/quickselect.js",
-            "targetPath": "array/quickselect",
-            "pageTitle": "array/quickselect",
-            "title": "quickselect"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/quicksort.js",
-            "projectPath": "js/src/array/quicksort.js",
-            "targetPath": "array/quicksort",
-            "pageTitle": "array/quicksort",
-            "title": "quicksort"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/selectionsort.js",
-            "projectPath": "js/src/array/selectionsort.js",
-            "targetPath": "array/selectionsort",
-            "pageTitle": "array/selectionsort",
-            "title": "selectionsort"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/tapemerge.js",
-            "projectPath": "js/src/array/tapemerge.js",
-            "targetPath": "array/tapemerge",
-            "pageTitle": "array/tapemerge",
-            "title": "tapemerge"
-          },
-          "depth": 2,
-          "outline": []
         }
       ]
     }, {
       "type": "folder",
       "data": {
-        "path": "num",
-        "title": "num"
+        "path": "bdp",
+        "title": "bdp"
       },
       "depth": 1,
       "children": [
@@ -631,14 +507,160 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/num/eq.js",
-            "projectPath": "js/src/num/eq.js",
-            "targetPath": "num/eq",
-            "pageTitle": "num/eq",
-            "title": "eq"
+            "sourcePath": "/home/genius/dev/js/js-algo/js/src/bdp/bdpdc.js",
+            "projectPath": "js/src/bdp/bdpdc.js",
+            "targetPath": "bdp/bdpdc",
+            "pageTitle": "bdp/bdpdc",
+            "title": "bdpdc"
           },
           "depth": 2,
-          "outline": []
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "select(...) partitions the array in tree regions",
+                "slug": "select-partitions-the-array-in-tree-regions"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "|    &lt;= h    | h |    &gt;= h    |",
+                "slug": "-lt-h--h--gt-h-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "|                     b&amp;r scrambled                     |",
+                "slug": "-bampr-scrambled-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "|                     b&amp;r scrambled                     |",
+                "slug": "-bampr-scrambled-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "|         b&amp;r &lt;= h        | h |         b&amp;r &gt;= h        |",
+                "slug": "-bampr-lt-h--h--bampr-gt-h-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "|    b&amp;r &lt; h    | b&amp;r = h | h |         b&amp;r &gt; h         |",
+                "slug": "-bampr-lt-h--bampr--h--h--bampr-gt-h-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "|    b&amp;r &lt; h    | b&amp;r = h | h | b&amp;r = h |    b&amp;r &gt; h    |",
+                "slug": "-bampr-lt-h--bampr--h--h--bampr--h--bampr-gt-h-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "|    b&amp;r &lt; h    | b&amp;r = h | h | b&amp;r = h |    b&amp;r &gt; h    |",
+                "slug": "-bampr-lt-h--bampr--h--h--bampr--h--bampr-gt-h-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "| b &lt; h | r &lt; h | b&amp;r = h | h | b&amp;r = h |    b&amp;r &gt; h    |",
+                "slug": "-b-lt-h--r-lt-h--bampr--h--h--bampr--h--bampr-gt-h-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "| b &lt; h | r &lt; h | b&amp;r = h | h | b&amp;r = h | b &gt; h | r &gt; h |",
+                "slug": "-b-lt-h--r-lt-h--bampr--h--h--bampr--h--b-gt-h--r-gt-h-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "| b &lt; h | r &gt; h | b&amp;r = h | h | b&amp;r = h | b &gt; h | r &lt; h |",
+                "slug": "-b-lt-h--r-gt-h--bampr--h--h--bampr--h--b-gt-h--r-lt-h-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "| b &lt; h | r &gt; h | b&amp;r = h | h | b&amp;r = h | b &gt; h | r &lt; h |",
+                "slug": "-b-lt-h--r-gt-h--bampr--h--h--bampr--h--b-gt-h--r-lt-h-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "| b &lt; h | r &gt; h | b&amp;r = h | h | b&amp;r = h | b &gt; h | r &lt; h | r &gt; h |",
+                "slug": "-b-lt-h--r-gt-h--bampr--h--h--bampr--h--b-gt-h--r-lt-h--r-gt-h-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "| b &lt; h | r &gt; h | b&amp;r = h | h | b&amp;r = h | r &gt; h |   b&gt;h &amp; r&lt;h   |",
+                "slug": "-b-lt-h--r-gt-h--bampr--h--h--bampr--h--r-gt-h--bgth-amp-rlth-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "| b &lt; h | r &gt; h | b&amp;r = h | h | b&amp;r = h | r &gt; h |   b&gt;h &amp; r&lt;h   |",
+                "slug": "-b-lt-h--r-gt-h--bampr--h--h--bampr--h--r-gt-h--bgth-amp-rlth-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "| b &lt; h | r &gt; h | r &lt; h | b&amp;r = h | h | b&amp;r = h | b &gt; h | r &lt; h |",
+                "slug": "-b-lt-h--r-gt-h--r-lt-h--bampr--h--h--bampr--h--b-gt-h--r-lt-h-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "| b &lt; h | r &gt; h |     b&amp;r = h     | h | b&amp;r = h | b&gt;h &amp; r&lt;h |",
+                "slug": "-b-lt-h--r-gt-h--bampr--h--h--bampr--h--bgth-amp-rlth-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "| b &lt; h | r &gt; h |     b&amp;r = h     | h | b&amp;r = h | b&gt;h &amp; r&lt;h |",
+                "slug": "-b-lt-h--r-gt-h--bampr--h--h--bampr--h--bgth-amp-rlth-"
+              },
+              "depth": 2
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -651,151 +673,11 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/num/gcd.js",
-            "projectPath": "js/src/num/gcd.js",
-            "targetPath": "num/gcd",
-            "pageTitle": "num/gcd",
-            "title": "gcd"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/num/ge.js",
-            "projectPath": "js/src/num/ge.js",
-            "targetPath": "num/ge",
-            "pageTitle": "num/ge",
-            "title": "ge"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/num/gt.js",
-            "projectPath": "js/src/num/gt.js",
-            "targetPath": "num/gt",
-            "pageTitle": "num/gt",
-            "title": "gt"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/num/lcm.js",
-            "projectPath": "js/src/num/lcm.js",
-            "targetPath": "num/lcm",
-            "pageTitle": "num/lcm",
-            "title": "lcm"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/num/le.js",
-            "projectPath": "js/src/num/le.js",
-            "targetPath": "num/le",
-            "pageTitle": "num/le",
-            "title": "le"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/num/lt.js",
-            "projectPath": "js/src/num/lt.js",
-            "targetPath": "num/lt",
-            "pageTitle": "num/lt",
-            "title": "lt"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/num/ne.js",
-            "projectPath": "js/src/num/ne.js",
-            "targetPath": "num/ne",
-            "pageTitle": "num/ne",
-            "title": "ne"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/num/zfill.js",
-            "projectPath": "js/src/num/zfill.js",
-            "targetPath": "num/zfill",
-            "pageTitle": "num/zfill",
-            "title": "zfill"
+            "sourcePath": "/home/genius/dev/js/js-algo/js/src/bdp/bdpdn2.js",
+            "projectPath": "js/src/bdp/bdpdn2.js",
+            "targetPath": "bdp/bdpdn2",
+            "pageTitle": "bdp/bdpdn2",
+            "title": "bdpdn2"
           },
           "depth": 2,
           "outline": []
@@ -804,8 +686,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
     }, {
       "type": "folder",
       "data": {
-        "path": "random",
-        "title": "random"
+        "path": "birthdays",
+        "title": "birthdays"
       },
       "depth": 1,
       "children": [
@@ -821,141 +703,11 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/random/randint.js",
-            "projectPath": "js/src/random/randint.js",
-            "targetPath": "random/randint",
-            "pageTitle": "random/randint",
-            "title": "randint"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/random/sample.js",
-            "projectPath": "js/src/random/sample.js",
-            "targetPath": "random/sample",
-            "pageTitle": "random/sample",
-            "title": "sample"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/random/shuffle.js",
-            "projectPath": "js/src/random/shuffle.js",
-            "targetPath": "random/shuffle",
-            "pageTitle": "random/shuffle",
-            "title": "shuffle"
-          },
-          "depth": 2,
-          "outline": []
-        }
-      ]
-    }, {
-      "type": "folder",
-      "data": {
-        "path": "string",
-        "title": "string"
-      },
-      "depth": 1,
-      "children": [
-        {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/string/fill.js",
-            "projectPath": "js/src/string/fill.js",
-            "targetPath": "string/fill",
-            "pageTitle": "string/fill",
-            "title": "fill"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/string/lempelziv.js",
-            "projectPath": "js/src/string/lempelziv.js",
-            "targetPath": "string/lempelziv",
-            "pageTitle": "string/lempelziv",
-            "title": "lempelziv"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/string/strmul.js",
-            "projectPath": "js/src/string/strmul.js",
-            "targetPath": "string/strmul",
-            "pageTitle": "string/strmul",
-            "title": "strmul"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/string/trie.js",
-            "projectPath": "js/src/string/trie.js",
-            "targetPath": "string/trie",
-            "pageTitle": "string/trie",
-            "title": "trie"
+            "sourcePath": "/home/genius/dev/js/js-algo/js/src/birthdays/samebirthday.js",
+            "projectPath": "js/src/birthdays/samebirthday.js",
+            "targetPath": "birthdays/samebirthday",
+            "pageTitle": "birthdays/samebirthday",
+            "title": "samebirthday"
           },
           "depth": 2,
           "outline": []
