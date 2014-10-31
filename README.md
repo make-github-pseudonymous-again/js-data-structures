@@ -33,6 +33,7 @@ this project is just a playground for any algorithm / procedure, data structure 
   - [js-bst](https://github.com/aureooms/js-bst)
   - [js-cg](https://github.com/aureooms/js-cg)
   - [js-code](https://github.com/aureooms/js-code)
+  - [js-compare](https://github.com/aureooms/js-compare)
   - [js-complex](https://github.com/aureooms/js-complex)
   - [js-functools](https://github.com/aureooms/js-functools)
   - [js-gn](https://github.com/aureooms/js-gn)
