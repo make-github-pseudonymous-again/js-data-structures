@@ -13,7 +13,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "commentsOnly": true,
           "name": "Markdown"
         },
-        "sourcePath": "/home/genius/dev/js/js-algo/README.md",
+        "sourcePath": "/home/aureooms/dev/js/js-algo/README.md",
         "projectPath": "README.md",
         "targetPath": "index",
         "pageTitle": "index",
@@ -41,7 +41,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/3sum/_3sum_n2.js",
+            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/3sum/_3sum_n2.js",
             "projectPath": "js/src/3sum/_3sum_n2.js",
             "targetPath": "3sum/_3sum_n2",
             "pageTitle": "3sum/_3sum_n2",
@@ -79,7 +79,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "^",
                   "name": "JavaScript"
                 },
-                "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/BinomialHeap/BinomialHeap.js",
+                "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/BinomialHeap/BinomialHeap.js",
                 "projectPath": "js/src/adt/BinomialHeap/BinomialHeap.js",
                 "targetPath": "adt/BinomialHeap/BinomialHeap",
                 "pageTitle": "adt/BinomialHeap/BinomialHeap",
@@ -117,7 +117,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "^",
                   "name": "JavaScript"
                 },
-                "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/BinomialHeap/BinomialTree.js",
+                "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/BinomialHeap/BinomialTree.js",
                 "projectPath": "js/src/adt/BinomialHeap/BinomialTree.js",
                 "targetPath": "adt/BinomialHeap/BinomialTree",
                 "pageTitle": "adt/BinomialHeap/BinomialTree",
@@ -137,7 +137,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "^",
                   "name": "JavaScript"
                 },
-                "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/BinomialHeap/BinomialTreeWithParent.js",
+                "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/BinomialHeap/BinomialTreeWithParent.js",
                 "projectPath": "js/src/adt/BinomialHeap/BinomialTreeWithParent.js",
                 "targetPath": "adt/BinomialHeap/BinomialTreeWithParent",
                 "pageTitle": "adt/BinomialHeap/BinomialTreeWithParent",
@@ -157,7 +157,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "^",
                   "name": "JavaScript"
                 },
-                "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/BinomialHeap/LazyBinomialHeap.js",
+                "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/BinomialHeap/LazyBinomialHeap.js",
                 "projectPath": "js/src/adt/BinomialHeap/LazyBinomialHeap.js",
                 "targetPath": "adt/BinomialHeap/LazyBinomialHeap",
                 "pageTitle": "adt/BinomialHeap/LazyBinomialHeap",
@@ -205,7 +205,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "^",
                   "name": "JavaScript"
                 },
-                "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/000-namespace.js",
+                "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/DAryHeap/000-namespace.js",
                 "projectPath": "js/src/adt/DAryHeap/000-namespace.js",
                 "targetPath": "adt/DAryHeap/000-namespace",
                 "pageTitle": "adt/DAryHeap/000-namespace",
@@ -233,7 +233,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
-                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/delete.js",
+                    "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/DAryHeap/001-core/delete.js",
                     "projectPath": "js/src/adt/DAryHeap/001-core/delete.js",
                     "targetPath": "adt/DAryHeap/001-core/delete",
                     "pageTitle": "adt/DAryHeap/001-core/delete",
@@ -253,7 +253,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
-                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/merge.js",
+                    "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/DAryHeap/001-core/merge.js",
                     "projectPath": "js/src/adt/DAryHeap/001-core/merge.js",
                     "targetPath": "adt/DAryHeap/001-core/merge",
                     "pageTitle": "adt/DAryHeap/001-core/merge",
@@ -273,7 +273,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
-                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/nextchild.js",
+                    "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/DAryHeap/001-core/nextchild.js",
                     "projectPath": "js/src/adt/DAryHeap/001-core/nextchild.js",
                     "targetPath": "adt/DAryHeap/001-core/nextchild",
                     "pageTitle": "adt/DAryHeap/001-core/nextchild",
@@ -293,7 +293,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
-                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/percolatedown.js",
+                    "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/DAryHeap/001-core/percolatedown.js",
                     "projectPath": "js/src/adt/DAryHeap/001-core/percolatedown.js",
                     "targetPath": "adt/DAryHeap/001-core/percolatedown",
                     "pageTitle": "adt/DAryHeap/001-core/percolatedown",
@@ -313,7 +313,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
-                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/percolateup.js",
+                    "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/DAryHeap/001-core/percolateup.js",
                     "projectPath": "js/src/adt/DAryHeap/001-core/percolateup.js",
                     "targetPath": "adt/DAryHeap/001-core/percolateup",
                     "pageTitle": "adt/DAryHeap/001-core/percolateup",
@@ -333,7 +333,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
-                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/pop.js",
+                    "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/DAryHeap/001-core/pop.js",
                     "projectPath": "js/src/adt/DAryHeap/001-core/pop.js",
                     "targetPath": "adt/DAryHeap/001-core/pop",
                     "pageTitle": "adt/DAryHeap/001-core/pop",
@@ -353,7 +353,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
-                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/push.js",
+                    "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/DAryHeap/001-core/push.js",
                     "projectPath": "js/src/adt/DAryHeap/001-core/push.js",
                     "targetPath": "adt/DAryHeap/001-core/push",
                     "pageTitle": "adt/DAryHeap/001-core/push",
@@ -373,7 +373,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
-                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/001-core/sniffup.js",
+                    "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/DAryHeap/001-core/sniffup.js",
                     "projectPath": "js/src/adt/DAryHeap/001-core/sniffup.js",
                     "targetPath": "adt/DAryHeap/001-core/sniffup",
                     "pageTitle": "adt/DAryHeap/001-core/sniffup",
@@ -403,7 +403,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
-                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/002-adt/DAryHeap.js",
+                    "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/DAryHeap/002-adt/DAryHeap.js",
                     "projectPath": "js/src/adt/DAryHeap/002-adt/DAryHeap.js",
                     "targetPath": "adt/DAryHeap/002-adt/DAryHeap",
                     "pageTitle": "adt/DAryHeap/002-adt/DAryHeap",
@@ -423,7 +423,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
-                    "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DAryHeap/002-adt/DAryHeapWithoutReferences.js",
+                    "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/DAryHeap/002-adt/DAryHeapWithoutReferences.js",
                     "projectPath": "js/src/adt/DAryHeap/002-adt/DAryHeapWithoutReferences.js",
                     "targetPath": "adt/DAryHeap/002-adt/DAryHeapWithoutReferences",
                     "pageTitle": "adt/DAryHeap/002-adt/DAryHeapWithoutReferences",
@@ -447,7 +447,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/adt/DoublyLinkedList.js",
+            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/adt/DoublyLinkedList.js",
             "projectPath": "js/src/adt/DoublyLinkedList.js",
             "targetPath": "adt/DoublyLinkedList",
             "pageTitle": "adt/DoublyLinkedList",
@@ -477,7 +477,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/array/iter.js",
+            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/array/iter.js",
             "projectPath": "js/src/array/iter.js",
             "targetPath": "array/iter",
             "pageTitle": "array/iter",
@@ -507,7 +507,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/bdp/bdpdc.js",
+            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/bdp/bdpdc.js",
             "projectPath": "js/src/bdp/bdpdc.js",
             "targetPath": "bdp/bdpdc",
             "pageTitle": "bdp/bdpdc",
@@ -673,7 +673,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/bdp/bdpdn2.js",
+            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/bdp/bdpdn2.js",
             "projectPath": "js/src/bdp/bdpdn2.js",
             "targetPath": "bdp/bdpdn2",
             "pageTitle": "bdp/bdpdn2",
@@ -703,11 +703,61 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/genius/dev/js/js-algo/js/src/birthdays/samebirthday.js",
+            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/birthdays/samebirthday.js",
             "projectPath": "js/src/birthdays/samebirthday.js",
             "targetPath": "birthdays/samebirthday",
             "pageTitle": "birthdays/samebirthday",
             "title": "samebirthday"
+          },
+          "depth": 2,
+          "outline": []
+        }
+      ]
+    }, {
+      "type": "folder",
+      "data": {
+        "path": "epsilon",
+        "title": "epsilon"
+      },
+      "depth": 1,
+      "children": [
+        {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/epsilon/absepsilon.js",
+            "projectPath": "js/src/epsilon/absepsilon.js",
+            "targetPath": "epsilon/absepsilon",
+            "pageTitle": "epsilon/absepsilon",
+            "title": "absepsilon"
+          },
+          "depth": 2,
+          "outline": []
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/epsilon/relepsilon.js",
+            "projectPath": "js/src/epsilon/relepsilon.js",
+            "targetPath": "epsilon/relepsilon",
+            "pageTitle": "epsilon/relepsilon",
+            "title": "relepsilon"
           },
           "depth": 2,
           "outline": []
