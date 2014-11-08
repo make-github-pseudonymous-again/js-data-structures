@@ -2370,4 +2370,56 @@ var samebirthday = function ( k, n, days ) {
 
 exports.samebirthday = samebirthday;
 
+/* js/src/epsilon */
+/* js/src/epsilon/absepsilon.js */
+
+
+var __absepsilon__ = function ( epsilon ) {
+
+
+	return function ( a, b ) {
+
+		var r;
+
+		r = a - b;
+
+		return r < -epsilon ? -1 : r > epsilon ? 1 : 0;
+
+	};
+
+};
+
+exports.__absepsilon__ = __absepsilon__;
+
+/* js/src/epsilon/relepsilon.js */
+
+var __relepsilon__ = function ( epsilon ) {
+
+
+	return function ( a, b ) {
+
+		var r;
+
+		if ( b === 0 ) {
+			return a;
+		}
+
+		else if ( a === 0 ) {
+			return -b;
+		}
+
+		else {
+
+			r = a / b - 1;
+
+			return r < -epsilon ? -1 : r > epsilon ? 1 : 0;
+
+		}
+
+	};
+
+};
+
+exports.__relepsilon__ = __relepsilon__;
+
 })(typeof exports === 'undefined' ? this['algo'] = {} : exports);
