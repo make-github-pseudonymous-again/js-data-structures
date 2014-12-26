@@ -67,3 +67,4 @@ Other reference:
   - http://stackoverflow.com/questions/26301/your-favourite-algorithm-and-the-lesson-it-taught-you
   - http://en.wikipedia.org/wiki/Disjoint-set_data_structure
   - http://en.wikipedia.org/wiki/Partition_refinement
+  - http://cglab.ca/publications.html
