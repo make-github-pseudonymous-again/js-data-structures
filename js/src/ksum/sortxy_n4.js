@@ -27,20 +27,20 @@ var sortxy_n4 = function ( compare , X , Y ,  Xi1 , Xj1 , Yi1 , Yj1 , Xi2 , Xj2 
 	a = X[Xi1] ;
 	b = Y[Yi1] ;
 	c = X[Xi2] ;
-	d = X[Yi2] ;
+	d = Y[Yi2] ;
 
 	s = compare( a , b , c , d ) ;
 
 	if ( s === 0 ) {
 
-		output( Xi1 , Yj1 , Xj2 , Yi2 ) ;
+		output( Xi1 , Yi1 , Xi2 , Yi2 ) ;
 
 	}
 
-	sortxy( compare , X , Y , Xi1 + 1 , Xj1 , Yi1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
-	sortxy( compare , X , Y , Xi1 , Xi1 , Yi1 + 1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
-	sortxy( compare , X , Y , Xi1 , Xi1 , Yi1 , Yi1 , Xi2 + 1 , Xj2 , Yi2 , Yj2 , output ) ;
-	sortxy( compare , X , Y , Xi1 , Xi1 , Yi1 , Yi1 , Xi2 , Xi2 , Yi2 + 1 , Yj2 , output ) ;
+	sortxy_n4( compare , X , Y , Xi1 + 1 , Xj1 , Yi1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
+	sortxy_n4( compare , X , Y , Xi1 , Xi1 , Yi1 + 1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
+	sortxy_n4( compare , X , Y , Xi1 , Xi1 , Yi1 , Yi1 , Xi2 + 1 , Xj2 , Yi2 , Yj2 , output ) ;
+	sortxy_n4( compare , X , Y , Xi1 , Xi1 , Yi1 , Yi1 , Xi2 , Xi2 , Yi2 + 1 , Yj2 , output ) ;
 
 } ;
 
