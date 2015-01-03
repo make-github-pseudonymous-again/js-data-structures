@@ -25,6 +25,7 @@ other projects implementing algorithms :
   - https://github.com/felipernb/algorithms.js
   - https://github.com/phishman3579/java-algorithms-implementation
   - https://github.com/patmorin/ods
+  - http://rosettacode.org
 
 
 this project is just a playground for any algorithm / procedure, data structure that doesn't fit in any of those project
