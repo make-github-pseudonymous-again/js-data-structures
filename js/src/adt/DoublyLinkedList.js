@@ -69,7 +69,7 @@ DoublyLinkedList.prototype.erase = function(iterator){
 	var node = iterator.current;
 
 	node.prev.next = node.next;
-	node.next.prev = node.prev;	
+	node.next.prev = node.prev;
 
 	--this.length;
 	return this.iterator(node.next);
@@ -78,7 +78,7 @@ DoublyLinkedList.prototype.erase = function(iterator){
 DoublyLinkedList.prototype.rerase = function(iterator){
 	var node = iterator.current;
 
-	node.next.prev = node.prev;	
+	node.next.prev = node.prev;
 	node.prev.next = node.next;
 
 	--this.length;
@@ -90,7 +90,7 @@ DoublyLinkedList.prototype.eraserange = function(first, last){
 	firstnode = first.current;
 	lastnode = last.current;
 
-	lastnode.prev = firstnode.prev;	
+	lastnode.prev = firstnode.prev;
 	firstnode.prev.next = lastnode;
 
 	it = first.copy();
@@ -107,7 +107,7 @@ DoublyLinkedList.prototype.reraserange = function(first, last){
 	firstnode = first.current;
 	lastnode = last.current;
 
-	lastnode.next = firstnode.next;	
+	lastnode.next = firstnode.next;
 	firstnode.next.prev = lastnode;
 
 	it = first.copy();
@@ -126,7 +126,7 @@ DoublyLinkedList.prototype.shift = function(){
 	if (e.done) {
 		return null;
 	}
-	
+
 	this.rerase(it);
 	return e.value;
 };
@@ -138,7 +138,7 @@ DoublyLinkedList.prototype.pop = function(){
 	if (e.done) {
 		return null;
 	}
-	
+
 	this.erase(it);
 	return e.value;
 };
