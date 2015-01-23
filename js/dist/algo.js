@@ -41,6 +41,119 @@ var _3sum_n2 = function (A, ai, aj, B, bi, bj, C, ci, cj, fn) {
 };
 
 exports._3sum_n2 = _3sum_n2;
+/* js/src/4sum */
+/* js/src/4sum/sortxy_n3.js */
+
+/**
+ * X is sorted in increasing order
+ * Y is sorted in increasing order
+ * compare takes 4 arguments and returns <=> 0
+ * output takes 4 arguments
+ *
+ */
+var sortxy_n3 = function ( compare , X , Y ,  Xi1 , Xj1 , Yi1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) {
+
+	var a , b , c , d , s ;
+
+	if ( Xi1 > Xj1 || Yi1 > Yj1 || Xi2 > Xj2 || Yi2 > Yj2 ) {
+		return ;
+	}
+
+	//  -----------------------------
+	// |              X              |
+	//  -----------------------------
+	// Xi                           Xj
+
+	//  -----------------------------
+	// |              Y              |
+	//  -----------------------------
+	// Yi                           Yj
+
+	a = X[Xi1] ;
+	b = Y[Yj1] ;
+	c = X[Xj2] ;
+	d = Y[Yi2] ;
+
+	s = compare( a , b , c , d ) ;
+
+	if ( s === 0 ) {
+
+		output( Xi1 , Yj1 , Xj2 , Yi2 ) ;
+
+		sortxy_n3( compare , X , Y , Xi1 + 1 , Xj1 , Yi1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
+		sortxy_n3( compare , X , Y , Xi1 , Xi1 , Yi1 , Yj1 - 1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
+		sortxy_n3( compare , X , Y , Xi1 , Xi1 , Yj1 , Yj1 , Xi2 , Xj2 - 1 , Yi2 , Yj2 , output ) ;
+
+	}
+
+	else if ( s < 0 ) {
+
+		sortxy_n3( compare , X , Y , Xi1 + 1 , Xj1 , Yi1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
+		sortxy_n3( compare , X , Y , Xi1 , Xi1 , Yi1 , Yj1 , Xi2 , Xj2 - 1 , Yi2 , Yj2 , output ) ;
+
+	}
+
+	else {
+
+		sortxy_n3( compare , X , Y , Xi1 , Xj1 , Yi1 , Yj1 - 1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
+		sortxy_n3( compare , X , Y , Xi1 , Xj1 , Yj1 , Yj1 , Xi2 , Xj2 , Yi2 + 1 , Yj2 , output ) ;
+
+	}
+
+
+} ;
+
+exports.sortxy_n3 = sortxy_n3 ;
+
+/* js/src/4sum/sortxy_n4.js */
+
+/**
+ * X is sorted in increasing order
+ * Y is sorted in increasing order
+ * compare takes 4 arguments and returns <=> 0
+ * output takes 4 arguments
+ *
+ */
+var sortxy_n4 = function ( compare , X , Y ,  Xi1 , Xj1 , Yi1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) {
+
+	var a , b , c , d , s ;
+
+	if ( Xi1 > Xj1 || Yi1 > Yj1 || Xi2 > Xj2 || Yi2 > Yj2 ) {
+		return ;
+	}
+
+	//  -----------------------------
+	// |              X              |
+	//  -----------------------------
+	// Xi                           Xj
+
+	//  -----------------------------
+	// |              Y              |
+	//  -----------------------------
+	// Yi                           Yj
+
+	a = X[Xi1] ;
+	b = Y[Yi1] ;
+	c = X[Xi2] ;
+	d = Y[Yi2] ;
+
+	s = compare( a , b , c , d ) ;
+
+	if ( s === 0 ) {
+
+		output( Xi1 , Yi1 , Xi2 , Yi2 ) ;
+
+	}
+
+	sortxy_n4( compare , X , Y , Xi1 + 1 , Xj1 , Yi1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
+	sortxy_n4( compare , X , Y , Xi1 , Xi1 , Yi1 + 1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
+	sortxy_n4( compare , X , Y , Xi1 , Xi1 , Yi1 , Yi1 , Xi2 + 1 , Xj2 , Yi2 , Yj2 , output ) ;
+	sortxy_n4( compare , X , Y , Xi1 , Xi1 , Yi1 , Yi1 , Xi2 , Xi2 , Yi2 + 1 , Yj2 , output ) ;
+
+} ;
+
+exports.sortxy_n4 = sortxy_n4 ;
+
 /* js/src/adt */
 /* js/src/adt/BinomialHeap */
 /* js/src/adt/BinomialHeap/BinomialHeap.js */
@@ -1705,7 +1818,7 @@ DoublyLinkedList.prototype.erase = function(iterator){
 	var node = iterator.current;
 
 	node.prev.next = node.next;
-	node.next.prev = node.prev;	
+	node.next.prev = node.prev;
 
 	--this.length;
 	return this.iterator(node.next);
@@ -1714,7 +1827,7 @@ DoublyLinkedList.prototype.erase = function(iterator){
 DoublyLinkedList.prototype.rerase = function(iterator){
 	var node = iterator.current;
 
-	node.next.prev = node.prev;	
+	node.next.prev = node.prev;
 	node.prev.next = node.next;
 
 	--this.length;
@@ -1726,7 +1839,7 @@ DoublyLinkedList.prototype.eraserange = function(first, last){
 	firstnode = first.current;
 	lastnode = last.current;
 
-	lastnode.prev = firstnode.prev;	
+	lastnode.prev = firstnode.prev;
 	firstnode.prev.next = lastnode;
 
 	it = first.copy();
@@ -1743,7 +1856,7 @@ DoublyLinkedList.prototype.reraserange = function(first, last){
 	firstnode = first.current;
 	lastnode = last.current;
 
-	lastnode.next = firstnode.next;	
+	lastnode.next = firstnode.next;
 	firstnode.next.prev = lastnode;
 
 	it = first.copy();
@@ -1762,7 +1875,7 @@ DoublyLinkedList.prototype.shift = function(){
 	if (e.done) {
 		return null;
 	}
-	
+
 	this.rerase(it);
 	return e.value;
 };
@@ -1774,7 +1887,7 @@ DoublyLinkedList.prototype.pop = function(){
 	if (e.done) {
 		return null;
 	}
-	
+
 	this.erase(it);
 	return e.value;
 };
@@ -2422,117 +2535,171 @@ var __relepsilon__ = function ( epsilon ) {
 
 exports.__relepsilon__ = __relepsilon__;
 
-/* js/src/ksum */
-/* js/src/ksum/sortxy_n3.js */
+/* js/src/kldt */
+/* js/src/kldt/evenkldtto2sum.js */
+
 
 /**
- * X is sorted in increasing order
- * Y is sorted in increasing order
- * compare takes 4 arguments and returns <=> 0
- * output takes 4 arguments
+ * Transforms an instance of the one-set version of kLDT with k >= 4 even into
+ * a two-set version of 2SUM.
+ *
+ * @param {set} S is the input set for the kLDT problem
+ * @param {coefficients} a is the array of coefficients
+ * @param {set} A is one of the input set for 2SUM
+ * @param {set} B is one of the input set for 2SUM
+ *
+ * notes:
+ *   - n = Sj - Si
+ *   - k = aj - ai - 1
+ *   - a_0 = a[ai]
+ *   - A and B must be of size n^(k/2) each
+ *   - B must be initialized to 0 ... 0
  *
  */
-var sortxy_n3 = function ( compare , X , Y ,  Xi1 , Xj1 , Yi1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) {
 
-	var a , b , c , d , s ;
+var evenkldtto2sum = function ( S , Si , Sj , a , ai , aj , A , Ai , Aj , B , Bi , Bj ) {
 
-	if ( Xi1 > Xj1 || Yi1 > Yj1 || Xi2 > Xj2 || Yi2 > Yj2 ) {
-		return ;
-	}
+	var i , j , p , q , n , halfk ;
 
-	//  -----------------------------
-	// |              X              |
-	//  -----------------------------
-	// Xi                           Xj
+	n = Sj - Si ;
 
-	//  -----------------------------
-	// |              Y              |
-	//  -----------------------------
-	// Yi                           Yj
+	k = aj - ai - 1 ;
 
-	a = X[Xi1] ;
-	b = Y[Yj1] ;
-	c = X[Xj2] ;
-	d = Y[Yi2] ;
+	halfk = 1 + k / 2 ;
 
-	s = compare( a , b , c , d ) ;
+	// We fill A and B for example with S = [ 1 , 2 , 3 ] and a = [ t , v , w , x , y ]
 
-	if ( s === 0 ) {
+	//       -----------------------------------------------------------------------
+	// A <- |   t   |   t   |   t   |   t   |   t   |   t   |   t   |   t   |   t   |
+	//       -----------------------------------------------------------------------
 
-		output( Xi1 , Yj1 , Xj2 , Yi2 ) ;
+	for ( p = Ai ; p < Aj ; ++p ) {
 
-		sortxy_n3( compare , X , Y , Xi1 + 1 , Xj1 , Yi1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
-		sortxy_n3( compare , X , Y , Xi1 , Xi1 , Yi1 , Yj1 - 1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
-		sortxy_n3( compare , X , Y , Xi1 , Xi1 , Yj1 , Yj1 , Xi2 , Xj2 - 1 , Yi2 , Yj2 , output ) ;
+		A[p] = a[ai] ;
 
 	}
 
-	else if ( s < 0 ) {
+	//       -----------------------------------------------------------------------
+	// A += | v * 1 | v * 2 | v * 3 | v * 1 | v * 2 | v * 3 | v * 1 | v * 2 | v * 3 |
+	//       -----------------------------------------------------------------------
+	//       -----------------------------------------------------------------------
+	// A += | w * 1 | w * 1 | w * 1 | w * 2 | w * 2 | w * 2 | w * 3 | w * 3 | w * 3 |
+	//       -----------------------------------------------------------------------
 
-		sortxy_n3( compare , X , Y , Xi1 + 1 , Xj1 , Yi1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
-		sortxy_n3( compare , X , Y , Xi1 , Xi1 , Yi1 , Yj1 , Xi2 , Xj2 - 1 , Yi2 , Yj2 , output ) ;
+	for ( j = 1 , i = 1 ; j < halfk ; ++j , i *= n ) {
+
+		for ( p = Ai , q = 0 ; p < Aj ; ++p , q = ( ( q + 1 ) / i | 0 ) % n ) {
+
+			A[p] += a[ai + j] * S[Si + q] ;
+
+		}
 
 	}
 
-	else {
+	//       -----------------------------------------------------------------------
+	// B += | x * 1 | x * 2 | x * 3 | x * 1 | x * 2 | x * 3 | x * 1 | x * 2 | x * 3 |
+	//       -----------------------------------------------------------------------
+	//       -----------------------------------------------------------------------
+	// B += | y * 1 | y * 1 | y * 1 | y * 2 | y * 2 | y * 2 | y * 3 | y * 3 | y * 3 |
+	//       -----------------------------------------------------------------------
 
-		sortxy_n3( compare , X , Y , Xi1 , Xj1 , Yi1 , Yj1 - 1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
-		sortxy_n3( compare , X , Y , Xi1 , Xj1 , Yj1 , Yj1 , Xi2 , Xj2 , Yi2 + 1 , Yj2 , output ) ;
+	for ( i = 1 ; j <= k ; ++j , i *= n ) {
+
+		for ( p = Bi , q = 0 ; p < Bj ; ++p , q = ( ( q + 1 ) / i | 0 ) % n ) {
+
+			B[p] += a[ai + j] * S[Si + q] ;
+
+		}
 
 	}
-
 
 } ;
 
-exports.sortxy_n3 = sortxy_n3 ;
+exports.evenkldtto2sum = evenkldtto2sum;
 
-/* js/src/ksum/sortxy_n4.js */
+/* js/src/kldt/oddkldtto3sum.js */
+
 
 /**
- * X is sorted in increasing order
- * Y is sorted in increasing order
- * compare takes 4 arguments and returns <=> 0
- * output takes 4 arguments
+ * Transforms an instance of the one-set version of kLDT with k >= 3 odd into
+ * a three-set version of 3SUM.
+ *
+ * @param {set} S is the input set for the kLDT problem
+ * @param {coefficients} a is the array of coefficients
+ * @param {set} A is one of the input set for 3SUM
+ * @param {set} B is one of the input set for 3SUM
+ * @param {set} C is one of the input set for 3SUM
+ *
+ * notes:
+ *   - n = Sj - Si
+ *   - k = aj - ai - 1
+ *   - a_0 = a[ai]
+ *   - A and B must be of size n^((k-1)/2) each
+ *   - A and B must be initialized to 0 ... 0
+ *   - C must be of size n
  *
  */
-var sortxy_n4 = function ( compare , X , Y ,  Xi1 , Xj1 , Yi1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) {
 
-	var a , b , c , d , s ;
+var oddkldtto3sum = function ( S , Si , Sj , a , ai , aj , A , Ai , Aj , B , Bi , Bj , C , Ci , Cj ) {
 
-	if ( Xi1 > Xj1 || Yi1 > Yj1 || Xi2 > Xj2 || Yi2 > Yj2 ) {
-		return ;
+	var i , j , p , q , n , halfk ;
+
+	n = Sj - Si ;
+
+	k = aj - ai - 1 ;
+
+	halfk = 2 + ( k - 1 ) / 2 ;
+
+	// We fill A and B for example with S = [ 1 , 2 , 3 ] and a = [ t , u , v , w , x , y ]
+
+	//       -----------------------------------------------------------------------
+	// A += | v * 1 | v * 2 | v * 3 | v * 1 | v * 2 | v * 3 | v * 1 | v * 2 | v * 3 |
+	//       -----------------------------------------------------------------------
+	//       -----------------------------------------------------------------------
+	// A += | w * 1 | w * 1 | w * 1 | w * 2 | w * 2 | w * 2 | w * 3 | w * 3 | w * 3 |
+	//       -----------------------------------------------------------------------
+
+	for ( j = 2 , i = 1 ; j < halfk ; ++j , i *= n ) {
+
+		for ( p = Ai , q = 0 ; p < Aj ; ++p , q = ( ( q + 1 ) / i | 0 ) % n ) {
+
+			A[p] += a[ai + j] * S[Si + q] ;
+
+		}
+
 	}
 
-	//  -----------------------------
-	// |              X              |
-	//  -----------------------------
-	// Xi                           Xj
+	//       -----------------------------------------------------------------------
+	// B += | x * 1 | x * 2 | x * 3 | x * 1 | x * 2 | x * 3 | x * 1 | x * 2 | x * 3 |
+	//       -----------------------------------------------------------------------
+	//       -----------------------------------------------------------------------
+	// B += | y * 1 | y * 1 | y * 1 | y * 2 | y * 2 | y * 2 | y * 3 | y * 3 | y * 3 |
+	//       -----------------------------------------------------------------------
 
-	//  -----------------------------
-	// |              Y              |
-	//  -----------------------------
-	// Yi                           Yj
+	for ( i = 1 ; j <= k ; ++j , i *= n ) {
 
-	a = X[Xi1] ;
-	b = Y[Yi1] ;
-	c = X[Xi2] ;
-	d = Y[Yi2] ;
+		for ( p = Bi , q = 0 ; p < Bj ; ++p , q = ( ( q + 1 ) / i | 0 ) % n ) {
 
-	s = compare( a , b , c , d ) ;
+			B[p] += a[ai + j] * S[Si + q] ;
 
-	if ( s === 0 ) {
-
-		output( Xi1 , Yi1 , Xi2 , Yi2 ) ;
+		}
 
 	}
 
-	sortxy_n4( compare , X , Y , Xi1 + 1 , Xj1 , Yi1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
-	sortxy_n4( compare , X , Y , Xi1 , Xi1 , Yi1 + 1 , Yj1 , Xi2 , Xj2 , Yi2 , Yj2 , output ) ;
-	sortxy_n4( compare , X , Y , Xi1 , Xi1 , Yi1 , Yi1 , Xi2 + 1 , Xj2 , Yi2 , Yj2 , output ) ;
-	sortxy_n4( compare , X , Y , Xi1 , Xi1 , Yi1 , Yi1 , Xi2 , Xi2 , Yi2 + 1 , Yj2 , output ) ;
+	// We fill C
+
+	//       -----------------------------------
+	// C <- | u * 1 + t | u * 2 + t | u * 3 + t |
+	//       -----------------------------------
+
+	for ( q = 0 ; q < n ; ++q ) {
+
+		C[Ci + q] = a[ai + 1] * S[Si + q] + a[ai] ;
+
+	}
 
 } ;
 
-exports.sortxy_n4 = sortxy_n4 ;
+exports.oddkldtto3sum = oddkldtto3sum;
 
 })(typeof exports === 'undefined' ? this['algo'] = {} : exports);
