@@ -1,7 +1,7 @@
-var all, util, sort, itertools, functools;
+var all, util, compare, itertools, functools;
 
 util = require( "util" );
-sort = require( "aureooms-js-sort" );
+compare = require( "aureooms-js-compare" );
 itertools = require( "aureooms-js-itertools" );
 functools = require( "aureooms-js-functools" );
 
@@ -134,8 +134,8 @@ itertools.product( [
 	], [] ),
 
 	[
-		["increasing", sort.increasing],
-		["decreasing", sort.decreasing]
+		["increasing", compare.increasing],
+		["decreasing", compare.decreasing]
 	],
 
 	[1, 16, 17, 31, 32, 33, 127, 128, 129]

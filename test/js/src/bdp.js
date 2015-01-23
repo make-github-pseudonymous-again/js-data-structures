@@ -1,10 +1,11 @@
 
 
-var all, one, itertools, functools, operator, array, sort, n, random, shuffle;
+var all, one, itertools, functools, operator, array, sort, n, random, shuffle, compare;
 
 itertools = require( "aureooms-js-itertools" );
 functools = require( "aureooms-js-functools" );
 operator = require( "aureooms-js-operator" );
+compare = require( "aureooms-js-compare" );
 random = require( "aureooms-js-random" );
 array = require( "aureooms-js-array" );
 sort = require( "aureooms-js-sort" );
@@ -21,7 +22,7 @@ one = function ( bdp, __f__, a, i, j, di, dj, expected ) {
 
 	out = bdp( __f__, a, i, j, di, dj, [] );
 
-	outputordering = sort.lexicographical( sort.lexicographical( sort.increasing ) );
+	outputordering = compare.lexicographical( compare.lexicographical( compare.increasing ) );
 
 	array.sort( outputordering, out );
 	array.sort( outputordering, expected );
@@ -202,7 +203,7 @@ all = function ( name, algo ) {
 			}, 3 ),
 			operator.itemgetter( 0 ),               // color,
 			array.split,                            // split,
-			array.swap                              // swap
+			array.swapranges                        // swap
 		)
 	],
 
