@@ -54,6 +54,92 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
     }, {
       "type": "folder",
       "data": {
+        "path": "4sum",
+        "title": "4sum"
+      },
+      "depth": 1,
+      "children": [
+        {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/4sum/sortxy_n3.js",
+            "projectPath": "js/src/4sum/sortxy_n3.js",
+            "targetPath": "4sum/sortxy_n3",
+            "pageTitle": "4sum/sortxy_n3",
+            "title": "sortxy_n3"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "|              X              |",
+                "slug": "-x-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "|              Y              |",
+                "slug": "-y-"
+              },
+              "depth": 2
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/4sum/sortxy_n4.js",
+            "projectPath": "js/src/4sum/sortxy_n4.js",
+            "targetPath": "4sum/sortxy_n4",
+            "pageTitle": "4sum/sortxy_n4",
+            "title": "sortxy_n4"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "|              X              |",
+                "slug": "-x-"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "|              Y              |",
+                "slug": "-y-"
+              },
+              "depth": 2
+            }
+          ]
+        }
+      ]
+    }, {
+      "type": "folder",
+      "data": {
         "path": "adt",
         "title": "adt"
       },
@@ -766,8 +852,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
     }, {
       "type": "folder",
       "data": {
-        "path": "ksum",
-        "title": "ksum"
+        "path": "kldt",
+        "title": "kldt"
       },
       "depth": 1,
       "children": [
@@ -783,11 +869,11 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/ksum/sortxy_n3.js",
-            "projectPath": "js/src/ksum/sortxy_n3.js",
-            "targetPath": "ksum/sortxy_n3",
-            "pageTitle": "ksum/sortxy_n3",
-            "title": "sortxy_n3"
+            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/kldt/evenkldtto2sum.js",
+            "projectPath": "js/src/kldt/evenkldtto2sum.js",
+            "targetPath": "kldt/evenkldtto2sum",
+            "pageTitle": "kldt/evenkldtto2sum",
+            "title": "evenkldtto2sum"
           },
           "depth": 2,
           "outline": [
@@ -795,16 +881,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 2,
-                "title": "|              X              |",
-                "slug": "-x-"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "|              Y              |",
-                "slug": "-y-"
+                "title": "A &lt;- |   t   |   t   |   t   |   t   |   t   |   t   |   t   |   t   |   t   |",
+                "slug": "a-lt--t--t--t--t--t--t--t--t--t-"
               },
               "depth": 2
             }
@@ -821,32 +899,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
-            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/ksum/sortxy_n4.js",
-            "projectPath": "js/src/ksum/sortxy_n4.js",
-            "targetPath": "ksum/sortxy_n4",
-            "pageTitle": "ksum/sortxy_n4",
-            "title": "sortxy_n4"
+            "sourcePath": "/home/aureooms/dev/js/js-algo/js/src/kldt/oddkldtto3sum.js",
+            "projectPath": "js/src/kldt/oddkldtto3sum.js",
+            "targetPath": "kldt/oddkldtto3sum",
+            "pageTitle": "kldt/oddkldtto3sum",
+            "title": "oddkldtto3sum"
           },
           "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "|              X              |",
-                "slug": "-x-"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "|              Y              |",
-                "slug": "-y-"
-              },
-              "depth": 2
-            }
-          ]
+          "outline": []
         }
       ]
     }

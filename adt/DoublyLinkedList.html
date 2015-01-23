@@ -63,7 +63,7 @@ DoublyLinkedList.prototype.erase = <span class="hljs-function"><span class="hljs
 	<span class="hljs-keyword">var</span> node = iterator.current;
 
 	node.prev.next = node.next;
-	node.next.prev = node.prev;	
+	node.next.prev = node.prev;
 
 	--<span class="hljs-keyword">this</span>.length;
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.iterator(node.next);
@@ -72,7 +72,7 @@ DoublyLinkedList.prototype.erase = <span class="hljs-function"><span class="hljs
 DoublyLinkedList.prototype.rerase = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(iterator)</span>{</span>
 	<span class="hljs-keyword">var</span> node = iterator.current;
 
-	node.next.prev = node.prev;	
+	node.next.prev = node.prev;
 	node.prev.next = node.next;
 
 	--<span class="hljs-keyword">this</span>.length;
@@ -84,7 +84,7 @@ DoublyLinkedList.prototype.eraserange = <span class="hljs-function"><span class=
 	firstnode = first.current;
 	lastnode = last.current;
 
-	lastnode.prev = firstnode.prev;	
+	lastnode.prev = firstnode.prev;
 	firstnode.prev.next = lastnode;
 
 	it = first.copy();
@@ -101,7 +101,7 @@ DoublyLinkedList.prototype.reraserange = <span class="hljs-function"><span class
 	firstnode = first.current;
 	lastnode = last.current;
 
-	lastnode.next = firstnode.next;	
+	lastnode.next = firstnode.next;
 	firstnode.next.prev = lastnode;
 
 	it = first.copy();
@@ -120,7 +120,7 @@ DoublyLinkedList.prototype.shift = <span class="hljs-function"><span class="hljs
 	<span class="hljs-keyword">if</span> (e.done) {
 		<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
 	}
-	
+
 	<span class="hljs-keyword">this</span>.rerase(it);
 	<span class="hljs-keyword">return</span> e.value;
 };
@@ -132,7 +132,7 @@ DoublyLinkedList.prototype.pop = <span class="hljs-function"><span class="hljs-k
 	<span class="hljs-keyword">if</span> (e.done) {
 		<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
 	}
-	
+
 	<span class="hljs-keyword">this</span>.erase(it);
 	<span class="hljs-keyword">return</span> e.value;
 };
