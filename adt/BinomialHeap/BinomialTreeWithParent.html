@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="en"><head><title>adt/BinomialHeap/BinomialTreeWithParent</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="adt/BinomialHeap/BinomialTreeWithParent"><meta name="groc-project-path" content="js/src/adt/BinomialHeap/BinomialTreeWithParent.js"><meta name="groc-github-url" content="https://github.com/aureooms/js-data-structures"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/aureooms/js-data-structures/blob/master/js/src/adt/BinomialHeap/BinomialTreeWithParent.js">js/src/adt/BinomialHeap/BinomialTreeWithParent.js</a></div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> BinomialTreeWithParent = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( value, children )</span> {</span>
+<!DOCTYPE html><html lang="en"><head><title>adt/BinomialHeap/BinomialTreeWithParent</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="adt/BinomialHeap/BinomialTreeWithParent"><meta name="groc-project-path" content="js/src/adt/BinomialHeap/BinomialTreeWithParent.js"><meta name="groc-github-url" content="https://github.com/aureooms/js-data-structures"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/aureooms/js-data-structures/blob/master/js/src/adt/BinomialHeap/BinomialTreeWithParent.js">js/src/adt/BinomialHeap/BinomialTreeWithParent.js</a></div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> BinomialTreeWithParent = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( value, children )</span> </span>{
 	<span class="hljs-keyword">this</span>.value = value;
 	<span class="hljs-keyword">this</span>.children = children;
 	<span class="hljs-keyword">this</span>.parent = <span class="hljs-literal">null</span>;
 };
 
-BinomialTreeWithParent.prototype.rank = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+BinomialTreeWithParent.prototype.rank = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.children.length;
 };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>/!\ Can only be used to merge two trees of the same rank.
-/!\ Modifies both trees</p></div></div><div class="code"><div class="wrapper">BinomialTreeWithParent.prototype.merge = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( predicate, other )</span> {</span>
+/!\ Modifies both trees</p></div></div><div class="code"><div class="wrapper">BinomialTreeWithParent.prototype.merge = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( predicate, other )</span> </span>{
 
 	<span class="hljs-keyword">if</span> ( predicate( <span class="hljs-keyword">this</span>.value, other.value ) &lt;= <span class="hljs-number">0</span> ) {
 		<span class="hljs-keyword">this</span>.children = <span class="hljs-keyword">this</span>.children.concat( other );
@@ -23,13 +23,13 @@ BinomialTreeWithParent.prototype.rank = <span class="hljs-function"><span class=
 
 };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Method used to reset a tree element in order to reuse it
 somewhere else, e.g. insert it back in the same or a new
-heap.</p></div></div><div class="code"><div class="wrapper">BinomialTreeWithParent.prototype.detach = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+heap.</p></div></div><div class="code"><div class="wrapper">BinomialTreeWithParent.prototype.detach = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
 	<span class="hljs-keyword">this</span>.children.splice( <span class="hljs-number">0</span> );
 	<span class="hljs-keyword">this</span>.parent = <span class="hljs-literal">null</span>;
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
 };
 
-BinomialTreeWithParent.prototype.setparent = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( parent )</span> {</span>
+BinomialTreeWithParent.prototype.setparent = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( parent )</span> </span>{
 	<span class="hljs-keyword">this</span>.parent = parent;
 };
 

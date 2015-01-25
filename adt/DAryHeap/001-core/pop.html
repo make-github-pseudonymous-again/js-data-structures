@@ -14,7 +14,7 @@
 </li>
 <li><p><strong>j must be an int.</strong><br/>(- 1 is the last leaf)</p>
 </li>
-</ul></div></div><div class="code"><div class="wrapper">daryheap.pop = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( arity, compare, swap, a, i, j )</span> {</span>
+</ul></div></div><div class="code"><div class="wrapper">daryheap.pop = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( arity, compare, swap, a, i, j )</span> </span>{
 
 	<span class="hljs-keyword">var</span> popped;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>decrement size of heap</p></div></div><div class="code"><div class="wrapper">	--j;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>put last leaf at root</p></div></div><div class="code"><div class="wrapper">	popped = a[i];
 	a[i] = a[j];</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>percolate down the new root</p></div></div><div class="code"><div class="wrapper">	daryheap.percolatedown( arity, compare, swap, a, i, j, i );</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>return old root</p></div></div><div class="code"><div class="wrapper">	<span class="hljs-keyword">return</span> popped;
