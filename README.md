@@ -2,7 +2,7 @@
 ====
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/aureooms/js-data-structures?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Playground for data structure code bricks in JavaScript.
+Playground for data structure code bricks in JavaScript. This is the twin project of [js-algo](https://github.com/aureooms/js-algo).
 
 [![NPM license](http://img.shields.io/npm/l/aureooms-js-data-structures.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-data-structures/master/LICENSE)
 [![NPM version](http://img.shields.io/npm/v/aureooms-js-data-structures.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-data-structures)
