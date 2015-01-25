@@ -1,20 +1,19 @@
 {
-	"name": "aureooms-js-algo",
-	"description": "playground for algorithmic code bricks in JavaScript",
-	"homepage": "https://aureooms.github.io/js-algo",
-	"main": "js/dist/algo.js",
+	"name": "aureooms-js-data-structures",
+	"description": "Data structures code bricks for JavaScript",
+	"homepage": "http://aureooms.github.io/js-data-structures/",
+	"main": "js/dist/data-structures.js",
 	"version": "2.0.5",
 	"repository": {
-		"url": "https://github.com/aureooms/js-algo.git",
+		"url": "https://github.com/aureooms/js-data-structures.git",
 		"type": "git"
 	},
 	"keywords": [
-		"js",
+		"bricks",
+		"data",
 		"javascript",
-		"algorithm",
-		"adt",
-		"complexity",
-		"template"
+		"js",
+		"structures"
 	],
 	"scripts": {
 		"build": "./node_modules/.bin/aureooms-node-package-build",
@@ -33,7 +32,7 @@
 		"aureooms-node-package": "^1.2.0"
 	},
 	"bugs": {
-		"url": "https://github.com/aureooms/js-algo/issues"
+		"url": "https://github.com/aureooms/js-data-structures/issues"
 	},
 	"dependencies": {},
 	"license": "AGPL-3.0"

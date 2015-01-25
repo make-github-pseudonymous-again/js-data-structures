@@ -1,10 +1,10 @@
 {
-	"ns": "algo",
+	"ns": "datastructures",
 	"code": {
 		"main": [
 			"js",
 			"dist",
-			"algo.js"
+			"data-structures.js"
 		],
 		"test": [
 			"test",

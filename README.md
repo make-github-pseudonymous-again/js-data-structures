@@ -1,25 +1,25 @@
-[js-algo](http://aureooms.github.io/js-algo)
+[js-data-structures](http://aureooms.github.io/js-data-structures)
 ====
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/aureooms/js-algo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/aureooms/js-data-structures?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Playground for algorithmic code bricks in JavaScript.
 
-[![NPM license](http://img.shields.io/npm/l/aureooms-js-algo.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-algo/master/LICENSE)
-[![NPM version](http://img.shields.io/npm/v/aureooms-js-algo.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-algo)
-[![Bower version](http://img.shields.io/bower/v/aureooms-js-algo.svg?style=flat)](http://bower.io/search/?q=aureooms-js-algo)
-[![Build Status](http://img.shields.io/travis/aureooms/js-algo.svg?style=flat)](https://travis-ci.org/aureooms/js-algo)
-[![Coverage Status](http://img.shields.io/coveralls/aureooms/js-algo.svg?style=flat)](https://coveralls.io/r/aureooms/js-algo)
-[![Dependencies Status](http://img.shields.io/david/aureooms/js-algo.svg?style=flat)](https://david-dm.org/aureooms/js-algo#info=dependencies)
-[![devDependencies Status](http://img.shields.io/david/dev/aureooms/js-algo.svg?style=flat)](https://david-dm.org/aureooms/js-algo#info=devDependencies)
-[![Code Climate](http://img.shields.io/codeclimate/github/aureooms/js-algo.svg?style=flat)](https://codeclimate.com/github/aureooms/js-algo)
-[![NPM downloads per month](http://img.shields.io/npm/dm/aureooms-js-algo.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-algo)
-[![GitHub issues](http://img.shields.io/github/issues/aureooms/js-algo.svg?style=flat)](https://github.com/aureooms/js-algo/issues)
+[![NPM license](http://img.shields.io/npm/l/aureooms-js-data-structures.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-data-structures/master/LICENSE)
+[![NPM version](http://img.shields.io/npm/v/aureooms-js-data-structures.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-data-structures)
+[![Bower version](http://img.shields.io/bower/v/aureooms-js-data-structures.svg?style=flat)](http://bower.io/search/?q=aureooms-js-data-structures)
+[![Build Status](http://img.shields.io/travis/aureooms/js-data-structures.svg?style=flat)](https://travis-ci.org/aureooms/js-data-structures)
+[![Coverage Status](http://img.shields.io/coveralls/aureooms/js-data-structures.svg?style=flat)](https://coveralls.io/r/aureooms/js-data-structures)
+[![Dependencies Status](http://img.shields.io/david/aureooms/js-data-structures.svg?style=flat)](https://david-dm.org/aureooms/js-data-structures#info=dependencies)
+[![devDependencies Status](http://img.shields.io/david/dev/aureooms/js-data-structures.svg?style=flat)](https://david-dm.org/aureooms/js-data-structures#info=devDependencies)
+[![Code Climate](http://img.shields.io/codeclimate/github/aureooms/js-data-structures.svg?style=flat)](https://codeclimate.com/github/aureooms/js-data-structures)
+[![NPM downloads per month](http://img.shields.io/npm/dm/aureooms-js-data-structures.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-data-structures)
+[![GitHub issues](http://img.shields.io/github/issues/aureooms/js-data-structures.svg?style=flat)](https://github.com/aureooms/js-data-structures/issues)
 
 
 This project is just a playground for any algorithm / procedure, data structure
 that doesn't fit in any of those project,
 
-  - [aureooms/js-algo](https://github.com/aureooms/js-algo) : playground for algorithmic code bricks in JavaScript
+  - [aureooms/js-data-structures](https://github.com/aureooms/js-data-structures) : playground for algorithmic code bricks in JavaScript
   - [aureooms/js-array](https://github.com/aureooms/js-array) : array manipulation code bricks for JavaScript
   - [aureooms/js-bit](https://github.com/aureooms/js-bit) : bit twiddling hacks code bricks for JavaScript
   - [aureooms/js-bst](https://github.com/aureooms/js-bst) : binary search tree code bricks in JavaScript
@@ -91,3 +91,5 @@ Other reference:
   - http://en.wikipedia.org/wiki/Disjoint-set_data_structure
   - http://en.wikipedia.org/wiki/Partition_refinement
   - http://cglab.ca/publications.html
+
+***( forked from [js-algo](https://github.com/aureooms/js-algo) )***
