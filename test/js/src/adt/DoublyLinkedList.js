@@ -35,7 +35,7 @@ test("DoublyLinkedList", function(){
 
 	var i, j, k, n, m, it, a, b, v, first, last;
 
-	var DoublyLinkedList = algo.DoublyLinkedList;
+	var DoublyLinkedList = datastructures.DoublyLinkedList;
 
 	var dll = new DoublyLinkedList();
 

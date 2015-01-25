@@ -2,7 +2,7 @@
 ====
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/aureooms/js-data-structures?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Playground for algorithmic code bricks in JavaScript.
+Playground for data structure code bricks in JavaScript.
 
 [![NPM license](http://img.shields.io/npm/l/aureooms-js-data-structures.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-data-structures/master/LICENSE)
 [![NPM version](http://img.shields.io/npm/v/aureooms-js-data-structures.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-data-structures)
@@ -16,7 +16,7 @@ Playground for algorithmic code bricks in JavaScript.
 [![GitHub issues](http://img.shields.io/github/issues/aureooms/js-data-structures.svg?style=flat)](https://github.com/aureooms/js-data-structures/issues)
 
 
-This project is just a playground for any algorithm / procedure, data structure
+This project is just a playground for any data structure
 that doesn't fit in any of those project,
 
   - [aureooms/js-data-structures](https://github.com/aureooms/js-data-structures) : playground for algorithmic code bricks in JavaScript
