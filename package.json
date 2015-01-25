@@ -3,7 +3,7 @@
 	"description": "playground for algorithmic code bricks in JavaScript",
 	"homepage": "https://aureooms.github.io/js-algo",
 	"main": "js/dist/algo.js",
-	"version": "2.0.4",
+	"version": "2.0.5",
 	"repository": {
 		"url": "https://github.com/aureooms/js-algo.git",
 		"type": "git"
