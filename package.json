@@ -24,7 +24,7 @@
 	"author": "aureooms",
 	"devDependencies": {
 		"aureooms-js-array": "^2.0.1",
-		"aureooms-js-compare": "^1.0.0",
+		"aureooms-js-compare": "^1.3.0",
 		"aureooms-js-functools": "^1.2.0",
 		"aureooms-js-itertools": "^0.2.0",
 		"aureooms-js-operator": "^1.0.0",
