@@ -19,13 +19,13 @@ Playground for data structure code bricks in JavaScript. This is the twin projec
 This project is just a playground for any data structure
 that doesn't fit in any of those project,
 
-  - [aureooms/js-arraylist](https://api.github.com/repos/aureooms/js-arraylist) : dynamic array code bricks for JavaScript
-  - [aureooms/js-bst](https://api.github.com/repos/aureooms/js-bst) : binary search tree code bricks in JavaScript
-  - [aureooms/js-cg](https://api.github.com/repos/aureooms/js-cg) : computational geometry code bricks for JavaScript
-  - [aureooms/js-dict](https://api.github.com/repos/aureooms/js-dict) : dictionary ADT code bricks for JavaScript
-  - [aureooms/js-dll](https://api.github.com/repos/aureooms/js-dll) : doubly linked list code bricks for JavaScript
-  - [aureooms/js-gn](https://api.github.com/repos/aureooms/js-gn) : graphs and networks code bricks for JavaScript
-  - [aureooms/js-pubsub](https://api.github.com/repos/aureooms/js-pubsub) : publish-subscribe pattern code bricks for JavaScript
+  - [aureooms/js-arraylist](https://github.com/aureooms/js-arraylist) : dynamic array code bricks for JavaScript
+  - [aureooms/js-bst](https://github.com/aureooms/js-bst) : binary search tree code bricks in JavaScript
+  - [aureooms/js-cg](https://github.com/aureooms/js-cg) : computational geometry code bricks for JavaScript
+  - [aureooms/js-dict](https://github.com/aureooms/js-dict) : dictionary ADT code bricks for JavaScript
+  - [aureooms/js-dll](https://github.com/aureooms/js-dll) : doubly linked list code bricks for JavaScript
+  - [aureooms/js-gn](https://github.com/aureooms/js-gn) : graphs and networks code bricks for JavaScript
+  - [aureooms/js-pubsub](https://github.com/aureooms/js-pubsub) : publish-subscribe pattern code bricks for JavaScript
 
 Those packages aim to provide *code bricks* that are as generic as possible.
 Some examples are a `d`-ary heap that can be parametrized with any `d`, BST's
