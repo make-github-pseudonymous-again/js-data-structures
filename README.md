@@ -23,6 +23,7 @@ that doesn't fit in any of those project,
   - [aureooms/js-bst](https://api.github.com/repos/aureooms/js-bst) : binary search tree code bricks in JavaScript
   - [aureooms/js-cg](https://api.github.com/repos/aureooms/js-cg) : computational geometry code bricks for JavaScript
   - [aureooms/js-dict](https://api.github.com/repos/aureooms/js-dict) : dictionary ADT code bricks for JavaScript
+  - [aureooms/js-dll](https://api.github.com/repos/aureooms/js-dll) : doubly linked list code bricks for JavaScript
   - [aureooms/js-gn](https://api.github.com/repos/aureooms/js-gn) : graphs and networks code bricks for JavaScript
   - [aureooms/js-pubsub](https://api.github.com/repos/aureooms/js-pubsub) : publish-subscribe pattern code bricks for JavaScript
 
