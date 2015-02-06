@@ -23,8 +23,10 @@ that doesn't fit in any of those project,
   - [aureooms/js-bst](https://github.com/aureooms/js-bst) : binary search tree code bricks in JavaScript
   - [aureooms/js-cg](https://github.com/aureooms/js-cg) : computational geometry code bricks for JavaScript
   - [aureooms/js-dict](https://github.com/aureooms/js-dict) : dictionary ADT code bricks for JavaScript
+  - [aureooms/js-disjoint-set](https://github.com/aureooms/js-disjoint-set) : disjoint-set data structure code bricks for JavaScript
   - [aureooms/js-dll](https://github.com/aureooms/js-dll) : doubly linked list code bricks for JavaScript
   - [aureooms/js-gn](https://github.com/aureooms/js-gn) : graphs and networks code bricks for JavaScript
+  - [aureooms/js-list-spec](https://github.com/aureooms/js-list-spec) : list ADT specification code bricks for JavaScript
   - [aureooms/js-pubsub](https://github.com/aureooms/js-pubsub) : publish-subscribe pattern code bricks for JavaScript
 
 Those packages aim to provide *code bricks* that are as generic as possible.
