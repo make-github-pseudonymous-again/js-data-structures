@@ -39,6 +39,10 @@ Binary and Binomial heap reference:
   - http://www.cs.princeton.edu/~wayne/cs423/lectures/heaps-4up.pdf
   - http://stackoverflow.com/questions/6531543/efficient-implementation-of-binary-heaps
 
+Other projects implementing data structures :
+
+  - https://github.com/nzakas/computer-science-in-javascript
+
 Other projects implementing data structures in other languages :
 
   - https://github.com/patmorin/ods (C++, Java, Python)
