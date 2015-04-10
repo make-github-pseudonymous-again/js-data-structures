@@ -27,6 +27,7 @@ that doesn't fit in any of those project,
   - [aureooms/js-dll](https://github.com/aureooms/js-dll) : doubly linked list code bricks for JavaScript
   - [aureooms/js-gn](https://github.com/aureooms/js-gn) : graphs and networks code bricks for JavaScript
   - [aureooms/js-list-spec](https://github.com/aureooms/js-list-spec) : list ADT specification code bricks for JavaScript
+  - [aureooms/js-lifo](https://github.com/aureooms/js-lifo) : Last In, First Out abstract data types code bricks for JavaScript
   - [aureooms/js-pubsub](https://github.com/aureooms/js-pubsub) : publish-subscribe pattern code bricks for JavaScript
 
 Those packages aim to provide *code bricks* that are as generic as possible.
@@ -42,10 +43,12 @@ Binary and Binomial heap reference:
 Other projects implementing data structures in JavaScript :
 
   - https://github.com/nzakas/computer-science-in-javascript
+  - http://www.nayuki.io
 
 Other projects implementing data structures in other languages :
 
   - https://github.com/patmorin/ods (C++, Java, Python)
+  - http://www.nayuki.io (C, C++, Java, C#, Python, Haskell, MATLAB and others)
   - http://rosettacode.org (All kinds of languages)
 
 Other reference:
