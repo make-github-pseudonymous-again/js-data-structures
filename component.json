@@ -4,7 +4,7 @@
 	"scripts": [
 		"js/dist/data-structures.js"
 	],
-	"version": "5.0.2",
+	"version": "5.0.3",
 	"description": "Data structures code bricks for JavaScript",
 	"main": "js/dist/data-structures.js",
 	"license": "AGPL-3.0"

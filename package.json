@@ -3,7 +3,7 @@
 	"description": "Data structures code bricks for JavaScript",
 	"homepage": "http://aureooms.github.io/js-data-structures/",
 	"main": "js/dist/data-structures.js",
-	"version": "5.0.2",
+	"version": "5.0.3",
 	"repository": {
 		"url": "https://github.com/aureooms/js-data-structures.git",
 		"type": "git"

@@ -3,7 +3,7 @@
 	"name": "aureooms-js-data-structures",
 	"license": "AGPL-3.0",
 	"description": "Data structures code bricks for JavaScript",
-	"version": "5.0.2",
+	"version": "5.0.3",
 	"main": "js/dist/data-structures.js",
 	"ignore": [
 		"js/index.js",
