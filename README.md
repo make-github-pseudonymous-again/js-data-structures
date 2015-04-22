@@ -14,6 +14,7 @@ Playground for data structure code bricks in JavaScript. This is the twin projec
 [![Code Climate](http://img.shields.io/codeclimate/github/aureooms/js-data-structures.svg?style=flat)](https://codeclimate.com/github/aureooms/js-data-structures)
 [![NPM downloads per month](http://img.shields.io/npm/dm/aureooms-js-data-structures.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-data-structures)
 [![GitHub issues](http://img.shields.io/github/issues/aureooms/js-data-structures.svg?style=flat)](https://github.com/aureooms/js-data-structures/issues)
+[![Inline docs](http://inch-ci.org/github/aureooms/js-data-structures.svg?branch=master&style=shields)](http://inch-ci.org/github/aureooms/js-data-structures)
 
 
 This project is just a playground for any data structure
