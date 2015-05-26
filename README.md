@@ -27,6 +27,7 @@ that doesn't fit in any of those project,
   - [aureooms/js-disjoint-set](https://github.com/aureooms/js-disjoint-set) : disjoint-set data structure code bricks for JavaScript
   - [aureooms/js-dll](https://github.com/aureooms/js-dll) : doubly linked list code bricks for JavaScript
   - [aureooms/js-gn](https://github.com/aureooms/js-gn) : graphs and networks code bricks for JavaScript
+  - [aureooms/js-heap](https://github.com/aureooms/js-heap) : heap code bricks for JavaScript
   - [aureooms/js-list-spec](https://github.com/aureooms/js-list-spec) : list ADT specification code bricks for JavaScript
   - [aureooms/js-lifo](https://github.com/aureooms/js-lifo) : Last In, First Out abstract data types code bricks for JavaScript
   - [aureooms/js-fifo](https://github.com/aureooms/js-fifo) : First In, First Out data structures code bricks for JavaScript
@@ -36,11 +37,6 @@ Those packages aim to provide *code bricks* that are as generic as possible.
 Some examples are a `d`-ary heap that can be parametrized with any `d`, BST's
 built on the same left rotate and right rotate functions, an ArrayList
 implementation with parametrizable allocator.
-
-Binary and Binomial heap reference:
-
-  - http://www.cs.princeton.edu/~wayne/cs423/lectures/heaps-4up.pdf
-  - http://stackoverflow.com/questions/6531543/efficient-implementation-of-binary-heaps
 
 Other projects implementing data structures in JavaScript :
 
