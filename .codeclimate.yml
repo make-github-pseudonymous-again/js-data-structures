@@ -1,0 +1,7 @@
+languages:
+  JavaScript: true
+exclude_paths:
+- "js/dist/*.js"
+- "js/dist/**/*.js"
+- "test/*.js"
+- "test/**/*.js"
