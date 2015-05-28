@@ -1,9 +1,9 @@
 language: node_js
 node_js:
+  - "iojs"
+  - "0.12"
   - "0.11"
   - "0.10"
-# - "0.8"
-# - "0.6"
 install:
   - npm -d install
 script:
@@ -11,6 +11,3 @@ script:
 after_success:
   - ./node_modules/.bin/coveralls   < coverage/lcov.info || true
   - ./node_modules/.bin/codeclimate < coverage/lcov.info || true
-# env:
-#   - COVERALLS_REPO_TOKEN=000000000000000000000000000000000
-#   - CODECLIMATE_REPO_TOKEN=0000000000000000000000000000000000000000000000000000000000000000
