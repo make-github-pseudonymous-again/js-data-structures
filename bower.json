@@ -1,19 +1,21 @@
 {
-	"homepage": "http://aureooms.github.io/js-data-structures/",
-	"name": "aureooms-js-data-structures",
-	"license": "AGPL-3.0",
-	"description": "Data structures code bricks for JavaScript",
-	"version": "6.0.0",
-	"main": "js/dist/data-structures.js",
-	"ignore": [
-		"js/index.js",
-		"js/src",
-		"test",
-		"pkg.json",
-		"package.json",
-		".groc.json",
-		".travis.yml",
-		".gitignore",
-		"README.md"
-	]
+  "homepage": "http://aureooms.github.io/js-data-structures/",
+  "name": "aureooms-js-data-structures",
+  "license": "AGPL-3.0",
+  "description": "Data structures code bricks for JavaScript",
+  "version": "6.0.0",
+  "main": "js/dist/data-structures.js",
+  "ignore": [
+    "js/index.js",
+    "js/src",
+    "test",
+    "pkg.json",
+    "package.json",
+    ".groc.json",
+    ".travis.yml",
+    ".gitignore",
+    "README.md",
+    "inch.json",
+    ".codeclimate.yml"
+  ]
 }
