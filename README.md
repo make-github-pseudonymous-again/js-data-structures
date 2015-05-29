@@ -27,8 +27,8 @@ that doesn't fit in any of those project,
   - [aureooms/js-gn](https://github.com/aureooms/js-gn) : graphs and networks code bricks for JavaScript
   - [aureooms/js-heap-spec](https://github.com/aureooms/js-heap-spec) : heap specification code bricks for JavaScript
     - [aureooms/js-heap](https://github.com/aureooms/js-heap) : heap code bricks for JavaScript
-    - [aureooms/js-binomial-heap](https://github.com/aureooms/js-binomial-heap): Binomial heap code bricks for JavaScript
-    - [aureooms/js-d-ary-heap](https://github.com/aureooms/js-d-ary-heap): d-ary heap code bricks for JavaScript
+      - [aureooms/js-binomial-heap](https://github.com/aureooms/js-binomial-heap): Binomial heap code bricks for JavaScript
+      - [aureooms/js-d-ary-heap](https://github.com/aureooms/js-d-ary-heap): d-ary heap code bricks for JavaScript
   - [aureooms/js-list-spec](https://github.com/aureooms/js-list-spec) : list ADT specification code bricks for JavaScript
     - [aureooms/js-arraylist](https://github.com/aureooms/js-arraylist) : dynamic array code bricks for JavaScript
     - [aureooms/js-dll](https://github.com/aureooms/js-dll) : doubly linked list code bricks for JavaScript
