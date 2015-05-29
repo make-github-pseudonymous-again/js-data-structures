@@ -1,8 +1,8 @@
 [js-data-structures](http://aureooms.github.io/js-data-structures)
-====
+==
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/aureooms/js-data-structures?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Playground for data structure code bricks in JavaScript. This is the twin project of [js-algo](https://github.com/aureooms/js-algo).
+Playground for data structure code bricks in JavaScript. This is a child project [js-library](https://github.com/aureooms/js-library) and the twin project of [js-algo](https://github.com/aureooms/js-algo).
 
 [![NPM license](http://img.shields.io/npm/l/aureooms-js-data-structures.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-data-structures/master/LICENSE)
 [![NPM version](http://img.shields.io/npm/v/aureooms-js-data-structures.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-data-structures)
@@ -16,6 +16,7 @@ Playground for data structure code bricks in JavaScript. This is the twin projec
 [![GitHub issues](http://img.shields.io/github/issues/aureooms/js-data-structures.svg?style=flat)](https://github.com/aureooms/js-data-structures/issues)
 [![Inline docs](http://inch-ci.org/github/aureooms/js-data-structures.svg?branch=master&style=shields)](http://inch-ci.org/github/aureooms/js-data-structures)
 
+## Description
 
 This project is just a playground for any data structure
 that doesn't fit in any of those project,
@@ -41,18 +42,22 @@ Some examples are a `d`-ary heap that can be parametrized with any `d`, BST's
 built on the same left rotate and right rotate functions, an ArrayList
 implementation with parametrizable allocator.
 
-Other projects implementing data structures in JavaScript :
+## Reference
+
+A list of links and projects focusing on data structures implementation.
+
+### Projects implementing data structures in JavaScript :
 
   - https://github.com/nzakas/computer-science-in-javascript
   - http://www.nayuki.io
 
-Other projects implementing data structures in other languages :
+### Projects implementing data structures in other languages :
 
   - https://github.com/patmorin/ods (C++, Java, Python)
   - http://www.nayuki.io (C, C++, Java, C#, Python, Haskell, MATLAB and others)
   - http://rosettacode.org (All kinds of languages)
 
-Other reference:
+### Others
 
   - http://en.wikipedia.org/wiki/Disjoint-set_data_structure
   - http://en.wikipedia.org/wiki/Partition_refinement
