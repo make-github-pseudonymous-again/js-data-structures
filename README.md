@@ -35,6 +35,7 @@ that doesn't fit in any of those project,
     - [aureooms/js-sll](https://github.com/aureooms/js-sll) : singly linked list code bricks for JavaScript
   - [aureooms/js-lifo](https://github.com/aureooms/js-lifo) : Last In, First Out abstract data types code bricks for JavaScript
   - [aureooms/js-fifo](https://github.com/aureooms/js-fifo) : First In, First Out data structures code bricks for JavaScript
+  - [aureooms/js-persistent](https://github.com/aureooms/js-persistent) : persistent data structures code bricks for JavaScript
   - [aureooms/js-pubsub](https://github.com/aureooms/js-pubsub) : publish-subscribe pattern code bricks for JavaScript
 
 Those packages aim to provide *code bricks* that are as generic as possible.
