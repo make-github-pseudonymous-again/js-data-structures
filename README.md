@@ -48,12 +48,12 @@ implementation with parametrizable allocator.
 
 A list of links and projects focusing on data structures implementation.
 
-### Projects implementing data structures in JavaScript :
+### Projects implementing data structures in JavaScript
 
   - https://github.com/nzakas/computer-science-in-javascript
   - http://www.nayuki.io
 
-### Projects implementing data structures in other languages :
+### Projects implementing data structures in other languages
 
   - https://github.com/patmorin/ods (C++, Java, Python)
   - http://www.nayuki.io (C, C++, Java, C#, Python, Haskell, MATLAB and others)
