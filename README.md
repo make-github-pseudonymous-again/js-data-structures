@@ -24,6 +24,7 @@ that doesn't fit in any of those project,
   - [aureooms/js-cg](https://github.com/aureooms/js-cg) : computational geometry code bricks for JavaScript
   - [aureooms/js-dict](https://github.com/aureooms/js-dict) : dictionary ADT code bricks for JavaScript
   - [aureooms/js-disjoint-set](https://github.com/aureooms/js-disjoint-set) : disjoint-set data structure code bricks for JavaScript
+    - [aureooms/js-fixed-disjoint-set](https://github.com/aureooms/js-fixed-disjoint-set) : fixed-size-array-based disjoint-set set code bricks for JavaScript
   - [aureooms/js-gn](https://github.com/aureooms/js-gn) : graphs and networks code bricks for JavaScript
   - [aureooms/js-heap-spec](https://github.com/aureooms/js-heap-spec) : heap specification code bricks for JavaScript
     - [aureooms/js-heap](https://github.com/aureooms/js-heap) : heap code bricks for JavaScript
