@@ -28,7 +28,7 @@
 		"aureooms-js-itertools": "^0.2.0",
 		"aureooms-js-operator": "^1.0.0",
 		"aureooms-js-random": "^0.0.3",
-		"aureooms-js-sort": "^3.1.0",
+		"aureooms-js-sort": "^7.0.0",
 		"aureooms-node-package": "^2.0.2"
 	},
 	"bugs": {
