@@ -22,6 +22,15 @@ that doesn't fit in any of those project,
 
   - [aureooms/js-bst](https://github.com/aureooms/js-bst) : binary search tree code bricks in JavaScript
   - [aureooms/js-cg](https://github.com/aureooms/js-cg) : computational geometry code bricks for JavaScript
+  - [aureooms/js-collections](https://github.com/aureooms/js-collections) :  Python's collections library for JavaScript
+    - [aureooms/js-collections-chainmap](https://github.com/aureooms/js-collections-chainmap) :  Collections library for JavaScript
+    - [aureooms/js-collections-counter](https://github.com/aureooms/js-collections-counter) :  Python's counter data structure for JavaScript
+    - [aureooms/js-collections-defaultdict](https://github.com/aureooms/js-collections-defaultdict) :  Python's defaultdict data structure for JavaScript
+    - [aureooms/js-collections-deque](https://github.com/aureooms/js-collections-deque) :  Python's deque data structure for JavaScript
+    - [aureooms/js-collections-dict](https://github.com/aureooms/js-collections-dict) :  Collections library for JavaScript
+    - [aureooms/js-collections-namedtuple](https://github.com/aureooms/js-collections-namedtuple) :  Python's namedtuple data structure for JavaScript
+    - [aureooms/js-collections-ordereddict](https://github.com/aureooms/js-collections-ordereddict) :  Python's ordereddict data structure for JavaScript
+    - [aureooms/js-collections-set](https://github.com/aureooms/js-collections-set) :  Python's set data structure for JavaScript
   - [aureooms/js-dict](https://github.com/aureooms/js-dict) : dictionary ADT code bricks for JavaScript
   - [aureooms/js-disjoint-set](https://github.com/aureooms/js-disjoint-set) : disjoint-set data structure code bricks for JavaScript
     - [aureooms/js-fixed-disjoint-set](https://github.com/aureooms/js-fixed-disjoint-set) : fixed-size-array-based disjoint-set set code bricks for JavaScript
