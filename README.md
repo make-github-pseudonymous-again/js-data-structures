@@ -21,6 +21,7 @@ This project is just a playground for any data structure
 that doesn't fit in any of those project,
 
   - [aureooms/js-bst](https://github.com/aureooms/js-bst) : binary search tree code bricks in JavaScript
+    - [@aureooms/js-red-black-tree](https://github.com/aureooms/js-red-black-tree) : Red-black tree data structure for JavaScript
   - [aureooms/js-cg](https://github.com/aureooms/js-cg) : computational geometry code bricks for JavaScript
   - [aureooms/js-collections](https://github.com/aureooms/js-collections) :  Python's collections library for JavaScript
     - [aureooms/js-collections-chainmap](https://github.com/aureooms/js-collections-chainmap) :  Collections library for JavaScript
