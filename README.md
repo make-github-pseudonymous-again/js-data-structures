@@ -35,10 +35,13 @@ that doesn't fit in any of those project,
   - [aureooms/js-disjoint-set](https://github.com/aureooms/js-disjoint-set) : disjoint-set data structure code bricks for JavaScript
     - [aureooms/js-fixed-disjoint-set](https://github.com/aureooms/js-fixed-disjoint-set) : fixed-size-array-based disjoint-set set code bricks for JavaScript
   - [aureooms/js-gn](https://github.com/aureooms/js-gn) : graphs and networks code bricks for JavaScript
-  - [aureooms/js-heap-spec](https://github.com/aureooms/js-heap-spec) : heap specification code bricks for JavaScript
-    - [aureooms/js-heap](https://github.com/aureooms/js-heap) : heap code bricks for JavaScript
-      - [aureooms/js-binomial-heap](https://github.com/aureooms/js-binomial-heap): Binomial heap code bricks for JavaScript
-      - [aureooms/js-d-ary-heap](https://github.com/aureooms/js-d-ary-heap): d-ary heap code bricks for JavaScript
+  - [aureooms/js-heap](https://github.com/aureooms/js-heap) : heap code bricks for JavaScript
+    - [aureooms/js-heap-spec](https://github.com/aureooms/js-heap-spec): Specification for heap data structures in JavaScript
+    - [aureooms/js-heapq](https://github.com/aureooms/js-heapq): Python's heapq library for Javascript
+    - [aureooms/js-heapsort](https://github.com/aureooms/js-heapsort): Heap sort algorithm for Javascript
+    - [aureooms/js-binomial-heap](https://github.com/aureooms/js-binomial-heap): Binomial heap data structure for JavaScript
+    - [aureooms/js-d-ary-heap](https://github.com/aureooms/js-d-ary-heap): d-ary heap data structure for JavaScript
+    - [aureooms/js-pairing-heap](https://github.com/aureooms/js-pairing-heap): Pairing heap data structure for JavaScript
   - [aureooms/js-list-spec](https://github.com/aureooms/js-list-spec) : list ADT specification code bricks for JavaScript
     - [aureooms/js-arraylist](https://github.com/aureooms/js-arraylist) : dynamic array code bricks for JavaScript
     - [aureooms/js-dll](https://github.com/aureooms/js-dll) : doubly linked list code bricks for JavaScript
