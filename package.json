@@ -1,7 +1,7 @@
 {
 	"name": "aureooms-js-data-structures",
-	"description": "Data structures code bricks for JavaScript",
-	"homepage": "http://aureooms.github.io/js-data-structures/",
+	"description": "Playground for data structures for JavaScript",
+	"homepage": "https://aureooms.github.io/js-data-structures/",
 	"main": "js/dist/data-structures.js",
 	"version": "6.0.0",
 	"repository": {
@@ -9,7 +9,6 @@
 		"type": "git"
 	},
 	"keywords": [
-		"bricks",
 		"data",
 		"javascript",
 		"js",

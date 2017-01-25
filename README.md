@@ -1,7 +1,12 @@
 [js-data-structures](http://aureooms.github.io/js-data-structures)
 ==
 
-Playground for data structure code bricks in JavaScript. This is a child project of [js-library](https://github.com/aureooms/js-library) and the twin project of [js-algorithms](https://github.com/aureooms/js-algorithms).
+<img src="https://cdn.rawgit.com/aureooms/js-data-structures/master/media/sketch.png" width="864">
+
+Playground for data structures in JavaScript.
+This is a child project of [@aureooms/js-library](https://github.com/aureooms/js-library)
+and
+the twin project of [@aureooms/js-algorithms](https://github.com/aureooms/js-algorithms).
 
 [![NPM license](http://img.shields.io/npm/l/aureooms-js-data-structures.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-data-structures/master/LICENSE)
 [![NPM version](http://img.shields.io/npm/v/aureooms-js-data-structures.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-data-structures)
