@@ -1,4 +1,4 @@
-[js-data-structures](http://aureooms.github.io/js-data-structures)
+[@aureooms/js-data-structures](http://aureooms.github.io/js-data-structures)
 ==
 
 <img src="https://cdn.rawgit.com/aureooms/js-data-structures/master/media/sketch.png" width="864">
