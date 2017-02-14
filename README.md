@@ -72,6 +72,7 @@ A list of links and projects focusing on data structures implementation.
   - https://github.com/nzakas/computer-science-in-javascript
   - https://github.com/benoitvallon/computer-science-in-javascript
   - http://www.nayuki.io
+  - https://github.com/Yomguithereal/mnemonist
 
 ### Projects implementing data structures in other languages
 
