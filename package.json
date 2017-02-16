@@ -1,5 +1,5 @@
 {
-	"name": "aureooms-js-data-structures",
+	"name": "@aureooms/js-data-structures",
 	"description": "Playground for data structures for JavaScript",
 	"homepage": "https://aureooms.github.io/js-data-structures/",
 	"main": "js/dist/data-structures.js",
@@ -21,13 +21,13 @@
 	},
 	"author": "aureooms",
 	"devDependencies": {
-		"aureooms-js-array": "^2.0.1",
-		"aureooms-js-compare": "^1.3.0",
-		"aureooms-js-functools": "^1.2.0",
-		"aureooms-js-itertools": "^0.2.0",
-		"aureooms-js-operator": "^1.0.0",
-		"aureooms-js-random": "^0.0.3",
-		"aureooms-js-sort": "^3.1.0",
+		"@aureooms/js-array": "^2.0.1",
+		"@aureooms/js-compare": "^1.3.0",
+		"@aureooms/js-functools": "^1.2.0",
+		"@aureooms/js-itertools": "^0.2.0",
+		"@aureooms/js-operator": "^1.0.0",
+		"@aureooms/js-random": "^0.0.3",
+		"@aureooms/js-sort": "^3.1.0",
 		"aureooms-node-package": "^2.0.2"
 	},
 	"bugs": {
