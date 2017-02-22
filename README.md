@@ -25,43 +25,81 @@ the twin project of [@aureooms/js-algorithms](https://github.com/aureooms/js-alg
 This project is just a playground for any data structure
 that doesn't fit in any of those project,
 
-  - [aureooms/js-bst](https://github.com/aureooms/js-bst) : binary search tree code bricks in JavaScript
+### Heaps
+
+  - [@aureooms/js-heap](https://github.com/aureooms/js-heap) : heap code bricks for JavaScript
+    - [@aureooms/js-heap-spec](https://github.com/aureooms/js-heap-spec): Specification for heap data structures in JavaScript
+    - [@aureooms/js-heapq](https://github.com/aureooms/js-heapq): Python's heapq library for Javascript
+    - [@aureooms/js-heapsort](https://github.com/aureooms/js-heapsort): Heap sort algorithm for Javascript
+    - [@aureooms/js-binomial-heap](https://github.com/aureooms/js-binomial-heap): Binomial heap data structure for JavaScript
+    - [@aureooms/js-d-ary-heap](https://github.com/aureooms/js-d-ary-heap): d-ary heap data structure for JavaScript
+    - [@aureooms/js-pairing-heap](https://github.com/aureooms/js-pairing-heap): Pairing heap data structure for JavaScript
+
+### Search trees
+
+  - [@aureooms/js-bst](https://github.com/aureooms/js-bst) : binary search tree code bricks in JavaScript
     - [@aureooms/js-red-black-tree](https://github.com/aureooms/js-red-black-tree) : Red-black tree data structure for JavaScript
-  - [aureooms/js-cg](https://github.com/aureooms/js-cg) : computational geometry code bricks for JavaScript
-  - [aureooms/js-collections](https://github.com/aureooms/js-collections) :  Python's collections library for JavaScript
-    - [aureooms/js-collections-chainmap](https://github.com/aureooms/js-collections-chainmap) :  Collections library for JavaScript
-    - [aureooms/js-collections-counter](https://github.com/aureooms/js-collections-counter) :  Python's counter data structure for JavaScript
-    - [aureooms/js-collections-defaultdict](https://github.com/aureooms/js-collections-defaultdict) :  Python's defaultdict data structure for JavaScript
-    - [aureooms/js-collections-deque](https://github.com/aureooms/js-collections-deque) :  Python's deque data structure for JavaScript
-    - [aureooms/js-collections-dict](https://github.com/aureooms/js-collections-dict) :  Collections library for JavaScript
-    - [aureooms/js-collections-namedtuple](https://github.com/aureooms/js-collections-namedtuple) :  Python's namedtuple data structure for JavaScript
-    - [aureooms/js-collections-ordereddict](https://github.com/aureooms/js-collections-ordereddict) :  Python's ordereddict data structure for JavaScript
-    - [aureooms/js-collections-set](https://github.com/aureooms/js-collections-set) :  Python's set data structure for JavaScript
-  - [aureooms/js-dict](https://github.com/aureooms/js-dict) : dictionary ADT code bricks for JavaScript
-  - [aureooms/js-disjoint-set](https://github.com/aureooms/js-disjoint-set) : disjoint-set data structure code bricks for JavaScript
-    - [aureooms/js-fixed-disjoint-set](https://github.com/aureooms/js-fixed-disjoint-set) : fixed-size-array-based disjoint-set set code bricks for JavaScript
-  - [aureooms/js-gn](https://github.com/aureooms/js-gn) : graphs and networks code bricks for JavaScript
-  - [aureooms/js-heap](https://github.com/aureooms/js-heap) : heap code bricks for JavaScript
-    - [aureooms/js-heap-spec](https://github.com/aureooms/js-heap-spec): Specification for heap data structures in JavaScript
-    - [aureooms/js-heapq](https://github.com/aureooms/js-heapq): Python's heapq library for Javascript
-    - [aureooms/js-heapsort](https://github.com/aureooms/js-heapsort): Heap sort algorithm for Javascript
-    - [aureooms/js-binomial-heap](https://github.com/aureooms/js-binomial-heap): Binomial heap data structure for JavaScript
-    - [aureooms/js-d-ary-heap](https://github.com/aureooms/js-d-ary-heap): d-ary heap data structure for JavaScript
-    - [aureooms/js-pairing-heap](https://github.com/aureooms/js-pairing-heap): Pairing heap data structure for JavaScript
-  - [aureooms/js-list-spec](https://github.com/aureooms/js-list-spec) : list ADT specification code bricks for JavaScript
-    - [aureooms/js-arraylist](https://github.com/aureooms/js-arraylist) : dynamic array code bricks for JavaScript
-    - [aureooms/js-dll](https://github.com/aureooms/js-dll) : doubly linked list code bricks for JavaScript
-    - [aureooms/js-sll](https://github.com/aureooms/js-sll) : singly linked list code bricks for JavaScript
-  - [aureooms/js-lifo](https://github.com/aureooms/js-lifo) : Last In, First Out abstract data types code bricks for JavaScript
-  - [aureooms/js-fifo](https://github.com/aureooms/js-fifo) : First In, First Out data structures code bricks for JavaScript
-  - [aureooms/js-persistent](https://github.com/aureooms/js-persistent) : persistent data structures code bricks for JavaScript
-    - [aureooms/js-fingertree](https://github.com/aureooms/js-fingertree): finger trees code bricks for JavaScript
-  - [aureooms/js-pubsub](https://github.com/aureooms/js-pubsub) : publish-subscribe pattern code bricks for JavaScript
+
+### Hash tables
+
+  Nothing yet.
+
+### Python's collections library for Javascript
+
+  - [@aureooms/js-collections](https://github.com/aureooms/js-collections) :  Python's collections library for JavaScript
+    - [@aureooms/js-collections-chainmap](https://github.com/aureooms/js-collections-chainmap) :  Collections library for JavaScript
+    - [@aureooms/js-collections-counter](https://github.com/aureooms/js-collections-counter) :  Python's counter data structure for JavaScript
+    - [@aureooms/js-collections-defaultdict](https://github.com/aureooms/js-collections-defaultdict) :  Python's defaultdict data structure for JavaScript
+    - [@aureooms/js-collections-deque](https://github.com/aureooms/js-collections-deque) :  Python's deque data structure for JavaScript
+    - [@aureooms/js-collections-dict](https://github.com/aureooms/js-collections-dict) :  Collections library for JavaScript
+    - [@aureooms/js-collections-namedtuple](https://github.com/aureooms/js-collections-namedtuple) :  Python's namedtuple data structure for JavaScript
+    - [@aureooms/js-collections-ordereddict](https://github.com/aureooms/js-collections-ordereddict) :  Python's ordereddict data structure for JavaScript
+    - [@aureooms/js-collections-set](https://github.com/aureooms/js-collections-set) :  Python's set data structure for JavaScript
+
+### Computational geometry
+
+  - [@aureooms/js-cg](https://github.com/aureooms/js-cg) : Computational geometry data structures and algorithms for JavaScript
+  
+### Union-find
+  - [@aureooms/js-disjoint-set](https://github.com/aureooms/js-disjoint-set) : Disjoint-set data structures for JavaScript
+  - [@aureooms/js-fixed-disjoint-set](https://github.com/aureooms/js-fixed-disjoint-set) : Fixed-size-array-based disjoint-set set data structures for JavaScript
+
+### Graph theory
+
+  - [@aureooms/js-gn](https://github.com/aureooms/js-gn) : Graphs and networks data structures and algorithms for JavaScript
+
+### Arrays, lists and stacks
+
+  - [@aureooms/js-list-spec](https://github.com/aureooms/js-list-spec) : List abstract data type specification for JavaScript
+
+#### Arrays
+
+  - [@aureooms/js-arraylist](https://github.com/aureooms/js-arraylist) : Dynamic array data structures for JavaScript
+  
+#### Double-ended queues
+  - [@aureooms/js-collections-deque](https://github.com/aureooms/js-collections-deque) :  Python's deque data structure for JavaScript
+    
+#### Linked lists
+
+  - [@aureooms/js-dll](https://github.com/aureooms/js-dll) : doubly linked list data structures for JavaScript
+  - [@aureooms/js-sll](https://github.com/aureooms/js-sll) : singly linked list data structures for JavaScript
+  - [@aureooms/js-fifo](https://github.com/aureooms/js-fifo) : First In, First Out data structures for JavaScript
+
+#### Stacks
+  - [@aureooms/js-lifo](https://github.com/aureooms/js-lifo) : Last In, First Out data structures for JavaScript
+  
+### Persistent data structures
+  - [@aureooms/js-persistent](https://github.com/aureooms/js-persistent) : Persistent data structures for JavaScript
+    - [@aureooms/js-fingertree](https://github.com/aureooms/js-fingertree): Finger tree data structure for JavaScript
+    
+### Miscellaneous
+  - [@aureooms/js-pubsub](https://github.com/aureooms/js-pubsub) : Publish-subscribe pattern data structures for JavaScript
+  - [@aureooms/js-dict](https://github.com/aureooms/js-dict) : Dictionary data structure for JavaScript
 
 Those packages aim to provide *code bricks* that are as generic as possible.
 Some examples are a `d`-ary heap that can be parametrized with any `d`, BST's
 built on the same left rotate and right rotate functions, an ArrayList
-implementation with parametrizable allocator.
+implementation with parameterizable allocator.
 
 ## Reference
 
