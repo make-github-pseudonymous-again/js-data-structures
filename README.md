@@ -27,7 +27,7 @@ that doesn't fit in any of those project,
 
 ### Heaps
 
-  - [@aureooms/js-heap](https://github.com/aureooms/js-heap) : heap code bricks for JavaScript
+  - [@aureooms/js-heap](https://github.com/aureooms/js-heap) : Heap data structures for JavaScript
     - [@aureooms/js-heap-spec](https://github.com/aureooms/js-heap-spec): Specification for heap data structures in JavaScript
     - [@aureooms/js-heapq](https://github.com/aureooms/js-heapq): Python's heapq library for Javascript
     - [@aureooms/js-heapsort](https://github.com/aureooms/js-heapsort): Heap sort algorithm for Javascript
@@ -37,7 +37,7 @@ that doesn't fit in any of those project,
 
 ### Search trees
 
-  - [@aureooms/js-bst](https://github.com/aureooms/js-bst) : binary search tree code bricks in JavaScript
+  - [@aureooms/js-bst](https://github.com/aureooms/js-bst) : Binary search tree data structures for JavaScript
     - [@aureooms/js-red-black-tree](https://github.com/aureooms/js-red-black-tree) : Red-black tree data structure for JavaScript
 
 ### Hash tables
@@ -81,8 +81,8 @@ that doesn't fit in any of those project,
     
 #### Linked lists
 
-  - [@aureooms/js-dll](https://github.com/aureooms/js-dll) : doubly linked list data structures for JavaScript
-  - [@aureooms/js-sll](https://github.com/aureooms/js-sll) : singly linked list data structures for JavaScript
+  - [@aureooms/js-dll](https://github.com/aureooms/js-dll) : Doubly linked list data structures for JavaScript
+  - [@aureooms/js-sll](https://github.com/aureooms/js-sll) : Singly linked list data structures for JavaScript
   - [@aureooms/js-fifo](https://github.com/aureooms/js-fifo) : First In, First Out data structures for JavaScript
 
 #### Stacks
