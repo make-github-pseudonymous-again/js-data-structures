@@ -97,9 +97,10 @@ that doesn't fit in any of those project,
   - [@aureooms/js-dict](https://github.com/aureooms/js-dict) : Dictionary data structure for JavaScript
 
 Those packages aim to provide *code bricks* that are as generic as possible.
-Some examples are a `d`-ary heap that can be parametrized with any `d`, BST's
-built on the same left rotate and right rotate functions, an ArrayList
-implementation with parameterizable allocator.
+Some examples are:
+  - [a `d`-ary heap that can be parametrized with any `d`](https://github.com/aureooms/js-d-ary-heap),
+  - [binary search trees built on the same left rotate and right rotate functions](https://github.com/aureooms/js-bst),
+  - [an ArrayList implementation with parameterizable allocator](https://github.com/aureooms/js-arraylist).
 
 ## Reference
 
