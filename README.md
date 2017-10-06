@@ -119,6 +119,7 @@ A list of links and projects focusing on data structures implementation.
   - http://www.nayuki.io (C, C++, Java, C#, Python, Haskell, MATLAB and others)
   - http://rosettacode.org (All kinds of languages)
   - https://github.com/mahmoud/boltons (Python)
+  - https://github.com/simongog/sdsl-lite (C++)
 
 ### Others
 
