@@ -34,6 +34,7 @@ that doesn't fit in any of those project,
     - [@aureooms/js-binomial-heap](https://github.com/aureooms/js-binomial-heap): Binomial heap data structure for JavaScript
     - [@aureooms/js-d-ary-heap](https://github.com/aureooms/js-d-ary-heap): d-ary heap data structure for JavaScript
     - [@aureooms/js-pairing-heap](https://github.com/aureooms/js-pairing-heap): Pairing heap data structure for JavaScript
+    - [@aureooms/js-fibonacci-heap](https://github.com/aureooms/js-fibonacci-heap): Fibonacci heap data structure for JavaScript
 
 ### Search trees
 
