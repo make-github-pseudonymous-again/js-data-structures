@@ -84,6 +84,7 @@ that doesn't fit in any of those project,
 
   - [@aureooms/js-dll](https://github.com/aureooms/js-dll) : Doubly linked list data structures for JavaScript
   - [@aureooms/js-sll](https://github.com/aureooms/js-sll) : Singly linked list data structures for JavaScript
+  - [@aureooms/js-cll](https://github.com/aureooms/js-cll) : Circular linked list data structures for JavaScript
   - [@aureooms/js-fifo](https://github.com/aureooms/js-fifo) : First In, First Out data structures for JavaScript
 
 #### Stacks
