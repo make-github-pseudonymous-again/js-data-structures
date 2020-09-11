@@ -23,7 +23,7 @@ the twin project of [@aureooms/js-algorithms](https://github.com/aureooms/js-alg
 ## Description
 
 This project is just a playground for any data structure
-that doesn't fit in any of those project,
+that doesn't fit in any of the following projects:
 
 ### Heaps
 
@@ -86,13 +86,18 @@ that doesn't fit in any of those project,
   - [@aureooms/js-sll](https://github.com/aureooms/js-sll) : Singly linked list data structures for JavaScript
   - [@aureooms/js-cll](https://github.com/aureooms/js-cll) : Circular linked list data structures for JavaScript
   - [@aureooms/js-fifo](https://github.com/aureooms/js-fifo) : First In, First Out data structures for JavaScript
+  - [@aureooms/js-skip-list](https://github.com/aureooms/js-skip-list) : Skip list data structure for JavaScript
 
 #### Stacks
   - [@aureooms/js-lifo](https://github.com/aureooms/js-lifo) : Last In, First Out data structures for JavaScript
+
+#### Tries
+  - [@aureooms/js-trie](https://github.com/aureooms/js-trie) : Trie data structures for JavaScript
   
 ### Persistent data structures
   - [@aureooms/js-persistent](https://github.com/aureooms/js-persistent) : Persistent data structures for JavaScript
     - [@aureooms/js-fingertree](https://github.com/aureooms/js-fingertree): Finger tree data structure for JavaScript
+    - [@aureooms/js-persistent-stack](https://github.com/aureooms/js-persistent-stack): Persistent stack data structure for JavaScript
     
 ### Miscellaneous
   - [@aureooms/js-pubsub](https://github.com/aureooms/js-pubsub) : Publish-subscribe pattern data structures for JavaScript
