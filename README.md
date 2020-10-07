@@ -1,4 +1,5 @@
-[@aureooms/js-data-structures](http://aureooms.github.io/js-data-structures)
+:herb: [@aureooms/js-data-structures](http://aureooms.github.io/js-data-structures)
+[![License](https://img.shields.io/github/license/aureooms/js-data-structures.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-data-structures/master/LICENSE)
 ==
 
 <img src="https://cdn.rawgit.com/aureooms/js-data-structures/master/media/sketch.png" width="864">
@@ -8,24 +9,12 @@ This is a child project of [@aureooms/js-library](https://github.com/aureooms/js
 and
 the twin project of [@aureooms/js-algorithms](https://github.com/aureooms/js-algorithms).
 
-[![License](https://img.shields.io/github/license/aureooms/js-data-structures.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-data-structures/master/LICENSE)
-[![NPM version](https://img.shields.io/npm/v/@aureooms/js-data-structures.svg?style=flat)](https://www.npmjs.org/package/@aureooms/js-data-structures)
-[![Bower version](https://img.shields.io/bower/v/@aureooms/js-data-structures.svg?style=flat)](http://bower.io/search/?q=@aureooms/js-data-structures)
-[![Build Status](https://img.shields.io/travis/aureooms/js-data-structures.svg?style=flat)](https://travis-ci.org/aureooms/js-data-structures)
-[![Coverage Status](https://img.shields.io/coveralls/aureooms/js-data-structures.svg?style=flat)](https://coveralls.io/r/aureooms/js-data-structures)
-[![Dependencies Status](https://img.shields.io/david/aureooms/js-data-structures.svg?style=flat)](https://david-dm.org/aureooms/js-data-structures#info=dependencies)
-[![devDependencies Status](https://img.shields.io/david/dev/aureooms/js-data-structures.svg?style=flat)](https://david-dm.org/aureooms/js-data-structures#info=devDependencies)
-[![Code Climate](https://img.shields.io/codeclimate/github/aureooms/js-data-structures.svg?style=flat)](https://codeclimate.com/github/aureooms/js-data-structures)
-[![NPM downloads per month](https://img.shields.io/npm/dm/@aureooms/js-data-structures.svg?style=flat)](https://www.npmjs.org/package/@aureooms/js-data-structures)
-[![GitHub issues](https://img.shields.io/github/issues/aureooms/js-data-structures.svg?style=flat)](https://github.com/aureooms/js-data-structures/issues)
-[![Inline docs](http://inch-ci.org/github/aureooms/js-data-structures.svg?branch=master&style=shields)](http://inch-ci.org/github/aureooms/js-data-structures)
-
 ## Description
 
-This project is just a playground for any data structure
-that doesn't fit in any of the following projects:
+This README regroups dozens of projects focusing on implementing data structures with JavaScript.
+This project itself does not contain any code.
 
-### Heaps
+### :fallen_leaf: Heaps
 
   - [@aureooms/js-heap](https://github.com/aureooms/js-heap) : Heap data structures for JavaScript
     - [@aureooms/js-heap-spec](https://github.com/aureooms/js-heap-spec): Specification for heap data structures in JavaScript
@@ -36,16 +25,16 @@ that doesn't fit in any of the following projects:
     - [@aureooms/js-pairing-heap](https://github.com/aureooms/js-pairing-heap): Pairing heap data structure for JavaScript
     - [@aureooms/js-fibonacci-heap](https://github.com/aureooms/js-fibonacci-heap): Fibonacci heap data structure for JavaScript
 
-### Search trees
+### :seedling: Search trees
 
   - [@aureooms/js-bst](https://github.com/aureooms/js-bst) : Binary search tree data structures for JavaScript
     - [@aureooms/js-red-black-tree](https://github.com/aureooms/js-red-black-tree) : Red-black tree data structure for JavaScript
 
-### Hash tables
+### :hocho: Hash tables
 
   Nothing yet.
 
-### Python's collections library for Javascript
+### :school_satchel: Python's collections library for Javascript
 
   - [@aureooms/js-collections](https://github.com/aureooms/js-collections) :  Python's collections library for JavaScript
     - [@aureooms/js-collections-chainmap](https://github.com/aureooms/js-collections-chainmap) :  Collections library for JavaScript
@@ -57,19 +46,19 @@ that doesn't fit in any of the following projects:
     - [@aureooms/js-collections-ordereddict](https://github.com/aureooms/js-collections-ordereddict) :  Python's ordereddict data structure for JavaScript
     - [@aureooms/js-collections-set](https://github.com/aureooms/js-collections-set) :  Python's set data structure for JavaScript
 
-### Computational geometry
+### :triangular_ruler: Computational geometry
 
   - [@aureooms/js-cg](https://github.com/aureooms/js-cg) : Computational geometry data structures and algorithms for JavaScript
   
-### Union-find
+### :rice_ball: Union-find
   - [@aureooms/js-disjoint-set](https://github.com/aureooms/js-disjoint-set) : Disjoint-set data structures for JavaScript
   - [@aureooms/js-fixed-disjoint-set](https://github.com/aureooms/js-fixed-disjoint-set) : Fixed-size-array-based disjoint-set set data structures for JavaScript
 
-### Graph theory
+### :globe_with_meridians: Graph theory
 
   - [@aureooms/js-gn](https://github.com/aureooms/js-gn) : Graphs and networks data structures and algorithms for JavaScript
 
-### Arrays, lists and stacks
+### :oden: Arrays, lists and stacks
 
   - [@aureooms/js-list-spec](https://github.com/aureooms/js-list-spec) : List abstract data type specification for JavaScript
 
@@ -91,15 +80,15 @@ that doesn't fit in any of the following projects:
 #### Stacks
   - [@aureooms/js-lifo](https://github.com/aureooms/js-lifo) : Last In, First Out data structures for JavaScript
 
-#### Tries
+### :chains: Tries
   - [@aureooms/js-trie](https://github.com/aureooms/js-trie) : Trie data structures for JavaScript
   
-### Persistent data structures
+### :evergreen_tree: Persistent data structures
   - [@aureooms/js-persistent](https://github.com/aureooms/js-persistent) : Persistent data structures for JavaScript
     - [@aureooms/js-fingertree](https://github.com/aureooms/js-fingertree): Finger tree data structure for JavaScript
     - [@aureooms/js-persistent-stack](https://github.com/aureooms/js-persistent-stack): Persistent stack data structure for JavaScript
     
-### Miscellaneous
+### :mailbox_with_mail: Miscellaneous
   - [@aureooms/js-pubsub](https://github.com/aureooms/js-pubsub) : Publish-subscribe pattern data structures for JavaScript
   - [@aureooms/js-dict](https://github.com/aureooms/js-dict) : Dictionary data structure for JavaScript
 
@@ -109,26 +98,21 @@ Some examples are:
   - [binary search trees built on the same left rotate and right rotate functions](https://github.com/aureooms/js-bst),
   - [an ArrayList implementation with parameterizable allocator](https://github.com/aureooms/js-arraylist).
 
-## Reference
+## :scroll: Reference
 
 A list of links and projects focusing on data structures implementation.
 
-### Projects implementing data structures in JavaScript
+### :coffee: Projects implementing data structures in JavaScript
 
   - https://github.com/nzakas/computer-science-in-javascript
   - https://github.com/benoitvallon/computer-science-in-javascript
   - http://www.nayuki.io
   - https://github.com/Yomguithereal/mnemonist
 
-### Projects implementing data structures in other languages
+### :peacock: Projects implementing data structures in other languages
 
   - https://github.com/patmorin/ods (C++, Java, Python)
   - http://www.nayuki.io (C, C++, Java, C#, Python, Haskell, MATLAB and others)
   - http://rosettacode.org (All kinds of languages)
   - https://github.com/mahmoud/boltons (Python)
   - https://github.com/simongog/sdsl-lite (C++)
-
-### Others
-
-  - http://en.wikipedia.org/wiki/Disjoint-set_data_structure
-  - http://en.wikipedia.org/wiki/Partition_refinement
