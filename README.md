@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/github/license/aureooms/js-data-structures.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-data-structures/master/LICENSE)
 ==
 
-<img src="https://cdn.rawgit.com/aureooms/js-data-structures/master/media/sketch.png" width="864">
+<img src="https://ipfs.io/ipfs/QmRzr2vnMFBTAeD4htkBytbF1wZK83eFRGGNkU3fpXfW9T" width="864">
 
 Playground for data structures in JavaScript.
 This is a child project of [@aureooms/js-library](https://github.com/aureooms/js-library)
