@@ -3,7 +3,12 @@
 [![GitHub issues](https://img.shields.io/github/issues/aureooms/js-data-structures.svg?style=flat)](https://github.com/aureooms/js-data-structures/issues)
 ==
 
-<img src="https://ipfs.io/ipfs/QmRzr2vnMFBTAeD4htkBytbF1wZK83eFRGGNkU3fpXfW9T" width="864">
+<p align="center">
+<a href="https://courses.csail.mit.edu/6.851/fall17">
+<img src="https://ipfs.io/ipfs/QmRzr2vnMFBTAeD4htkBytbF1wZK83eFRGGNkU3fpXfW9T" width="600">
+</a><br/>
+<i>Advanced Data Structures</i> by <a href="https://erikdemaine.org">Erik Demaine</a>
+</p>
 
 Playground for data structures in JavaScript.
 This is a child project of [@aureooms/js-library](https://github.com/aureooms/js-library)
