@@ -1,4 +1,4 @@
-:herb: [@aureooms/js-data-structures](http://aureooms.github.io/js-data-structures)
+:herb: [@aureooms/js-data-structures](https://github.com/aureooms/js-data-structures#readme)
 [![License](https://img.shields.io/github/license/aureooms/js-data-structures.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-data-structures/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/aureooms/js-data-structures.svg?style=flat)](https://github.com/aureooms/js-data-structures/issues)
 ==
