@@ -1,5 +1,5 @@
 :herb: [@aureooms/js-data-structures](http://aureooms.github.io/js-data-structures)
-[![License](https://img.shields.io/github/license/aureooms/js-data-structures.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-data-structures/master/LICENSE)
+[![License](https://img.shields.io/github/license/aureooms/js-data-structures.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-data-structures/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/aureooms/js-data-structures.svg?style=flat)](https://github.com/aureooms/js-data-structures/issues)
 ==
 
