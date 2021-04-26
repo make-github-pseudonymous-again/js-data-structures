@@ -1,4 +1,4 @@
-:herb: [@aureooms/js-data-structures](https://github.com/make-github-pseudonymous-again/js-data-structures#readme)
+:herb: [Data Structures](https://github.com/make-github-pseudonymous-again/js-data-structures#readme)
 [![License](https://img.shields.io/github/license/make-github-pseudonymous-again/js-data-structures.svg?style=flat)](https://raw.githubusercontent.com/make-github-pseudonymous-again/js-data-structures/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/make-github-pseudonymous-again/js-data-structures.svg?style=flat)](https://github.com/make-github-pseudonymous-again/js-data-structures/issues)
 ==
