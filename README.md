@@ -11,9 +11,9 @@
 </p>
 
 Playground for data structures in JavaScript.
-This is a child project of [@aureooms/js-library](https://github.com/make-github-pseudonymous-again/js-library)
+This is a child project of [js-library](https://github.com/make-github-pseudonymous-again/js-library)
 and
-the twin project of [@aureooms/js-algorithms](https://github.com/make-github-pseudonymous-again/js-algorithms).
+the twin project of [js-algorithms](https://github.com/make-github-pseudonymous-again/js-algorithms).
 
 ## :newspaper: Description
 
@@ -37,7 +37,7 @@ This project itself does not contain any code.
 
   - :oden: [@aureooms/js-dll](https://github.com/make-github-pseudonymous-again/js-dll) : Doubly linked list data structures for JavaScript
   - :izakaya_lantern: [@aureooms/js-sll](https://github.com/make-github-pseudonymous-again/js-sll) : Singly linked list data structures for JavaScript
-  - :repeat: [@aureooms/js-cll](https://github.com/make-github-pseudonymous-again/js-cll) : Circular linked list data structures for JavaScript
+  - :repeat: [@data-structure-algebra/circularly-linked-list](https://github.com/data-structure-algebra/circularly-linked-list) : Circularly linked list data structures for JavaScript
   - :blossom: [@aureooms/js-fifo](https://github.com/make-github-pseudonymous-again/js-fifo) : First In, First Out data structures for JavaScript
 
 #### Stacks
@@ -45,16 +45,15 @@ This project itself does not contain any code.
 
 ### :juggling_person: Maintaining priorities
 
-#### :fallen_leaf: Heaps
+#### :fallen_leaf: [Heaps](https://github.com/heap-data-structure/about)
 
-  - [@heap-data-structure/about](https://github.com/heap-data-structure/about) : Heap data structures for JavaScript
-    - [@heap-data-structure/specification](https://github.com/heap-data-structure/specification): Specification for heap data structures in JavaScript
-    - [@aureooms/js-heapq](https://github.com/make-github-pseudonymous-again/js-heapq): Python's heapq library for Javascript
-    - [@aureooms/js-heapsort](https://github.com/make-github-pseudonymous-again/js-heapsort): Heap sort algorithm for Javascript
-    - :cherries: [@heap-data-structure/binomial-heap](https://github.com/heap-data-structure/binomial-heap): Binomial heap data structure for JavaScript
-    - [@heap-data-structure/d-ary-heap](https://github.com/heap-data-structure/d-ary-heap): d-ary heap data structure for JavaScript
-    - :cherries: [@heap-data-structure/pairing-heap](https://github.com/heap-data-structure/pairing-heap): Pairing heap data structure for JavaScript
-    - :shell: [@heap-data-structure/fibonacci-heap](https://github.com/heap-data-structure/fibonacci-heap): Fibonacci heap data structure for JavaScript
+  - :mount_fuji: [@heap-data-structure/specification](https://github.com/heap-data-structure/specification): Specification for heap data structures in JavaScript
+  - :octopus: [@heap-data-structure/d-ary-heap](https://github.com/heap-data-structure/d-ary-heap): d-ary heap data structure for JavaScript
+  - :cherries: [@heap-data-structure/pairing-heap](https://github.com/heap-data-structure/pairing-heap): Pairing heap data structure for JavaScript
+  - :shell: [@heap-data-structure/fibonacci-heap](https://github.com/heap-data-structure/fibonacci-heap): Fibonacci heap data structure for JavaScript
+  - :cherries: [@heap-data-structure/binomial-heap](https://github.com/heap-data-structure/binomial-heap): Binomial heap data structure for JavaScript
+  - :octopus: [@comparison-sorting/heap-sort](https://github.com/comparison-sorting/heap-sort): Heap sort algorithm for Javascript
+  - :vertical_traffic_light: [@data-structure/heapq](https://github.com/data-structures-and-algorithms/js-heapq): Python's `heapq` library for Javascript
 
 ### :mag: Searching
 
@@ -75,9 +74,9 @@ This project itself does not contain any code.
   - :chains: [@aureooms/js-trie](https://github.com/make-github-pseudonymous-again/js-trie) : Trie data structures for JavaScript
 
 ### :evergreen_tree: Persistent data structures
-  - :evergreen_tree: [@aureooms/js-persistent](https://github.com/make-github-pseudonymous-again/js-persistent) : Persistent data structures for JavaScript
-    - :cactus: [@aureooms/js-fingertree](https://github.com/make-github-pseudonymous-again/js-fingertree): Finger tree data structure for JavaScript
-    - :icecream: [@aureooms/js-persistent-stack](https://github.com/make-github-pseudonymous-again/js-persistent-stack): Persistent stack data structure for JavaScript
+  - :evergreen_tree: [@functional-data-structure/persistent](https://github.com/functional-data-structure/persistent) : Persistent data structures for JavaScript
+    - :cactus: [@functional-data-structure/fingertree](https://github.com/functional-data-structure/finger-tree): Finger tree data structure for JavaScript
+    - :icecream: [@functional-data-structure/persistent-stack](https://github.com/functional-data-structure/persistent-stack): Persistent stack data structure for JavaScript
 
 ### :hocho: Hashing
 
@@ -89,7 +88,7 @@ This project itself does not contain any code.
 
 ### :globe_with_meridians: Graphs
 
-  - :cherries: [@data-structure/pairs](https://github.com/data-structures-and-algorithms/pairs): Pairs set for
+  - :cherries: [@collection-abstraction/pairs](https://github.com/collection-abstraction/pairs): Pairs set for
     JavaScript
   - [@aureooms/js-gn](https://github.com/make-github-pseudonymous-again/js-gn) : Graphs and networks data structures and algorithms for JavaScript
 
@@ -97,10 +96,10 @@ This project itself does not contain any code.
 
   - [@aureooms/js-collections](https://github.com/make-github-pseudonymous-again/js-collections) :  Python's collections library for JavaScript
     - [@aureooms/js-collections-chainmap](https://github.com/make-github-pseudonymous-again/js-collections-chainmap) :  Collections library for JavaScript
-    - :100: [@aureooms/js-collections-counter](https://github.com/make-github-pseudonymous-again/js-collections-counter) :  Python's counter data structure for JavaScript
+    - :100: [@collection-abstraction/counter](https://github.com/collection-abstraction/counter) :  Python's counter data structure for JavaScript
     - [@aureooms/js-collections-defaultdict](https://github.com/make-github-pseudonymous-again/js-collections-defaultdict) :  Python's defaultdict data structure for JavaScript
     - :snake: [@data-structure/deque](https://github.com/data-structures-and-algorithms/deque) :  Python's deque data structure for JavaScript
-    - [@aureooms/js-collections-dict](https://github.com/make-github-pseudonymous-again/js-collections-dict) :  Collections library for JavaScript
+    - :book: [@collection-abstraction/dict](https://github.com/collection-abstraction/dict) :  Collections library for JavaScript
     - [@aureooms/js-collections-namedtuple](https://github.com/make-github-pseudonymous-again/js-collections-namedtuple) :  Python's namedtuple data structure for JavaScript
     - [@aureooms/js-collections-ordereddict](https://github.com/make-github-pseudonymous-again/js-collections-ordereddict) :  Python's ordereddict data structure for JavaScript
     - [@aureooms/js-collections-set](https://github.com/make-github-pseudonymous-again/js-collections-set) :  Python's set data structure for JavaScript
@@ -115,7 +114,7 @@ This project itself does not contain any code.
 
 Those packages aim to provide *code bricks* that are as generic as possible.
 Some examples are:
-  - [a `d`-ary heap that can be parametrized with any `d`](https://github.com/make-github-pseudonymous-again/js-d-ary-heap),
+  - [a `d`-ary heap that can be parametrized with any `d`](https://github.com/heap-data-structure/d-ary-heap),
   - [binary search trees built on the same left rotate and right rotate functions](https://github.com/make-github-pseudonymous-again/js-bst),
   - [an ArrayList implementation with parameterizable allocator](https://github.com/make-github-pseudonymous-again/js-arraylist).
 
