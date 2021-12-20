@@ -37,7 +37,8 @@ This project itself does not contain any code.
 
   - :oden: [@aureooms/js-dll](https://github.com/make-github-pseudonymous-again/js-dll) : Doubly linked list data structures for JavaScript
   - :izakaya_lantern: [@aureooms/js-sll](https://github.com/make-github-pseudonymous-again/js-sll) : Singly linked list data structures for JavaScript
-  - :repeat: [@data-structure-algebra/circularly-linked-list](https://github.com/data-structure-algebra/circularly-linked-list) : Circularly linked list data structures for JavaScript
+  - :repeat: [@data-structure-algebra/circularly-linked-list](https://github.com/data-structure-algebra/circularly-linked-list) : Circularly linked lists for JavaScript
+  - :izakaya_lantern: [@data-structure-algebra/singly-linked-list](https://github.com/data-structure-algebra/singly-linked-list) : Singly linked lists for JavaScript
   - :blossom: [@aureooms/js-fifo](https://github.com/make-github-pseudonymous-again/js-fifo) : First In, First Out data structures for JavaScript
 
 #### Stacks
@@ -71,7 +72,7 @@ This project itself does not contain any code.
 #### Strings
 
 ##### :chains: Tries
-  - :chains: [@aureooms/js-trie](https://github.com/make-github-pseudonymous-again/js-trie) : Trie data structures for JavaScript
+  - :chains: [@trie-data-structure/uncompressed-trie](https://github.com/trie-data-structure/uncompressed-trie) : Trie data structures for JavaScript
 
 ### :evergreen_tree: Persistent data structures
   - :evergreen_tree: [@functional-data-structure/persistent](https://github.com/functional-data-structure/persistent) : Persistent data structures for JavaScript
