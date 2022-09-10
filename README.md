@@ -83,9 +83,9 @@ This project itself does not contain any code.
 
   Nothing yet.
 
-### :rice_ball: Disjoint sets (union-find)
-  - :rice_ball: [@aureooms/js-disjoint-set](https://github.com/make-github-pseudonymous-again/js-disjoint-set) : Disjoint-set data structures for JavaScript
-  - :rice: [@aureooms/js-fixed-disjoint-set](https://github.com/make-github-pseudonymous-again/js-fixed-disjoint-set) : Fixed-size-array-based disjoint-set set data structures for JavaScript
+### :rice_ball: Union-find (disjoint sets)
+  - :rice_ball: [@union-find/non-contiguous](https://github.com/union-find/non-contiguous) : Non-contiguously-allocated disjoint-set data structures for JavaScript
+  - :rice: [@union-find/contiguous](https://github.com/union-find/contiguous) : Contiguously-allocated disjoint-set set data structures for JavaScript
 
 ### :globe_with_meridians: Graphs
 
