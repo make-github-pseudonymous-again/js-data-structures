@@ -24,7 +24,7 @@ This project itself does not contain any code.
 
 ### :oden: Sequences
 
-  - [@aureooms/js-list-spec](https://github.com/make-github-pseudonymous-again/js-list-spec) : List specification for JavaScript
+  - :oden: [@list-abstraction/specification](https://github.com/list-abstraction/specification) : List specification for JavaScript
 
 #### Arrays
 
@@ -35,10 +35,11 @@ This project itself does not contain any code.
 
 #### Linked lists
 
-  - :oden: [@aureooms/js-dll](https://github.com/make-github-pseudonymous-again/js-dll) : Doubly linked list data structures for JavaScript
-  - :izakaya_lantern: [@aureooms/js-sll](https://github.com/make-github-pseudonymous-again/js-sll) : Singly linked list data structures for JavaScript
+  - :left_right_arrow: [@list-abstraction/doubly-linked-list](https://github.com/list-abstraction/doubly-linked-list) : Doubly linked list data structures for JavaScript
+    - :left_right_arrow: [@data-structure-algebra/doubly-linked-list](https://github.com/data-structure-algebra/doubly-linked-list) : Doubly linked lists for JavaScript
   - :repeat: [@data-structure-algebra/circularly-linked-list](https://github.com/data-structure-algebra/circularly-linked-list) : Circularly linked lists for JavaScript
-  - :izakaya_lantern: [@data-structure-algebra/singly-linked-list](https://github.com/data-structure-algebra/singly-linked-list) : Singly linked lists for JavaScript
+  - :izakaya_lantern: [@aureooms/js-sll](https://github.com/make-github-pseudonymous-again/js-sll) : Singly linked list data structures for JavaScript
+    - :izakaya_lantern: [@data-structure-algebra/singly-linked-list](https://github.com/data-structure-algebra/singly-linked-list) : Singly linked lists for JavaScript
   - :blossom: [@aureooms/js-fifo](https://github.com/make-github-pseudonymous-again/js-fifo) : First In, First Out data structures for JavaScript
 
 #### Stacks
